@@ -1,5 +1,5 @@
 <div class="lobby" ng-click="closeAll()">
- <div class="top">
+  <div class="top">
     <div class="left">
       <div class="profile" ng-click="$event.stopPropagation();openLeftMenu()">
         <div class="pic">
@@ -20,20 +20,70 @@
   <div class="main" ng-class="{'variation_active':activeVariation}">
     <div class="logo">
       <img src="img/lobby/logo.png" alt="logo">
+
     </div>
     <div class="category play_type">
       <div class="row">
         <div class="col play_now" ng-click="playNow($event);resetFilter();">
-          <img src="img/lobby/playnow.png">
+          <img src="img/lobby/card4.png">
+          <div class="card-heading">
+            <h6>HOLD'EM</h6>
+            <p>Cash Table</p>
+
+          </div>
+          <div class="card-btn">
+            <span>stakes</span>
+            <span>$50/$25</span>
+            <div class="">
+              <button class="custom_Card_button  btn_search" type="submit" ng-click="filterTables(filterData);resetpage();" promise-btn="filterTablePromise">
+                        Select Table <span class="btn-spinner"></span></button>
+            </div>
+          </div>
         </div>
         <div class="col play_joker" ng-click="playJoker($event)">
-          <img src="img/lobby/playjoker.png">
+          <div class="card-heading">
+            <h6>HOLD'EM</h6>
+            <p>Cash Table</p>
+          </div>
+          <img src="img/lobby/card1.png">
+          <div class="card-btn">
+            <span>stakes</span>
+            <span>$50/$25</span>
+            <div class="">
+              <button class="custom_Card_button  btn_search" type="submit" ng-click="filterTables(filterData);resetpage();" promise-btn="filterTablePromise">
+                        Select Table <span class="btn-spinner"></span></button>
+            </div>
+          </div>
         </div>
         <div class="col variation">
-          <img src="img/lobby/variations.png" ng-click="$event.stopPropagation();toggleVariations()">
+          <div class="card-heading">
+            <h6>ShootOut</h6>
+            <p>Cash Table</p>
+          </div>
+          <img src="img/lobby/card3.png" ng-click="$event.stopPropagation();toggleVariations()">
+          <div class="card-btn">
+            <span>stakes</span>
+            <span>$50/$25</span>
+            <div class="">
+              <button class="custom_Card_button  btn_search" type="submit" ng-click="filterTables(filterData);resetpage();" promise-btn="filterTablePromise">
+                        Select Table <span class="btn-spinner"></span></button>
+            </div>
+          </div>
         </div>
         <div class="col private_table" ng-click="playPrivate()">
-          <img src="img/lobby/privatetable.png">
+          <div class="card-heading">
+            <h6>Sit-N-Go</h6>
+            <p>Cash Table</p>
+          </div>
+          <img src="img/lobby/card2.png">
+          <div class="card-btn">
+            <span>stakes</span>
+            <span>$50/$25</span>
+            <div class="">
+              <button class="custom_Card_button  btn_search">
+                        Select Table</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
