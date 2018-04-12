@@ -306,15 +306,12 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
-
-
     button[disabled] {
       color: #636160;
       text-shadow: none !important;
-       -webkit-text-stroke: 0 !important;
+      -webkit-text-stroke: 0 !important;
       text-stroke: 0;
-  }
+    }
     mainplayer {
       width: 18%;
       position: absolute;
@@ -327,7 +324,7 @@
       bottom: 0;
       .main_winner {
         position: absolute;
-        background: #ff000000;
+        background: #ff0000;
         z-index: 1;
         width: 100%;
         top: -475%;
@@ -338,7 +335,7 @@
       }
       .status {
         position: absolute;
-        background: #ff000000;
+        background: #ff0000;
         z-index: 1;
         width: 100%;
         top: -340%;
@@ -472,7 +469,7 @@
     .name {
       transform: translate(25%) !important;
     }
-    .winner{
+    .winner {
       transform: translate(45%);
     }
   }
@@ -794,7 +791,7 @@
     top: 10% !important;
     right: 26% !important;
     animation-name: movefromright;
-    -webkit-animation-name:  movefromright;
+    -webkit-animation-name: movefromright;
   }
   &.p4 {
     top: 52% !important;
@@ -806,7 +803,7 @@
     top: 85% !important;
     right: 26% !important;
     animation-name: movefromright;
-    -webkit-animation-name:  movefromright;
+    -webkit-animation-name: movefromright;
   }
   &.p6 {
     bottom: -8% !important;
@@ -867,6 +864,7 @@
     opacity: 0;
   }
 }
+
 @-webkit-keyframes movefromright {
   0% {
     opacity: 1;
@@ -937,7 +935,7 @@
     left: unset !important;
     right: 70% !important;
     animation-name: tipmovefrombottom;
-    -webkit-animation-name:  tipmovefrombottom;
+    -webkit-animation-name: tipmovefrombottom;
   }
 }
 
@@ -957,6 +955,7 @@
     opacity: 0;
   }
 }
+
 @-webkit-keyframes tipmovefrombottom {
   0% {
     opacity: 1;
@@ -990,6 +989,7 @@
     opacity: 0;
   }
 }
+
 @-webkit-keyframes tipmovefromright {
   0% {
     opacity: 1;

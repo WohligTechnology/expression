@@ -17,6 +17,9 @@ $dark:                            #444 !default;
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $color:#FF8072 !default;
+$yellow:#ebbd15 !default;
+$blue:#10fbf7 !default;
+$orange:#f5510a !default;
 $border-image:linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%) !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
@@ -64,13 +67,29 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 }
 
 body {
-  font-family: 'Cinzel-Bold';
+  // font-family: 'Cinzel-Bold';
   font-size: 1.8vw;
   color: white;
 }
 
+.heading-yellow {
+  color: $yellow;
+}
+
+.heading-blue {
+  color: $blue;
+}
+
+.heading-orange {
+  color: $orange;
+}
+
 .right {
   float: right;
+}
+
+.mar-r {
+  margin-right: 2%;
 }
 
 .left {
@@ -123,8 +142,7 @@ body {
   visibility: hidden; // left: -50%;
   transition: all 200ms;
   background: rgba(0, 0, 0, 0.7);
-  background-size: 100% 100%;
-  font-family: 'Cinzel-Bold';
+  background-size: 100% 100%; // font-family: 'Cinzel-Bold';
   &.activated {
     //no effect of transform  when clicked
     transform: none;
@@ -192,7 +210,7 @@ body {
   }
 }
 
-.opacity-05{
+.opacity-05 {
   opacity: .5;
 }
 
@@ -201,8 +219,6 @@ body {
 @import "login";
 @import "modal";
 @import "timer";
-
-
 @media (min-aspect-ratio: 18/9) {
   .table .table_field {
     width: 85%;

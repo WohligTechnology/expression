@@ -9909,12 +9909,23 @@ a.button {
   /*URL to the font*/ }
 
 body {
-  font-family: 'Cinzel-Bold';
   font-size: 1.8vw;
   color: white; }
 
+.heading-yellow {
+  color: #ebbd15; }
+
+.heading-blue {
+  color: #10fbf7; }
+
+.heading-orange {
+  color: #f5510a; }
+
 .right {
   float: right; }
+
+.mar-r {
+  margin-right: 2%; }
 
 .left {
   float: left; }
@@ -9959,8 +9970,7 @@ body {
   visibility: hidden;
   transition: all 200ms;
   background: rgba(0, 0, 0, 0.7);
-  background-size: 100% 100%;
-  font-family: 'Cinzel-Bold'; }
+  background-size: 100% 100%; }
   .custom_menu.activated {
     transform: none; }
   .custom_menu .menu_cont {
@@ -10020,22 +10030,22 @@ body {
     position: relative;
     top: 0;
     z-index: 5; }
-    .lobby .top .left .profile {
+    .lobby .top .right .profile {
       display: flex;
       flex-direction: row;
       align-items: center; }
-      .lobby .top .left .profile .pic {
+      .lobby .top .right .profile .pic {
         width: 10vw;
         margin: 5%;
         margin-right: 2%; }
-        .lobby .top .left .profile .pic img {
+        .lobby .top .right .profile .pic img {
           width: 100%; }
-      .lobby .top .left .profile .info {
+      .lobby .top .right .profile .info {
         white-space: nowrap;
         text-align: center;
         line-height: 1.5;
         font-size: 0.9em; }
-    .lobby .top .right .setting {
+    .lobby .top .left .setting {
       margin: 10px;
       font-size: 2.5em; }
   .lobby .main {
@@ -10066,21 +10076,22 @@ body {
           max-height: 100%; }
       .lobby .main .category span {
         font-size: 0.7em;
-        padding-right: 8px; }
+        padding-right: 4px;
+        padding-left: 7px; }
       .lobby .main .category p {
         font-size: 0.7em;
         line-height: 1.5em; }
       .lobby .main .category h6 {
-        margin-bottom: 0px; }
+        margin-bottom: 0px;
+        font-weight: 600;
+        letter-spacing: 0.7px; }
     .lobby .main .custom_Card_button {
       line-height: 0.2;
       padding: 0px 5px;
       min-height: 20px;
       margin-bottom: 10%;
       text-align: center;
-      vertical-align: middle;
       color: white;
-      background: linear-gradient(to bottom, rgba(152, 56, 83, 0.48) 0%, #983853 100%);
       font-weight: bold;
       /* font-family: 'Cinzel-Bold'; */
       font-weight: bold;
@@ -10113,13 +10124,31 @@ body {
   top: 0; }
 
 .card-btn {
-  width: 100%;
+  width: 93%;
   position: absolute;
-  bottom: 0; }
+  bottom: 5px; }
+
+.btn-yellow {
+  background: linear-gradient(to bottom, #4a460e 0%, #d0c81c 100%); }
+
+.btn-brown {
+  background: linear-gradient(to bottom, #58351d 0%, #b84a1c 100%); }
+
+.btn-blue {
+  background: linear-gradient(to bottom, #274e50 0%, #239996 100%); }
+
+.btn-green {
+  background: linear-gradient(to bottom, #0a2b50 0%, #2a6ab2 100%); }
+
+.profile-pic {
+  width: 10vw;
+  height: 10vw;
+  border-radius: 50%;
+  overflow: hidden; }
 
 .profile_menu .menu_cont {
   width: 40%;
-  background: url("../img/menu_bg.png");
+  background: linear-gradient(to right, #9f63df 0%, #261638 60%, #261638 76%, #261638 85%, #000 100%);
   background-size: 100% 100%;
   height: 100%;
   transition: all 500ms; }
@@ -10151,13 +10180,14 @@ body {
     height: 65vh; }
   .profile_menu .menu_cont .menu_list .item {
     background: transparent;
-    color: white;
+    color: #ebbd15;
     border: none;
-    font-size: .9em;
-    border-image: linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%);
+    font-size: 1.3em;
+    font-weight: 600;
+    border-image: linear-gradient(to right, #261638 20%, #261638 50%, #9f63df 95%);
     border-bottom: 1px solid;
     border-image-slice: 2;
-    padding: 5% 10%; }
+    padding: 3% 10%; }
     .profile_menu .menu_cont .menu_list .item i {
       padding-right: 5%;
       vertical-align: text-top;
@@ -10219,6 +10249,13 @@ body {
         .setting_menu .menu_cont .item .custom_toggle.toggle_off {
           background: url("../img/off.png");
           background-size: 100% 100%; }
+
+.heading-navigation {
+  padding: 10px;
+  text-align: center;
+  font-size: 2.2em;
+  font-weight: 600;
+  letter-spacing: 1px; }
 
 .table {
   background: url("../img/background.png");
@@ -10472,7 +10509,7 @@ body {
       bottom: 0; }
       .table .bottom .main_player .main_winner {
         position: absolute;
-        background: #ff000000;
+        background: #ff0000;
         z-index: 1;
         width: 100%;
         top: -475%;
@@ -10481,7 +10518,7 @@ body {
           width: 100%; }
       .table .bottom .main_player .status {
         position: absolute;
-        background: #ff000000;
+        background: #ff0000;
         z-index: 1;
         width: 100%;
         top: -340%; }
@@ -11020,8 +11057,6 @@ body {
     text-align: center;
     margin: 0 auto;
     margin-top: -15%;
-    background: url("../img/login/login_bg.png");
-    background-size: 100% 100%;
     padding-bottom: 0; }
     .login .login_block input {
       height: 8vh;
@@ -11053,8 +11088,6 @@ body {
         font-size: 1em;
         border: 0px; }
     .login .login_block .login_button {
-      background: url("../img/login/input_bg.png");
-      background-size: 100% 100%;
       height: 4em;
       border-radius: 5px;
       margin: 0 auto;
