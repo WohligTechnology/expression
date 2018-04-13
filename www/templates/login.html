@@ -1,21 +1,17 @@
-<div class="login">
+<div class="login signup">
   <div class="logo">
     <img src="img/login/logo.jpg">
   </div>
   <div class="login_block">
     <form name="login">
       <div class="login_button row">
-        <div class="col col-20">
-          <img src="img/login/username.png" class="icon">
-        </div>
-        <input class="col" type="number" name="username" ng-model="data.username" placeholder="Mobile No" required>
+        <i class="icon ion-ios-telephone"></i>
+        <input class="col bg-yellow padd-lr" type="number" name="username" ng-model="data.username" placeholder="Mobile No" required>
       </div>
       <span class="valid" ng-show="login.username.$touched && login.username.$invalid">* username is required.</span>
-      <div class="login_button row">
-        <div class="col col-20">
-          <img src="img/login/password.png" class="icon">
-        </div>
-        <input class="col" type="password" name="password" ng-model="data.password" placeholder="PASSWORD" required>
+      <div class="login_button button-mar row">
+        <i class="icon ion-ios-locked"></i>
+        <input class="col bg-yellow padd-lr" type="password" name="password" ng-model="data.password" placeholder="Password" required>
       </div>
       <span class="valid" ng-show="login.password.$touched && login.password.$invalid">* password is required.</span>
       <div class="valid invailduser" ng-if="invalidUser">incorrect username or password</div>
@@ -23,7 +19,7 @@
         <button class="button" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login)" promise-btn="loginPromise">LOGIN</button>
       </div>
       <div>
-        <p>Dont have an account</p>
+        <p class="account">Dont have an account?</p>
       </div>
       <div class="login_button_submit row">
         <button class="button" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login)" promise-btn="loginPromise">Sign up</button>

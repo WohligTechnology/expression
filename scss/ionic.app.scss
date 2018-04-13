@@ -100,6 +100,10 @@ body {
   max-width: 100%;
 }
 
+.button-mar {
+  margin: 10% 0 !important;
+}
+
 .text_glow {
   color: $color;
   text-shadow: 0px 0px 25px red;
@@ -219,6 +223,7 @@ body {
 @import "login";
 @import "modal";
 @import "timer";
+// @import "signup";
 @media (min-aspect-ratio: 18/9) {
   .table .table_field {
     width: 85%;

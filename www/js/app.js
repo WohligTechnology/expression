@@ -24,7 +24,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         StatusBar.styleDefault();
       }
 
-     
+
       window.plugins.insomnia.keepAwake();
       // Preload audio resources
       // window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
@@ -65,6 +65,12 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         templateUrl: 'templates/lobby.html',
         cache: false,
         controller: 'LobbyCtrl'
+      })
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'templates/sign-up.html',
+        cache: false,
+        controller: 'SignUpCtrl'
       })
       .state('table', {
         url: '/table/:id',

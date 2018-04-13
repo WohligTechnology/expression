@@ -9933,6 +9933,9 @@ body {
 .img-responsive {
   max-width: 100%; }
 
+.button-mar {
+  margin: 10% 0 !important; }
+
 .text_glow {
   color: #FF8072;
   text-shadow: 0px 0px 25px red;
@@ -11043,7 +11046,7 @@ body {
     opacity: 0; } }
 
 .login {
-  background: url("../img/login/bg.png");
+  background: linear-gradient(to top, #000000, black);
   background-size: cover; }
   .login .logo {
     width: 100%;
@@ -11061,9 +11064,9 @@ body {
     .login .login_block input {
       height: 8vh;
       width: 100%;
-      border-radius: 6px;
-      background: transparent; }
+      border-radius: 6px; }
     .login .login_block .login_button_submit {
+      background: url("../img/login/submit_background.png");
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -11075,17 +11078,20 @@ body {
       .login .login_block .login_button_submit button {
         line-height: 0.5;
         min-height: 30px;
+        margin-top: 6%;
         margin-bottom: 10%;
         text-align: center;
         vertical-align: middle;
-        color: white;
+        color: #e1c975;
         width: 100%;
         transform: translateY(10%);
-        background: linear-gradient(to bottom, rgba(152, 56, 83, 0.48) 0%, #983853 100%);
+        background-image: url("../img/login/bgblue.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
         font-weight: bold;
-        font-family: 'Cinzel-Bold';
         font-weight: bold;
-        font-size: 1em;
+        font-size: 1.7em;
         border: 0px; }
     .login .login_block .login_button {
       height: 4em;
@@ -11094,20 +11100,30 @@ body {
       display: flex;
       flex-direction: row;
       align-items: center;
-      margin: 10% 0;
-      margin-top: 0px; }
+      margin: 6% 0;
+      margin-top: 0px;
+      position: relative; }
       .login .login_block .login_button .col-20 {
         text-align: left; }
       .login .login_block .login_button .icon {
-        width: 45%;
-        transform: translateY(20%); }
+        /* width: 45%; */
+        transform: translateY(20%);
+        font-size: 16px;
+        color: #000;
+        padding: 5px 8px;
+        /* top: 20%; */
+        /* padding-left: 0%; */
+        position: absolute;
+        z-index: 1; }
       .login .login_block .login_button input {
+        padding: 6px 0px;
         transform: translateY(15%);
         height: 100%;
         font-weight: bold;
-        font-weight: bold;
-        font-size: 1em;
-        color: white; }
+        font-size: 1.7em;
+        color: #000; }
+      .login .login_block .login_button input::placeholder {
+        color: #000; }
     .login .login_block .valid {
       color: white;
       float: left;
@@ -11116,6 +11132,31 @@ body {
       line-height: 2; }
     .login .login_block .invailduser {
       width: 100%; }
+
+/*--------------------------signup-------------------*/
+.signup .login_block {
+  margin-top: -35%; }
+
+.signup .bg-yellow {
+  border: 10px solid transparent;
+  border-image: url(../img/login/bgyellow.png) 58;
+  background: #ddcb77; }
+
+.signup .bg-blue {
+  border: 10px solid transparent;
+  border-image: url(../img/login/bgblue.png) 58;
+  background: #ddcb77; }
+
+.signup .padd-lr {
+  padding: 6px 20px !important; }
+
+.signup .account {
+  font-size: 12px;
+  margin-bottom: 0px;
+  font-weight: 600; }
+
+.signup .mar-t {
+  margin-top: -23%; }
 
 .custom-model {
   top: 10%;
