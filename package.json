@@ -13,7 +13,7 @@
     "cordova-plugin-device": "^2.0.1",
     "cordova-plugin-insomnia": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
-    "cordova-plugin-ionic-webview": "^1.1.16",
+    "cordova-plugin-ionic-webview": "^1.2.0",
     "cordova-plugin-nativeaudio": "^3.0.9",
     "cordova-plugin-network-information": "git+https://github.com/apache/cordova-plugin-network-information.git",
     "cordova-plugin-screen-orientation": "^3.0.1",
