@@ -43,7 +43,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.tableInfoModal = modal;
-    $scope.tableInfoModal.show();
+    // $scope.tableInfoModal.show();
   });
 
   $scope.showTableInfoModal = function () {
@@ -166,29 +166,29 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   //game logic
-  $scope.playerData = function () {
-    Service.sendAccessToken(function (data) {
-      if (data && data.data && data.data.data) {
-        $scope.singlePlayerData = data.data.data;
-        $scope.image = $scope.singlePlayerData.image;
-        $scope.username = $scope.singlePlayerData.username;
-        $scope.userType = $scope.singlePlayerData.userType;
-        $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
-        $scope.memberId = data.data.data._id;
-      } else {
-        $state.go("login");
-      }
-    });
-  };
-  $scope.playerData();
+  // $scope.playerData = function () {
+  //   Service.sendAccessToken(function (data) {
+  //     if (data && data.data && data.data.data) {
+  //       $scope.singlePlayerData = data.data.data;
+  //       $scope.image = $scope.singlePlayerData.image;
+  //       $scope.username = $scope.singlePlayerData.username;
+  //       $scope.userType = $scope.singlePlayerData.userType;
+  //       $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+  //       $scope.memberId = data.data.data._id;
+  //     } else {
+  //       $state.go("login");
+  //     }
+  //   });
+  // };
+  // $scope.playerData();
 
   $scope.updateSocketVar = 0;
   $scope.sideShowDataFrom = 0;
   $scope.tableId = $stateParams.id;
 
-  if (_.isEmpty($scope.tableId)) {
-    $state.go("lobby");
-  }
+  // if (_.isEmpty($scope.tableId)) {
+  //   // $state.go("lobby");
+  // }
 
   Service.getOneTable($stateParams.id, function (data) {
     $scope.gotTableInfo = true;

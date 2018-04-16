@@ -72,7 +72,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           callback(data);
         });
       } else {
-        $state.go("login");
+        // $state.go("login");
       }
     },
     giveTip: function (data, callback) {

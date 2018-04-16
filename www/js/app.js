@@ -67,7 +67,8 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         controller: 'LobbyCtrl'
       })
       .state('table', {
-        url: '/table/:id',
+        // url: '/table/:id',
+        url:'/table',
         cache: false,
         templateUrl: 'templates/table.html',
         controller: 'TableCtrl'
