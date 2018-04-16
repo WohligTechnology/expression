@@ -65,131 +65,119 @@
     width: 100%;
     left: 0;
     text-align: center;
-    .card_shuffle {
-      width: 3vw;
-      position: absolute;
-      top: 24%;
-      left: 40%;
-      .cards {
-        position: relative;
-        card {
-          position: absolute;
-          width: 100%;
-          &:nth-child(1) {
-            left: 0
-          }
-          &:nth-child(2) {
-            left: 20%;
-          }
-          &:nth-child(3) {
-            left: 40%;
-          }
-        }
-      }
-    }
-    .doll {
-      width: 8%;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      top: -12%;
-      z-index: 2;
-    }
-    .tip {
-      position: absolute;
-      background: url('../img/table/see.png');
-      background-size: 100% 100%;
-      padding: 3px 2% 0px;
-      letter-spacing: 1px;
-      font-size: 0.8em;
-      left: 50%;
-      top: 5%;
-      transform: translateX(-50%);
-      color: white;
-      z-index: 3;
-    }
     .bg_table {
       position: relative;
       width: 85%;
       height: 85%;
     }
     .plyr {
-      width: 20%; // background: red;
+      width: 12%; // background: red;
       position: absolute;
       z-index: 1;
-      .name {
+      .rel {
+        position: relative;
+      }
+      .you {
+        position: absolute;
+        background: #642aa2;
+        top: 0%;
+        border-radius: 100px;
+        padding: 5%;
+        font-weight: bold;
+        left: -10%;
+      }
+      .winner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        img{
+          width:100%;
+        }
+        .crown {
+          width: 65%;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          transform: translate(-50%,-85%)
+        }
+        .belt{
+          position: absolute;
+          left: 0;
+          width: 100%;
+          bottom: -5%;
+          z-index: 1;
+          transform: scale(1.5);
+        }
+      }
+      .player_pic {
+        // border: 1px solid;
+        width: 100%;
+        height: auto;
+        .pic {
+          width: 100%;
+          height: 100%;
+          border-radius: 100%;
+          border: 4px solid rgba(128, 128, 128, 0.549);
+        }
+      }
+      .player_badge {
+        position: absolute;
+        top: 0;
+        right: -30%;
+        width: 65%;
+        text-align: right;
+        background: red;
+        border-radius: 15px;
+        top: 20%;
+        z-index: -1;
+        div {
+          padding-right: 10%;
+          font-size: 1em;
+          font-weight: bold;
+        }
+        &.dealer {
+          background: #56c2fd;
+        }
+        &.smallblind {
+          background: #6ed34e;
+        }
+        &.bigblind {
+          background: #ef1f2b;
+        }
+      }
+      .details {
+        position: absolute;
+        bottom: 0;
+        /* width: auto; */
+        padding: 0% 5%;
+        border: 1px solid #000000;
+        border-radius: 2px;
+        background: rgba(0, 0, 0, 0.52);
+        left: 50%;
+        transform: translate(-50%, 50%);
+        font-weight: bold;
         font-size: 1em;
-        transform: translate(-25%);
-        overflow: hidden;
-        text-overflow: ellipsis;
-      }
-      .profile {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        line-height: 0;
-        .player_pic {
-          width: 45%;
-          position: relative;
-          img {
-            width: 100%;
+        line-height: 1.3em;
+        min-width: 100%;
+        max-width: 150%;
+        .turn_status {
+          position: absolute;
+          padding: 3% 10%;
+          font-size: 1em;
+          border-radius: 10%; // border: 1px solid rgba(142, 141, 141, 0.91);
+          top: 0;
+          left: 0;
+          transform: translate(0, -100%);
+          &.call {
+            background: #2e4fb4;
           }
-          .status {
-            position: absolute;
-            /* top: 15%; */
-            // left: 5%;
-            /* transform: translate(-50%); */
-            width: 100%;
-            background: url("../img/table/see.png");
-            background-size: 100% 100%;
-            width: 100%; // height: 4vh;
-            padding: 8px;
-            text-align: center;
-            bottom: 0%;
-            font-size: 0.8em;
-            span {
-              // position: absolute;
-              // top: 50%;
-              // left: 25%;
-            }
+          &.all_in {
+            background: #4ccd9d
           }
         }
-        .cards {
-          width: 55%;
-          position: relative;
-          margin-top: -20%; // transition: transform 1s;
-          card {
-            display: inline-block;
-            max-width: 30%;
-            position: absolute;
-            &:nth-child(1) {
-              left: 5%;
-              transition: transform 500ms;
-              transition-delay: none;
-            }
-            &:nth-child(2) {
-              left: 17%;
-              transition: transform 1s;
-              transition-delay: 500ms;
-            }
-            &:nth-child(3) {
-              left: 30%;
-              transition: transform 1s;
-              transition-delay: 1000ms;
-            }
-          }
-          &.cards_open {
-            transform: scale(1.7) translate(0%, -5px);
-          }
-        }
-      }
-      .amt {
-        width: 50%;
-        text-align: center;
-        font-size: 0.8em;
-        .coin {
-          width: 1em;
-          vertical-align: middle;
+        .amt {
+          font-size: 1.1em;
         }
       }
     }
@@ -284,14 +272,7 @@
         bottom: 20%;
       }
     }
-    .winner {
-      transform: translate(-15%);
-      width: 9em;
-      height: 3em;
-      img {
-        width: 100%;
-      }
-    }
+    
   }
   .bottom {
     position: absolute; // right: 0;
@@ -372,14 +353,13 @@
             }
           }
         }
-
-        &:disabled{
-          .btn_name{
-            color:grey;
+        &:disabled {
+          .btn_name {
+            color: grey;
             text-shadow: 0px 0px 25px black;
             -webkit-text-stroke: .2px #000000;
           }
-          .light{
+          .light {
             background: #6b6565;
             -webkit-box-shadow: none;
             -moz-box-shadow: none;
@@ -559,22 +539,21 @@
   }
   .player4 {
     top: 30%;
-    right: 5%;
-    .profile {
-      flex-direction: row-reverse !important;
-      .cards {
-        right: -12%;
-      }
-    }
-    .amt {
-      width: 140% !important;
-    }
-    .name {
-      transform: translate(25%) !important;
-    }
-    .winner {
-      transform: translate(45%);
-    }
+    right: 5%; // .profile {
+    //   flex-direction: row-reverse !important;
+    //   .cards {
+    //     right: -12%;
+    //   }
+    // }
+    // .amt {
+    //   width: 140% !important;
+    // }
+    // .name {
+    //   transform: translate(25%) !important;
+    // }
+    // .winner {
+    //   transform: translate(45%);
+    // }
   }
   .player5 {
     // transform: translateY(-90%);

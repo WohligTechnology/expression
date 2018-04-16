@@ -61,7 +61,37 @@
 
 
 <div class="plyr player{{pos}}">
+  <div class="rel">
 
+    <div class="you">
+      You
+    </div>
+    <div class="winner">
+      <img src="img/table/winner_crown.png" class="crown">
+      <img src="img/table/winner_belt.png" class="belt">
+    </div>
 
+    <div class="player_pic">
+      <!-- <img src="img/player_pic.png"> -->
+      <img src="img/not.png" class="pic">
+      <div class="border_loader">
+      </div>
+    </div>
 
+    <div class="player_badge dealer">
+      <div> D </div>
+    </div>
+    <div class="player_badge smallblind" ng-if="SB">
+      <div> SB </div>
+    </div>
+    <div class="player_badge bigblind" ng-if="BB">
+      <div> BB </div>
+    </div>
+    <div class="details">
+      <div class="turn_status call">Call</div>
+      <div class="turn_status all_in" ng-if="allIN">All In</div>
+      <div class="name">Name 1</div>
+      <div class="amt">$1,5215,545</div>
+    </div>
+  </div>
 </div>

@@ -262,12 +262,13 @@ body {
 
 @media (min-aspect-ratio: 18/9) {
   .table .table_field {
-    width: 85%;
-    left: 50%;
-    transform: translate(-50%);
+    // width: 85%;
+    // left: 50%;
+    // transform: translate(-50%);
+    transform: scale(.8);
   }
   .table .bottom .main_player .status {
-    top: -380%;
+    // top: -380%;
   }
 }
 
