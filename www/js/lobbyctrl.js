@@ -567,5 +567,35 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
     $scope.privateLogInModal.remove();
     $scope.rulesModal.remove();
   });
+  //terms and condition modal
+  $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.termsAndCondition = function () {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.modal.hide();
+  };
+
+  //faq modal
+  $ionicModal.fromTemplateUrl('templates/modal/faq.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (faqModal) {
+    $scope.faqModal = faqModal;
+  });
+  $scope.modalfaq = function () {
+    $scope.faqModal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.faqModal.hide();
+  };
+
+
+
 
 });

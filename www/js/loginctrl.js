@@ -3,7 +3,21 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
     screen.orientation.lock('portrait');
   })
   // screen.orientation.lock('portrait');
-  // $ionicModal.fromTemplateUrl('templates/modal/message.html', {
+
+
+  $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.openModal = function () {
+    $scope.modal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.modal.hide();
+  };
+  // $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {
   //   scope: $scope,
   //   animation: 'slide-in-up'
   // }).then(function (modal) {
