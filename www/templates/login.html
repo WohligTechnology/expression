@@ -16,13 +16,15 @@
       <span class="valid" ng-show="login.password.$touched && login.password.$invalid">* password is required.</span>
       <div class="valid invailduser" ng-if="invalidUser">incorrect username or password</div>
       <div class="login_button_submit row">
-        <button class="button" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login)" promise-btn="loginPromise">LOGIN</button>
+        <!--<button class="button" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login)" promise-btn="loginPromise">LOGIN</button>-->
+        <button class="button" type='submit' ng-click="modalotp()" promise-btn="loginPromise">LOGIN</button>
+
       </div>
       <div>
-        <p class="account">Dont have an account?</p>
+        <p class="account" ng-click="modalconfirmotp()">Dont have an account?</p>
       </div>
       <div class="login_button_submit row">
-        <button class="button" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login)" promise-btn="loginPromise">Sign up</button>
+        <button class="button" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login),modalotp()" promise-btn="loginPromise">Sign up</button>
       </div>
     </form>
 

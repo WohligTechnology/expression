@@ -75,4 +75,32 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   //   ionic.Platform.exitApp();
   //   // event.preventDefault();
   // }, 100);
+
+  /************otp modal****** */
+  $ionicModal.fromTemplateUrl('templates/modal/otp.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (otpModal) {
+    $scope.otpModal = otpModal;
+  });
+  $scope.modalotp = function () {
+    $scope.otpModal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.faqModal.hide();
+  };
+  /**********confirm otp****** */
+  $ionicModal.fromTemplateUrl('templates/modal/confirm-otp.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (confirmotpModal) {
+    $scope.confirmotpModal = confirmotpModal;
+  });
+  $scope.modalconfirmotp = function () {
+    $scope.confirmotpModal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.faqModal.hide();
+  };
+
 });

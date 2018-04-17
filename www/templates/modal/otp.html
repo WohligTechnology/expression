@@ -1,0 +1,25 @@
+<ion-modal-view class="custom-model otp-modal side-otp shadow-yellow ">
+  <ion-content class="otp">
+    <div class="heading"> OTP </div>
+    <div class="  signup">
+      <div class="login_block">
+        <form name="login">
+          <div>
+            <p class="account">Please Enter the 4 Digit Verification Code to send to your Email id and Mobile no</p>
+          </div>
+          <div class="login_button">
+            <input class="col bg-yellow padd-lr" type="password" name="password" ng-model="data.password" placeholder="****" required>
+          </div>
+          <div>
+            <a class="incorrect-otp">Incorrect OTP</a>
+            <a class="resend-otp">Resend OTP</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="side_show_btn">
+      <button class="custom_button" ng-click=closeMessageModal()>Ok</button>
+
+    </div>
+  </ion-content>
+</ion-modal-view>

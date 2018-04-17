@@ -1,40 +1,60 @@
 <ion-modal-view class="room_summary room_summary-potrate small-model faq-modal">
   <ion-header>
     <ion-navbar>
-      <ion-title>General Quetion </ion-title>
+      <ion-title class="faq-tab" ng-class="{'changecolor':changetab== 'question'}" ng-click="changeTab('question')">
+        Question
+      </ion-title>
     </ion-navbar>
-
     <ion-toolbar>
-      <ion-title>Poker Play</ion-title>
+      <ion-title class="faq-tab" ng-class="{'changecolor':changetab== 'pokerpay'}" ng-click="changeTab('pokerpay')">
+        Play
+      </ion-title>
     </ion-toolbar>
 
     <ion-toolbar>
-      <ion-title>Support</ion-title>
+      <ion-title class="faq-tab" ng-class="{'changecolor':changetab== 'support'}" ng-click="changeTab('support')">
+        Support
+      </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
 
-    <div class="text-scroll">
+    <div class="text-scroll" ng-if="changetab == 'question'">
+      <label>Q. What are the terms of services?</label>
       <p>
-        Important-please read these terms and conditions carefully before accepting these agreements, then print these terms and
-        conditions store them along with confirmation emails,SMS messages,additional terms, transation data, game rules and
-        payment methods relevant to your use of the platforms and/ or facilities. We will not file our contract with you
-        so please print it out of your records. These terms and conditions are subject to change(as set as below).
+        A. Please read our terms and services.
       </p>
+      <label>Q. I would to play under different names. can I have more than one poker? </label>
       <p>
-        The classic "lorem ipsum dolor sit amet.." passage is attributed to a remixing of the roman philosopher cicero's 45bc text
-        be finibus bonorum bt malorum("on the extremes of good and evil").More specifically, the passage is thought to originate
-        from section 1.10.32-33 of his text, with the most notable portion excerpted below:
+        A. No Each player is only allowed one account. It is not permitted to close your account & open another one. Once you create
+        account, your userID cannot be changed, so please choose carefully.
       </p>
+      <label>Q. What are the terms of services?</label>
       <p>
-        The classic "lorem ipsum dolor sit amet.." passage is attributed to a remixing of the roman philosopher cicero's 45bc text
-        be finibus bonorum bt malorum("on the extremes of good and evil").More specifically, the passage is thought to originate
-        from
+        A. Please read our terms and services.
+      </p>
+      <label>Q. What are the terms of services?</label>
+      <p>
+        A. Please read our terms and services.
+      </p>
+      <label>Q. What are the terms of services?</label>
+      <p>
+        A. Please read our terms and services.
+      </p>
+      <label>Q. What are the terms of services?</label>
+      <p>
+        A. Please read our terms and services.
+      </p>
+      <label>Q. What are the terms of services?</label>
+      <p>
+        A. Please read our terms and services.
       </p>
     </div>
-    <div class="side_show_btn">
-      <button class="custom_button" ng-click=closeMessageModal()>Accept</button>
-      <button class="custom_button" ng-click=closeMessageModal()>Cancel</button>
+    <div class="text-scroll" ng-if="changetab == 'pokerpay'">
+      <h1>hiiii</h1>
+    </div>
+    <div class="text-scroll" ng-if="changetab == 'support'">
+      <h1>hitreyryrytrytrutruiii</h1>
     </div>
   </ion-content>
 </ion-modal-view>

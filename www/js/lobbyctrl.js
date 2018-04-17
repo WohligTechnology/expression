@@ -594,6 +594,13 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $scope.closeModal = function () {
     $scope.faqModal.hide();
   };
+  $scope.changetab = "question";
+  $scope.changeTab = function (data) {
+    console.log("***********", data)
+    $scope.changetab = data;
+  }
+
+
 
 
 

@@ -606,6 +606,8 @@ span.valid {
   box-shadow: 0px 0px 3px 2px #d38a31;
 }
 
+/*-----------faq---------*/
+
 .faq-modal {
   background-color: transparent;
   background-size: 100% 100%;
@@ -613,6 +615,108 @@ span.valid {
   padding: 2%;
   .scroll-content {
     top: 15%;
+    left: 2.5%;
     background-color: #3d236c;
+  }
+  .scroll {
+    border: 3px solid rgba(62, 38, 89, 0.4);
+    box-shadow: inset -3px 0px 9px -1px #170e22;
+  }
+  .text-scroll {
+    height: 92%;
+    padding: 3%;
+  }
+  label {
+    font-weight: 600;
+    font-size: 13px;
+  }
+}
+
+.faq-tab {
+  padding: 2% 15% 3% 5%;
+  font-size: 15px;
+  font-weight: 600;
+  background: #43217f;
+  color: #140c27;
+  box-shadow: inset 1px 0px 6px 0px black;
+  border-top: 1px solid #7549a4;
+  border-radius: 7px;
+}
+
+// .title-shadow {
+//   box-shadow: 8px 0px 4px 8px #160e26;
+// }
+.changecolor {
+  background: linear-gradient(to top, #fbd14f, #fbe1ae);
+}
+
+/*********
+******otp*********/
+
+.otp-input {
+  border: 10px solid transparent;
+  border-image: url(../img/login/bgyellow.png) 58;
+  /* background: #ddcb77; */
+}
+
+.otp {
+  .login_block {
+    margin-top: 0%;
+  }
+  .account {
+    font-size: 2em;
+    margin-bottom: 0px;
+    font-weight: 600;
+    padding: 0px 14%;
+    text-align: center;
+  }
+  .login_button {
+    margin: 3% 24%;
+  }
+  .custom_button {
+    margin-top: 14%;
+    padding: 3% 10%;
+    font-size: 2em;
+  }
+  .incorrect-otp {
+    padding: 2% 4%;
+    font-size: 1.5em;
+    float: left;
+    color: #ffa500;
+    text-decoration: underline;
+    letter-spacing: 0.5px;
+  }
+  .resend-otp {
+    padding: 2% 4%;
+    font-size: 1.5em;
+    float: right;
+    color: #f0e994;
+    text-decoration: underline;
+    letter-spacing: 0.5px;
+  }
+  .heading {
+    font-size: 3em;
+    padding-bottom: 5%;
+    padding-top: 5%;
+  }
+}
+
+.side-otp {
+  height: 37%;
+}
+
+.otp-modal {
+  top: 35%;
+  right: 11%;
+  bottom: 10%;
+  left: 12%;
+  min-height: 5vh;
+  width: 75%;
+}
+
+.confirm-otp {
+  height: 30%;
+  .custom_button {
+    margin-top: 10%;
   }
 }
