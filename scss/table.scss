@@ -67,8 +67,7 @@
     text-align: center;
     .bg_table {
       position: relative;
-      width: 90%;
-      // height: 85%;
+      width: 90%; // height: 85%;
     }
     .video_frame {
       position: absolute;
@@ -84,19 +83,18 @@
         position: absolute;
         height: 100%;
         left: 0;
-        top: 0;
-        // &:nth-child(1){
+        top: 0; // &:nth-child(1){
         //   z-index: 1;
         // }
         border-radius: 25px;
-          border: 5px solid #423740;
+        border: 5px solid #423740;
       }
     }
     .plyr {
       width: 7%; // background: red;
       position: absolute;
       z-index: 1;
-      font-size:.7em;
+      font-size: .7em;
       .rel {
         position: relative;
       }
@@ -206,21 +204,17 @@
           font-size: 1.1em;
         }
       }
-
-
-   
     }
-    .card_shuffle{
+    .card_shuffle {
       // width: 15%;
       position: absolute;
       top: 45%;
       left: 50%;
       transform: translate(-30%);
-      .cards{
+      .cards {
         display: flex;
-        flex-direction: row;
-        // justify-content: center;
-        card{
+        flex-direction: row; // justify-content: center;
+        card {
           padding: 2px;
           width: 12%;
         }
@@ -330,8 +324,7 @@
         }
       }
     }
-  } 
-  //player position
+  } //player position
   .player1 {
     right: 22%;
     top: -10%;
@@ -367,7 +360,6 @@
   .player9 {
     left: 23%;
     top: -10%;
-
   }
 }
 
@@ -451,13 +443,13 @@
   position: absolute;
   width: auto;
   left: 50%;
-  top: calc( 100px - 36px );
+  top: calc( 100px - 36px);
   transform: translateX(-50%);
   z-index: 2;
   text-align: left; // word-spacing: 5px;
   color: white;
   background-image: url('../img/table/pot_bg.png');
-  background-size:100% 100%;
+  background-size: 100% 100%;
   padding: 5px 10px;
   .coin {
     width: 1em;
@@ -827,6 +819,34 @@
     animation-name: tipmovefrombottom;
     -webkit-animation-name: tipmovefrombottom;
   }
+}
+
+/***************card css************/
+
+.tcard {
+  img {
+    width: 50%;
+  }
+}
+
+.none {
+  width: 30px;
+  position: absolute;
+}
+
+.card-rotate {
+  margin-left: 7px;
+  transform: rotate(7deg);
+}
+
+.card-rotate-right {
+  transform: rotate(-10deg);
+}
+
+.tcard1 {
+  position: absolute;
+  left: -87%;
+  bottom: 0%;
 }
 
 @keyframes tipmovefrombottom {

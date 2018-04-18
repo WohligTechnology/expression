@@ -10895,6 +10895,26 @@ body {
     animation-name: tipmovefrombottom;
     -webkit-animation-name: tipmovefrombottom; }
 
+/***************card css************/
+.tcard img {
+  width: 50%; }
+
+.none {
+  width: 30px;
+  position: absolute; }
+
+.card-rotate {
+  margin-left: 7px;
+  transform: rotate(7deg); }
+
+.card-rotate-right {
+  transform: rotate(-10deg); }
+
+.tcard1 {
+  position: absolute;
+  left: -87%;
+  bottom: 0%; }
+
 @keyframes tipmovefrombottom {
   0% {
     opacity: 1; }
