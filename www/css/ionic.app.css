@@ -10278,12 +10278,29 @@ body {
     text-align: center; }
     .table .table_field .bg_table {
       position: relative;
-      width: 85%;
-      height: 85%; }
-    .table .table_field .plyr {
-      width: 12%;
+      width: 90%; }
+    .table .table_field .video_frame {
       position: absolute;
-      z-index: 1; }
+      width: 25%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -35%);
+      top: 0;
+      height: 30vh;
+      max-height: 100px; }
+      .table .table_field .video_frame img {
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        border-radius: 25px;
+        border: 5px solid #423740; }
+    .table .table_field .plyr {
+      width: 7%;
+      position: absolute;
+      z-index: 1;
+      font-size: .7em; }
       .table .table_field .plyr .rel {
         position: relative; }
       .table .table_field .plyr .you {
@@ -10293,7 +10310,9 @@ body {
         border-radius: 100px;
         padding: 5%;
         font-weight: bold;
-        left: -10%; }
+        left: -10%;
+        line-height: 2em;
+        font-size: 1em; }
       .table .table_field .plyr .winner {
         position: absolute;
         width: 100%;
@@ -10335,7 +10354,8 @@ body {
         .table .table_field .plyr .player_badge div {
           padding-right: 10%;
           font-size: 1em;
-          font-weight: bold; }
+          font-weight: bold;
+          line-height: 1.7em; }
         .table .table_field .plyr .player_badge.dealer {
           background: #56c2fd; }
         .table .table_field .plyr .player_badge.smallblind {
@@ -10371,69 +10391,17 @@ body {
             background: #4ccd9d; }
         .table .table_field .plyr .details .amt {
           font-size: 1.1em; }
-    .table .table_field .sit_here {
-      background: rgba(255, 0, 0, 0.28);
-      background-size: 100% 100%;
-      border: 1px solid #301d46;
-      padding-top: 1%;
-      padding-bottom: 1%;
-      width: 9%;
-      transform: translateY(30%); }
-      .table .table_field .sit_here > * {
-        display: none !important; }
-      .table .table_field .sit_here * {
-        display: none; }
-      .table .table_field .sit_here:after {
-        content: "Sit Here";
-        height: 100%;
-        width: 100%;
-        font-size: 1em;
-        font-family: 'Cinzel-Regular';
-        word-spacing: 10em;
-        line-height: 1.5; }
-      .table .table_field .sit_here.player3 {
-        right: 23%; }
-      .table .table_field .sit_here.player4 {
-        right: 5%; }
-      .table .table_field .sit_here.player5 {
-        bottom: 10%; }
-      .table .table_field .sit_here.player6 {
-        bottom: 10%;
-        left: 30%; }
-      .table .table_field .sit_here.main-player {
-        width: 10% !important;
-        bottom: 20%; }
-    .table .table_field .no_player {
-      background: rgba(255, 0, 0, 0.28);
-      background-size: 100% 100%;
-      border: 1px solid #301d46;
-      padding-top: 1%;
-      padding-bottom: 1%;
-      width: 9%;
-      transform: translateY(30%);
-      opacity: 0.85; }
-      .table .table_field .no_player > * {
-        display: none !important; }
-      .table .table_field .no_player:after {
-        content: "No Player";
-        height: 100%;
-        width: 100%;
-        font-size: 1em;
-        font-family: 'Cinzel-Regular';
-        word-spacing: 10em;
-        line-height: 1.5; }
-      .table .table_field .no_player.player3 {
-        right: 23%; }
-      .table .table_field .no_player.player4 {
-        right: 5%; }
-      .table .table_field .no_player.player5 {
-        bottom: 10%; }
-      .table .table_field .no_player.player6 {
-        bottom: 10%;
-        left: 30%; }
-      .table .table_field .no_player.main-player {
-        width: 10% !important;
-        bottom: 20%; }
+    .table .table_field .card_shuffle {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-30%); }
+      .table .table_field .card_shuffle .cards {
+        display: flex;
+        flex-direction: row; }
+        .table .table_field .card_shuffle .cards card {
+          padding: 2px;
+          width: 12%; }
   .table .bottom {
     position: absolute;
     bottom: 0;
@@ -10531,23 +10499,32 @@ body {
           text-shadow: 0px 0px 25px black;
           -webkit-text-stroke: .2px #000000; }
   .table .player1 {
-    top: 30%;
-    left: 5%; }
+    right: 22%;
+    top: -10%; }
   .table .player2 {
-    left: 22%;
-    top: -6%; }
+    right: 6%;
+    top: 15%; }
   .table .player3 {
-    right: 15%;
-    top: -6%; }
+    right: 10%;
+    top: 60%; }
   .table .player4 {
-    top: 30%;
-    right: 5%; }
+    right: 26%;
+    bottom: 3%; }
   .table .player5 {
-    bottom: 0;
-    right: 25%; }
+    right: 45%;
+    bottom: 3%; }
   .table .player6 {
-    bottom: 0%;
-    left: 22%; }
+    left: 29%;
+    bottom: 3%; }
+  .table .player7 {
+    left: 10%;
+    top: 60%; }
+  .table .player8 {
+    top: 12%;
+    left: 8%; }
+  .table .player9 {
+    left: 23%;
+    top: -10%; }
 
 .option_menu .menu_cont {
   width: 40%;
@@ -10610,13 +10587,16 @@ body {
 
 .total_played_coin {
   position: absolute;
-  width: 22%;
-  left: 58%;
-  top: 25%;
+  width: auto;
+  left: 50%;
+  top: calc( 100px - 36px);
   transform: translateX(-50%);
   z-index: 2;
   text-align: left;
   color: white;
+  background-image: url("../img/table/pot_bg.png");
+  background-size: 100% 100%;
+  padding: 5px 10px;
   transition: none;
   z-index: 6 !important; }
   .total_played_coin .coin {
