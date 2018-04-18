@@ -11607,6 +11607,71 @@ span.valid {
   .confirm-otp .custom_button {
     margin-top: 10%; }
 
+.rzslider .rz-bar {
+  height: 11px;
+  background: linear-gradient(to top, #fbd14f, #fbe1ae); }
+
+.rzslider .rz-pointer {
+  background-image: url("../img/coin.svg"); }
+
+.rzslider .rz-bubble {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.3em; }
+
+.game_summary {
+  height: 60%;
+  width: 40%;
+  top: 17%;
+  left: 28%; }
+  .game_summary .text-scroll {
+    margin: 0% 15%; }
+  .game_summary .item-checkbox .checkbox {
+    top: 70%;
+    right: 8px;
+    left: 4%; }
+  .game_summary .balance {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2em; }
+  .game_summary .auto-rebuy {
+    color: white;
+    font-size: 0.7em; }
+  .game_summary .item {
+    border-color: transparent;
+    background-color: transparent;
+    border-width: 0px;
+    padding: 4px; }
+  .game_summary .checkbox input,
+  .game_summary .checkbox-icon {
+    width: 15px;
+    height: 15px;
+    background: #fbd564;
+    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.52); }
+  .game_summary .checkbox-icon:before {
+    background: #fbdc90;
+    border-color: transparent;
+    border-width: 0px; }
+  .game_summary .checkbox input:checked:before,
+  .game_summary .checkbox input:checked + .checkbox-icon:before {
+    background: transparent;
+    border-color: transparent;
+    color: black; }
+  .game_summary .checkbox-icon:after {
+    top: 25%;
+    left: 18%;
+    border: 2px solid #000;
+    border-top: 0;
+    border-right: 0; }
+  .game_summary .heading {
+    padding-bottom: 16px;
+    padding-top: 12px; }
+  .game_summary .custom_button {
+    line-height: 0.5;
+    padding: 12px 22px;
+    font-size: 1.5em;
+    margin-top: 4%; }
+
 .pie_loader {
   position: absolute;
   width: 100%;
