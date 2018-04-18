@@ -67,13 +67,36 @@
     text-align: center;
     .bg_table {
       position: relative;
-      width: 85%;
-      height: 85%;
+      width: 90%;
+      // height: 85%;
+    }
+    .video_frame {
+      position: absolute;
+      width: 25%;
+      left: 50%;
+      z-index: 1;
+      transform: translate(-50%, -35%);
+      top: 0;
+      height: 30vh;
+      max-height: 100px;
+      img {
+        width: 100%;
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        // &:nth-child(1){
+        //   z-index: 1;
+        // }
+        border-radius: 25px;
+          border: 5px solid #423740;
+      }
     }
     .plyr {
-      width: 12%; // background: red;
+      width: 7%; // background: red;
       position: absolute;
       z-index: 1;
+      font-size:.7em;
       .rel {
         position: relative;
       }
@@ -85,23 +108,25 @@
         padding: 5%;
         font-weight: bold;
         left: -10%;
+        line-height: 2em;
+        font-size: 1em;
       }
       .winner {
         position: absolute;
         width: 100%;
         height: 100%;
         left: 0;
-        img{
-          width:100%;
+        img {
+          width: 100%;
         }
         .crown {
           width: 65%;
           position: absolute;
           top: 0;
           left: 50%;
-          transform: translate(-50%,-85%)
+          transform: translate(-50%, -85%)
         }
-        .belt{
+        .belt {
           position: absolute;
           left: 0;
           width: 100%;
@@ -135,6 +160,7 @@
           padding-right: 10%;
           font-size: 1em;
           font-weight: bold;
+          line-height: 1.7em;
         }
         &.dealer {
           background: #56c2fd;
@@ -180,99 +206,26 @@
           font-size: 1.1em;
         }
       }
+
+
+   
     }
-    .sit_here {
-      // background: url('../img/sit_here.png');
-      background: rgba(255, 0, 0, 0.28);
-      background-size: 100% 100%;
-      border: 1px solid #301d46;
-      padding-top: 1%;
-      padding-bottom: 1%;
-      width: 9%; // height:10vh;
-      transform: translateY(30%);
-      &>* {
-        display: none !important;
-      }
-      * {
-        display: none;
-      }
-      &:before {
-        // content: "";
-        // width: 20px;
-        // height: 30px;
-        // background: url("../img/arrow.gif");
-        // background-size: 100% 100%;
-        // position: absolute;
-        // top: -60%;
-      }
-      &:after {
-        content: "Sit Here";
-        height: 100%;
-        width: 100%;
-        font-size: 1em;
-        font-family: 'Cinzel-Regular';
-        word-spacing: 10em;
-        line-height: 1.5;
-      }
-      &.player3 {
-        right: 23%;
-      }
-      &.player4 {
-        right: 5%;
-      }
-      &.player5 {
-        bottom: 10%;
-      }
-      &.player6 {
-        bottom: 10%;
-        left: 30%;
-      }
-      &.main-player {
-        width: 10% !important;
-        bottom: 20%;
+    .card_shuffle{
+      // width: 15%;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-30%);
+      .cards{
+        display: flex;
+        flex-direction: row;
+        // justify-content: center;
+        card{
+          padding: 2px;
+          width: 12%;
+        }
       }
     }
-    .no_player {
-      background: rgba(255, 0, 0, 0.28);
-      background-size: 100% 100%;
-      border: 1px solid #301d46;
-      padding-top: 1%;
-      padding-bottom: 1%;
-      width: 9%; // height:10vh;
-      transform: translateY(30%);
-      opacity: 0.85; // width: 100% !important;
-      // transform: translateY(0%) !important;
-      &>* {
-        display: none !important;
-      }
-      &:after {
-        content: "No Player";
-        height: 100%;
-        width: 100%;
-        font-size: 1em;
-        font-family: 'Cinzel-Regular';
-        word-spacing: 10em;
-        line-height: 1.5;
-      }
-      &.player3 {
-        right: 23%;
-      }
-      &.player4 {
-        right: 5%;
-      }
-      &.player5 {
-        bottom: 10%;
-      }
-      &.player6 {
-        bottom: 10%;
-        left: 30%;
-      }
-      &.main-player {
-        width: 10% !important;
-        bottom: 20%;
-      }
-    }
-    
   }
   .bottom {
     position: absolute; // right: 0;
@@ -377,192 +330,44 @@
         }
       }
     }
-  } // .bottom {
-  //   position: absolute;
-  //   background: rgba(5, 2, 9, 0.7);
-  //   width: 100%; // height: 13vh;
-  //   padding: 2px;
-  //   bottom: 0px;
-  //   z-index: 5;
-  //   text-align: center;
-  //   display: flex;
-  //   flex-direction: row;
-  //   align-items: center;
-  //   justify-content: center;
-  //   button[disabled] {
-  //     color: #636160;
-  //     text-shadow: none !important;
-  //     -webkit-text-stroke: 0 !important;
-  //     text-stroke: 0;
-  //   }
-  //   mainplayer {
-  //     width: 18%;
-  //     position: absolute;
-  //     left: 19%;
-  //     bottom: 10%;
-  //   }
-  //   .main_player {
-  //     width: 100%;
-  //     position: relative; // transform: translateY(-41%);
-  //     bottom: 0;
-  //     .main_winner {
-  //       position: absolute;
-  //       background: #ff0000;
-  //       z-index: 1;
-  //       width: 100%;
-  //       top: -475%;
-  //       left: 0;
-  //       img {
-  //         width: 100%;
-  //       }
-  //     }
-  //     .status {
-  //       position: absolute;
-  //       background: #ff0000;
-  //       z-index: 1;
-  //       width: 100%;
-  //       top: -340%;
-  //     }
-  //     .main_player_pic {
-  //       width: 75%; // padding: 10%;
-  //       position: absolute;
-  //       bottom: 0;
-  //       left: 12%;
-  //       bottom: 40%;
-  //       img {
-  //         width: 100%
-  //       }
-  //       .pie_loader {
-  //         top: 0;
-  //         left: 0;
-  //       }
-  //     }
-  //     .cards {
-  //       position: absolute;
-  //       bottom: 5%;
-  //       transform: translate(-50%, -5%);
-  //       width: 100%;
-  //       left: 50%;
-  //       z-index: 1;
-  //       card {
-  //         width: 30%;
-  //         display: inline-block;
-  //         &:nth-child(1) {
-  //           position: relative;
-  //           transform: rotate(-10deg) translate(40%);
-  //           transition: transform 1s;
-  //         }
-  //         &:nth-child(2) {
-  //           position: relative;
-  //           transform: rotate(0deg) translate(0%) scale(1.1);
-  //           transition: transform 1s;
-  //           transition-delay: 500ms;
-  //         }
-  //         &:nth-child(3) {
-  //           position: relative;
-  //           transform: rotate(10deg) translate(-40%, 10%);
-  //           transition: transform 1s;
-  //           transition-delay: 1000ms;
-  //         }
-  //       }
-  //     }
-  //     .see {
-  //       position: absolute;
-  //       top: -70%;
-  //       z-index: 1;
-  //       left: 50%;
-  //       transform: translate(-50%);
-  //       width: 100%;
-  //       background: url('../img/table/see.png');
-  //       background-size: 100% 100%;
-  //     }
-  //     .amt {
-  //       position: relative; // background: #2f1d46;
-  //       // border: 1px solid rgba(228, 218, 218, 0.23);
-  //       // border-top: 0px;
-  //       // border-left: 0px;
-  //       // -webkit-box-shadow: inset 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  //       // -moz-box-shadow: inset 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  //       // box-shadow: inset 2px 4px 7px -2px rgba(8, 8, 8, 0.75);
-  //       // border-radius: 4px;
-  //       margin: 2%;
-  //       padding: 3%;
-  //       padding-top: 3%;
-  //       -webkit-text-stroke: 0;
-  //       z-index: 1;
-  //       img {
-  //         width: 1em;
-  //         vertical-align: middle
-  //       }
-  //     }
-  //   }
-  //   .pack,
-  //   .slideshow,
-  //   .minus,
-  //   .chal,
-  //   .plus {
-  //     background: url("../img/table/bg_button1.png");
-  //     background-size: 100% 100%;
-  //     padding: 1.5% 2.5%;
-  //     margin: 0% 0.5%;
-  //     font-size: 1.2em;
-  //     border: 0;
-  //     font-family: inherit;
-  //   }
-  //   .pack {
-  //     margin-right: 20%;
-  //   }
-  //   .minus,
-  //   .plus {
-  //     font-size: 3em;
-  //     padding: 0% 2.5% 0.7%;
-  //     line-height: 1;
-  //   }
-  //   .chal {
-  //     width: 20%;
-  //   }
-  //   .slideshow {
-  //     min-width: 16%;
-  //   }
-  // } //player position
+  } 
+  //player position
   .player1 {
-    top: 30%;
-    left: 5%;
+    right: 22%;
+    top: -10%;
   }
   .player2 {
-    left: 22%;
-    top: -6%;
+    right: 6%;
+    top: 15%;
   }
   .player3 {
-    right: 15%;
-    top: -6%;
+    right: 10%;
+    top: 60%;
   }
   .player4 {
-    top: 30%;
-    right: 5%; // .profile {
-    //   flex-direction: row-reverse !important;
-    //   .cards {
-    //     right: -12%;
-    //   }
-    // }
-    // .amt {
-    //   width: 140% !important;
-    // }
-    // .name {
-    //   transform: translate(25%) !important;
-    // }
-    // .winner {
-    //   transform: translate(45%);
-    // }
+    right: 26%;
+    bottom: 3%;
   }
   .player5 {
-    // transform: translateY(-90%);
-    bottom: 0;
-    right: 25%;
+    right: 45%;
+    bottom: 3%;
   }
   .player6 {
-    bottom: 0%;
-    left: 22%;
+    left: 29%;
+    bottom: 3%;
+  }
+  .player7 {
+    left: 10%;
+    top: 60%;
+  }
+  .player8 {
+    top: 12%;
+    left: 8%;
+  }
+  .player9 {
+    left: 23%;
+    top: -10%;
+
   }
 }
 
@@ -644,13 +449,16 @@
 //all animation
 .total_played_coin {
   position: absolute;
-  width: 22%;
-  left: 58%;
-  top: 25%;
+  width: auto;
+  left: 50%;
+  top: calc( 100px - 36px );
   transform: translateX(-50%);
   z-index: 2;
   text-align: left; // word-spacing: 5px;
   color: white;
+  background-image: url('../img/table/pot_bg.png');
+  background-size:100% 100%;
+  padding: 5px 10px;
   .coin {
     width: 1em;
     vertical-align: middle;
