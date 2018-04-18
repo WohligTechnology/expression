@@ -600,9 +600,32 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
     $scope.changetab = data;
   }
 
+  //game-price-range modal
 
-
-
-
+  $ionicModal.fromTemplateUrl('templates/modal/game-price-range.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (gameModal) {
+    $scope.gameModal = gameModal;
+  });
+  $scope.modalgame = function () {
+    $scope.gameModal.show();
+  };
+  $scope.closeModal = function () {
+    $scope.gameModal.hide();
+  };
+  $scope.changetab = "question";
+  $scope.changeTab = function (data) {
+    console.log("***********", data)
+    $scope.changetab = data;
+  }
+  //range slider
+  $scope.slider = {
+    value: 150,
+    options: {
+      floor: 10,
+      ceil: 200,
+    },
+  }
 
 });

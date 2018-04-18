@@ -720,3 +720,84 @@ span.valid {
     margin-top: 10%;
   }
 }
+
+//range slider
+.rzslider {
+  .rz-bar {
+    height: 11px;
+    background: linear-gradient(to top, #fbd14f, #fbe1ae);
+  }
+  .rz-pointer {
+    background-image: url("../img/coin.svg");
+  }
+  .rz-bubble {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.3em;
+  }
+}
+
+.game_summary {
+  height: 60%;
+  width: 40%;
+  top: 17%;
+  left: 28%;
+  .text-scroll {
+    margin: 0% 15%;
+  }
+  .item-checkbox .checkbox {
+    top: 70%;
+    right: 8px;
+    left: 4%;
+  }
+  .balance {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2em;
+  }
+  .auto-rebuy {
+    color: white;
+    font-size: 0.7em;
+  }
+  .item {
+    border-color: transparent;
+    background-color: transparent;
+    border-width: 0px;
+    padding: 4px;
+  }
+  .checkbox input,
+  .checkbox-icon {
+    width: 15px;
+    height: 15px;
+    background: #fbd564;
+    box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.52);
+  }
+  .checkbox-icon:before {
+    background: #fbdc90;
+    border-color: transparent;
+    border-width: 0px;
+  }
+  .checkbox input:checked:before,
+  .checkbox input:checked+.checkbox-icon:before {
+    background: transparent;
+    border-color: transparent;
+    color: black;
+  }
+  .checkbox-icon:after {
+    top: 25%;
+    left: 18%;
+    border: 2px solid #000;
+    border-top: 0;
+    border-right: 0;
+  }
+  .heading {
+    padding-bottom: 16px;
+    padding-top: 12px;
+  }
+  .custom_button {
+    line-height: 0.5;
+    padding: 12px 22px;
+    font-size: 1.5em;
+    margin-top: 4%;
+  }
+}
