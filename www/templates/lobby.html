@@ -8,8 +8,8 @@
     <div class="right mar-r">
       <div class="profile" ng-click="$event.stopPropagation();openRightMenu();">
         <div class="info">
-          <div> {{username}}hihhh </div>
-          <div> {{balance|number:0}} 4565</div>
+          <div> {{playerData.name}}</div>
+          <div> {{playerData.balance|number:0}}</div>
         </div>
         <div class="pic">
           <div class="profile-pic">
@@ -26,66 +26,68 @@
       <img src="img/lobby/logo.png" alt="logo">
     </div>
     <div class="category play_type">
-      <div class="row">
-        <div class="col play_now" ng-click="playNow($event);resetFilter();">
-          <img src="img/lobby/card4.png">
-          <div class="card-heading">
-            <h6 class="heading-yellow">HOLD'EM</h6>
-            <p>Cash Table</p>
-          </div>
-          <div class="card-btn">
-            <span>stakes</span>
-            <span>$50/$25</span>
-            <div>
-              <button class="custom_Card_button  btn_search btn-green"> Select Table</button>
+      <ion-scroll direction="x">
+        <div class="row">
+          <div class="col col-25 play_now" ng-click="playNow($event);resetFilter();" ng-repeat="table in getAllTables">
+            <img src="img/lobby/card4.png">
+            <div class="card-heading">
+              <h6 class="heading-yellow">{{table.name}}</h6>
+              <!-- <p>Cash Table</p> -->
+            </div>
+            <div class="card-btn">
+              <span>stakes</span>
+              <span>${{table.smallBlind}} / ${{table.bigBlind}}</span>
+              <div>
+                <button class="custom_Card_button  btn_search btn-green" ng-click="goToTable(table._id)"> Select Table</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col play_joker" ng-click="playJoker($event)">
-          <div class="card-heading">
-            <h6 class="heading-orange">HOLD'EM</h6>
-            <p>Cash Table</p>
-          </div>
-          <img src="img/lobby/card1.png">
-          <div class="card-btn">
-            <span>stakes</span>
-            <span>$50/$25</span>
-            <div>
-              <button class="custom_Card_button  btn_search btn-blue"> Select Table</button>
+          <!-- <div class="col col-25 play_joker" ng-click="playJoker($event)">
+            <div class="card-heading">
+              <h6 class="heading-orange">HOLD'EM</h6>
+              <p>Cash Table</p>
+            </div>
+            <img src="img/lobby/card1.png">
+            <div class="card-btn">
+              <span>stakes</span>
+              <span>$50/$25</span>
+              <div>
+                <button class="custom_Card_button  btn_search btn-blue"> Select Table</button>
+              </div>
+            </div>
+          </div> -->
+          <!-- <div class="col col-25 variation">
+            <div class="card-heading">
+              <h6 class="heading-blue">ShootOut</h6>
+              <p>Cash Table</p>
+            </div>
+            <img src="img/lobby/card3.png" ng-click="$event.stopPropagation();toggleVariations()">
+            <div class="card-btn">
+              <span>stakes</span>
+              <span>$50/$25</span>
+              <div>
+                <button class="custom_Card_button  btn_search btn-brown">Select Table</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col variation">
-          <div class="card-heading">
-            <h6 class="heading-blue">ShootOut</h6>
-            <p>Cash Table</p>
-          </div>
-          <img src="img/lobby/card3.png" ng-click="$event.stopPropagation();toggleVariations()">
-          <div class="card-btn">
-            <span>stakes</span>
-            <span>$50/$25</span>
-            <div>
-              <button class="custom_Card_button  btn_search btn-brown">Select Table</button>
+          <div class="col col-25 private_table" ng-click="playPrivate()">
+            <div class="card-heading">
+              <h6 class="heading-yellow">Sit-N-Go</h6>
+              <p>Cash Table</p>
             </div>
-          </div>
-        </div>
-        <div class="col private_table" ng-click="playPrivate()">
-          <div class="card-heading">
-            <h6 class="heading-yellow">Sit-N-Go</h6>
-            <p>Cash Table</p>
-          </div>
-          <img src="img/lobby/card2.png">
-          <div class="card-btn">
-            <span>stakes</span>
-            <span>$50/$25</span>
-            <div>
-              <button class="custom_Card_button  btn_search btn-yellow"> Select Table</button>
+            <img src="img/lobby/card2.png">
+            <div class="card-btn">
+              <span>stakes</span>
+              <span>$50/$25</span>
+              <div>
+                <button class="custom_Card_button  btn_search btn-yellow"> Select Table</button>
+              </div>
             </div>
-          </div>
+          </div> -->
         </div>
-      </div>
+      </ion-scroll>
     </div>
-    <div class="category variation_type">
+    <!-- <div class="category variation_type">
       <div class="row">
         <div class="col blue_block" ng-click="openPriceRangeModal()">
           <img src="img/lobby/var_mufils.png">
@@ -97,7 +99,7 @@
           <img src="img/lobby/var_4card.png">
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 

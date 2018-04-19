@@ -25,12 +25,12 @@
     </div> -->
     <div class="tip-lobby back-lobby">
       <div class="tip-dealer_submit row">
-        <button class="button" type='submit' ng-click="playerLogin(data,login),modalotp()" promise-btn="loginPromise">Back to lobby</button>
+        <button class="button" type='submit' ui-sref="lobby" promise-btn="loginPromise">Back to lobby</button>
       </div>
     </div>
     <div class="tip-lobby tip-dealer">
       <div class="tip-dealer_submit row">
-        <button class="button" type='submit' ng-click="playerLogin(data,login),modalotp()" promise-btn="loginPromise">Tip Dealer</button>
+        <button class="button" type='submit'  promise-btn="loginPromise">Tip Dealer</button>
       </div>
     </div>
 
@@ -57,36 +57,36 @@
       </div>
     </div>
 
-    <players ng-pos="1" ng-click="sitHerefn(1)" ng-player="players[0]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="1" ng-click="sitHereFunction(1)" ng-player="players[0]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="2" ng-click="sitHerefn(2)" ng-player="players[1]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="2" ng-click="sitHereFunction(2)" ng-player="players[1]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="3" ng-click="sitHerefn(3)" ng-player="players[2]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="3" ng-click="sitHereFunction(3)" ng-player="players[2]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="4" ng-click="sitHerefn(4)" ng-player="players[3]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="4" ng-click="sitHereFunction(4)" ng-player="players[3]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="5" ng-click="sitHerefn(5)" ng-player="players[4]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="5" ng-click="sitHereFunction(5)" ng-player="players[4]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="6" ng-click="sitHerefn(6)" ng-player="players[5]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="6" ng-click="sitHereFunction(6)" ng-player="players[5]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
-    <players ng-pos="7" ng-click="sitHerefn(6)" ng-player="players[6]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="7" ng-click="sitHereFunction(7)" ng-player="players[6]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
-    <players ng-pos="8" ng-click="sitHerefn(6)" ng-player="players[7]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="8" ng-click="sitHereFunction(8)" ng-player="players[7]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
-    <players ng-pos="9" ng-click="sitHerefn(6)" ng-player="players[8]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="9" ng-click="sitHereFunction(9)" ng-player="players[8]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
@@ -102,7 +102,7 @@
   <div class="bottom">
     <div class="tip-lobby history">
       <div class="tip-dealer_submit row">
-        <button class="button" type='submit' ng-click="playerLogin(data,login),modalotp()" promise-btn="loginPromise">History</button>
+        <button class="button" type='submit' promise-btn="loginPromise">History</button>
       </div>
     </div>
     <div class="main_card">

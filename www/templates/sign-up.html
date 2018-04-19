@@ -5,31 +5,35 @@
   <div class="login_block">
     <form name="signup">
       <div class="login_button row">
-        <input class="col bg-yellow" type="name" name="username" placeholder="Name" required>
+        <input class="col bg-yellow" type="text" name="username" placeholder="Name" ng-model="data.name" required>
       </div>
       <div class="login_button row">
-        <input class="col bg-yellow" type="email" name="password" placeholder="Email Id" required>
+        <input class="col bg-yellow" type="email" name="email" placeholder="Email Id" ng-model="data.email" required>
+      </div>
+      <div class="valid" ng-if="signup.email.$touched && signup.email.$invalid"> email is invalid </div>
+      <div class="login_button row">
+        <input class="col bg-yellow" type="number" name="mobile" placeholder="Mobile No" ng-model="data.mobile" required>
       </div>
       <div class="login_button row">
+        <input class="col bg-yellow" type="password" name="password" placeholder="Password" ng-model="data.password" required>
+      </div>
+      <!-- <div class="login_button row">
         <input class="col bg-yellow" type="number" name="password" placeholder="Mobile No" required>
+      </div> -->
+      <div class="login_button row">
+        <input class="col bg-yellow" type="date" name="dob" placeholder="DOB" ng-model="data.dob" required>
       </div>
       <div class="login_button row">
-        <input class="col bg-yellow" type="number" name="password" placeholder="Password" required>
+        <input class="col bg-yellow" type="text" name="city" ng-model="data.city" placeholder="City" required>
       </div>
       <div class="login_button row">
-        <input class="col bg-yellow" type="number" name="password" placeholder="Mobile No" required>
+        <input class="col bg-yellow" type="text" name="country" ng-model="data.country" placeholder="Country" required>
       </div>
-      <div class="login_button row">
-        <input class="col bg-yellow" type="date" name="password" placeholder="DOB" required>
-      </div>
-      <div class="login_button row">
-        <input class="col bg-yellow" type="text" name="password" ng-model="data.password" placeholder="City" required>
-      </div>
-      <div class="login_button row">
-        <input class="col bg-yellow" type="text" name="password" ng-model="data.password" placeholder="Country" required>
-      </div>
+
+      <div class="sign_up_status" ng-if="signUpStatus">{{signUpStatus}}</div>
+      <div class="sign_up_error" ng-if="signUpError"> *Something Went Wrong </div>
       <div class="login_button_submit row">
-        <button class="button bg-blue" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login)" promise-btn="loginPromise">LOGIN</button>
+        <button class="button bg-blue" type='submit' ng-disabled="signup.$invalid"  ng-click="signUp(data,signup)" promise-btn="signUpPromise">Sign Up</button>
       </div>
 
     </form>

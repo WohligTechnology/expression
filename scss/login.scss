@@ -27,7 +27,7 @@
       border-radius: 6px; // background: url('../img/login/bgyellow.png');
     }
     .login_button_submit {
-      background: url('../img/login/submit_background.png'); // background-size: 100% 100%;
+      // background: url('../img/login/submit_background.png'); // background-size: 100% 100%;
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -94,11 +94,13 @@
       }
     }
     .valid {
-      color: white;
-      float: left;
-      padding-left: 5%;
-      margin-top: -7%;
+      color: red;
+      // float: left;
+      // padding-left: 5%;
+      margin-top: 0%;
       line-height: 2;
+      font-size: 1.5em;
+      margin-bottom: -6%;
     }
     .invailduser {
       width: 100%;

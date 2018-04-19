@@ -10046,7 +10046,8 @@ body {
         margin: 5%;
         margin-right: 2%; }
         .lobby .top .right .profile .pic img {
-          width: 100%; }
+          max-width: 100%;
+          max-height: 100%; }
       .lobby .top .right .profile .info {
         white-space: nowrap;
         text-align: center;
@@ -10074,15 +10075,14 @@ body {
       margin: 0 auto;
       transition: all 500ms; }
       .lobby .main .category .col {
-        height: 44vh;
-        margin: 10px;
+        padding: 10px;
         text-align: center;
         position: relative; }
         .lobby .main .category .col img {
           max-width: 100%;
           max-height: 100%; }
       .lobby .main .category span {
-        font-size: 0.7em;
+        font-size: 0.8em;
         padding-right: 4px;
         padding-left: 7px; }
       .lobby .main .category p {
@@ -10091,7 +10091,8 @@ body {
       .lobby .main .category h6 {
         margin-bottom: 0px;
         font-weight: 600;
-        letter-spacing: 0.7px; }
+        letter-spacing: 0.7px;
+        font-size: 1.1em; }
     .lobby .main .custom_Card_button {
       line-height: 0.2;
       padding: 0px 5px;
@@ -10128,12 +10129,14 @@ body {
 .card-heading {
   width: 100%;
   position: absolute;
-  top: 0; }
+  top: 15px;
+  left: 0; }
 
 .card-btn {
-  width: 93%;
+  width: 100%;
   position: absolute;
-  bottom: 5px; }
+  left: 0;
+  bottom: 15px; }
 
 .btn-yellow {
   background: linear-gradient(to bottom, #4a460e 0%, #d0c81c 100%); }
@@ -10498,6 +10501,11 @@ body {
           background: #6b6565;
           text-shadow: 0px 0px 25px black;
           -webkit-text-stroke: .2px #000000; }
+    .table .bottom .tip-lobby .button {
+      min-height: 20px;
+      font-size: 1.2em;
+      color: #81b781;
+      letter-spacing: 0.5px; }
   .table .player1 {
     right: 22%;
     top: -10%; }
@@ -10896,8 +10904,10 @@ body {
     -webkit-animation-name: tipmovefrombottom; }
 
 /***************card css************/
-.tcard img {
-  width: 50%; }
+.tcard {
+  position: absolute; }
+  .tcard img {
+    width: 50%; }
 
 .none {
   width: 30px;
@@ -10911,9 +10921,80 @@ body {
   transform: rotate(-10deg); }
 
 .tcard1 {
-  position: absolute;
   left: -87%;
   bottom: 0%; }
+
+.tcard2 {
+  left: -84%;
+  top: 58%; }
+
+.tcard3 {
+  left: -86%;
+  top: 20%; }
+
+.tcard4 {
+  left: -84%;
+  top: -10%; }
+
+.tcard5 {
+  left: -78%;
+  top: 0%; }
+
+.tcard6 {
+  left: -73%;
+  top: -21%; }
+
+.tcard7 {
+  right: -17%;
+  top: 47%; }
+
+.tcard8 {
+  right: -21%;
+  bottom: 15%; }
+
+.tcard9 {
+  bottom: -32%;
+  right: 16%; }
+
+.back-lobby {
+  position: absolute;
+  left: 2%;
+  top: -23%; }
+
+.tip-dealer {
+  position: absolute;
+  right: 11%;
+  top: -21%; }
+
+.history {
+  position: absolute;
+  left: 1%;
+  bottom: 2%; }
+
+.tip-lobby .button {
+  padding: 0px 5px;
+  border-color: transparent;
+  background-color: transparent;
+  color: #fff;
+  font-size: 0.9em;
+  line-height: 1px;
+  font-weight: 600;
+  min-height: 0px; }
+
+.tip-lobby .tip-dealer_submit {
+  line-height: 0.5;
+  min-height: 21px;
+  margin-top: 6%;
+  margin-bottom: 10%;
+  text-align: center;
+  vertical-align: middle;
+  box-shadow: 0px 0px 2px 1px #835fac;
+  width: 100%;
+  transform: translateY(10%);
+  background-image: url(../img/login/bgblue.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; }
 
 @keyframes tipmovefrombottom {
   0% {
@@ -10984,7 +11065,6 @@ body {
       width: 100%;
       border-radius: 6px; }
     .login .login_block .login_button_submit {
-      background: url("../img/login/submit_background.png");
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -11043,11 +11123,11 @@ body {
       .login .login_block .login_button input::placeholder {
         color: #000; }
     .login .login_block .valid {
-      color: white;
-      float: left;
-      padding-left: 5%;
-      margin-top: -7%;
-      line-height: 2; }
+      color: red;
+      margin-top: 0%;
+      line-height: 2;
+      font-size: 1.5em;
+      margin-bottom: -6%; }
     .login .login_block .invailduser {
       width: 100%; }
 
@@ -11762,3 +11842,18 @@ span.valid {
   50%,
   100% {
     opacity: 0; } }
+
+.signup .valid {
+  color: red;
+  margin-top: 0%;
+  line-height: 2;
+  font-size: 1.5em;
+  margin-bottom: 0% !important;
+  margin-top: -2% !important; }
+
+.signup .sign_up_error {
+  color: red;
+  font-size: 2em; }
+
+.signup .sign_up_status {
+  font-size: 2em; }

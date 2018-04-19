@@ -6,25 +6,25 @@
     <form name="login">
       <div class="login_button row">
         <i class="icon ion-ios-telephone"></i>
-        <input class="col bg-yellow padd-lr" type="number" name="username" ng-model="data.username" placeholder="Mobile No" required>
+        <input class="col bg-yellow padd-lr" type="number" name="mobile" ng-model="data.mobile" placeholder="Mobile No" required>
       </div>
-      <span class="valid" ng-show="login.username.$touched && login.username.$invalid">* username is required.</span>
+      <span class="valid" ng-show="login.mobile.$touched && login.mobile.$invalid">* Mobile No. is required.</span>
       <div class="login_button button-mar row">
         <i class="icon ion-ios-locked"></i>
         <input class="col bg-yellow padd-lr" type="password" name="password" ng-model="data.password" placeholder="Password" required>
       </div>
       <span class="valid" ng-show="login.password.$touched && login.password.$invalid">* password is required.</span>
-      <div class="valid invailduser" ng-if="invalidUser">incorrect username or password</div>
+      <div class="valid invailduser" ng-if="invalidUser && !login.$invalid">* Invalid Credentials</div>
       <div class="login_button_submit row">
         <!--<button class="button" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login)" promise-btn="loginPromise">LOGIN</button>-->
-        <button class="button" type='submit' ng-click="modalotp()" promise-btn="loginPromise">LOGIN</button>
+        <button class="button" type='submit' ng-click="playerLogin(data,login)" ng-disabled="login.$invalid" promise-btn="loginPromise">LOGIN</button>
 
       </div>
       <div>
-        <p class="account" ng-click="modalconfirmotp()">Dont have an account?</p>
+        <p class="account" >Dont have an account?</p>
       </div>
       <div class="login_button_submit row">
-        <button class="button" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login),modalotp()" promise-btn="loginPromise">Sign up</button>
+        <button class="button" type='submit' ui-sref="signup">Sign up</button>
       </div>
     </form>
 

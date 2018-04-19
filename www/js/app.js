@@ -10,7 +10,9 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
-      StatusBar.hide();
+        
+    
+      
       if (window.MobileAccessibility) {
         window.MobileAccessibility.usePreferredTextZoom(false);
       }
@@ -22,10 +24,16 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
+
+        StatusBar.hide();
       }
 
 
-      window.plugins.insomnia.keepAwake();
+
+if(window.plugins && window.plugins.insomnia){
+  window.plugins.insomnia.keepAwake();
+}
+      
       // Preload audio resources
       // window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
       //   console.log('error: ' + msg);
@@ -73,8 +81,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         controller: 'SignUpCtrl'
       })
       .state('table', {
-        // url: '/table/:id',
-        url: '/table',
+        url: '/table/:id',
         cache: false,
         templateUrl: 'templates/table.html',
         controller: 'TableCtrl'

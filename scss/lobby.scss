@@ -17,7 +17,8 @@
           margin: 5%;
           margin-right: 2%;
           img {
-            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
           }
         }
         .info {
@@ -59,8 +60,8 @@
       margin: 0 auto;
       transition: all 500ms;
       .col {
-        height: 44vh;
-        margin: 10px;
+        // height: 44vh;
+        padding: 10px;
         text-align: center;
         position: relative;
         img {
@@ -69,7 +70,7 @@
         }
       }
       span {
-        font-size: 0.7em;
+        font-size: 0.8em;
         padding-right: 4px;
         padding-left: 7px;
       }
@@ -81,6 +82,7 @@
         margin-bottom: 0px;
         font-weight: 600;
         letter-spacing: 0.7px;
+        font-size: 1.1em;
       }
     }
     .custom_Card_button {
@@ -130,13 +132,15 @@
 .card-heading {
   width: 100%;
   position: absolute;
-  top: 0;
+  top: 15px;
+  left: 0;
 }
 
 .card-btn {
-  width: 93%;
+  width: 100%;
   position: absolute;
-  bottom: 5px;
+  left: 0;
+  bottom: 15px;
 }
 
 .btn-yellow {

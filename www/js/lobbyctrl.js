@@ -245,36 +245,54 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
     $scope.myPrivateModal.hide();
   }
 
-  //Private Table Info
-  $scope.loadMorePrivateTable = function () {
-    if ($scope.pageNo < $scope.paging.maxPage) {
-      $scope.pageNo++;
-      $scope.loadingDisable = true;
-      $scope.myPrivateTable();
-    } else {
 
-    }
-  };
-
-  $scope.myPrivateTable = function () {
-    Service.getPrivateTables($scope.pageNo, function (data) {
-      if (data) {
-        if (data.data.data.total === 0) {
-          $scope.noDataFound = true;
-          // Error Message or no data found 
-          // $scope.displayMessage = {
-          //   main: "<p>Your Private table is empty.</p><p>Create your private table to view.</p>",
-          // };
-        }
-        $scope.paging = data.data.data.options;
-        _.each(data.data.data.results, function (n) {
-          $scope.privateTableDatas.push(n);
-        });
-        $scope.loadingDisable = false;
-        $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else {}
+  $scope.getAllTableData = function (data) {
+    Service.getAllTable(function (data) {
+      // console.log(data);
+      $scope.getAllTables = data.data;
+      console.log($scope.getAllTables);
     });
   };
+  $scope.getAllTableData();
+
+  $scope.goToTable = function (tableId) {
+    $scope.tableId = tableId;
+    $timeout(function () {
+      $state.go('table', {
+        'id': $scope.tableId
+      });
+    }, 300)
+  }
+  // //Private Table Info
+  // $scope.loadMorePrivateTable = function () {
+  //   if ($scope.pageNo < $scope.paging.maxPage) {
+  //     $scope.pageNo++;
+  //     $scope.loadingDisable = true;
+  //     $scope.myPrivateTable();
+  //   } else {
+
+  //   }
+  // };
+
+  // $scope.myPrivateTable = function () {
+  //   Service.getPrivateTables($scope.pageNo, function (data) {
+  //     if (data) {
+  //       if (data.data.data.total === 0) {
+  //         $scope.noDataFound = true;
+  //         // Error Message or no data found 
+  //         // $scope.displayMessage = {
+  //         //   main: "<p>Your Private table is empty.</p><p>Create your private table to view.</p>",
+  //         // };
+  //       }
+  //       $scope.paging = data.data.data.options;
+  //       _.each(data.data.data.results, function (n) {
+  //         $scope.privateTableDatas.push(n);
+  //       });
+  //       $scope.loadingDisable = false;
+  //       $scope.$broadcast('scroll.infiniteScrollComplete');
+  //     } else {}
+  //   });
+  // };
 
 
   //private Table
@@ -326,165 +344,162 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
 
   }
 
-
-  //privatetable call
-  $scope.createPrivateTable = function (formData) {
-    Service.createTable(formData, function (data) {
-      if (data.value) {
-        $scope.privateTableData = data.data;
-        $timeout(function () {
-          $scope.privateTableData = false;
-        }, 10000);
-      } else {}
-    });
-  };
-
-  //private table  login in 
-  $ionicModal.fromTemplateUrl('templates/modal/private-table-login.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.privateLogInModal = modal;
-  });
-
-  $scope.showPrivateLogInModal = function () {
-    $scope.privateLogInModal.show();
-  }
-  $scope.closePrivateLogInModal = function () {
-    $scope.privateLogInModal.hide();
-  };
-
-  $scope.goToPrivateTableLogIn = function (data) {
-    $scope.privateDataForModal = data;
-    $scope.showPrivateLogInModal();
-    //
-  }
-
-  $scope.goToPrivateTable = function (tableID, password) {
-    Service.getAccessToTable({
-      'tableId': tableID,
-      'password': password
-    }, function (data) {
-      if (data.data.value) {
-        $scope.tableId = data.data.data._id;
-        $scope.closePrivateLogInModal();
-        $scope.closePriceRangeModal();
-        $timeout(function () {
-          $state.go('table', {
-            'id': $scope.tableId
-          });
-        }, 300)
-      } else {
-        $scope.errorInPrivateLogIn = true;
-      }
-
-    })
-
-  };
-
-  //end of modal initialize
-
   $scope.accessToken = $.jStorage.get("accessToken");
 
-  //reset Page
-  $scope.resetpage = function () {
-    $scope.pageNo = 1;
-    $scope.cachedPage = 1;
-    $scope.loadingDisable = false;
-    $scope.results = [];
-    $scope.transferStatementData = [];
-    $scope.privateTableDatas = [];
-    $scope.tablesData = [];
-    $scope.tablesDataFilter = [];
-    $scope.noDataFound = false;
-    $scope.paging = {
-      maxPage: 1
-    };
-  }
-
-  $scope.resetpage();
-  $scope.filterType = ['private', 'public'];
-
-
-
+  //playerData
   $scope.playerData = function () {
-    Service.sendAccessToken(function (data) {
-      $scope.singlePlayerData = data.data.data;
-      $scope.image = $scope.singlePlayerData.image;
-      $scope.memberId = $scope.singlePlayerData._id;
-      $scope.username = $scope.singlePlayerData.username;
-      $scope.userType = $scope.singlePlayerData.userType;
-      $scope.balance = $scope.singlePlayerData.creditLimit + $scope.singlePlayerData.balanceUp;
+    Service.getProfile(function (data) {
+      $scope.playerData = data.data.data;
     })
   };
 
   $scope.playerData();
+  //privatetable call
+  // $scope.createPrivateTable = function (formData) {
+  //   Service.createTable(formData, function (data) {
+  //     if (data.value) {
+  //       $scope.privateTableData = data.data;
+  //       $timeout(function () {
+  //         $scope.privateTableData = false;
+  //       }, 10000);
+  //     } else {}
+  //   });
+  // };
+
+  // //private table  login in 
+  // $ionicModal.fromTemplateUrl('templates/modal/private-table-login.html', {
+  //   scope: $scope,
+  //   animation: 'slide-in-up'
+  // }).then(function (modal) {
+  //   $scope.privateLogInModal = modal;
+  // });
+
+  // $scope.showPrivateLogInModal = function () {
+  //   $scope.privateLogInModal.show();
+  // }
+  // $scope.closePrivateLogInModal = function () {
+  //   $scope.privateLogInModal.hide();
+  // };
+
+  // $scope.goToPrivateTableLogIn = function (data) {
+  //   $scope.privateDataForModal = data;
+  //   $scope.showPrivateLogInModal();
+  //   //
+  // }
+
+  // $scope.goToPrivateTable = function (tableID, password) {
+  //   Service.getAccessToTable({
+  //     'tableId': tableID,
+  //     'password': password
+  //   }, function (data) {
+  //     if (data.data.value) {
+  //       $scope.tableId = data.data.data._id;
+  //       $scope.closePrivateLogInModal();
+  //       $scope.closePriceRangeModal();
+  //       $timeout(function () {
+  //         $state.go('table', {
+  //           'id': $scope.tableId
+  //         });
+  //       }, 300)
+  //     } else {
+  //       $scope.errorInPrivateLogIn = true;
+  //     }
+
+  //   })
+
+  // };
+
+  //end of modal initialize
 
 
-  $scope.playNow = function ($event) {
-    if (!$scope.activeVariation) {
-      $scope.openPriceRangeModal();
-      $event.stopPropagation();
-    }
-  }
 
-  $scope.getcheck = function () {
-    return $scope.loadingDisable;
-  }
-  $scope.loadMoreFilterTable = function () {
-    if ($scope.pageNo < $scope.paging.maxPage) {
-      $scope.pageNo++;
-      $scope.loadingDisable = true;
-      $scope.filterTables();
-    } else {}
-  };
+  // //reset Page
+  // $scope.resetpage = function () {
+  //   $scope.pageNo = 1;
+  //   $scope.cachedPage = 1;
+  //   $scope.loadingDisable = false;
+  //   $scope.results = [];
+  //   $scope.transferStatementData = [];
+  //   $scope.privateTableDatas = [];
+  //   $scope.tablesData = [];
+  //   $scope.tablesDataFilter = [];
+  //   $scope.noDataFound = false;
+  //   $scope.paging = {
+  //     maxPage: 1
+  //   };
+  // }
 
-  //Filter Table Data
-
-  $scope.filterTables = function () {
-    Service.getFilterTableData($scope.filterData, $scope.pageNo, function (data) {
-      if (data) {
-        if (data.data.data.total === 0) {
-          $scope.noDataFound = true;
-          // Error Message or no data found 
-          // $scope.displayMessage = {
-          //   main: "<p>No Data Found.</p>",
-          // };
-        }
-        $scope.paging = data.data.data.options;
-        _.each(data.data.data.results, function (n) {
-          $scope.tablesDataFilter.push(n);
-        });
-        $scope.loadingDisable = false;
-        $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else {}
-    });
-  };
-
-  //resetFilter
-  $scope.resetFilter = function () {
-    $scope.filterData = {};
-    $scope.filterTables();
-  };
+  // $scope.resetpage();
+  // $scope.filterType = ['private', 'public'];
 
 
-  $scope.playJoker = function ($event) {
-
-    if (!$scope.activeVariation) {
-      $scope.openPriceRangeModal();
-      $event.stopPropagation();
-
-    }
-  }
 
 
-  $scope.playPrivate = function () {
-    //if variation tab is not open then go to next page
-    if (!$scope.activeVariation) {
-      // $state.go('table');
-      $scope.openPriceRangeModal();
-    }
-  }
+
+  // $scope.playNow = function ($event) {
+  //   if (!$scope.activeVariation) {
+  //     $scope.openPriceRangeModal();
+  //     $event.stopPropagation();
+  //   }
+  // }
+
+  // $scope.getcheck = function () {
+  //   return $scope.loadingDisable;
+  // }
+  // $scope.loadMoreFilterTable = function () {
+  //   if ($scope.pageNo < $scope.paging.maxPage) {
+  //     $scope.pageNo++;
+  //     $scope.loadingDisable = true;
+  //     $scope.filterTables();
+  //   } else {}
+  // };
+
+  // //Filter Table Data
+
+  // $scope.filterTables = function () {
+  //   Service.getFilterTableData($scope.filterData, $scope.pageNo, function (data) {
+  //     if (data) {
+  //       if (data.data.data.total === 0) {
+  //         $scope.noDataFound = true;
+  //         // Error Message or no data found 
+  //         // $scope.displayMessage = {
+  //         //   main: "<p>No Data Found.</p>",
+  //         // };
+  //       }
+  //       $scope.paging = data.data.data.options;
+  //       _.each(data.data.data.results, function (n) {
+  //         $scope.tablesDataFilter.push(n);
+  //       });
+  //       $scope.loadingDisable = false;
+  //       $scope.$broadcast('scroll.infiniteScrollComplete');
+  //     } else {}
+  //   });
+  // };
+
+  // //resetFilter
+  // $scope.resetFilter = function () {
+  //   $scope.filterData = {};
+  //   $scope.filterTables();
+  // };
+
+
+  // $scope.playJoker = function ($event) {
+
+  //   if (!$scope.activeVariation) {
+  //     $scope.openPriceRangeModal();
+  //     $event.stopPropagation();
+
+  //   }
+  // }
+
+
+  // $scope.playPrivate = function () {
+  //   //if variation tab is not open then go to next page
+  //   if (!$scope.activeVariation) {
+  //     // $state.go('table');
+  //     $scope.openPriceRangeModal();
+  //   }
+  // }
 
 
 
@@ -498,58 +513,58 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   // });
 
 
-  $scope.goToTable = function (table) {
-    $scope.tableId = table._id;
-    $scope.closePriceRangeModal();
-    $timeout(function () {
-      $state.go('table', {
-        'id': $scope.tableId
-      });
-    }, 300)
+  // $scope.goToTable = function (table) {
+  //   $scope.tableId = table._id;
+  //   $scope.closePriceRangeModal();
+  //   $timeout(function () {
+  //     $state.go('table', {
+  //       'id': $scope.tableId
+  //     });
+  //   }, 300)
 
 
-  }
+  // }
 
 
-  //change password//
+  // //change password//
 
-  $scope.passwordChange = function (data) {
-    $scope.passwordData = data;
-    if (data.newPassword == data.repeatPassword) {
-      $scope.playerData = $.jStorage.get("player");
-      $scope.passwordData._id = $scope.memberId;
+  // $scope.passwordChange = function (data) {
+  //   $scope.passwordData = data;
+  //   if (data.newPassword == data.repeatPassword) {
+  //     $scope.playerData = $.jStorage.get("player");
+  //     $scope.passwordData._id = $scope.memberId;
 
-      $scope.changePasswordPromise = Service.passwordchange(data, function (data) {
-        if (data.data == "Old password did not match") {
-          $scope.fail1 = true;
-          $scope.success = false;
-          $scope.fail2 = false;
-        } else if (data.data == "Password changed") {
-          $scope.success = true;
-          $scope.fail1 = false;
-          $scope.fail2 = false;
-        }
+  //     $scope.changePasswordPromise = Service.passwordchange(data, function (data) {
+  //       if (data.data == "Old password did not match") {
+  //         $scope.fail1 = true;
+  //         $scope.success = false;
+  //         $scope.fail2 = false;
+  //       } else if (data.data == "Password changed") {
+  //         $scope.success = true;
+  //         $scope.fail1 = false;
+  //         $scope.fail2 = false;
+  //       }
 
-      });
+  //     });
 
-    } else {
-      $scope.fail2 = true;
-      $scope.success = false;
-      $scope.fail1 = false;
-    }
-  };
+  //   } else {
+  //     $scope.fail2 = true;
+  //     $scope.success = false;
+  //     $scope.fail1 = false;
+  //   }
+  // };
 
 
-  $scope.logout = function () {
-    console.log("inside logout");
-    Service.playerLogout(function (data) {
-      console.log("logout", data);
-      if (data.data.value) {
-        $.jStorage.flush();
-        $state.go('login');
-      }
-    });
-  }
+  // $scope.logout = function () {
+  //   console.log("inside logout");
+  //   Service.playerLogout(function (data) {
+  //     console.log("logout", data);
+  //     if (data.data.value) {
+  //       $.jStorage.flush();
+  //       $state.go('login');
+  //     }
+  //   });
+  // }
 
 
 
@@ -564,7 +579,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
 
     // $scope.PLModal.remove();
     $scope.changePasswordModal.remove();
-    $scope.privateLogInModal.remove();
+    // $scope.privateLogInModal.remove();
     $scope.rulesModal.remove();
   });
   //terms and condition modal
