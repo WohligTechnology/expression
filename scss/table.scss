@@ -324,6 +324,14 @@
         }
       }
     }
+    .tip-lobby {
+      .button {
+        min-height: 20px;
+        font-size: 1.2em;
+        color: #81b781;
+        letter-spacing: 0.5px;
+      }
+    }
   } //player position
   .player1 {
     right: 22%;
@@ -889,36 +897,50 @@
   right: 16%;
 }
 
+.back-lobby {
+  position: absolute;
+  left: 2%;
+  top: -23%;
+}
+
 .tip-dealer {
   position: absolute;
-  left: 25%;
-  top: -27%;
+  right: 11%;
+  top: -21%;
+}
+
+.history {
+  position: absolute;
+  left: 1%;
+  bottom: 2%;
+}
+
+.tip-lobby {
   .button {
     padding: 0px 5px;
     border-color: transparent;
     background-color: transparent;
     color: #fff;
-    font-size: 0.8em;
-    line-height: 0px;
+    font-size: 0.9em;
+    line-height: 1px;
     font-weight: 600;
     min-height: 0px
   }
-}
-
-.tip-dealer_submit {
-  line-height: 0.5;
-  min-height: 21px;
-  margin-top: 6%;
-  margin-bottom: 10%;
-  text-align: center;
-  vertical-align: middle;
-  color: #e1c975;
-  width: 100%;
-  transform: translateY(10%);
-  background-image: url(../img/login/bgblue.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  .tip-dealer_submit {
+    line-height: 0.5;
+    min-height: 21px;
+    margin-top: 6%;
+    margin-bottom: 10%;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 0px 0px 2px 1px #835fac;
+    width: 100%;
+    transform: translateY(10%);
+    background-image: url(../img/login/bgblue.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
 }
 
 @keyframes tipmovefrombottom {
