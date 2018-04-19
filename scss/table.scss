@@ -824,6 +824,7 @@
 /***************card css************/
 
 .tcard {
+  position: absolute;
   img {
     width: 50%;
   }
@@ -844,9 +845,48 @@
 }
 
 .tcard1 {
-  position: absolute;
   left: -87%;
   bottom: 0%;
+}
+
+.tcard2 {
+  left: -84%;
+  top: 58%;
+}
+
+.tcard3 {
+  left: -86%;
+  top: 20%;
+}
+
+.tcard4 {
+  left: -84%;
+  top: -10%;
+}
+
+.tcard5 {
+  left: -78%;
+  top: 0%;
+}
+
+.tcard6 {
+  left: -73%;
+  top: -21%;
+}
+
+.tcard7 {
+  right: -17%;
+  top: 47%;
+}
+
+.tcard8 {
+  right: -21%;
+  bottom: 15%;
+}
+
+.tcard9 {
+  bottom: -32%;
+  right: 16%;
 }
 
 @keyframes tipmovefrombottom {
