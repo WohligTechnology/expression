@@ -85,12 +85,11 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
     data._id = id;
     Service.verifyOtp(data, function (data) {
       // console.log(data.data.accessToken[0]);
-      if(data.value){
+      if (data.value) {
         $scope.closeModalOtp();
-        $.jStorage.set("accessToken",data.data.accessToken[0]);
+        $.jStorage.set("accessToken", data.data.accessToken[0]);
         $state.go("lobby");
-      }
-      else{
+      } else {
 
       }
       // $.jStorage.set("accessToken");
@@ -134,8 +133,8 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   $scope.modalconfirmotp = function () {
     $scope.confirmotpModal.show();
   };
-  $scope.closeModal = function () {
-    $scope.faqModal.hide();
+  $scope.closeConfirmModal = function () {
+    $scope.confirmotpModal.hide();
   };
 
 });

@@ -153,8 +153,10 @@
 
   <div class="menu_cont" ng-click="$event.stopPropagation()">
     <div class="heading-navigation">
-      <span> Navigation </span>
-      <i class="icon ion-chevron-right" ng-click="closeRightMenu()"></i>
+      <!--<span> Navigation </span>
+      <i class="icon ion-chevron-right" ng-click="closeRightMenu()"></i>-->
+
+      <img src="img/lobby/sidemenulogo.png" class="img-responsive">
     </div>
     <ion-list class="menu_list">
       <ion-item>
@@ -188,18 +190,8 @@
         </div>
       </ion-item>
     </ion-list>
-
   </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 <!-- right menu(setting) -->
 <div class="custom_menu custom_menu_right setting_menu profile_menu" ng-class="{'menu_open': rightMenu}" ng-click="closeAll()">
@@ -207,17 +199,18 @@
     <div class="profile-pic">
       <img ng-src="{{image | serverimage}}" class="pic img-responsive">
     </div>
+    <div class="text-center user-name">
+      John kontary
+    </div>
     <ion-list class="menu_list">
       <ion-item>
         sound
         <div class="custom_toggle" ng-class="{'toggle_on':sound,'toggle_off':!sound}" ng-click="sound=!sound">
         </div>
       </ion-item>
-
       <ion-item>
         notification
         <div class="custom_toggle" ng-class="{'toggle_on':notification,'toggle_off':!notification}" ng-click="notification=!notification">
-
         </div>
       </ion-item>
       <ion-item>
@@ -225,8 +218,6 @@
         <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
         </div>
       </ion-item>
-
     </ion-list>
-
   </div>
 </div>

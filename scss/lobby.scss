@@ -164,6 +164,14 @@
   height: 10vw;
   border-radius: 50%;
   overflow: hidden;
+  margin: 6% auto;
+}
+
+.user-name {
+  color: #fff;
+  font-size: 1em;
+  font-weight: 600;
+  text-transform: capitalize;
 }
 
 //side menu for right side
@@ -244,8 +252,7 @@
   // background-size: 100% 100%;
   background: rgba(0, 0, 0, 0.5);
   .menu_cont {
-    width: 40%;
-    background: url('../img/menu_bg.png');
+    width: 40%; // background: url('../img/menu_bg.png');
     background-size: 100% 100%; // border: 1px solid transparent;
     height: 100%;
     transition: all 500ms;
@@ -312,7 +319,7 @@
 
 //side menu left
 .heading-navigation {
-  padding: 10px;
+  width: 100%;
   text-align: center;
   font-size: 2.2em;
   font-weight: 600;

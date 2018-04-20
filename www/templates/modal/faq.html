@@ -1,24 +1,28 @@
-<ion-modal-view class="room_summary room_summary-potrate small-model faq-modal">
+<ion-modal-view class="room_summary room_summary-potrate small-model faq-modal bg-color">
   <ion-header>
     <ion-navbar>
       <ion-title class="faq-tab" ng-class="{'changecolor':changetab== 'question'}" ng-click="changeTab('question')">
-        Question
+        <span>Question</span>
       </ion-title>
     </ion-navbar>
     <ion-toolbar>
       <ion-title class="faq-tab" ng-class="{'changecolor':changetab== 'pokerpay'}" ng-click="changeTab('pokerpay')">
-        Play
+        <span> Play</span>
       </ion-title>
     </ion-toolbar>
 
     <ion-toolbar>
       <ion-title class="faq-tab" ng-class="{'changecolor':changetab== 'support'}" ng-click="changeTab('support')">
-        Support
+        <span>Support</span>
       </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+
+      <img src="img/close-button.png" class="cross-btn mar-tr" ng-click="closeFaqModal();">
+
     </ion-toolbar>
   </ion-header>
   <ion-content>
-
     <div class="text-scroll" ng-if="changetab == 'question'">
       <label>Q. What are the terms of services?</label>
       <p>

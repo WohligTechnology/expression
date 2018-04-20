@@ -592,7 +592,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $scope.termsAndCondition = function () {
     $scope.modal.show();
   };
-  $scope.closeModal = function () {
+  $scope.closeTermsModal = function () {
     $scope.modal.hide();
   };
 
@@ -606,7 +606,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $scope.modalfaq = function () {
     $scope.faqModal.show();
   };
-  $scope.closeModal = function () {
+  $scope.closeFaqModal = function () {
     $scope.faqModal.hide();
   };
   $scope.changetab = "question";
@@ -626,7 +626,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $scope.modalgame = function () {
     $scope.gameModal.show();
   };
-  $scope.closeModal = function () {
+  $scope.closeGameModal = function () {
     $scope.gameModal.hide();
   };
   $scope.changetab = "question";
