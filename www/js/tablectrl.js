@@ -8,42 +8,158 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.tableId = $stateParams.id;
   //Basic ui login
 
-//Message Ui
+  //player data
+  $scope.playerData = function () {
+    Service.getProfile(function (data) {
+      $scope.playerData = data.data.data;
+    })
+  };
 
-$ionicModal.fromTemplateUrl('templates/modal/message.html', {
-  scope: $scope,
-  animation: 'slide-in-up'
-}).then(function (modal) {
-  $scope.messageModal = modal;
-  // $scope.showMessageModal();
-
-});
-
-$scope.showMessageModal = function () {
-  $scope.messageModal.show();
-  $timeout(function () {
-    $scope.closeMessageModal();
-  }, 3000);
-};
-$scope.closeMessageModal = function () {
-  $scope.messageModal.hide();
-};
+  $scope.playerData();
 
 
+  //Message Ui
+  $ionicModal.fromTemplateUrl('templates/modal/message.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.messageModal = modal;
+    // $scope.showMessageModal();
 
-
-  Service.getOneTableDetails($stateParams.id, function (data) {
-    $scope.gotTableInfo = true;
-    $scope.tableData = data;
-    console.log($scope.tableData);
   });
 
+  $scope.showMessageModal = function () {
+    $scope.messageModal.show();
+    $timeout(function () {
+      $scope.closeMessageModal();
+    }, 3000);
+  };
+  $scope.closeMessageModal = function () {
+    $scope.messageModal.hide();
+  };
 
-//Sitting There
+  // Game Play functions
+  $scope.botAmount = 0;
+  $scope.PotAmount = 0;
+  $scope.startAnimation = false;
+  $scope.insufficientFunds = false;
+  $scope.chaalAmt = 0;
+  $scope.startCoinAnime = false;
+  $scope.winnerPlayerNo = -1;
+  $scope.showNewGameTime = false;
+  $scope.tipAmount = -1;
+  $scope.TipPlayerNo = -1;
+  $scope.tableMessageShow = false;
+  $scope.tableMessage = "";
+  $scope.runVibratorFlag = true;
+
+  $scope.changeTableMessage = function (message) {
+    $scope.tableMessageShow = true;
+    $scope.tableMessage = message;
+    $scope.$apply();
+    $timeout(function () {
+      $scope.tableMessageShow = false;
+    }, 5000);
+
+  }
+
+  //sound initialize
+  $scope.destroyAudio = function () {
+    $ionicPlatform.ready(function () {
+      if (window.cordova) {
+        // running on device/emulator
+        window.plugins.NativeAudio.stop('timer');
+        window.plugins.NativeAudio.stop('coin');
+        window.plugins.NativeAudio.stop('winner');
+        window.plugins.NativeAudio.stop('shuffle');
+        window.plugins.NativeAudio.stop('button');
+      }
+    });
+  }
+
+  // Socket Update function with REST API
+  $scope.updatePlayers = function () {
+    console.log("$scope.tableId", $scope.tableId);
+    if (!_.isEmpty($scope.tableId)) {
+
+      Service.getOneTableDetails($scope.tableId, function (data) {
+        console.log("update plr", data);
+        // check whether dealer is selected or not
+        $scope.maxAmt = data.data.data.maxAmt;
+        $scope.minAmt = data.data.data.minAmt;
+        $scope.players=data.data.data.players;
+        console.log($scope.players);
+        if (data.data.data.pot) {
+          $scope.potAmount = data.data.data.pot.totalAmount;
+        }
+        $scope.iAmThere($scope.players);
+        if ($scope.isThere) {
+          updateSocketFunction(data.data, true);
+        }
+        $scope.sideShowDataFrom = 0;
+        $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
+          if ((player && player.isActive) || (player && player.isActive == false)) {
+            return true;
+          }
+        }).length;
+        if ($scope.remainingActivePlayers == 9) {
+          $scope.message = {
+            heading: "Table Full",
+            content: "Try after sometime !!",
+            error: true
+          };
+          $scope.showMessageModal();
+        }
+
+        $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
+          if (player && player.isActive && !player.isFold) {
+            return true;
+          }
+        }).length;
+        $scope.blindPlayerCount = _.filter($scope.players, function (player) {
+          if (player && player.isActive && !player.isFold && player.isBlind) {
+            return true;
+          }
+        }).length;
+
+        // $scope.changeTimer(data.data.data.table.autoFoldDelay);
+      });
+    }
+  };
+
+  $scope.updatePlayers();
+
+  // Update Socket Player
+  function updateSocketFunction(data, dontDigest) {
+}
+
+    function startSocketUpdate() {
+    io.socket.off("Update", updateSocketFunction);
+    io.socket.on("Update", updateSocketFunction);
+  }
+
+  // $scope.updatePlayers = function () {
+  //   Service.getOneTableDetails($stateParams.id, function (data) {
+  //     $scope.gotTableInfo = true;
+  //     $scope.tableData = data.data.data;
+  //     $scope.playersData = $scope.tableData.player;
+  //     $scope.iAmThere($scope.playersData);
+  //     // if ($scope.isThere) {
+  //     //   updateSocketFunction(data.data, true);
+  //     // }
+
+  //     console.log($scope.tableData);
+  //   });
+
+  // }
+  // $scope.updatePlayers();
+
+  //Sitting There
   $scope.iAmThere = function (data) {
+    console.log("data",data);
     $scope.isThere = false;
     _.forEach(data, function (value) {
-      if (value && value.memberId == $scope.memberId) {
+      if (value && value.user._id == $scope.playerData._id) {
         $scope.isThere = true;
         myTableNo = value.playerNo;
         startSocketUpdate();
@@ -56,7 +172,7 @@ $scope.closeMessageModal = function () {
 
   //sit Here Function
   //player sitting
-  $scope.sitHerefn = function (sitNum) {
+  $scope.sitHereFunction = function (sitNum) {
     if (!$scope.sitHere) {
       return;
     }
@@ -65,6 +181,7 @@ $scope.closeMessageModal = function () {
     $scope.dataPlayer.playerNo = sitNum;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.sitNummber = sitNum;
+    $scope.dataPlayer.amount = $scope.playerData.balance;
 
     $timeout(function () {
       if ($scope.ShowLoader) {
@@ -82,10 +199,10 @@ $scope.closeMessageModal = function () {
           $scope.updatePlayers();
           startSocketUpdate();
         } else {
-          if (data.data.error == "position filled") {
+          if (data.data.error == "Player Already Added") {
             $scope.message = {
-              heading: "Position Filled",
-              content: "Position is already filled"
+              heading: "Player Already Added",
+              content: "Player Already Added"
             };
             $scope.showMessageModal();
 
@@ -102,12 +219,16 @@ $scope.closeMessageModal = function () {
       });
     }
   };
+  $scope.openPlayerDetails = function () {
+    if (!$scope.sitHere) {
+      $scope.playerDetails.show();
+    }
+  }
 
   // //fn to close all modal and tab
   // $scope.closeAll = function () {
   //   $scope.leftMenu = false;
   //   $scope.showTableinfo = false;
-
   // }
 
   // $scope.closeAll();

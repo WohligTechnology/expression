@@ -7,11 +7,11 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  // io.socket.on('connect', function (socket) {
-  //   socketId = io.socket._raw.id;
-  //   $.jStorage.set("socketId", io.socket._raw.id);
-  //   obj.connectSocket(function () {});
-  // });
+  io.socket.on('connect', function (socket) {
+    socketId = io.socket._raw.id;
+    $.jStorage.set("socketId", io.socket._raw.id);
+    obj.connectSocket(function () {});
+  });
 
   var obj = {
     all: function () {
@@ -80,23 +80,45 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         callback(data);
       });
     },
-  savePlayerToTable: function (dataPlayer, callback) {
+    savePlayerToTable: function (dataPlayer, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http({
+          url: url + 'Table/addUserToTable',
+          method: 'POST',
+          data: {
+            playerNo: dataPlayer.playerNo,
+            tableId: dataPlayer.tableId,
+            socketId: socketId,
+            accessToken: accessToken
+          }
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+    connectSocket: function (callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        callApi();
+      } else {
+        $timeout(function () {
+          callApi();
+        }, 2000);
+      }
+
+      function callApi() {
         var accessToken = $.jStorage.get("accessToken");
         if (!_.isEmpty(accessToken)) {
-          return $http({
-            url: url + 'Table/addUserToTable',
-            method: 'POST',
-            data: {
-              playerNo: dataPlayer.playerNo,
-              tableId: dataPlayer.tableId,
-              socketId: socketId,
-              accessToken: accessToken
-            }
+          $http.post(url + 'Player/updateSocket', {
+            accessToken: accessToken,
+            socketId: socketId
           }).then(function (data) {
             callback(data);
           });
         }
-      },
+      };
+    },
     // playerLogin: function (data, callback) {
     //   return $http.post(url + 'api/User/login', data).then(function (data) {
     //     data = data.data;
@@ -346,29 +368,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     //         callback(data);
     //       });
     //     }
-    //   },
-
-    //   connectSocket: function (callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       callApi();
-    //     } else {
-    //       $timeout(function () {
-    //         callApi();
-    //       }, 2000);
-    //     }
-
-    //     function callApi() {
-    //       var accessToken = $.jStorage.get("accessToken");
-    //       if (!_.isEmpty(accessToken)) {
-    //         $http.post(url + 'Player/updateSocket', {
-    //           accessToken: accessToken,
-    //           socketId: socketId
-    //         }).then(function (data) {
-    //           callback(data);
-    //         });
-    //       }
-    //     };
     //   },
 
     //   getTransaction: function (pageNo, callback) {
