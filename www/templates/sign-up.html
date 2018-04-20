@@ -12,28 +12,34 @@
       </div>
       <div class="valid" ng-if="signup.email.$touched && signup.email.$invalid"> email is invalid </div>
       <div class="login_button row">
-        <input class="col bg-yellow" type="number" name="mobile" placeholder="Mobile No" ng-model="data.mobile" required>
+        <input class="col bg-yellow" type="tel" name="mobile" placeholder="Mobile No" ng-model="data.mobile" maxlength="10" minlength="10"
+          required>
       </div>
+      <div class="valid" ng-if="signup.mobile.$touched && signup.mobile.$invalid"> Please Enter Valid Mobile Number </div>
       <div class="login_button row">
         <input class="col bg-yellow" type="password" name="password" placeholder="Password" ng-model="data.password" required>
       </div>
+      <div class="valid" ng-if="signup.Password.$touched && signup.Password.$invalid"> Please Enter Valid Password </div>
       <!-- <div class="login_button row">
         <input class="col bg-yellow" type="number" name="password" placeholder="Mobile No" required>
       </div> -->
       <div class="login_button row">
         <input class="col bg-yellow" type="date" name="dob" placeholder="DOB" ng-model="data.dob" required>
       </div>
+      <div class="valid" ng-if="signup.dob.$touched && signup.dob.$invalid"> Please Enter Valid dob </div>
       <div class="login_button row">
         <input class="col bg-yellow" type="text" name="city" ng-model="data.city" placeholder="City" required>
       </div>
+      <div class="valid" ng-if="signup.city.$touched && signup.city.$invalid"> Please Enter City </div>
       <div class="login_button row">
         <input class="col bg-yellow" type="text" name="country" ng-model="data.country" placeholder="Country" required>
+        <div class="valid" ng-if="signup.country.$touched && signup.country.$invalid"> Please Enter country </div>
       </div>
 
       <div class="sign_up_status" ng-if="signUpStatus">{{signUpStatus}}</div>
       <div class="sign_up_error" ng-if="signUpError"> *Something Went Wrong </div>
       <div class="login_button_submit row">
-        <button class="button bg-blue" type='submit' ng-disabled="signup.$invalid"  ng-click="signUp(data,signup)" promise-btn="signUpPromise">Sign Up</button>
+        <button class="button bg-blue" type='submit' ng-disabled="signup.$invalid" ng-click="signUp(data,signup)" promise-btn="signUpPromise">Sign Up</button>
       </div>
 
     </form>
