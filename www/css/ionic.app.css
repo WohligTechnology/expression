@@ -10254,10 +10254,8 @@ body {
         right: 10%;
         top: 10%; }
         .setting_menu .menu_cont .item .custom_toggle.toggle_on {
-          background: url("../img/on.png");
           background-size: 100% 100%; }
         .setting_menu .menu_cont .item .custom_toggle.toggle_off {
-          background: url("../img/off.png");
           background-size: 100% 100%; }
 
 .heading-navigation {
@@ -10342,8 +10340,7 @@ body {
         .table .table_field .plyr .player_pic .pic {
           width: 100%;
           height: 100%;
-          border-radius: 100%;
-          border: 4px solid rgba(128, 128, 128, 0.549); }
+          border-radius: 100%; }
       .table .table_field .plyr .player_badge {
         position: absolute;
         top: 0;
@@ -10394,6 +10391,24 @@ body {
             background: #4ccd9d; }
         .table .table_field .plyr .details .amt {
           font-size: 1.1em; }
+      .table .table_field .plyr.no_player .tcard,
+      .table .table_field .plyr.no_player .player_badge,
+      .table .table_field .plyr.no_player .dealer,
+      .table .table_field .plyr.no_player .details,
+      .table .table_field .plyr.no_player .winner,
+      .table .table_field .plyr.no_player .you, .table .table_field .plyr.sit_here .tcard,
+      .table .table_field .plyr.sit_here .player_badge,
+      .table .table_field .plyr.sit_here .dealer,
+      .table .table_field .plyr.sit_here .details,
+      .table .table_field .plyr.sit_here .winner,
+      .table .table_field .plyr.sit_here .you {
+        display: none !important; }
+      .table .table_field .plyr.sit_here.player4, .table .table_field .plyr.sit_here.player5, .table .table_field .plyr.sit_here.player6, .table .table_field .plyr.no_player.player4, .table .table_field .plyr.no_player.player5, .table .table_field .plyr.no_player.player6 {
+        bottom: -5%; }
+      .table .table_field .plyr.sit_here.player7, .table .table_field .plyr.sit_here.player8, .table .table_field .plyr.no_player.player7, .table .table_field .plyr.no_player.player8 {
+        left: 6%; }
+      .table .table_field .plyr.sit_here.player3, .table .table_field .plyr.no_player.player3 {
+        right: 5%; }
     .table .table_field .card_shuffle {
       position: absolute;
       top: 45%;

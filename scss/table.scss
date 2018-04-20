@@ -141,7 +141,6 @@
           width: 100%;
           height: 100%;
           border-radius: 100%;
-          border: 4px solid rgba(128, 128, 128, 0.549);
         }
       }
       .player_badge {
@@ -202,6 +201,33 @@
         }
         .amt {
           font-size: 1.1em;
+        }
+      }
+      &.no_player,
+      &.sit_here {
+        .tcard,
+        .player_badge,
+        .dealer,
+        .details,
+        .winner,
+        .you {
+          display: none !important;
+        }
+      }
+      &.sit_here,
+      &.no_player {
+        &.player4,
+        &.player5,
+        &.player6,
+          {
+          bottom: -5%;
+        }
+        &.player7,
+        &.player8 {
+          left: 6%;
+        }
+        &.player3 {
+          right: 5%;
         }
       }
     }

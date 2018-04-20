@@ -303,13 +303,13 @@
         right: 10%;
         top: 10%;
         &.toggle_on {
-          background: url("../img/on.png");
+          // background: url("../img/on.png");
           background-size: 100% 100%; // width: 4em;
           // height: 2.5em;
           // top: 15%;
         }
         &.toggle_off {
-          background: url("../img/off.png");
+          // background: url("../img/off.png");
           background-size: 100% 100%;
         }
       }
