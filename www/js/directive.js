@@ -60,22 +60,19 @@ myApp.directive('card', function () {
     link: function (scope, element, attr) {}
   };
 })
-  .directive('joker', function () {
-    return {
-      restrict: 'E',
-      replace: false,
-      scope: {
-        gameType: "=ngGameType"
-      },
-      templateUrl: 'templates/directive/jokerCard.html',
-      link: function ($scope, element, attr) {
-        $scope.style = {
-          "margin-left": "10px"
-        };
-        //  console.log("jokerCard Loaded");
-      }
-    };
-  })
+.directive('community', function () {
+  return {
+    restrict: 'E',
+    replace: false,
+    scope: {
+      communityCard: "=ngCommunityCard"
+    },
+    templateUrl: 'templates/directive/communityCard.html',
+    link: function ($scope, element, attr) {
+
+    }
+  };
+})
   // .directive('gameHistory', function () {
   //   return {
   //     restrict: 'E',
