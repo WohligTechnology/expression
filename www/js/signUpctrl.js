@@ -12,7 +12,7 @@ myApp.controller("SignUpCtrl", function ($scope, Service, $state, $ionicPlatform
         $scope.signUpError = false;
         $scope.signUpStatus = data.data;
         $timeout(function () {
-          $state.go(login);
+          $state.go('login');
         }, 1000)
         console.log("signup", $scope.signUpStatus);
       } else {

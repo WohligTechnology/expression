@@ -119,6 +119,107 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         }
       };
     },
+    allIn: function (callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http({
+          url: url + 'Player/allIn',
+          method: 'POST',
+          data: {
+            accessToken: accessToken
+          }
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+
+    raise: function (tableId, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http({
+          url: url + 'Player/raise',
+          method: 'POST',
+          data: {
+            tableId: tableId,
+            accessToken: accessToken
+          }
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+
+    fold: function (tableId, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http({
+          url: url + 'Player/raise',
+          method: 'POST',
+          data: {
+            tableId: tableId,
+            accessToken: accessToken
+          }
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+    check: function (tableId, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http({
+          url: url + 'Player/check',
+          method: 'POST',
+          data: {
+            tableId: tableId,
+            accessToken: accessToken
+          }
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+    call: function (tableId, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http({
+          url: url + 'Player/call',
+          method: 'POST',
+          data: {
+            tableId: tableId,
+            accessToken: accessToken
+          }
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+    randomCard: function (tableId) {
+      var cardValue = cards[_.random(0, cards.length - 3)].name;
+      $http.post(url + 'Player/serve', {
+        tableId:tableId,
+        card: cardValue
+      }).then(function (data) {
+        console.log(data.data);
+      });
+    },
+    removePlayer: function (tableId,playerNo,callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http({
+          url: url + 'Table/removePlayer',
+          method: 'POST',
+          data: {
+            tableId: tableId,
+            playerNo:playerNo,
+            accessToken: accessToken
+          }
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
     // playerLogin: function (data, callback) {
     //   return $http.post(url + 'api/User/login', data).then(function (data) {
     //     data = data.data;

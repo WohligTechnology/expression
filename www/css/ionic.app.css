@@ -11113,12 +11113,9 @@ body {
         font-size: 1.7em;
         border: 0px; }
     .login .login_block .login_button {
-      height: 4em;
+      height: 5em;
       border-radius: 5px;
       margin: 0 auto;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
       margin: 6% 0;
       margin-top: 0px;
       position: relative; }
