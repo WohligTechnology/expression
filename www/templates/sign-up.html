@@ -11,7 +11,7 @@
       <div class="login_button row">
         <input class="col bg-yellow" type="email" name="email" placeholder="*Email Id" ng-model="data.email" required>
       </div>
-      <div class="valid" ng-if="signup.email.$touched && signup.email.$invalid"> Email is Invalid </div>
+      <div class="valid" ng-if="signup.email.$touched && signup.email.$invalid">Please Enter Valid Email </div>
       <div class="login_button row">
         <input class="col bg-yellow" type="tel" name="mobile" placeholder="*Mobile No" ng-model="data.mobile" maxlength="10" minlength="10"
           required>
@@ -27,7 +27,7 @@
       <div class="login_button row">
         <input class="col bg-yellow" type="date" name="dob" placeholder="*DOB" ng-model="data.dob" required>
       </div>
-      <div class="valid" ng-if="signup.dob.$touched && signup.dob.$invalid"> Please Enter Valid dob </div>
+      <div class="valid" ng-if="signup.dob.$touched && signup.dob.$invalid"> Please Enter Valid DOB </div>
       <div class="login_button row">
         <input class="col bg-yellow" type="text" name="city" ng-model="data.city" placeholder="*City" required>
       </div>
@@ -40,6 +40,12 @@
       <div class="sign_up_error" ng-if="signUpError"> *Something Went Wrong </div>
       <div class="login_button_submit row">
         <button class="button bg-blue" type='submit' ng-disabled="signup.$invalid" ng-click="signUp(data,signup)" promise-btn="signUpPromise">Sign Up</button>
+      </div>
+      <div>
+        <p class="account">Dont have an account?</p>
+      </div>
+      <div class="login_button_submit row">
+        <button class="button" type='submit' ui-sref="login">Login</button>
       </div>
     </form>
   </div>
