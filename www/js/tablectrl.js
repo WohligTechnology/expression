@@ -270,7 +270,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     }
   }
   $scope.removePlayer = function () {
-    Service.removePlayer($scope.tableId,$scope.activePlayerNo, function (data) {
+    Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
       console.log(data);
       $state.go('lobby');
     });
@@ -1193,4 +1193,27 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //   $scope.tableInfoModal.remove();
   // });
 
+  /*********** raise range slider************/
+
+  $ionicModal.fromTemplateUrl('templates/modal/table-range-slider.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (rangeModal) {
+    $scope.rangeModal = rangeModal;
+  });
+  $scope.modalrange = function () {
+    $scope.rangeModal.show();
+  };
+  $scope.closeRangeModal = function () {
+    $scope.rangeModal.hide();
+  };
+
+  //range slider
+  $scope.slider = {
+    value: 150,
+    options: {
+      floor: 10,
+      ceil: 200,
+    },
+  }
 });

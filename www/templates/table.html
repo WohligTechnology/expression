@@ -22,7 +22,7 @@
     </div>
     <div class="tip-lobby tip-dealer">
       <div class="tip-dealer_submit row">
-        <button class="button" type='submit'  promise-btn="loginPromise">Tip Dealer</button>
+        <button class="button" type='submit' promise-btn="loginPromise">Tip Dealer</button>
       </div>
     </div>
   <div class="table_field">
@@ -125,9 +125,13 @@
         <span class="light"></span>
         <span class="btn_name"> Check </span>
       </button>
-      <button class="raise" ng-click="raise();" ng-disabled="!isTurn">
+      <!--<button class="raise" ng-click="raise();" ng-disabled="!isTurn">
         <span class="light"></span>
         <span class="btn_name" > Raise </span>
+      </button>-->
+      <button class="raise" ng-click="modalrange();">
+        <span class="light"></span>
+        <span class="btn_name"> Raise </span>
       </button>
       <button class="allin" ng-click="allIn();" ng-disabled="!isTurn">
         <span class="light"></span>

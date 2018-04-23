@@ -964,6 +964,33 @@
   }
 }
 
+.table-range-slider {
+  .rzslider {
+    transform: rotate(-90deg);
+    margin: 17px 0 15px 0;
+    .rz-pointer {
+      top: -12px;
+    }
+  }
+  .text-scroll {
+    margin: 31% 14% 0% 20%;
+    height: 60%;
+  }
+}
+
+.t-range-model {
+  top: 22%;
+  right: 25%;
+  bottom: 15%;
+  left: 47%;
+  width: 50%;
+  min-height: 5vh;
+  background-color: transparent;
+  background-size: 100% 100%;
+  color: white;
+  padding: 2%;
+}
+
 @keyframes tipmovefrombottom {
   0% {
     opacity: 1;
