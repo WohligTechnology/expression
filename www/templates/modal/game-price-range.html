@@ -8,11 +8,10 @@
     <div class="text-scroll">
       <div>
         <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
-
       </div>
       <div class="text-center">
         <ion-checkbox color="dark" checked="true"> <span class="auto-rebuy">Auto-rebuy at table</span></ion-checkbox>
-        <span class="balance">Your balance: <span>$2000</span></span>
+        <span class="balance">Your balance: <span>{{playerData.balance}}</span></span>
       </div>
     </div>
     <div class="side_show_btn">

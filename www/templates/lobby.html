@@ -184,9 +184,9 @@
         <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
         </div>
       </ion-item>
-      <ion-item>
+      <ion-item ng-click="logout();">
         Log Out
-        <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
+        <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" vibration=!vibration">
         </div>
       </ion-item>
     </ion-list>

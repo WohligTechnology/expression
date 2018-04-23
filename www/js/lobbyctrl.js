@@ -263,6 +263,14 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
       });
     }, 300)
   }
+
+
+  //Logout
+  $scope.logout = function () {
+    $.jStorage.flush();
+    $state.go('login');
+  }
+
   // //Private Table Info
   // $scope.loadMorePrivateTable = function () {
   //   if ($scope.pageNo < $scope.paging.maxPage) {
