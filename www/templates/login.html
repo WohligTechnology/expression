@@ -6,7 +6,8 @@
     <form name="login">
       <div class="login_button row">
         <i class="icon ion-ios-telephone"></i>
-        <input class="col bg-yellow padd-lr" type="number" name="mobile" ng-model="data.mobile" placeholder="Mobile No" required>
+        <input class="col bg-yellow padd-lr" type="text" name="mobile" ng-model="data.mobile" placeholder="Mobile No" minlength="10"
+          maxlength="10" required>
       </div>
       <span class="valid" ng-show="login.mobile.$touched && login.mobile.$invalid">* Mobile No. is required.</span>
       <div class="login_button row">

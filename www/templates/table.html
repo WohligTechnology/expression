@@ -30,7 +30,7 @@
     </div>
     <div class="tip-lobby tip-dealer">
       <div class="tip-dealer_submit row">
-        <button class="button" type='submit'  promise-btn="loginPromise">Tip Dealer</button>
+        <button class="button" type='submit' promise-btn="loginPromise">Tip Dealer</button>
       </div>
     </div>
 
@@ -49,11 +49,11 @@
     <!-- <tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </tip-amount> -->
     <!-- community cards -->
     <div class="card_shuffle">
-        <community ng-community-card="communityCard[1]"></community>
-        <community ng-community-card="communityCard[2]"></community>
-        <community ng-community-card="communityCard[3]"></community>
-        <community ng-community-card="communityCard[5]"></community>
-        <community ng-community-card="communityCard[7]"></community>
+      <community ng-community-card="communityCard[1]"></community>
+      <community ng-community-card="communityCard[2]"></community>
+      <community ng-community-card="communityCard[3]"></community>
+      <community ng-community-card="communityCard[5]"></community>
+      <community ng-community-card="communityCard[7]"></community>
     </div>
 
     <players ng-pos="1" ng-click="sitHereFunction(1)" ng-player="players[0]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
@@ -123,9 +123,13 @@
         <span class="light"></span>
         <span class="btn_name"> Check </span>
       </button>
-      <button class="raise" ng-click="raise();" ng-disabled="!isTurn">
+      <!--<button class="raise" ng-click="raise();" ng-disabled="!isTurn">
         <span class="light"></span>
         <span class="btn_name" > Raise </span>
+      </button>-->
+      <button class="raise" ng-click="modalrange();">
+        <span class="light"></span>
+        <span class="btn_name"> Raise </span>
       </button>
       <button class="allin" ng-click="allIn();" ng-disabled="!isTurn">
         <span class="light"></span>

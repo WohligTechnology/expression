@@ -196,7 +196,7 @@
 <!-- right menu(setting) -->
 <div class="custom_menu custom_menu_right setting_menu profile_menu" ng-class="{'menu_open': rightMenu}" ng-click="closeAll()">
   <div class="menu_cont" ng-click="$event.stopPropagation()">
-    <div class="profile-pic">
+    <div class="profile-pic" ng-click="modalProfile();">
       <img ng-src="{{image | serverimage}}" class="pic img-responsive">
     </div>
     <div class="text-center user-name">
