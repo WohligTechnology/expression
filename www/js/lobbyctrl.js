@@ -651,4 +651,19 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
     },
   }
 
+
+  //user profile modal
+  $ionicModal.fromTemplateUrl('templates/modal/user-profile.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (profileModal) {
+    $scope.profileModal = profileModal;
+  });
+  $scope.modalProfile = function () {
+    $scope.profileModal.show();
+  };
+  $scope.closeProfileModal = function () {
+    $scope.profileModal.hide();
+  };
+
 });
