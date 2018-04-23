@@ -186,7 +186,7 @@
       </ion-item>
       <ion-item ng-click="logout();">
         Log Out
-        <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" vibration=!vibration">
+        <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" vibration="vibration=!vibration">
         </div>
       </ion-item>
     </ion-list>
@@ -200,7 +200,7 @@
       <img ng-src="{{image | serverimage}}" class="pic img-responsive">
     </div>
     <div class="text-center user-name">
-      John kontary
+      {{playerData.name}}
     </div>
     <ion-list class="menu_list">
       <ion-item>
