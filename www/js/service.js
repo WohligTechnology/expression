@@ -60,7 +60,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         $http.post(url + 'User/profile', {
           accessToken: accessToken
         }).then(function (data) {
-          console.log(data);
           callback(data);
         });
       } else {

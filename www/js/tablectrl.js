@@ -12,6 +12,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.playerData = function () {
     Service.getProfile(function (data) {
       $scope.playerData = data.data.data;
+      console.log($scope.playerData);
     })
   };
 
@@ -99,24 +100,26 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
   // Socket Update function with REST API
   $scope.updatePlayers = function () {
-    console.log("$scope.tableId", $scope.tableId);
+    // console.log("$scope.tableId", $scope.tableId);
     if (!_.isEmpty($scope.tableId)) {
-
       Service.getOneTableDetails($scope.tableId, function (data) {
-        console.log("update plr", data);
         // check whether dealer is selected or not
         $scope.maxAmt = data.data.data.maxAmt;
         $scope.minAmt = data.data.data.minAmt;
-        // $scope.players = data.data.data.players;
-        reArragePlayers(data.data.data.players);
-        console.log($scope.players);
+        $scope.communityCards = data.data.data.communityCards;
+        $scope.hasTurn = data.data.data.hasTurn;
+        $scope.isCheck = data.data.data.isCheck;
+        console.log($scope.communityCards)
         if (data.data.data.pot) {
           $scope.potAmount = data.data.data.pot.totalAmount;
         }
-        $scope.iAmThere($scope.players);
+        $scope.iAmThere(data.data.data.players);
         if ($scope.isThere) {
           updateSocketFunction(data.data, true);
         }
+        reArragePlayers(data.data.data.players);
+
+            console.log("$scope.players in update", $scope.players);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
           if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -155,7 +158,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     console.log(data);
     $scope.communityCards = data.data.communityCards;
     $scope.playersChunk = _.chunk(data.playerCards, 8);
-    $scope.players = data.data.players;
     $scope.extra = data.data.extra;
     $scope.hasTurn = data.data.hasTurn;
     $scope.isCheck = data.data.isCheck;
@@ -193,20 +195,20 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
   //Sitting There
   $scope.iAmThere = function (data) {
-    console.log("iAmThere", data);
     $scope.isThere = false;
     _.forEach(data, function (value) {
       if (value && value.user._id == $scope.playerData._id) {
         $scope.isThere = true;
         myTableNo = value.playerNo;
         if(myTableNo = value.playerNo){
-          console.log(value);
+          $scope.activePlayer= value;
         }
         console.log(myTableNo);
         startSocketUpdate();
         return false;
       }
     });
+    console.log($scope.isThere);
     $scope.sitHere = !$scope.isThere;
     // In Case he is already Sitting Please Enable the Game
   };
@@ -293,21 +295,19 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     Service.check($scope.tableId, function (data) {});
   };
 
-  //serve
+  //random card serve
   $scope.randomCard = function () {
     Service.randomCard($scope.tableId, function (data) {});
   };
 
-  //remove player from table
+  //check player from table
   $scope.check = function () {
     Service.check($scope.tableId, function (data) {});
   };
 
 
   //winner
-
   function showWinnerFunction(data) {
-    console.log("show winner", data);
     $scope.updateSocketVar = 1;
     $ionicPlatform.ready(function () {
       if (window.cordova) {
@@ -315,7 +315,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       }
     })
 
-    // $scope.winnerAudio.play();
     $scope.showWinnerPlayer = data.data.players;
     console.log(data.data.players);
     $scope.showNewGameTime = true;

@@ -61,7 +61,7 @@
   // }
   .table_field {
     position: absolute; // bottom: 0;
-    bottom: calc(0px + 65px);
+    bottom: calc(0px + 5.8em);
     width: 100%;
     left: 0;
     text-align: center;
@@ -71,23 +71,18 @@
     }
     .video_frame {
       position: absolute;
-      width: 25%;
+      width: 23vw;
       left: 50%;
       z-index: 1;
       transform: translate(-50%, -35%);
-      top: 0;
-      height: 30vh;
-      max-height: 100px;
-      img {
+      top: -5px;
+      height: 26vh;
+      border-radius: 10px;
+      border: 4px solid #dddddd;
+      overflow: hidden;
+      iframe {
         width: 100%;
-        position: absolute;
         height: 100%;
-        left: 0;
-        top: 0; // &:nth-child(1){
-        //   z-index: 1;
-        // }
-        border-radius: 25px;
-        border: 5px solid #423740;
       }
     }
     .plyr {
@@ -232,11 +227,11 @@
       }
     }
     .card_shuffle {
-      // width: 15%;
+      width: 40%;
       position: absolute;
-      top: 45%;
+      top: 35%;
       left: 50%;
-      transform: translate(-30%);
+      transform: translate(-50%);
       .cards {
         display: flex;
         flex-direction: row; // justify-content: center;
@@ -368,7 +363,7 @@
     top: 15%;
   }
   .player3 {
-    right: 10%;
+    right: 6%;
     top: 60%;
   }
   .player4 {
@@ -477,14 +472,14 @@
   position: absolute;
   width: auto;
   left: 50%;
-  top: calc( 100px - 36px);
+  top: 26%;
+  min-width: 80px;
   transform: translateX(-50%);
-  z-index: 2;
   text-align: left; // word-spacing: 5px;
   color: white;
   background-image: url('../img/table/pot_bg.png');
   background-size: 100% 100%;
-  padding: 5px 10px;
+  padding: 0px 10px 3px;
   .coin {
     width: 1em;
     vertical-align: middle;
@@ -926,13 +921,13 @@
 .back-lobby {
   position: absolute;
   left: 2%;
-  top: -23%;
+  top: 10px;
 }
 
 .tip-dealer {
   position: absolute;
   right: 11%;
-  top: -21%;
+  top: 10px;
 }
 
 .history {

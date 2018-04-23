@@ -18,10 +18,13 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   screen.orientation.lock('landscape');
   //end of ionic cordova
 
+  $scope.accessToken = $.jStorage.get("accessToken");
+  if (!$scope.accessToken) {
+    $state.go("login");
+  }
+
 
   //*************basic ui login***************
-
-
   //to close all tab,modal,popup
   $scope.closeAll = function () {
     $scope.rightMenu = false;

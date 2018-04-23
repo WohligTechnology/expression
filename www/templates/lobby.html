@@ -28,17 +28,19 @@
     <div class="category play_type">
       <ion-scroll direction="x">
         <div class="row">
-          <div class="col col-25 play_now" ng-click="playNow($event);resetFilter();" ng-repeat="table in getAllTables">
-            <img src="img/lobby/card4.png">
-            <div class="card-heading">
-              <h6 class="heading-yellow">{{table.name}}</h6>
-              <!-- <p>Cash Table</p> -->
-            </div>
-            <div class="card-btn">
-              <span>stakes</span>
-              <span>${{table.smallBlind}} / ${{table.bigBlind}}</span>
-              <div>
-                <button class="custom_Card_button  btn_search btn-green" ng-click="goToTable(table._id)"> Select Table</button>
+          <div class="col col-25" ng-click="goToTable(table._id)" ng-repeat="table in getAllTables">
+            <div class="play_now">
+              <img src="img/lobby/empty.png">
+              <div class="card-heading">
+                <h6 class="heading-yellow">{{table.name}}</h6>
+                <!-- <p>Cash Table</p> -->
+              </div>
+              <div class="card-btn">
+                <span>stakes</span>
+                <span>${{table.smallBlind}} / ${{table.bigBlind}}</span>
+                <div>
+                  <button class="custom_Card_button  btn_search btn-green"> Select Table</button>
+                </div>
               </div>
             </div>
           </div>
