@@ -107,8 +107,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.maxAmt = data.data.data.maxAmt;
         $scope.minAmt = data.data.data.minAmt;
         $scope.communityCards = data.data.data.communityCards;
-        $scope.hasTurn = data.data.data.hasTurn;
-        $scope.isCheck = data.data.data.isCheck;
+        $scope.table = data.data.data.table;
         console.log($scope.communityCards)
         if (data.data.data.pot) {
           $scope.potAmount = data.data.data.pot.totalAmount;
@@ -119,7 +118,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         }
         reArragePlayers(data.data.data.players);
 
-            console.log("$scope.players in update", $scope.players);
+        console.log("$scope.players in update", $scope.players);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
           if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -156,18 +155,35 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   // Update Socket Player
   updateSocketFunction = function (data) {
     console.log(data);
+    $scope.maxAmt = data.data.maxAmt;
+    $scope.minAmt = data.data.minAmt;
     $scope.communityCards = data.data.communityCards;
-    $scope.playersChunk = _.chunk(data.playerCards, 8);
-    $scope.extra = data.data.extra;
-    $scope.hasTurn = data.data.hasTurn;
-    $scope.isCheck = data.data.isCheck;
-    $scope.showWinner = data.showWinner;
+    $scope.table = data.data.table;
+    console.log($scope.communityCards)
+    if (data.data.data.pot) {
+      $scope.potAmount = data.data.data.pot.totalAmount;
+    }
+    $scope.iAmThere(data.data.data.players);
+    if ($scope.isThere) {
+      updateSocketFunction(data.data, true);
+    }
+    reArragePlayers(data.data.data.players);
+
     $scope.remainingPlayers = _.filter(data.playerCards, function (n) {
       return (n.isActive && !n.isFold);
     }).length;
     reArragePlayers(data.data.players);
     // console.log($scope.remainingPlayers);
     // $scope.$apply();
+    if ($scope.remainingActivePlayers == 9) {
+      $scope.message = {
+        heading: "Table Full",
+        content: "Try after sometime !!",
+        error: true
+      };
+      $scope.showMessageModal();
+    }
+
   };
 
   io.socket.on("Update", updateSocketFunction);
@@ -200,8 +216,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       if (value && value.user._id == $scope.playerData._id) {
         $scope.isThere = true;
         myTableNo = value.playerNo;
-        if(myTableNo = value.playerNo){
-          $scope.activePlayer= value;
+        if (myTableNo = value.playerNo) {
+          $scope.activePlayer = value;
         }
         console.log(myTableNo);
         startSocketUpdate();

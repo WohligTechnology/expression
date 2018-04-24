@@ -127,4 +127,20 @@ myApp.directive('card', function () {
       }
     };
   })
-  ;
+  .directive('youtube', function ($sce) {
+    return {
+      restrict: 'EA',
+      scope: {
+        code: '='
+      },
+      replace: true,
+      template: '<iframe id="popup-youtube-player" style="overflow:hidden;" src="{{url}}" frameborder="0" allowscriptaccess="always"></iframe>',
+      link: function (scope) {
+        scope.$watch('code', function (newVal) {
+          if (newVal) {
+            scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal + "?autoplay=1");
+          }
+        });
+      }
+    };
+  });
