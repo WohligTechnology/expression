@@ -2,6 +2,7 @@ myApp.controller("AddAmountCtrl", function ($scope, Service, $state, $ionicPlatf
   $ionicPlatform.ready(function () {
     screen.orientation.lock('portrait');
   })
+  screen.orientation.lock('portrait');
 
 
 })

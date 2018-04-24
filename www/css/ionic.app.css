@@ -9930,6 +9930,9 @@ body {
 .left {
   float: left; }
 
+.right {
+  float: right; }
+
 .img-responsive {
   max-width: 100%; }
 
@@ -10126,6 +10129,22 @@ body {
     opacity: 1;
     visibility: visible; }
 
+.play_type .row .col-25:nth-child(1n+0) .play_now {
+  background: url("../img/lobby/card1.png") no-repeat;
+  background-size: 100%; }
+
+.play_type .row .col-25:nth-child(2n+0) .play_now {
+  background: url("../img/lobby/card2.png") no-repeat;
+  background-size: 100%; }
+
+.play_type .row .col-25:nth-child(3n+0) .play_now {
+  background: url("../img/lobby/card3.png") no-repeat;
+  background-size: 100%; }
+
+.play_type .row .col-25:nth-child(4n+0) .play_now {
+  background: url("../img/lobby/card4.png") no-repeat;
+  background-size: 100%; }
+
 .card-heading {
   width: 100%;
   position: absolute;
@@ -10211,7 +10230,7 @@ body {
       font-size: 1.2em; }
     .profile_menu .menu_cont .menu_list .item .item-content {
       background: transparent;
-      color: white;
+      color: #ac8a0e;
       padding: 0px; }
 
 .setting_menu {
@@ -10271,6 +10290,11 @@ body {
   font-weight: 600;
   letter-spacing: 1px; }
 
+.amount-bg {
+  background-image: url("../img/login/bgblue.png");
+  width: 100%;
+  height: 30px; }
+
 .table {
   background: url("../img/background.jpg");
   background-size: 100% 100%;
@@ -10279,7 +10303,7 @@ body {
   position: relative; }
   .table .table_field {
     position: absolute;
-    bottom: calc(0px + 65px);
+    bottom: calc(0px + 5.8em);
     width: 100%;
     left: 0;
     text-align: center; }
@@ -10288,21 +10312,18 @@ body {
       width: 90%; }
     .table .table_field .video_frame {
       position: absolute;
-      width: 25%;
+      width: 23vw;
       left: 50%;
       z-index: 1;
       transform: translate(-50%, -35%);
-      top: 0;
-      height: 30vh;
-      max-height: 100px; }
-      .table .table_field .video_frame img {
+      top: -5px;
+      height: 26vh;
+      border-radius: 10px;
+      border: 4px solid #dddddd;
+      overflow: hidden; }
+      .table .table_field .video_frame iframe {
         width: 100%;
-        position: absolute;
-        height: 100%;
-        left: 0;
-        top: 0;
-        border-radius: 25px;
-        border: 5px solid #423740; }
+        height: 100%; }
     .table .table_field .plyr {
       width: 7%;
       position: absolute;
@@ -10416,10 +10437,11 @@ body {
       .table .table_field .plyr.sit_here.player3, .table .table_field .plyr.no_player.player3 {
         right: 5%; }
     .table .table_field .card_shuffle {
+      width: 40%;
       position: absolute;
-      top: 45%;
+      top: 35%;
       left: 50%;
-      transform: translate(-30%); }
+      transform: translate(-50%); }
       .table .table_field .card_shuffle .cards {
         display: flex;
         flex-direction: row; }
@@ -10534,7 +10556,7 @@ body {
     right: 6%;
     top: 15%; }
   .table .player3 {
-    right: 10%;
+    right: 6%;
     top: 60%; }
   .table .player4 {
     right: 26%;
@@ -10618,14 +10640,14 @@ body {
   position: absolute;
   width: auto;
   left: 50%;
-  top: calc( 100px - 36px);
+  top: 26%;
+  min-width: 80px;
   transform: translateX(-50%);
-  z-index: 2;
   text-align: left;
   color: white;
   background-image: url("../img/table/pot_bg.png");
   background-size: 100% 100%;
-  padding: 5px 10px;
+  padding: 0px 10px 3px;
   transition: none;
   z-index: 6 !important; }
   .total_played_coin .coin {
@@ -10980,12 +11002,12 @@ body {
 .back-lobby {
   position: absolute;
   left: 2%;
-  top: -23%; }
+  top: 10px; }
 
 .tip-dealer {
   position: absolute;
   right: 11%;
-  top: -21%; }
+  top: 10px; }
 
 .history {
   position: absolute;
@@ -11810,6 +11832,13 @@ span.valid {
   top: 17%;
   left: 16%; }
 
+.voucher_summary .heading {
+  padding-bottom: 16px;
+  padding-top: 50px; }
+
+.voucher-mar {
+  margin: 3% 10%; }
+
 .pie_loader {
   position: absolute;
   width: 100%;
@@ -11914,3 +11943,37 @@ span.valid {
 
 .signup .sign_up_status {
   font-size: 2em; }
+
+.add-amount .login_block {
+  width: 76%; }
+
+.add-amount .login_block .login_button_submit button {
+  margin-top: 12%;
+  margin-bottom: 5%;
+  width: 70%; }
+
+.add-amount p {
+  font-size: 10px;
+  line-height: 15px; }
+
+.transaction {
+  background: #ddcb77;
+  color: #000;
+  font-size: 1.5em;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  padding: 5px; }
+
+.transaction-history {
+  margin: 4% 6%; }
+  .transaction-history th {
+    background-color: #221934;
+    font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #fff; }
+  .transaction-history td {
+    padding-left: 18px;
+    background-color: #ddcb77;
+    color: #000;
+    font-size: 1.2em; }

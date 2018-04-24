@@ -204,14 +204,18 @@
     <div class="text-center user-name">
       {{playerData.name}}
     </div>
+    <!--<div class="amount-bg">
+      <span class="left">Add</span>
+      <span class="right">Withdrawal</span>
+    </div>-->
     <ion-list class="menu_list">
-      <ion-item>
-        sound
+      <ion-item ui-sref="addamount">
+        Add
         <div class="custom_toggle" ng-class="{'toggle_on':sound,'toggle_off':!sound}" ng-click="sound=!sound">
         </div>
       </ion-item>
-      <ion-item>
-        notification
+      <ion-item ui-sref="withdrawal">
+        Withdrawal
         <div class="custom_toggle" ng-class="{'toggle_on':notification,'toggle_off':!notification}" ng-click="notification=!notification">
         </div>
       </ion-item>
