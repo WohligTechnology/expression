@@ -10,9 +10,9 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
-        
-    
-      
+
+
+
       if (window.MobileAccessibility) {
         window.MobileAccessibility.usePreferredTextZoom(false);
       }
@@ -30,10 +30,10 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
 
 
 
-if(window.plugins && window.plugins.insomnia){
-  window.plugins.insomnia.keepAwake();
-}
-      
+      if (window.plugins && window.plugins.insomnia) {
+        window.plugins.insomnia.keepAwake();
+      }
+
       // Preload audio resources
       // window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
       //   console.log('error: ' + msg);
@@ -79,6 +79,18 @@ if(window.plugins && window.plugins.insomnia){
         templateUrl: 'templates/sign-up.html',
         cache: false,
         controller: 'SignUpCtrl'
+      })
+      .state('addamount', {
+        url: '/addamount',
+        templateUrl: 'templates/add-amount.html',
+        cache: false,
+        controller: 'AddAmountCtrl'
+      })
+      .state('withdrawal', {
+        url: '/withdrawal',
+        templateUrl: 'templates/withdrawal-amount.html',
+        cache: false,
+        controller: 'WithDrawalCtrl'
       })
       .state('table', {
         url: '/table/:id',

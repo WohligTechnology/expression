@@ -1,0 +1,40 @@
+.add-amount {
+  .login_block {
+    width: 76%;
+  }
+  .login_block .login_button_submit button {
+    margin-top: 12%;
+    margin-bottom: 5%;
+    width: 70%;
+  }
+  p {
+    font-size: 10px;
+    line-height: 15px;
+  }
+}
+
+.transaction {
+  background: #ddcb77;
+  color: #000;
+  font-size: 1.5em;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.transaction-history {
+  margin: 4% 6%;
+  th {
+    background-color: #221934;
+    font-size: 1.3em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: $light;
+  }
+  td {
+    padding-left: 18px;
+    background-color: #ddcb77;
+    color: #000;
+    font-size: 1.2em;
+  }
+}
