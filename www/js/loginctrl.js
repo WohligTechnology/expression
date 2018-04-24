@@ -137,4 +137,13 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
     $scope.confirmotpModal.hide();
   };
 
+
+  $scope.verticalSlider = {
+    value: 0,
+    options: {
+      floor: 0,
+      ceil: 10,
+      vertical: true
+    }
+  };
 });

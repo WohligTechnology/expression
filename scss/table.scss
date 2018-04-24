@@ -970,13 +970,12 @@
 }
 
 .table-range-slider {
-  .rzslider {
-    transform: rotate(-90deg);
-    margin: 17px 0 15px 0;
-    .rz-pointer {
-      top: -12px;
-    }
-  }
+  // .rzslider {
+  //   margin: 17px 0 15px 0;
+  //   .rz-pointer {
+  //     top: -12px;
+  //   }
+  // }
   .text-scroll {
     margin: 31% 14% 0% 20%;
     height: 60%;
@@ -993,7 +992,13 @@
   background-color: transparent;
   background-size: 100% 100%;
   color: white;
-  padding: 2%;
+  padding: 2%; // .rzslider .rz-bar-wrapper {
+  //   left: 0;
+  //   z-index: 1;
+  //   width: 100%;
+  //   height: 32px;
+  //   padding-top: 96px !important;
+  // }
 }
 
 @keyframes tipmovefrombottom {

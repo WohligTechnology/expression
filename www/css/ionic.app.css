@@ -11017,12 +11017,6 @@ body {
   background-size: cover;
   background-position: center center; }
 
-.table-range-slider .rzslider {
-  transform: rotate(-90deg);
-  margin: 17px 0 15px 0; }
-  .table-range-slider .rzslider .rz-pointer {
-    top: -12px; }
-
 .table-range-slider .text-scroll {
   margin: 31% 14% 0% 20%;
   height: 60%; }

@@ -648,9 +648,18 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
     options: {
       floor: 10,
       ceil: 200,
+
     },
   }
-
+  //range slider
+  $scope.verticalSlider = {
+    value: 0,
+    options: {
+      floor: 0,
+      ceil: 10,
+      vertical: true
+    }
+  };
 
   //user profile modal
   $ionicModal.fromTemplateUrl('templates/modal/user-profile.html', {
