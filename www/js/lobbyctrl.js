@@ -265,8 +265,21 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         'id': $scope.tableId
       });
     }, 300)
-  }
+  };
 
+
+  //withdraw Coins
+  $scope.withdrawCoins = function (data) {
+    Service.withdrawCoins(data, function (data) {});
+  };
+  //buy Coins
+  $scope.buyCoins = function (data) {
+    Service.buyCoins(data, function (data) {});
+  };
+  //buy In
+  $scope.buyIn = function (data) {
+    Service.buyIn(data, function (data) {});
+  };
 
   //Logout
   $scope.logout = function () {
@@ -650,8 +663,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
     value: 150,
     options: {
       floor: 10,
-      ceil: 200,
-
+      ceil: 200
     },
   }
   //range slider

@@ -66,6 +66,37 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         $state.go("login");
       }
     },
+    buyCoins: function (coins, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http({
+          url: url + 'Transaction/buyCoins',
+          method: 'POST',
+          data: {
+            coins: coins,
+            accessToken: accessToken
+          }
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+    withdrawCoins: function (coins, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http({
+          url: url + 'Transaction/withdrawCoins',
+          method: 'POST',
+          data: {
+            coins: coins,
+            accessToken: accessToken
+          }
+        }).then(function (data) {
+          console.log(data);
+          callback(data);
+        });
+      }
+    },
     getAllTable: function (callback) {
       return $http.post(url + "Table/getAllTable").then(function (data) {
         data = data.data;
@@ -88,6 +119,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           data: {
             playerNo: dataPlayer.playerNo,
             tableId: dataPlayer.tableId,
+            amount:dataPlayer.amount,
             socketId: socketId,
             accessToken: accessToken
           }

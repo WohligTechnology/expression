@@ -59,7 +59,7 @@
       <div class="turn_status call" ng-if="player.hasChecked">Checked</div>
       <div class="turn_status call" ng-if="player.hasCall">Call</div>
       <div class="name">{{player.user.name}}</div>
-      <div class="amt">{{player.user.balance}}</div>
+      <div class="amt">{{player.buyInAmt-player.totalAmount}}</div>
     </div>
   </div>
 </div>

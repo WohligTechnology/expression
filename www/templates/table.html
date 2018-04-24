@@ -58,74 +58,79 @@
 
     </div>
 
-    <players ng-pos="1" ng-click="sitHereFunction(1)" ng-player="players[0]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="1" ng-click="modalgame(1)" ng-player="players[0]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="2" ng-click="sitHereFunction(2)" ng-player="players[1]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="2" ng-click="modalgame(2)" ng-player="players[1]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="3" ng-click="sitHereFunction(3)" ng-player="players[2]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="3" ng-click="modalgame(3)" ng-player="players[2]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="4" ng-click="sitHereFunction(4)" ng-player="players[3]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="4" ng-click="modalgame(4)" ng-player="players[3]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="5" ng-click="sitHereFunction(5)" ng-player="players[4]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="5" ng-click="modalgame(5)" ng-player="players[4]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
-    <players ng-pos="6" ng-click="sitHereFunction(6)" ng-player="players[5]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="6" ng-click="modalgame(6)" ng-player="players[5]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
-    <players ng-pos="7" ng-click="sitHereFunction(7)" ng-player="players[6]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="7" ng-click="modalgame(7)" ng-player="players[6]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
-    <players ng-pos="8" ng-click="sitHereFunction(8)" ng-player="players[7]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="8" ng-click="modalgame(8)" ng-player="players[7]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
-    <players ng-pos="9" ng-click="sitHereFunction(9)" ng-player="players[8]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="9" ng-click="modalgame(9)" ng-player="players[8]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
 
 
     <!-- close of table field -->
-    <div class="p6 bootAnimate" ng-if="(activePlayer.isChaal==true && !activePlayer.isFold && remainingPlayerCount>1)  || (playersactivePlayer && startCoinAnime && remainingPlayerCount>1)">
+    <div class="p6 bootAnimate" ng-if="(activePlayer[0].isChaal==true && !activePlayer[0].isFold && remainingPlayerCount>1)  || (playersactivePlayer && startCoinAnime && remainingPlayerCount>1)">
       <img src="img/coin.svg" class="coin">{{ chaalAmt}}
     </div>
   </div>
 
   <!-- bottom block -->
+<!-- <pre>{{activePlayer.cards}}</pre> -->
   <div class="bottom">
     <div class="tip-lobby history">
       <div class="tip-dealer_submit row">
         <button class="button" type='submit' promise-btn="loginPromise" ng-click="randomCard()">History</button>
       </div>
     </div>
-    <div class="main_card">
+    <div class="main_card" ng-if="!activePlayer[0].fold">
       <div class="cards">
-        <card card="{{activePlayer.cards[0]}}"></card>
-        <card card="{{activePlayer.cards[1]}}"></card>
+        <card card="{{activePlayer[0].cards[0]}}"></card>
+        <card card="{{activePlayer[0].cards[1]}}"></card>
       </div>
     </div>
     <div class="player_turn_button">
-      <button class="fold" ng-click="fold();" ng-disabled="!isTurn">
+      <button class="fold" ng-click="fold();" ng-disabled="!activePlayer[0].isTurn">
         <span class="light"></span>
         <span class="btn_name"> FOLD </span>
       </button>
-      <button class="call" ng-click="call();" ng-if="!isCheck" ng-disabled="!isCheck && !isTurn">
+      <button class="call" ng-click="call(table.bigBlind);" ng-if="!activePlayer[0].isCheck && activePlayer[0].isBigBlind" ng-disabled="!activePlayer[0].isCheck && !activePlayer[0].isTurn">
         <span class="light"></span>
         <span class="btn_name"> Call </span>
       </button>
-      <button class="call" ng-click="check();" ng-if="isCheck" ng-disabled="isCheck && !isTurn">
+      <button class="call" ng-click="call(table.smallBlind);" ng-if="!activePlayer[0].isCheck && activePlayer[0].isLastBlind" ng-disabled="!activePlayer[0].isCheck && !activePlayer[0].isTurn">
+          <span class="light"></span>
+          <span class="btn_name"> Call </span>
+      </button>
+      <button class="call" ng-click="check();" ng-if="activePlayer[0].isCheck" ng-disabled="activePlayer[0].isCheck && !activePlayer[0].isTurn">
         <span class="light"></span>
         <span class="btn_name"> Check </span>
       </button>
-      <!--<button class="raise" ng-click="raise();" ng-disabled="!isTurn">
+      <!--<button class="raise" ng-click="raise();" ng-disabled="!activePlayer.isTurn">
         <span class="light"></span>
         <span class="btn_name" > Raise </span>
       </button>-->
@@ -133,7 +138,7 @@
         <span class="light"></span>
         <span class="btn_name"> Raise </span>
       </button>
-      <button class="allin" ng-click="allIn();" ng-disabled="!isTurn">
+      <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn">
         <span class="light"></span>
         <span class="btn_name"> All In </span>
       </button>
