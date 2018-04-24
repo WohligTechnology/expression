@@ -127,6 +127,27 @@
     }
   }
 }
+.play_type{
+  .row .col-25{
+      &:nth-child(1n+0) .play_now {
+        background:url('../img/lobby/card1.png') no-repeat;
+        background-size: 100%;
+      }
+      &:nth-child(2n+0) .play_now {
+        background:url('../img/lobby/card2.png') no-repeat;
+        background-size: 100%;
+      }
+      &:nth-child(3n+0) .play_now {
+        background:url('../img/lobby/card3.png') no-repeat;
+        background-size: 100%;
+      }
+      &:nth-child(4n+0) .play_now {
+        background:url('../img/lobby/card4.png') no-repeat;
+        background-size: 100%;
+      }
+  }
+}
+
 
 //card css
 .card-heading {
