@@ -678,4 +678,19 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
     $scope.profileModal.hide();
   };
 
+
+  //voucher modal
+  $ionicModal.fromTemplateUrl('templates/modal/voucher.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (voucherModal) {
+    $scope.voucherModal = voucherModal;
+  });
+  $scope.modalVoucher = function () {
+    $scope.voucherModal.show();
+  };
+  $scope.closeVoucherModal = function () {
+    $scope.voucherModal.hide();
+  };
+
 });
