@@ -518,19 +518,17 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     //   },
 
     getTransaction: function (pageNo, callback) {
-      if (!pageNo) {
-        pageNo = 1;
-      }
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Transaction/getPaymentDetails', {
           "page": pageNo,
           "accessToken": accessToken
         }).then(function (data) {
-
-          // var totalCount = data.data.data.total;
-          // data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
-          callback(data);
+          if (data.data) {
+            var totalCount = data.data.data.total;
+            data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+            callback(data);
+          }
 
         });
       }
