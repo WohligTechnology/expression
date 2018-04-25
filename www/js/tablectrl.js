@@ -32,7 +32,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.playerDataFunction();
 
-
   //Message Ui
   $ionicModal.fromTemplateUrl('templates/modal/message.html', {
     scope: $scope,
@@ -170,22 +169,22 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
   // Update Socket Player
   updateSocketFunction = function (data) {
-    console.log("updateSocketFunction", data);
-    $scope.communityCards = data.data.communityCards;
-    $scope.table = data.data.table;
-    $scope.extra = data.data.extra;
-    $scope.hasTurn = data.data.hasTurn;
-    $scope.isCheck = data.data.isCheck;
-    $scope.pots = data.data.pots;
-    $scope.remainingPlayers = _.filter(data.data.players, function (n) {
+    console.log("updateSocketFunction", data.data.players);
+    $scope.communityCards = data.communityCards;
+    $scope.table = data.table;
+    $scope.extra = data.extra;
+    $scope.hasTurn = data.hasTurn;
+    $scope.isCheck = data.isCheck;
+    $scope.pots = data.pots;
+    $scope.remainingPlayers = _.filter(data.players, function (n) {
       return (n.isActive && !n.isFold);
     }).length;
     if (data.pots) {
       $scope.potAmount = data.pots.totalAmount;
     }
-    $scope.iAmThere(data.players);
+    $scope.iAmThere(data.data.players);
     if ($scope.isThere) {
-      updateSocketFunction(data.data, true);
+      updateSocketFunction(data, true);
     }
     reArragePlayers(data.data.players);
     $scope.activePlayer = _.filter(data.data.players, function (player) {
@@ -196,6 +195,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     });
     console.log("$scope.activePlayer", $scope.activePlayer);
     reArragePlayers(data.data.players);
+    console.log("$scope.players", $scope.players);
     // console.log($scope.remainingPlayers);
     // $scope.$apply();
     if ($scope.remainingActivePlayers == 9) {
@@ -205,7 +205,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         error: true
       };
       $scope.showMessageModal();
-    }
+    };
+    $scope.$apply();
 
   };
 
@@ -218,7 +219,10 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.iAmThere = function (data) {
     $scope.isThere = false;
     _.forEach(data, function (value) {
+      console.log("$scope.playerData._id", $scope.playerData._id);
+      console.log("value.user._id", value.user._id);
       if (value && value.user._id == $scope.playerData._id) {
+        console.log("Inside MemberId");
         $scope.isThere = true;
         myTableNo = value.playerNo;
         startSocketUpdate();
@@ -395,11 +399,11 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //winner
   function showWinnerFunction(data) {
     $scope.updateSocketVar = 1;
-    $ionicPlatform.ready(function () {
-      if (window.cordova) {
-        window.plugins.NativeAudio.play('winner');
-      }
-    })
+    // $ionicPlatform.ready(function () {
+    //   if (window.cordova) {
+    //     window.plugins.NativeAudio.play('winner');
+    //   }
+    // })
 
     $scope.showWinnerPlayer = data.data.players;
     console.log(data.data.players);
@@ -426,7 +430,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.winnerPlayerNo = $scope.winner.playerNo;
     }
     console.log($scope.winner);
-    $scope.changeTableMessage($scope.winner.name + " won the game");
+    // $scope.changeTableMessage($scope.winner.name + " won the game");
   }
 
   //showWinner
