@@ -11905,8 +11905,8 @@ span.valid {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
   z-index: 200;
   border-right: none;
-  animation: rota 20s linear infinite;
-  -webkit-animation: rota 20s linear infinite; }
+  animation: rota 25s linear infinite;
+  -webkit-animation: rota 25s linear infinite; }
 
 .animation_wrapper:hover .spinner,
 .animation_wrapper:hover .filler,
@@ -11919,8 +11919,8 @@ span.valid {
   left: 50%;
   opacity: 0;
   z-index: 100;
-  animation: opa 20s steps(1, end) infinite reverse;
-  -webkit-animation: opa 20s steps(1, end) infinite reverse;
+  animation: opa 25s steps(1, end) infinite reverse;
+  -webkit-animation: opa 25s steps(1, end) infinite reverse;
   border-left: none; }
 
 .animation_wrapper .mask {
@@ -11930,8 +11930,8 @@ span.valid {
   background: inherit;
   opacity: 1;
   z-index: 300;
-  animation: opa 20s steps(1, end) infinite;
-  -webkit-animation: opa 20s steps(1, end) infinite; }
+  animation: opa 25s steps(1, end) infinite;
+  -webkit-animation: opa 25s steps(1, end) infinite; }
 
 @keyframes rota {
   0% {

@@ -1,5 +1,6 @@
 <div class="plyr player{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere}">
   <!-- before Player Sitting -->
+  <!-- <pre>{{sitHere}}</pre> -->
   <div class="rel" ng-if="sitHere">
     <div class="player_pic">
       <img src="img/sithere.png" class="pic">
@@ -35,9 +36,7 @@
       <card card='DONE' class="none card-rotate-right" ng-style="style"> </card>
       <card card='DONE' class="none card-rotate" ng-style="style"> </card>
     </div>
-
-
-    <div class="you" ng-if="">
+    <div class="you" ng-if="player.user._id == activePlayer.user._id">
       You
     </div>
     <div class="winner" ng-if="player.winner && player.winRank==1">

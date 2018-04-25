@@ -6,10 +6,10 @@
     <form name="signup">
       <div class="login_button row">
         <i class="icon ">&#x20b9;</i>
-        <input class="col bg-yellow padd-lr" type="text" name="mobile" ng-model="data.mobile" placeholder="0000" required>
+        <input class="col bg-yellow padd-lr" type="text" name="amount" ng-model="data.coins" placeholder="0000" required>
       </div>
       <div class="login_button_submit row">
-        <button class="button" type='submit' ui-sref="login">PROCEED</button>
+        <button class="button" type='submit' ng-click="withdrawCoins(data.coins)">PROCEED</button>
       </div>
       <div>
         <p>*minimum amount to be withdrawn should be 1000/- *withdrawl process only on Tuesdays and Friday

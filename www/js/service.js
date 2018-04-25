@@ -97,6 +97,21 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
+    // getTransactions: function (pageNo, callback) {
+    //   var accessToken = $.jStorage.get("accessToken");
+    //   if (!_.isEmpty(accessToken)) {
+    //     return $http({
+    //       url: url + 'Transaction/getTableStatusDetails',
+    //       method: 'POST',
+    //       data: {
+    //         "page": pageNo,
+    //         accessToken: accessToken
+    //       }
+    //     }).then(function (data) {
+    //       callback(data);
+    //     });
+    //   }
+    // },
     getAllTable: function (callback) {
       return $http.post(url + "Table/getAllTable").then(function (data) {
         data = data.data;
@@ -119,7 +134,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           data: {
             playerNo: dataPlayer.playerNo,
             tableId: dataPlayer.tableId,
-            amount:dataPlayer.amount,
+            amount: dataPlayer.amount,
             socketId: socketId,
             accessToken: accessToken
           }
@@ -130,7 +145,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     connectSocket: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (!_.isEmpty(accessToken)) {
+      var tableId = $.jStorage.get("tableId");
+      if (!_.isEmpty(accessToken) && (tableId)) {
         callApi();
       } else {
         $timeout(function () {
@@ -143,7 +159,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         if (!_.isEmpty(accessToken)) {
           $http.post(url + 'Player/updateSocket', {
             accessToken: accessToken,
-            socketId: socketId
+            socketId: socketId,
+            tableId: tableId
           }).then(function (data) {
             callback(data);
           });
@@ -229,13 +246,13 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     randomCard: function (tableId) {
       var cardValue = cards[_.random(0, cards.length - 3)].name;
       $http.post(url + 'Player/serve', {
-        tableId:tableId,
+        tableId: tableId,
         card: cardValue
       }).then(function (data) {
         console.log(data.data);
       });
     },
-    removePlayer: function (tableId,playerNo,callback) {
+    removePlayer: function (tableId, playerNo, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         return $http({
@@ -243,7 +260,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           method: 'POST',
           data: {
             tableId: tableId,
-            playerNo:playerNo,
+            playerNo: playerNo,
             accessToken: accessToken
           }
         }).then(function (data) {
@@ -502,24 +519,24 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     //     }
     //   },
 
-    //   getTransaction: function (pageNo, callback) {
-    //     if (!pageNo) {
-    //       pageNo = 1;
-    //     }
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Transaction/getPlayerTransaction', {
-    //         "page": pageNo,
-    //         "accessToken": accessToken
-    //       }).then(function (data) {
-    //         if (data.data) {
-    //           var totalCount = data.data.data.total;
-    //           data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
-    //           callback(data);
-    //         } else {}
-    //       });
-    //     }
-    //   },
+    getTransaction: function (pageNo, callback) {
+      if (!pageNo) {
+        pageNo = 1;
+      }
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http.post(url + 'Transaction/getPaymentDetails', {
+          "page": pageNo,
+          "accessToken": accessToken
+        }).then(function (data) {
+
+          // var totalCount = data.data.data.total;
+          // data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+          callback(data);
+
+        });
+      }
+    },
 
     //   getByPlrId: function (data, callback) {
     //     $http.post(url + 'Player/getByPlrId', {

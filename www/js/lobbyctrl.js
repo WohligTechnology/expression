@@ -23,7 +23,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
     $state.go("login");
   }
 
-
+  $.jStorage.deleteKey("tableId");
   //*************basic ui login***************
   //to close all tab,modal,popup
   $scope.closeAll = function () {
@@ -268,14 +268,8 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   };
 
 
-  //withdraw Coins
-  $scope.withdrawCoins = function (data) {
-    Service.withdrawCoins(data, function (data) {});
-  };
-  //buy Coins
-  $scope.buyCoins = function (data) {
-    Service.buyCoins(data, function (data) {});
-  };
+
+
   //buy In
   $scope.buyIn = function (data) {
     Service.buyIn(data, function (data) {});
@@ -371,13 +365,13 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $scope.accessToken = $.jStorage.get("accessToken");
 
   //playerData
-  $scope.playerData = function () {
+  $scope.playerDataFunction = function () {
     Service.getProfile(function (data) {
       $scope.playerData = data.data.data;
     })
   };
 
-  $scope.playerData();
+  $scope.playerDataFunction();
   //privatetable call
   // $scope.createPrivateTable = function (formData) {
   //   Service.createTable(formData, function (data) {
