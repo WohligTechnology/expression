@@ -249,17 +249,15 @@ console.log($scope.minimumBuyin);
     console.log(sitNum);
     $scope.gameModal.show();
     $scope.sitNo = sitNum;
-    $scope.slider = {
-        max: $scope.minimumBuyin,
-        min: 150000
-    }
   };
-  $scope.model = {
-    age: {
-        min: 0,
-        max: 100
-    }
-}
+  //range slider
+  $scope.slider = {
+    value: 10000,
+    options: {
+      floor: 10000,
+      ceil: 150000
+    },
+  }
   $scope.closeGameModal = function () {
     $scope.gameModal.hide();
   };
