@@ -16,15 +16,15 @@
     <table-info> </table-info>
   </div> -->
   <div class="tip-lobby back-lobby">
-      <div class="tip-dealer_submit row">
-        <button class="button" type='submit' ng-click="removePlayer();" promise-btn="loginPromise">Back to lobby</button>
-      </div>
+    <div class="tip-dealer_submit row">
+      <button class="button" type='submit' ng-click="removePlayer();" promise-btn="loginPromise">Back to lobby</button>
     </div>
-    <div class="tip-lobby tip-dealer">
-      <div class="tip-dealer_submit row">
-        <button class="button" type='submit' promise-btn="loginPromise">Tip Dealer</button>
-      </div>
+  </div>
+  <div class="tip-lobby tip-dealer">
+    <div class="tip-dealer_submit row">
+      <button class="button" type='submit' promise-btn="loginPromise">Tip Dealer</button>
     </div>
+  </div>
   <div class="table_field">
     <!-- <div class="new_game_timer" ng-if="showNewGameTime && !(remainingPlayerCount>1) && !tableMessageShow">
       <span> New Game will start in 15s </span>
@@ -34,7 +34,7 @@
     </div> -->
 
     <div class="video_frame">
-        <div class="hello videocss " youtube code="table.youTubeUrl"></div>
+      <div class="hello videocss " youtube code="table.youTubeUrl"></div>
       <!-- <img src="img/video_frame.png"> -->
     </div>
 
@@ -49,11 +49,11 @@
     <!-- community cards -->
     <div class="card_shuffle">
       <div class="row">
-          <community ng-community-card="communityCards[1]" class="col col-20"></community>
-          <community ng-community-card="communityCards[2]" class="col col-20"></community>
-          <community ng-community-card="communityCards[3]" class="col col-20"></community>
-          <community ng-community-card="communityCards[5]" class="col col-20"></community>
-          <community ng-community-card="communityCards[7]" class="col col-20"></community>
+        <community ng-community-card="communityCards[1]" class="col col-20"></community>
+        <community ng-community-card="communityCards[2]" class="col col-20"></community>
+        <community ng-community-card="communityCards[3]" class="col col-20"></community>
+        <community ng-community-card="communityCards[5]" class="col col-20"></community>
+        <community ng-community-card="communityCards[7]" class="col col-20"></community>
       </div>
 
     </div>
@@ -100,11 +100,11 @@
   </div>
 
   <!-- bottom block -->
-<!-- <pre>{{activePlayer.cards}}</pre> -->
+  <!-- <pre>{{activePlayer.cards}}</pre> -->
   <div class="bottom">
     <div class="tip-lobby history">
-      <div class="tip-dealer_submit row">
-        <button class="button" type='submit' promise-btn="loginPromise" ng-click="randomCard()">History</button>
+      <div class="tip-dealer_submit row" ng-click="$event.stopPropagation();openLeftMenu()">
+        <button class="button" type='submit' promise-btn="loginPromise" ng-click="randomCard()"><i class="icon ion-refresh"></i>History</button>
       </div>
     </div>
     <div class="main_card" ng-if="!activePlayer[0].fold">
