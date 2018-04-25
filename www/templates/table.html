@@ -118,11 +118,7 @@
         <span class="light"></span>
         <span class="btn_name"> FOLD </span>
       </button>
-      <button class="call" ng-click="call(table.bigBlind);" ng-if="!activePlayer[0].isCheck && activePlayer[0].isBigBlind" ng-disabled="!activePlayer[0].isCheck && !activePlayer[0].isTurn">
-        <span class="light"></span>
-        <span class="btn_name"> Call </span>
-      </button>
-      <button class="call" ng-click="call(table.smallBlind);" ng-if="!activePlayer[0].isCheck && activePlayer[0].isLastBlind" ng-disabled="!activePlayer[0].isCheck && !activePlayer[0].isTurn">
+      <button class="call" ng-click="call();" ng-if="!activePlayer[0].isCheck" ng-disabled="!activePlayer[0].isCheck && !activePlayer[0].isTurn">
           <span class="light"></span>
           <span class="btn_name"> Call </span>
       </button>

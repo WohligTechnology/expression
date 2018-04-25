@@ -10322,8 +10322,8 @@ body {
       border: 4px solid #dddddd;
       overflow: hidden; }
       .table .table_field .video_frame iframe {
-        width: 100%;
-        height: 100%; }
+        width: 100% !important;
+        height: 100% !important; }
     .table .table_field .plyr {
       width: 7%;
       position: absolute;
