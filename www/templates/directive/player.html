@@ -6,6 +6,11 @@
       <img src="img/sithere.png" class="pic">
     </div>
   </div>
+  <div class="rel" ng-if="player.tableLeft && !sitHere">
+    <div class="player_pic">
+      <img src="img/not.png" class="pic">
+    </div>
+  </div>
   <div class="rel" ng-if="!player && !sitHere">
     <div class="player_pic">
       <img src="img/not.png" class="pic">
@@ -19,7 +24,7 @@
     </div>
   </div>
   <!-- after Player Sitting -->
-  <div class="rel" ng-if="!sitHere && player">
+  <div class="rel" ng-if="!sitHere && player && !player.tableLeft">
     <!-- <div class="tcard tcard{{pos}}">
       <card class="none card-rotate-right" card='NONE'> </card>
       <card class="none card-rotate" card='NONE'> </card>
@@ -30,7 +35,7 @@
     </div> -->
     <div class="tcard tcard{{pos}}" ng-if="player.cards.length==1">
       <card card='DONE' class="none card-rotate-right" ng-style="style"> </card>
-      <card card='NONE' class="none card-rotate" ng-style="style" class="low-opacity"></card>
+      <card card='' class="none card-rotate" ng-style="style" class="low-opacity"></card>
     </div>
     <div class="tcard tcard{{pos}}" ng-if="player.cards.length==2">
       <card card='DONE' class="none card-rotate-right" ng-style="style"> </card>

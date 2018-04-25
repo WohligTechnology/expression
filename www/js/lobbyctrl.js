@@ -128,7 +128,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         });
         $scope.loadingDisable = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else {}
+      } else { }
     });
   };
 
@@ -184,7 +184,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         });
         $scope.loadingDisable = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else {}
+      } else { }
     });
   };
 
@@ -272,7 +272,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
 
   //buy In
   $scope.buyIn = function (data) {
-    Service.buyIn(data, function (data) {});
+    Service.buyIn(data, function (data) { });
   };
 
   //Logout
@@ -368,6 +368,8 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $scope.playerDataFunction = function () {
     Service.getProfile(function (data) {
       $scope.playerData = data.data.data;
+      $scope.playerDataId = data.data.data._id;
+      $scope._id = $.jStorage.set("_id", $scope.playerDataId);
     })
   };
 
