@@ -9,12 +9,24 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.tableId = $stateParams.id;
   //Basic ui login
 
+
+
+  //range slider
+  $scope.slider = {
+    value: 100,
+    options: {
+      floor: 10,
+      ceil: 150000
+    },
+  };
+
+
   //player data
   $scope.playerData = function () {
     Service.getProfile(function (data) {
       $scope.playerData = data.data.data;
       console.log($scope.playerData);
-    })
+    });
   };
 
   $scope.playerData();
@@ -65,7 +77,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.tableMessageShow = false;
     }, 5000);
 
-  }
+  };
 
   function reArragePlayers(playersData) {
     var diff = myTableNo - 1;
@@ -113,6 +125,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         if (data.data.data.pot) {
           $scope.potAmount = data.data.data.pot.totalAmount;
         }
+        $scope.slider.value = $scope.minimumBuyin;
+        $scope.slider.options.floor = $scope.minimumBuyin;
         $scope.iAmThere(data.data.data.players);
         reArragePlayers(data.data.data.players);
         $scope.activePlayer = _.filter($scope.players, function (player) {
@@ -249,14 +263,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.gameModal.show();
     $scope.sitNo = sitNum;
   };
-  //range slider
-  $scope.slider = {
-    value: 10000,
-    options: {
-      floor: 10000,
-      ceil: 150000
-    },
-  }
+
   $scope.closeGameModal = function () {
     $scope.gameModal.hide();
   };
