@@ -119,7 +119,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           data: {
             playerNo: dataPlayer.playerNo,
             tableId: dataPlayer.tableId,
-            amount:dataPlayer.amount,
+            amount: dataPlayer.amount,
             socketId: socketId,
             accessToken: accessToken
           }
@@ -229,13 +229,13 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     randomCard: function (tableId) {
       var cardValue = cards[_.random(0, cards.length - 3)].name;
       $http.post(url + 'Player/serve', {
-        tableId:tableId,
+        tableId: tableId,
         card: cardValue
       }).then(function (data) {
         console.log(data.data);
       });
     },
-    removePlayer: function (tableId,playerNo,callback) {
+    removePlayer: function (tableId, playerNo, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         return $http({
@@ -243,342 +243,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           method: 'POST',
           data: {
             tableId: tableId,
-            playerNo:playerNo,
+            playerNo: playerNo,
             accessToken: accessToken
           }
         }).then(function (data) {
           callback(data);
         });
       }
-    },
-    // playerLogin: function (data, callback) {
-    //   return $http.post(url + 'api/User/login', data).then(function (data) {
-    //     data = data.data;
-    //     callback(data);
-    //   });
-    // },
-
-
-    //   playerLogout: function (callback) {
-    //     console.log("fdd");
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       console.log("fdd 1");
-    //       return $http.post(url + 'member/logout', {
-    //         accessToken: accessToken
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-    //   passwordchange: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     data.accessToken = accessToken;
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'member/changePassword', data).then(function (data) {
-    //         data = data.data;
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-
-
-    //   giveTip: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       $http.post(url + 'Table/makeTip', {
-    //         "accessToken": accessToken,
-    //         "amount": data.amount
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-    //   searchPlayerTransaction: function (memberId, pageNo, callback) {
-    //     if (!pageNo) {
-    //       pageNo = 1;
-    //     }
-    //     $http.post(url + 'transaction/searchPlayerTransactionData', {
-    //       _id: memberId,
-    //       pageNo: pageNo
-    //     }).then(function (data) {
-    //       if (data.data) {
-    //         var totalCount = data.data.data.total;
-    //         data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
-    //         callback(data);
-    //       } else {}
-    //     });
-    //   },
-
-
-    //   //from teenpatti 
-    //   tableData: function (pageNo, callback) {
-    //     if (!pageNo) {
-    //       pageNo = 1;
-    //     }
-    //     $http.post(url + 'Table/search', {
-    //       page: pageNo
-    //     }).then(function (data) {
-    //       if (data.data) {
-    //         var totalCount = data.data.data.total;
-    //         data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
-    //         callback(data);
-    //       } else {}
-    //     });
-    //   },
-    //   getFilterTableData: function (data, pageNo, callback) {
-    //     if (!pageNo) {
-    //       pageNo = 1;
-    //     }
-    //     var filter = data;
-    //     $http.post(url + 'Table/filterTables', {
-    //       filter: {
-    //         blindAmt: filter.blindAmt,
-    //         chalAmt: filter.chalAmt,
-    //         name: filter.name,
-    //         type: filter.type,
-    //       },
-    //       page: pageNo
-    //     }).then(function (data) {
-    //       if (data.data) {
-    //         var totalCount = data.data.data.total;
-    //         data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
-    //         callback(data);
-    //       } else {}
-    //     });
-    //   },
-
-    //   getPrivateTables: function (pageNo, callback) {
-    //     if (!pageNo) {
-    //       pageNo = 1;
-    //     }
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       $http.post(url + 'Table/getPrivateTables', {
-    //         accessToken: accessToken,
-    //         page: pageNo
-    //       }).then(function (data) {
-    //         if (data.data) {
-    //           var totalCount = data.data.data.total;
-    //           data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
-    //           callback(data);
-    //         } else {}
-    //       });
-    //     }
-    //   },
-    //   getOneTable: function (id, callback) {
-    //     $http.post(url + 'Table/getOne', {
-    //       _id: id
-    //     }).then(function (data) {
-    //       callback(data);
-    //     });
-    //   },
-    //   getAccessToTable: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Table/getAccessToTable', {
-    //         'tableId': data.tableId,
-    //         'password': data.password
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-    //   getAll: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       $http.post(url + 'Player/getAll', {
-    //         accessToken: accessToken,
-    //         tableId: data
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-
-    //   },
-
-
-    //   getOnePlayer: function (id, callback) {
-    //     $http.post(url + 'Player/getOne', {
-    //       _id: id
-    //     }).then(function (data) {
-    //       callback(data);
-    //     });
-    //   },
-
-
-    //   makeSeen: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Player/makeSeen', {
-    //         "tableId": data,
-    //         "accessToken": accessToken
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-    //   chaal: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Player/chaal', {
-    //         "tableId": data.tableId,
-    //         "accessToken": accessToken,
-    //         "amount": data.amount
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-    //   pack: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Player/fold', {
-    //         "tableId": data,
-    //         "accessToken": accessToken
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-    //   sideShow: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Player/sideShow', {
-    //         "tableId": data,
-    //         "accessToken": accessToken
-    //       }).then(function (data) {
-    //         callback(data.data);
-    //       });
-    //     }
-    //   },
-
-    //   doSideShow: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Player/doSideShow', {
-    //         "tableId": data,
-    //         "accessToken": accessToken
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-
-    //   showWinner: function (tableId, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Player/showWinner', {
-    //         "accessToken": accessToken,
-    //         "tableId": tableId,
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-
-    //   rejectSideShow: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Player/cancelSideShow', {
-    //         "tableId": data,
-    //         "accessToken": accessToken
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-
-    //   deletePlayer: function (tableId, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     console.log(tableId);
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Player/deletePlayer', {
-    //         "tableId": tableId,
-    //         "accessToken": accessToken,
-    //       }).then(function (data) {
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-
-    //   getTransaction: function (pageNo, callback) {
-    //     if (!pageNo) {
-    //       pageNo = 1;
-    //     }
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       return $http.post(url + 'Transaction/getPlayerTransaction', {
-    //         "page": pageNo,
-    //         "accessToken": accessToken
-    //       }).then(function (data) {
-    //         if (data.data) {
-    //           var totalCount = data.data.data.total;
-    //           data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
-    //           callback(data);
-    //         } else {}
-    //       });
-    //     }
-    //   },
-
-    //   getByPlrId: function (data, callback) {
-    //     $http.post(url + 'Player/getByPlrId', {
-    //       data: data
-    //     }).then(function (data) {
-    //       callback(data);
-    //     });
-    //   },
-
-    //   makeDealer: function (data, callback) {
-    //     $http.post(url + 'Player/makeDealer', {
-    //       data: data
-    //     }).then(function (data) {
-    //       callback(data);
-    //     });
-    //   },
-
-    //   deductBootAmount: function (data, callback) {
-    //     $http.post(url + 'Player/deductBootAmount', {
-    //       data: data
-    //     }).then(function (data) {
-    //       callback(data);
-    //     });
-    //   },
-
-    //   serve: function (data, callback) {
-    //     $http.post(url + 'Player/serve', {
-    //       "tableId": data.tableId,
-    //     }).then(function (data) {
-    //       callback(data);
-    //     });
-    //   },
-
-    //   createPot: function (data, callback) {
-    //     $http.post(url + 'Pot/createPot', {
-    //       data: data
-    //     }).then(function (data) {
-    //       callback(data);
-    //     });
-    //   },
-
-    //   createTable: function (data, callback) {
-    //     var accessToken = $.jStorage.get("accessToken");
-    //     if (!_.isEmpty(accessToken)) {
-    //       data.accessToken = accessToken;
-    //       $http.post(url + 'Table/createPrivateTable', data).then(function (data) {
-    //         data = data.data;
-    //         callback(data);
-    //       });
-    //     }
-    //   },
-
-    //   addAmountToPot: function (data, callback) {
-    //     $http.post(url + 'Pot/addAmountToPot', {
-    //       data: data
-    //     }).then(function (data) {
-    //       callback(data);
-    //     });
-    //   }
+    }
   };
   return obj;
 });
