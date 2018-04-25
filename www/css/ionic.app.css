@@ -10031,6 +10031,14 @@ body {
   .table .table_field {
     transform: scale(0.8); } }
 
+.spinner {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  opacity: 1; }
+
 .lobby {
   background: url("../img/lobby/background.jpg");
   background-size: 100% 100%;
@@ -10548,7 +10556,8 @@ body {
       min-height: 20px;
       font-size: 1.2em;
       color: #81b781;
-      letter-spacing: 0.5px; }
+      letter-spacing: 0.5px;
+      text-shadow: 0px 1px 2px #419941; }
   .table .player1 {
     right: 22%;
     top: -10%; }
@@ -10578,18 +10587,17 @@ body {
     top: -10%; }
 
 .option_menu .menu_cont {
-  width: 40%;
-  background: url("../img/menu_bg.png");
+  width: 30%;
+  background-image: url(../img/History2.png);
   background-size: 100% 100%;
   height: 100%;
   transition: all 500ms; }
   .option_menu .menu_cont .heading {
-    background: url("../img/menu_heading.png");
     background-size: 100% 100%;
-    font-size: 1.5em;
-    padding: 4% 5%;
+    font-size: 1.2em;
+    padding: 7% 5% 0%;
     margin-left: 1px;
-    margin-right: 1px; }
+    margin-right: 28px; }
     .option_menu .menu_cont .heading i {
       padding-right: 10%; }
   .option_menu .menu_cont .menu_list .item {
@@ -11013,6 +11021,24 @@ body {
   position: absolute;
   left: 1%;
   bottom: 2%; }
+  .history .icon:before {
+    padding: 0 3px 1px 0;
+    line-height: 0px !important;
+    font-size: 20px; }
+
+.dealer-history {
+  padding: 2px 9px;
+  border-image: linear-gradient(to right, #463758 20%, #5b4771 50%, #130e19 95%);
+  border-bottom: 1px solid;
+  border-image-slice: 2; }
+  .dealer-history p {
+    font-size: 0.8em;
+    line-height: 14px;
+    letter-spacing: 0.3px;
+    margin-bottom: 0px;
+    padding: 6px 0px; }
+  .dealer-history img {
+    width: 100%; }
 
 .tip-lobby .button {
   padding: 0px 5px;

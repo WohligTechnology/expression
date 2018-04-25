@@ -16,15 +16,15 @@
     <table-info> </table-info>
   </div> -->
   <div class="tip-lobby back-lobby">
-      <div class="tip-dealer_submit row">
-        <button class="button" type='submit' ng-click="removePlayer();" promise-btn="loginPromise">Back to lobby</button>
-      </div>
+    <div class="tip-dealer_submit row">
+      <button class="button" type='submit' ng-click="removePlayer();" promise-btn="loginPromise">Back to lobby</button>
     </div>
-    <div class="tip-lobby tip-dealer">
-      <div class="tip-dealer_submit row">
-        <button class="button" type='submit' promise-btn="loginPromise">Tip Dealer</button>
-      </div>
+  </div>
+  <div class="tip-lobby tip-dealer">
+    <div class="tip-dealer_submit row">
+      <button class="button" type='submit' promise-btn="loginPromise">Tip Dealer</button>
     </div>
+  </div>
   <div class="table_field">
     <!-- <div class="new_game_timer" ng-if="showNewGameTime && !(remainingPlayerCount>1) && !tableMessageShow">
       <span> New Game will start in 15s </span>
@@ -34,7 +34,7 @@
     </div> -->
 
     <div class="video_frame">
-        <div class="hello videocss " youtube code="table.youTubeUrl"></div>
+      <div class="hello videocss " youtube code="table.youTubeUrl"></div>
       <!-- <img src="img/video_frame.png"> -->
     </div>
 
@@ -49,46 +49,45 @@
     <!-- community cards -->
     <div class="card_shuffle">
       <div class="row">
-          <community ng-community-card="communityCards[1]" class="col col-20"></community>
-          <community ng-community-card="communityCards[2]" class="col col-20"></community>
-          <community ng-community-card="communityCards[3]" class="col col-20"></community>
-          <community ng-community-card="communityCards[5]" class="col col-20"></community>
-          <community ng-community-card="communityCards[7]" class="col col-20"></community>
+        <community ng-community-card="communityCards[1]" class="col col-20"></community>
+        <community ng-community-card="communityCards[2]" class="col col-20"></community>
+        <community ng-community-card="communityCards[3]" class="col col-20"></community>
+        <community ng-community-card="communityCards[5]" class="col col-20"></community>
+        <community ng-community-card="communityCards[7]" class="col col-20"></community>
       </div>
 
     </div>
-
     <players ng-pos="1" ng-click="modalgame(1)" ng-player="players[0]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
     <players ng-pos="2" ng-click="modalgame(2)" ng-player="players[1]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
     <players ng-pos="3" ng-click="modalgame(3)" ng-player="players[2]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
     <players ng-pos="4" ng-click="modalgame(4)" ng-player="players[3]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
     <players ng-pos="5" ng-click="modalgame(5)" ng-player="players[4]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
     <players ng-pos="6" ng-click="modalgame(6)" ng-player="players[5]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
     <players ng-pos="7" ng-click="modalgame(7)" ng-player="players[6]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
     <players ng-pos="8" ng-click="modalgame(8)" ng-player="players[7]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
     <players ng-pos="9" ng-click="modalgame(9)" ng-player="players[8]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
+      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerPlayerNo" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
 
@@ -100,11 +99,11 @@
   </div>
 
   <!-- bottom block -->
-<!-- <pre>{{activePlayer.cards}}</pre> -->
+  <!-- <pre>{{activePlayer.cards}}</pre> -->
   <div class="bottom">
     <div class="tip-lobby history">
-      <div class="tip-dealer_submit row">
-        <button class="button" type='submit' promise-btn="loginPromise" ng-click="randomCard()">History</button>
+      <div class="tip-dealer_submit row" ng-click="$event.stopPropagation();openLeftMenu()">
+        <button class="button" type='submit' promise-btn="loginPromise" ng-click="randomCard()"><i class="icon ion-refresh"></i>History</button>
       </div>
     </div>
     <div class="main_card" ng-if="!activePlayer[0].fold">
@@ -119,8 +118,8 @@
         <span class="btn_name"> FOLD </span>
       </button>
       <button class="call" ng-click="call();" ng-if="!activePlayer[0].isCheck" ng-disabled="!activePlayer[0].isCheck && !activePlayer[0].isTurn">
-          <span class="light"></span>
-          <span class="btn_name"> Call </span>
+        <span class="light"></span>
+        <span class="btn_name"> Call </span>
       </button>
       <button class="call" ng-click="check();" ng-if="activePlayer[0].isCheck" ng-disabled="activePlayer[0].isCheck && !activePlayer[0].isTurn">
         <span class="light"></span>
