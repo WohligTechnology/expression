@@ -268,14 +268,8 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   };
 
 
-  //withdraw Coins
-  $scope.withdrawCoins = function (data) {
-    Service.withdrawCoins(data, function (data) {});
-  };
-  //buy Coins
-  $scope.buyCoins = function (data) {
-    Service.buyCoins(data, function (data) {});
-  };
+
+
   //buy In
   $scope.buyIn = function (data) {
     Service.buyIn(data, function (data) {});
