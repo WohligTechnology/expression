@@ -11841,14 +11841,18 @@ span.valid {
 
 .pie_loader {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 106%;
+  height: 106%;
   z-index: 1;
   overflow: hidden;
-  opacity: .8; }
+  opacity: .8;
+  border-radius: 100%;
+  z-index: -1;
+  top: -3%;
+  left: -3%; }
   .pie_loader .animation_wrapper {
     position: relative;
-    background: #8BC34A;
+    background: #ffe500;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); }

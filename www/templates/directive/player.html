@@ -10,6 +10,13 @@
       <img src="img/not.png" class="pic">
     </div>
   </div>
+  <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winRank">
+    <div class="animation_wrapper">
+      <div class="pie spinner"></div>
+      <div class="pie filler"></div>
+      <div class="mask"></div>
+    </div>
+  </div>
   <!-- after Player Sitting -->
   <div class="rel" ng-if="!sitHere && player">
     <!-- <div class="tcard tcard{{pos}}">
