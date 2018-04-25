@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons', 'rzModule'])
+var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons', 'rzModule', 'angular-loading-bar', 'ngAnimate'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -53,8 +53,16 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
 
     });
   })
+  // .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
 
-  .config(function ($stateProvider, $urlRouterProvider) {
+  //   }]
+  .config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
+    //for loader
+    cfpLoadingBarProvider.includeSpinner = true;
+    cfpLoadingBarProvider.includeBar = false;
+    // cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
+    cfpLoadingBarProvider.spinnerTemplate = '<div class="spinner-overlay"><img class="spinner" src="img/spinner.gif" /></div>';
+    //End of loader
     $stateProvider
 
       //   .state('app', {

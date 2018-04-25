@@ -102,8 +102,8 @@
   <!-- <pre>{{activePlayer.cards}}</pre> -->
   <div class="bottom">
     <div class="tip-lobby history">
-      <div class="tip-dealer_submit row">
-        <button class="button" type='submit' promise-btn="loginPromise" ng-click="randomCard()">History</button>
+      <div class="tip-dealer_submit row" ng-click="$event.stopPropagation();openLeftMenu()">
+        <button class="button" type='submit' promise-btn="loginPromise" ng-click="randomCard()"><i class="icon ion-refresh"></i>History</button>
       </div>
     </div>
     <div class="main_card" ng-if="!activePlayer[0].fold">

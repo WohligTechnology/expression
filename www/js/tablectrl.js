@@ -165,6 +165,10 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
   // range slider
 
+
+
+  // console.log($scope.minimumBuyin);
+
   // Update Socket Player
   updateSocketFunction = function (data,dontDigest) {
     console.log("updateSocketFunction",data);
@@ -505,4 +509,16 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
 
+  //left menu
+  $scope.openLeftMenu = function () {
+    $scope.leftMenu = true;
+  }
+
+  $scope.closeAll = function () {
+    $scope.rightMenu = false;
+    $scope.leftMenu = false;
+    $scope.activeVariation = false;
+  }
+
+  $scope.closeAll();
 });
