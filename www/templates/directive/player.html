@@ -68,7 +68,8 @@
       <div class="turn_status all_in" ng-if="player.isFold">Fold</div>
       <div class="turn_status all_in" ng-if="player.isAllIn">All In</div>
       <div class="turn_status call" ng-if="player.hasChecked">Checked</div>
-      <div class="turn_status call" ng-if="player.hasCall">Call</div>
+      <div class="turn_status call" ng-if="player.hasCalled">Call</div>
+      <div class="turn_status call" ng-if="player.hasRaised">Raised</div>
       <div class="name">{{player.user.name}}</div>
       <div class="amt">{{player.buyInAmt-player.totalAmount}}</div>
     </div>

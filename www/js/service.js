@@ -182,7 +182,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       }
     },
 
-    raise: function (tableId, callback) {
+    raise: function (tableId,raiseAmount, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         return $http({
@@ -190,7 +190,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           method: 'POST',
           data: {
             tableId: tableId,
-            accessToken: accessToken
+            accessToken: accessToken,
+            amount:raiseAmount
           }
         }).then(function (data) {
           callback(data);
