@@ -152,15 +152,14 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.updatePlayers();
   // range slider
-  
 
-console.log($scope.minimumBuyin);
+
+  console.log($scope.minimumBuyin);
   // Update Socket Player
   updateSocketFunction = function (data) {
     console.log("updateSocketFunction", data);
-    $scope.table = data.data.table;
     $scope.communityCards = data.data.communityCards;
-    $scope.table = data.data.table;
+    $scope.table = data.table;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
