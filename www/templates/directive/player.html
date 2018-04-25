@@ -35,9 +35,7 @@
       <card card='DONE' class="none card-rotate-right" ng-style="style"> </card>
       <card card='DONE' class="none card-rotate" ng-style="style"> </card>
     </div>
-
-
-    <div class="you" ng-if="">
+    <div class="you" ng-if="player.user._id == activePlayer.user._id">
       You
     </div>
     <div class="winner" ng-if="player.winner && player.winRank==1">

@@ -8,7 +8,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
   $scope.tableId = $stateParams.id;
   //Basic ui login
-
+  $.jStorage.set("tableId", $scope.tableId);
 
 
   $scope.verticalSlider = {};
@@ -171,23 +171,23 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   // Update Socket Player
   updateSocketFunction = function (data) {
     console.log("updateSocketFunction", data);
-    $scope.communityCards = data.communityCards;
-    $scope.table = data.table;
-    $scope.extra = data.extra;
-    $scope.hasTurn = data.hasTurn;
-    $scope.isCheck = data.isCheck;
-    $scope.pots = data.pots;
+    $scope.communityCards = data.data.communityCards;
+    $scope.table = data.data.table;
+    $scope.extra = data.data.extra;
+    $scope.hasTurn = data.data.hasTurn;
+    $scope.isCheck = data.data.isCheck;
+    $scope.pots = data.data.pots;
     $scope.remainingPlayers = _.filter(data.data.players, function (n) {
       return (n.isActive && !n.isFold);
     }).length;
     if (data.pots) {
-      $scope.potAmount = data.data.pots.totalAmount;
+      $scope.potAmount = data.pots.totalAmount;
     }
-    $scope.iAmThere(data.data.players);
+    $scope.iAmThere(data.players);
     if ($scope.isThere) {
       updateSocketFunction(data.data, true);
     }
-    reArragePlayers(data.players);
+    reArragePlayers(data.data.players);
     $scope.activePlayer = _.filter(data.data.players, function (player) {
       console.log(player);
       if (player && (player.user._id == $scope.playerData._id)) {
@@ -267,8 +267,17 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.updatePlayers();
       }
     }, 5000);
+    if ($scope.dataPlayer.amount >= $scope.playerData.balance) {
+      console.log("inside not save Player");
+      $scope.message = {
+        heading: "Insufficent Balance",
+        content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
+      };
+      $scope.showMessageModal();
+      $state.go('lobby');
+    };
     if (!_.isEmpty($scope.dataPlayer.tableId)) {
-      if ($scope.dataPlayer.amount > $scope.minimumBuyin) {
+      if ($scope.dataPlayer.amount >= $scope.minimumBuyin) {
         console.log("inside save Player");
         Service.savePlayerToTable($scope.dataPlayer, function (data) {
           $scope.ShowLoader = false;

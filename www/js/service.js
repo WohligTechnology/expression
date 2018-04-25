@@ -130,7 +130,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
     connectSocket: function (callback) {
       var accessToken = $.jStorage.get("accessToken");
-      if (!_.isEmpty(accessToken)) {
+      var tableId = $.jStorage.set("tableId");
+      if (!_.isEmpty(accessToken) && (tableId)) {
         callApi();
       } else {
         $timeout(function () {
@@ -141,10 +142,14 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       function callApi() {
         var accessToken = $.jStorage.get("accessToken");
         if (!_.isEmpty(accessToken)) {
+          console.log(accessToken);
+          console.log("socketId", socketId);
           $http.post(url + 'Player/updateSocket', {
             accessToken: accessToken,
-            socketId: socketId
+            socketId: socketId,
+            tableId: tableId
           }).then(function (data) {
+            console.log("inside socket reconnect", data);
             callback(data);
           });
         }
