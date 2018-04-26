@@ -74,22 +74,12 @@ myApp.directive('card', function () {
       }
     };
   })
-  // .directive('gameHistory', function () {
-  //   return {
-  //     restrict: 'E',
-  //     replace: false,
-  //     templateUrl: 'templates/directive/game-history.html',
-  //     link: function ($scope, element, attr) {
-  //       //console.log("Player Loaded");
-  //     }
-  //   };
-  // })
   .directive('potAmount', function () {
     return {
       restrict: 'E',
       replace: false,
       scope: {
-        amount: "=ngAmount",
+        pot: "=ngPot",
         winnerPlayerNo: "=ngWinner",
         players: "=ngPlayer"
       },

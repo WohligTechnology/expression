@@ -476,14 +476,17 @@
   top: 26%;
   min-width: 80px;
   transform: translateX(-50%);
-  text-align: left; // word-spacing: 5px;
+  text-align: left;
   color: white;
-  background-image: url('../img/table/pot_bg.png');
-  background-size: 100% 100%;
-  padding: 0px 10px 3px;
   .coin {
     width: 1em;
     vertical-align: middle;
+    margin-right: 5px;
+  }
+  span{
+    background-image: url('../img/table/pot_bg.png');
+    background-size: 100% 100%;
+    padding: 0px 10px 3px;
     margin-right: 5px;
   }
   transition: none;

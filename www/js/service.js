@@ -145,7 +145,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Transaction/useVoucher', {
             accessToken: accessToken,
-            vouchercode:data
+            voucherCode:data.code
         }).then(function (data) {
           callback(data);
         });

@@ -1,6 +1,5 @@
 <div class="plyr player{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere}">
   <!-- before Player Sitting -->
-  <!-- <pre>{{sitHere}}</pre> -->
   <div class="rel" ng-if="sitHere">
     <div class="player_pic">
       <img src="img/sithere.png" class="pic">
@@ -16,7 +15,7 @@
       <img src="img/not.png" class="pic">
     </div>
   </div>
-  <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winRank">
+  <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winnerDetails">
     <div class="animation_wrapper">
       <div class="pie spinner"></div>
       <div class="pie filler"></div>
@@ -25,14 +24,6 @@
   </div>
   <!-- after Player Sitting -->
   <div class="rel" ng-if="!sitHere && player && !player.tableLeft">
-    <!-- <div class="tcard tcard{{pos}}">
-      <card class="none card-rotate-right" card='NONE'> </card>
-      <card class="none card-rotate" card='NONE'> </card>
-    </div> -->
-    <!-- <div class="tcard tcard{{pos}}" ng-if="player.cards.length==0">
-        <card card='NONE' class="none card-rotate-right" ng-style="style" class="low-opacity" width="35" height="45"> </card>
-        <card card='NONE' class="none card-rotate-right" ng-style="style" class="low-opacity" width="35" height="45"> </card>
-    </div> -->
     <div class="tcard tcard{{pos}}" ng-if="player.cards.length==1">
       <card card='DONE' class="none card-rotate-right" ng-style="style"> </card>
       <card card='' class="none card-rotate" ng-style="style" class="low-opacity"></card>
@@ -44,7 +35,7 @@
     <div class="you" ng-if="player.user._id == activePlayer.user._id">
       You
     </div>
-    <div class="winner" ng-if="player.winner && player.winRank==1">
+    <div class="winner" ng-if="player.winnerDetails">
       <img src="img/table/winner_crown.png" class="crown">
       <img src="img/table/winner_belt.png" class="belt">
     </div>
@@ -71,7 +62,7 @@
       <div class="turn_status call" ng-if="player.hasCalled">Call</div>
       <div class="turn_status call" ng-if="player.hasRaised">Raised</div>
       <div class="name">{{player.user.name}}</div>
-      <div class="amt">{{player.buyInAmt-player.totalAmount}}</div>
+      <div class="amt">{{player.buyInAmt-player.totalAmount | number}}</div>
     </div>
   </div>
 </div>

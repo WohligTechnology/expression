@@ -334,14 +334,6 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   };
 
   $scope.playerDataFunction();
-  $scope.vouchers = function (data) {
-    Service.getVoucher(data, function (data) {
-      console.log(data);
-      if (data.data.error.msg == "Please login first.") {
-        console.log("Please login first");
-      }
-    });
-  };
   //destroy every modal
   $scope.$on('$destroy', function () {
     $scope.closeAll();
@@ -453,5 +445,18 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $scope.closeVoucherModal = function () {
     $scope.voucherModal.hide();
   };
+  //voucher 
 
+  $scope.vouchers = function (data) {
+    Service.getVoucher(data, function (data) {
+      console.log(data);
+
+      if (data.data.value) {
+        console.log("Please login first");
+      }
+      else{
+        console.log("Invalid Code");
+      }
+    });
+  };
 });

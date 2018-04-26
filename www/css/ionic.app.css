@@ -10656,14 +10656,16 @@ body {
   transform: translateX(-50%);
   text-align: left;
   color: white;
-  background-image: url("../img/table/pot_bg.png");
-  background-size: 100% 100%;
-  padding: 0px 10px 3px;
   transition: none;
   z-index: 6 !important; }
   .total_played_coin .coin {
     width: 1em;
     vertical-align: middle;
+    margin-right: 5px; }
+  .total_played_coin span {
+    background-image: url("../img/table/pot_bg.png");
+    background-size: 100% 100%;
+    padding: 0px 10px 3px;
     margin-right: 5px; }
   .total_played_coin.to_p1 {
     transform: none !important;
