@@ -60,7 +60,6 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
     //for loader
     cfpLoadingBarProvider.includeSpinner = true;
     cfpLoadingBarProvider.includeBar = false;
-    // cfpLoadingBarProvider.parentSelector = '#loading-bar-container';
     cfpLoadingBarProvider.spinnerTemplate = '<div class="spinner-overlay"><img class="spinner" src="img/spinner.gif" /></div>';
     //End of loader
     $stateProvider
