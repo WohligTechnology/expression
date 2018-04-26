@@ -175,6 +175,16 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           callback(data);
         });
       }
+    },    
+    allIn: function (callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http.post(url + 'Player/allIn', {
+            accessToken: accessToken
+        }).then(function (data) {
+          callback(data);
+        });
+      }
     },
     check: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");

@@ -22,8 +22,27 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   if (!$scope.accessToken) {
     $state.go("login");
   }
+  //Message Ui
+  $ionicModal.fromTemplateUrl('templates/modal/message.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.messageModal = modal;
+    // $scope.showMessageModal();
 
+  });
+
+  $scope.showMessageModal = function () {
+    $scope.messageModal.show();
+    $timeout(function () {
+      $scope.closeMessageModal();
+    }, 3000);
+  };
+  $scope.closeMessageModal = function () {
+    $scope.messageModal.hide();
+  };
   $.jStorage.deleteKey("tableId");
+  $.jStorage.deleteKey("autoBuy");
   //*************basic ui login***************
   //to close all tab,modal,popup
   $scope.closeAll = function () {
@@ -452,10 +471,18 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
       console.log(data);
 
       if (data.data.value) {
-        console.log("Please login first");
+        $scope.closeVoucherModal();
+        $scope.message = {
+          heading: "Voucher Redeem Successfully",
+          content: "Voucher Redeem Successfully",
+          error: true
+        };
+        $scope.showMessageModal();
       }
-      else{
-        console.log("Invalid Code");
+      if(data.data.error.msg=="Voucher code already used"){
+        $scope.message = {
+          heading: "Voucher code already used",
+        };
       }
     });
   };

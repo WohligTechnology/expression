@@ -12,6 +12,7 @@
         <span class="valid" ng-show="voucher.code.$touched && voucher.code.$invalid">*Voucher code No. is required.</span>
       </form>
     </div>
+    <div ng-if="message" class="valid text-center">{{message.heading}}</div>
     <div class="side_show_btn">
       <button class="custom_button" ng-click="vouchers(data);" ng-disabled="voucher.$invalid" promise-btn="voucherPromise">Submit</button>
     </div>

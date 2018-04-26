@@ -9613,10 +9613,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -10434,12 +10434,7 @@ body {
       .table .table_field .plyr.no_player .dealer,
       .table .table_field .plyr.no_player .details,
       .table .table_field .plyr.no_player .winner,
-      .table .table_field .plyr.no_player .you, .table .table_field .plyr.sit_here .tcard,
-      .table .table_field .plyr.sit_here .player_badge,
-      .table .table_field .plyr.sit_here .dealer,
-      .table .table_field .plyr.sit_here .details,
-      .table .table_field .plyr.sit_here .winner,
-      .table .table_field .plyr.sit_here .you {
+      .table .table_field .plyr.no_player .you {
         display: none !important; }
       .table .table_field .plyr.sit_here.player4, .table .table_field .plyr.sit_here.player5, .table .table_field .plyr.sit_here.player6, .table .table_field .plyr.no_player.player4, .table .table_field .plyr.no_player.player5, .table .table_field .plyr.no_player.player6 {
         bottom: -5%; }
@@ -11214,7 +11209,7 @@ body {
       color: red;
       margin-top: 0%;
       line-height: 2;
-      font-size: 1.5em;
+      font-size: 1em;
       margin-bottom: -6%; }
     .login .login_block .invailduser {
       width: 100%; }
@@ -11965,20 +11960,20 @@ span.valid {
   100% {
     opacity: 0; } }
 
-.signup .valid {
-  color: red;
-  margin-top: 0%;
-  line-height: 2;
-  font-size: 1.5em;
-  margin-bottom: 0% !important;
-  margin-top: -2% !important; }
-
 .signup .sign_up_error {
   color: red;
   font-size: 2em; }
 
 .signup .sign_up_status {
   font-size: 2em; }
+
+.valid {
+  color: red;
+  margin-top: 0%;
+  line-height: 2;
+  font-size: 1em;
+  margin-bottom: 0% !important;
+  margin-top: -2% !important; }
 
 .add-amount .login_block {
   width: 76%; }

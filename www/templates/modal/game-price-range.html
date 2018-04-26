@@ -11,7 +11,7 @@
           <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
         </div>
         <div class="text-center">
-          <ion-checkbox color="dark" checked="true">
+          <ion-checkbox color="dark" ng-model="isAutoBuy" ng-checked="isAutoBuy">
             <span class="auto-rebuy">Auto-rebuy at table</span>
           </ion-checkbox>
           <span class="balance">Your balance:
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="side_show_btn">
-        <button class="custom_button" type='submit' ng-click=sitHereFunction(slider.value);closeGameModal();>Play</button>
+        <button class="custom_button" type='submit' ng-click=sitHereFunction(slider,isAutoBuy);closeGameModal();>Play</button>
       </div>
     </form>
   </ion-content>
