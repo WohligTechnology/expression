@@ -22,7 +22,7 @@
   </div>
   <div class="tip-lobby tip-dealer">
     <div class="tip-dealer_submit row">
-      <button class="button" type='submit'  ng-click="randomCard()">Tip Dealer</button>
+      <button class="button" type='submit' ng-click="randomCard()">Tip Dealer</button>
     </div>
   </div>
   <div class="table_field">
@@ -43,8 +43,13 @@
     <!-- <div class="tip" ng-click="openMakeTipModal()" ng-if="!sitHere">
       TIP
     </div> -->
+<<<<<<< HEAD
 <!-- <pre>{{pots[0].totalAmount}}</pre> -->
     <pot-amount ng-pot="pots"  ng-player="players"> </pot-amount>
+=======
+    <pre>{{pots[0].totalAmount}}</pre>
+    <pot-amount ng-amount="pots" ng-winner="winnerPlayerNo" ng-player="players"> </pot-amount>
+>>>>>>> 09a732bee5d29dc3947e40a324b83f438dd3b030
     <!-- <tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </tip-amount> -->
     <!-- community cards -->
     <div class="card_shuffle">
@@ -103,8 +108,9 @@
   <!-- <pre>{{activePlayer.cards}}</pre> -->
   <div class="bottom">
     <div class="tip-lobby history">
-      <div class="tip-dealer_submit row" ng-click="$event.stopPropagation();openLeftMenu()">
-        <button class="button" type='submit' promise-btn="loginPromise"><i class="icon ion-refresh"></i>History</button>
+      <div class="tip-dealer_submit row" ng-click="$event.stopPropagation();openLeftMenu();getHistory()">
+        <button class="button" type='submit' promise-btn="loginPromise" ng-click="randomCard()">
+          <i class="icon ion-refresh"></i>History</button>
       </div>
     </div>
     <div class="main_card" ng-if="!activePlayer[0].fold">
@@ -137,7 +143,10 @@
     </div>
   </div>
   <!-- left menu (option) -->
+
   <left-menu></left-menu>
+
+
   <!-- spiner -->
   <div class="loader table_loader" ng-if="ShowLoader">
     <div class="center">
