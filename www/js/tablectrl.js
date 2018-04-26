@@ -382,6 +382,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $state.go('lobby');
     });
   };
+  $scope.getHistory = function () {
+    Service.getHistory($scope.tableId, function (data) {
+      $scope.showHistory = data.data.data
+      console.log("getMeHistory", $scope.showHistory)
+    })
+  }
   // Turn Actions
   $scope.allIn = function () {
     $scope.allInPromise = Service.allIn(function (data) {});

@@ -6,29 +6,16 @@
       <i class="icon ion-ios-arrow-back" ng-click="closeLeftMenu()"></i>
       <span> Histroy </span>
     </div>
-    <div>
-      <div class="dealer-history">
-        <p>Dealer: welocome karan won $100 </p>
-      </div>
-      <div class="dealer-history">
-        <p>Dealer: welocome karan</p>
-      </div>
-      <div class="dealer-history">
-        <p>Dealer: welocome karan </p>
-        <div>
-          <div class="row">
-            <div class="col"><img src="img/card_front.png" alt=""></div>
-            <div class="col">
-              <img src="img/card_front.png" alt="card image">
-            </div>
-            <div class="col">
-              <img src="img/card_front.png" alt="card image">
-            </div>
-            <div class="col">
-              <img src="img/card_front.png" alt="card image">
-            </div>
-            <div class="col">
-              <img src="img/card_front.png" alt="card image">
+    <div ng-repeat="history in showHistory">
+      <div ng-repeat="displayHistory in history">
+        <div class="dealer-history">
+          <p>{{displayHistory.message}} </p>
+          <div>
+            <div class="row" ng-repeat="card in displayHistory.cards">
+              <div class="col col-20" ng-repeat="cards in card">
+                <card card="{{cards}}"></card>
+              </div>
+
             </div>
           </div>
         </div>
