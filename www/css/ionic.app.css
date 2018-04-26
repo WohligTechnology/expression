@@ -12021,3 +12021,6 @@ span.valid {
 .table-top {
   top: 52em;
   bottom: 20px; }
+
+.loader {
+  font-size: 1.2em; }
