@@ -9,7 +9,7 @@
         <input class="col bg-yellow padd-lr" type="text" name="amount" ng-model="table.coins" placeholder="0000" required>
       </div>
       <div class="login_button_submit row">
-        <button class="button" type='submit' ng-click="buyCoins(table.coins)">PROCEED</button>
+        <button class="button" type='submit' ng-click="buyCoins(table.coins)" promise-btn="buyCoinsPromise">PROCEED</button>
       </div>
       <div>
         <p>*minimum amount to be withdrawn should be 1000/- *withdrawl process only on Tuesdays and Friday

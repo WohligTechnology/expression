@@ -6,7 +6,7 @@ myApp.controller("AddAmountCtrl", function ($scope, Service, $state, $ionicPlatf
 
   //buy Coins
   $scope.buyCoins = function (data) {
-    Service.buyCoins(data, function (data) {
+    $scope.buyCoinsPromise = Service.buyCoins(data, function (data) {
       $scope.pageNo = 0
       $scope.withdrawDetails = []
       $scope.loadMore();
@@ -30,7 +30,7 @@ myApp.controller("AddAmountCtrl", function ($scope, Service, $state, $ionicPlatf
         });
         $scope.loadingDisable = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else {}
+      } else { }
     })
   }
   //loadMore
@@ -39,7 +39,7 @@ myApp.controller("AddAmountCtrl", function ($scope, Service, $state, $ionicPlatf
       $scope.loadingDisable = true;
       $scope.getTransactionDetails();
       $scope.pageNo++;
-    } else {}
+    } else { }
   };
   $scope.loadMore();
 

@@ -1,5 +1,4 @@
 <div class="login signup add-amount">
-
   <div class="logo mar-t">
     <img src="img/login/logo.jpg">
   </div>
@@ -10,7 +9,7 @@
         <input class="col bg-yellow padd-lr" type="text" name="amount" ng-model="table.coins" placeholder="0000" required>
       </div>
       <div class="login_button_submit row">
-        <button class="button" type='submit' ng-click="withdrawCoins(table.coins)">PROCEED</button>
+        <button class="button" type='submit' ng-click="withdrawCoins(table.coins);" promise-btn="withdrawPromise">PROCEED</button>
       </div>
       <div>
         <p>*minimum amount to be withdrawn should be 1000/- *withdrawl process only on Tuesdays and Friday

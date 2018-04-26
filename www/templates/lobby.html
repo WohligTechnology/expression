@@ -42,64 +42,9 @@
               </div>
             </div>
           </div>
-          <!-- <div class="col col-25 play_joker" ng-click="playJoker($event)">
-            <div class="card-heading">
-              <h6 class="heading-orange">HOLD'EM</h6>
-              <p>Cash Table</p>
-            </div>
-            <img src="img/lobby/card1.png">
-            <div class="card-btn">
-              <span>stakes</span>
-              <span>$50/$25</span>
-              <div>
-                <button class="custom_Card_button  btn_search btn-blue"> Select Table</button>
-              </div>
-            </div>
-          </div> -->
-          <!-- <div class="col col-25 variation">
-            <div class="card-heading">
-              <h6 class="heading-blue">ShootOut</h6>
-              <p>Cash Table</p>
-            </div>
-            <img src="img/lobby/card3.png" ng-click="$event.stopPropagation();toggleVariations()">
-            <div class="card-btn">
-              <span>stakes</span>
-              <span>$50/$25</span>
-              <div>
-                <button class="custom_Card_button  btn_search btn-brown">Select Table</button>
-              </div>
-            </div>
-          </div>
-          <div class="col col-25 private_table" ng-click="playPrivate()">
-            <div class="card-heading">
-              <h6 class="heading-yellow">Sit-N-Go</h6>
-              <p>Cash Table</p>
-            </div>
-            <img src="img/lobby/card2.png">
-            <div class="card-btn">
-              <span>stakes</span>
-              <span>$50/$25</span>
-              <div>
-                <button class="custom_Card_button  btn_search btn-yellow"> Select Table</button>
-              </div>
-            </div>
-          </div> -->
         </div>
       </ion-scroll>
     </div>
-    <!-- <div class="category variation_type">
-      <div class="row">
-        <div class="col blue_block" ng-click="openPriceRangeModal()">
-          <img src="img/lobby/var_mufils.png">
-        </div>
-        <div class="col block2" ng-click="openPriceRangeModal()">
-          <img src="img/lobby/var_2card.png">
-        </div>
-        <div class="col block3" ng-click="openPriceRangeModal()">
-          <img src="img/lobby/var_4card.png">
-        </div>
-      </div>
-    </div> -->
   </div>
 </div>
 
@@ -108,49 +53,6 @@
 
 <!-- left menu (profile) -->
 <div class="custom_menu profile_menu" ng-class="{'menu_open':leftMenu}" ng-click="closeAll()">
-  <!--<div class="menu_cont" ng-click="$event.stopPropagation()">
-    <div class="close" ng-click="closeLeftMenu()">
-      <i class="icon ion-close text_glow"></i>
-    </div>
-
-    <div class="profile">
-      <div class="details">
-        <div class="name">{{username}}</div>
-        <div class="amt">
-          <img class="coin img-responsive" src="img/coin.svg">{{balance|number:0}}
-        </div>
-
-      </div>
-      <div class="profile_pic">
-        <img ng-src="{{image | serverimage}}" class="pic img-responsive">
-      </div>
-    </div>
-    <ion-list class="menu_list custom-scroll">
-      <ion-item ng-click="openACStatementModal();accountStatement();">
-        account statement
-      </ion-item>
-      <ion-item ng-click="openTransferStatementModal();transferStatement();">
-        transfer statement
-      </ion-item>
-      <ion-item ng-click="myPrivateTable();openMyPrivateTable($event);">
-        My Private Table
-      </ion-item>
-      <ion-item ng-click="createPrivateModal($event)">
-        Create Private Table
-      </ion-item>
-
-      <ion-item ng-click="openChangePasswordModal()">
-        change password
-      </ion-item>
-      <ion-item ng-click="logout()">
-        Logout
-      </ion-item>
-
-
-    </ion-list>
-
-  </div>-->
-
   <div class="menu_cont" ng-click="$event.stopPropagation()">
     <div class="heading-navigation">
       <!--<span> Navigation </span>
@@ -164,11 +66,11 @@
         <div class="custom_toggle">
         </div>
       </ion-item>
-      <ion-item ng-click="modalgame();">
+      <!-- <ion-item ng-click="modalgame();">
         Settings
         <div class="custom_toggle" ng-class="{'toggle_on':notification,'toggle_off':!notification}" ng-click="notification=!notification">
         </div>
-      </ion-item>
+      </ion-item> -->
       <ion-item ng-click="modalfaq();">
         FAQ's
         <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
@@ -202,10 +104,6 @@
     <div class="text-center user-name">
       {{playerData.name}}
     </div>
-    <!--<div class="amount-bg">
-      <span class="left">Add</span>
-      <span class="right">Withdrawal</span>
-    </div>-->
     <ion-list class="menu_list">
       <ion-item ui-sref="addamount">
         Add
@@ -217,8 +115,8 @@
         <div class="custom_toggle" ng-class="{'toggle_on':notification,'toggle_off':!notification}" ng-click="notification=!notification">
         </div>
       </ion-item>
-      <ion-item>
-        vibration
+      <ion-item ng-click="modalVoucher();">
+        Voucher
         <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
         </div>
       </ion-item>

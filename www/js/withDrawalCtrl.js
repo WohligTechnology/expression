@@ -6,7 +6,7 @@ myApp.controller("WithDrawalCtrl", function ($scope, Service, $state, $ionicPlat
 
   //withdraw Coins
   $scope.withdrawCoins = function (data) {
-    Service.withdrawCoins(data, function (data) {
+    $scope.withdrawPromise = Service.withdrawCoins(data, function (data) {
       $scope.pageNo = 0
       $scope.withdrawDetails = []
       $scope.loadMore();

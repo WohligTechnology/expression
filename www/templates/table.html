@@ -43,8 +43,8 @@
     <!-- <div class="tip" ng-click="openMakeTipModal()" ng-if="!sitHere">
       TIP
     </div> -->
-
-    <pot-amount ng-amount="potAmount" ng-winner="winnerPlayerNo" ng-player="players"> </pot-amount>
+<pre>{{pots[0].totalAmount}}</pre>
+    <pot-amount ng-amount="pots" ng-winner="winnerPlayerNo" ng-player="players"> </pot-amount>
     <!-- <tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </tip-amount> -->
     <!-- community cards -->
     <div class="card_shuffle">
@@ -113,27 +113,23 @@
       </div>
     </div>
     <div class="player_turn_button">
-      <button class="fold" ng-click="fold();" ng-disabled="!activePlayer[0].isTurn">
+      <button class="fold" ng-click="fold();" ng-disabled="!activePlayer[0].isTurn" promise-btn="foldPromise">
         <span class="light"></span>
         <span class="btn_name"> FOLD </span>
       </button>
-      <button class="call" ng-click="call();" ng-if="!isCheck" ng-disabled="!activePlayer[0].isTurn">
+      <button class="call" ng-click="call();" ng-if="!isCheck" ng-disabled="!activePlayer[0].isTurn" promise-btn="callPromise">
         <span class="light"></span>
         <span class="btn_name"> Call </span>
       </button>
-      <button class="call" ng-click="check();" ng-if="isCheck" ng-disabled="!activePlayer[0].isTurn">
+      <button class="call" ng-click="check();" ng-if="isCheck" ng-disabled="!activePlayer[0].isTurn" promise-btn="checkPromise">
         <span class="light"></span>
         <span class="btn_name"> Check </span>
       </button>
-      <!--<button class="raise" ng-click="raise();" ng-disabled="!activePlayer.isTurn">
-        <span class="light"></span>
-        <span class="btn_name" > Raise </span>
-      </button>-->
       <button class="raise" ng-click="modalrange();" ng-disabled="!activePlayer[0].isTurn">
         <span class="light"></span>
         <span class="btn_name"> Raise </span>
       </button>
-      <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn">
+      <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn" promise-btn="allInPromise">
         <span class="light"></span>
         <span class="btn_name"> All In </span>
       </button>

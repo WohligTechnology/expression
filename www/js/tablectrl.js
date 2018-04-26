@@ -384,43 +384,27 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   };
   // Turn Actions
   $scope.allIn = function () {
-    Service.allIn(function (data) { });
+    $scope.allInPromise = Service.allIn(function (data) { });
   };
   $scope.fold = function () {
-    Service.fold($scope.tableId, function (data) { });
+    $scope.foldPromise =Service.fold($scope.tableId, function (data) { });
   };
-  $scope.raise = function (raiseAmount) {
-    Service.raise($scope.tableId,raiseAmount, function (data) { });
+   $scope.raise = function (raiseAmount) {
+    $scope.raisePromise = Service.raise($scope.tableId,raiseAmount, function (data) { });
   };
   $scope.move = function () {
-    Service.move($scope.tableId, function (data) { });
+    $scope.movePromise =Service.move($scope.tableId, function (data) { });
   };
   $scope.call = function () {
-    Service.call($scope.tableId, function (data) { });
+    $scope.callPromise =Service.call($scope.tableId, function (data) { });
   };
   $scope.check = function () {
-    Service.check($scope.tableId, function (data) { });
+    $scope.checkPromise = Service.check($scope.tableId, function (data) { });
   };
 
   //random card serve
   $scope.randomCard = function () {
-    Service.randomCard($scope.tableId, function (data) { });
-  };
-
-  //check player from table
-  $scope.check = function () {
-    Service.check($scope.tableId, function (data) { });
-  };
-
-
-  //withdraw Coins
-  $scope.withdrawCoins = function (data) {
-    Service.withdrawCoins(data, function (data) { });
-  };
-  //buy Coins
-  $scope.buyCoins = function (data) {
-    console.log(data);
-    Service.buyCoins(data, function (data) { });
+    $scope.raisePromise =Service.randomCard($scope.tableId, function (data) { });
   };
 
   //tip socket
