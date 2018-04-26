@@ -9613,10 +9613,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -10038,6 +10038,9 @@ body {
   transform: translate(-50%, -50%);
   z-index: 9999;
   opacity: 1; }
+
+.rzslider .rz-bubble.rz-limit {
+  color: #fff; }
 
 .lobby {
   background: url("../img/lobby/background.jpg");
@@ -11067,7 +11070,8 @@ body {
 
 .table-range-slider .text-scroll {
   margin: 31% 14% 0% 20%;
-  height: 60%; }
+  height: 60%;
+  background: rgba(0, 0, 0, 0.6); }
 
 .t-range-model {
   top: 22%;
@@ -11996,14 +12000,24 @@ span.valid {
 
 .transaction-history {
   margin: 4% 6%; }
-  .transaction-history th {
+  .transaction-history .item {
     background-color: #221934;
     font-size: 1.3em;
     font-weight: 600;
     letter-spacing: 0.5px;
-    color: #fff; }
-  .transaction-history td {
-    padding-left: 18px;
+    color: #fff;
+    border: none; }
+  .transaction-history .table-heading {
+    display: block;
     background-color: #ddcb77;
     color: #000;
-    font-size: 1.2em; }
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px 0px;
+    margin: 0px; }
+  .transaction-history .transaction-row {
+    font-size: 1.1em; }
+
+.table-top {
+  top: 52em;
+  bottom: 20px; }

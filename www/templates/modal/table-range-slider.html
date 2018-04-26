@@ -1,9 +1,11 @@
 <ion-modal-view class=" statement-model t-range-model">
   <ion-content scroll="false" class="table-range-slider">
     <div class="text-scroll">
-      <div>
-        <rzslider rz-slider-model="verticalSlider.value" rz-slider-options="verticalSlider.options"></rzslider>
+      <div class="padding-vertical">
+        <rzslider rz-slider-model="raiseSlider.value" rz-slider-options="raiseSlider.options"></rzslider>
       </div>
+      <button class="custom_button" type='submit' ng-click="raise(raiseSlider.value);closeRangeModal();">Ok</button>
+      <button class="custom_button" type='submit' ng-click="closeRangeModal();" promise-btn="raisePromise">Cancel</button>
     </div>
   </ion-content>
 </ion-modal-view>

@@ -21,12 +21,24 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     },
   };
 
+  //range slider
+  $scope.raiseSlider = {
+    value: 100,
+    options: {
+      floor: 10,
+      ceil: 150000
+    },
+  };
 
-  //player data
+  $scope._id = $.jStorage.get("_id");
   $scope.playerDataFunction = function () {
     Service.getProfile(function (data) {
-      $scope.playerData = data.data.data;
-      console.log($scope.playerData);
+      if (data && data.data && data.data.data) {
+        $scope.playerData = data.data.data;
+        $scope.playerDataId = data.data.data._id;
+      } else {
+        $state.go("login");
+      }
     });
   };
 
@@ -68,7 +80,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.tableMessageShow = false;
   $scope.tableMessage = "";
   $scope.runVibratorFlag = true;
-
+  $scope.updateSocketVar = 0;
   $scope.changeTableMessage = function (message) {
     $scope.tableMessageShow = true;
     $scope.tableMessage = message;
@@ -117,23 +129,41 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.updatePlayers = function () {
     if (!_.isEmpty($scope.tableId)) {
       Service.getOneTableDetails($scope.tableId, function (data) {
-        console.log("getOneTableDetails", data);
+        console.log("getOneTableDetails", data.data.data);
         // check whether dealer is selected or not
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
+        $scope.hasTurn = data.data.data.hasTurn;
+        $scope.isCheck = data.data.data.isCheck;
         $scope.minimumBuyin = data.data.data.table.minimumBuyin;
+        $scope.isCalled = data.data.isCalled;
+        $scope.isCheck = data.data.isChecked;
+        $scope.isRaised = data.data.isRaised;
+
+        $scope.fromRaised = data.data.data.fromRaised;
+        $scope.fromRaised = data.data.data.toRaised;
+
+        $scope.slider.value = $scope.minimumBuyin;
+        $scope.slider.options.floor = $scope.minimumBuyin;
+
+        $scope.raiseSlider.value = $scope.fromRaised;
+        $scope.raiseSlider.options.floor = $scope.fromRaised;
+        $scope.raiseSlider.options.ceil = $scope.toRaised;
+
         if (data.data.data.pot) {
-          $scope.potAmount = data.data.data.pot.totalAmount;
+          $scope.potAmount = data.data.data.pot[0].totalAmount;
         }
         $scope.slider.value = $scope.minimumBuyin;
         $scope.slider.options.floor = $scope.minimumBuyin;
-        $scope.iAmThere(data.data.data.players);
         reArragePlayers(data.data.data.players);
+        console.log($scope.players);
+        $scope.iAmThere($scope.players);
         $scope.activePlayer = _.filter($scope.players, function (player) {
-          if (player && (player.user._id == $scope.playerData._id)) {
+          if (player && (player.user._id == $scope._id)) {
             return true;
           }
         });
+        console.log("$scope.activePlayer", $scope.activePlayer);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
           if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -154,17 +184,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         }).length;
-        $scope.blindPlayerCount = _.filter($scope.players, function (player) {
-          if (player && player.isActive && !player.isFold && player.isBlind) {
-            return true;
-          }
-        }).length;
         // $scope.changeTimer(data.data.data.table.autoFoldDelay);
       });
     }
   };
-
   $scope.updatePlayers();
+
   // range slider
 
 
@@ -172,35 +197,56 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   // console.log($scope.minimumBuyin);
 
   // Update Socket Player
-  updateSocketFunction = function (data) {
-    console.log("updateSocketFunction", data.data.players);
-    $scope.communityCards = data.communityCards;
-    $scope.table = data.table;
-    $scope.extra = data.extra;
-    $scope.hasTurn = data.hasTurn;
-    $scope.isCheck = data.isCheck;
-    $scope.pots = data.pots;
-    $scope.remainingPlayers = _.filter(data.players, function (n) {
-      return (n.isActive && !n.isFold);
-    }).length;
-    if (data.pots) {
-      $scope.potAmount = data.pots.totalAmount;
+  updateSocketFunction = function (data, dontDigest) {
+    console.log("updateSocketFunction", data);
+    $scope.communityCards = data.data.communityCards;
+    $scope.table = data.data.table;
+    $scope.extra = data.data.extra;
+    $scope.pots = data.data.pots;
+    $scope.hasTurn = data.data.hasTurn;
+    $scope.isCalled = data.data.isCalled;
+    $scope.isCheck = data.data.isChecked;
+    $scope.isRaised = data.data.isRaised;
+    $scope.fromRaised = data.data.fromRaised;
+    $scope.toRaised = data.data.toRaised;
+
+
+    $scope.slider.value = $scope.minimumBuyin;
+    $scope.slider.options.floor = $scope.minimumBuyin;
+
+    $scope.raiseSlider.value = $scope.fromRaised;
+    $scope.raiseSlider.options.floor = $scope.fromRaised;
+    $scope.raiseSlider.options.ceil = $scope.toRaised;
+
+
+    console.log($scope.raiseSlider.value, "$scope.raiseSlider.value");
+    console.log($scope.raiseSlider.options.floor, "$scope.raiseSlider.options.floor");
+    console.log($scope.raiseSlider.options.ceil, "$scope.raiseSlider.options.ceil");
+    $scope.minimumBuyin = data.data.table.minimumBuyin;
+    if (data.data.pots[0]) {
+      $scope.potAmount = data.data.pots[0].totalAmount;
     }
-    $scope.iAmThere(data.data.players);
-    if ($scope.isThere) {
-      updateSocketFunction(data, true);
+    if ($scope.updateSocketVar == 0) {
+      reArragePlayers(data.data.players);
     }
-    reArragePlayers(data.data.players);
-    $scope.activePlayer = _.filter(data.data.players, function (player) {
-      console.log(player);
-      if (player && (player.user._id == $scope.playerData._id)) {
+    console.log($scope.players);
+    $scope.activePlayer = _.filter($scope.players, function (player) {
+      if (player && (player.user._id == $scope._id)) {
         return true;
       }
     });
     console.log("$scope.activePlayer", $scope.activePlayer);
-    reArragePlayers(data.data.players);
-    console.log("$scope.players", $scope.players);
-    // console.log($scope.remainingPlayers);
+    $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
+      if ((player && player.isActive) || (player && player.isActive == false)) {
+        return true;
+      }
+    }).length;
+    $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
+      if (player && player.isActive && !player.isFold) {
+        return true;
+      }
+    }).length;
+    console.log($scope.remainingPlayerCount);
     // $scope.$apply();
     if ($scope.remainingActivePlayers == 9) {
       $scope.message = {
@@ -210,7 +256,9 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       };
       $scope.showMessageModal();
     };
-    $scope.$apply();
+    if (!dontDigest) {
+      $scope.$apply();
+    }
 
   };
 
@@ -222,11 +270,10 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //Sitting There
   $scope.iAmThere = function (data) {
     $scope.isThere = false;
+    console.log($scope._id);
     _.forEach(data, function (value) {
-      console.log("$scope.playerData._id", $scope.playerData._id);
-      console.log("value.user._id", value.user._id);
-      if (value && value.user._id == $scope.playerData._id) {
-        console.log("Inside MemberId");
+
+      if (value && value.user._id == $scope._id) {
         $scope.isThere = true;
         myTableNo = value.playerNo;
         startSocketUpdate();
@@ -237,6 +284,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.sitHere = !$scope.isThere;
     // In Case he is already Sitting Please Enable the Game
   };
+
 
   //table info modal
   $ionicModal.fromTemplateUrl('templates/modal/game-price-range.html', {
@@ -331,49 +379,32 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   };
   $scope.removePlayer = function () {
     Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
-      console.log(data);
       $state.go('lobby');
     });
   };
   // Turn Actions
   $scope.allIn = function () {
-    Service.allIn(function (data) {});
+    $scope.allInPromise = Service.allIn(function (data) {});
   };
   $scope.fold = function () {
-    Service.fold($scope.tableId, function (data) {});
+    $scope.foldPromise = Service.fold($scope.tableId, function (data) {});
   };
-  $scope.raise = function () {
-    Service.raise($scope.tableId, function (data) {});
+  $scope.raise = function (raiseAmount) {
+    $scope.raisePromise = Service.raise($scope.tableId, raiseAmount, function (data) {});
   };
   $scope.move = function () {
-    Service.move($scope.tableId, function (data) {});
+    $scope.movePromise = Service.move($scope.tableId, function (data) {});
   };
   $scope.call = function () {
-    Service.call($scope.tableId, function (data) {});
+    $scope.callPromise = Service.call($scope.tableId, function (data) {});
   };
   $scope.check = function () {
-    Service.check($scope.tableId, function (data) {});
+    $scope.checkPromise = Service.check($scope.tableId, function (data) {});
   };
 
   //random card serve
   $scope.randomCard = function () {
-    Service.randomCard($scope.tableId, function (data) {});
-  };
-
-  //check player from table
-  $scope.check = function () {
-    Service.check($scope.tableId, function (data) {});
-  };
-
-
-  //withdraw Coins
-  $scope.withdrawCoins = function (data) {
-    Service.withdrawCoins(data, function (data) {});
-  };
-  //buy Coins
-  $scope.buyCoins = function (data) {
-    console.log(data);
-    Service.buyCoins(data, function (data) {});
+    $scope.raisePromise = Service.randomCard($scope.tableId, function (data) {});
   };
 
   //tip socket
@@ -402,38 +433,87 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   };
   //winner
   function showWinnerFunction(data) {
-    $scope.updateSocketVar = 1;
-    // $ionicPlatform.ready(function () {
-    //   if (window.cordova) {
-    //     window.plugins.NativeAudio.play('winner');
-    //   }
-    // })
-
-    $scope.showWinnerPlayer = data.data.players;
-    console.log(data.data.players);
-    $scope.showNewGameTime = true;
-    $scope.winner = _.find($scope.showWinnerPlayer, {
-      'winRank': 1,
-      'winner': true
-    });
-    _.forEach($scope.showWinnerPlayer,
-      function (p) {
-        var playerNo = -1;
-        playerNo = _.findIndex($scope.players, function (pl) {
-          if (pl) {
-            return pl.playerNo == p.playerNo;
+    console.log("show winner", data);
+    _.each($scope.players, function (player) {
+      if (player) {
+        _.each(data.data.pots, function (pot, number) {
+          var winners = _.filter(pot.winner, function (potPlayer) {
+            return potPlayer.winner;
+          });
+          var isThisPlayerWinner = _.find(winners, function (winner) {
+            console.log(player);
+            return winner.playerId == player._id;
+          });
+          if (isThisPlayerWinner) {
+            player.winnerDetails = {
+              potNumber: number,
+              potDetail: pot,
+              amount: pot.totalAmount,
+              winnerDetail: isThisPlayerWinner
+            };
           }
         });
-        if (playerNo >= 0) {
-          $scope.players[playerNo] = p;
-          reArragePlayers($scope.players);
-        }
-      });
+      }
 
-    if ($scope.winner && $scope.winner.playerNo) {
-      $scope.winnerPlayerNo = $scope.winner.playerNo;
-    }
-    console.log($scope.winner);
+    });
+    $scope.updateSocketVar = 1;
+
+    $scope.showWinnerMainPot = data.data.pots[0].winner;
+
+
+
+    $scope.showNewGameTime = true;
+
+    if (data.data.pots[0]) {
+      $scope.winnerMainPot = _.find($scope.showWinnerMainPot, {
+        'winRank': 1,
+        'winner': true
+      });
+    };
+
+    if (data.data.pots[1]) {
+      $scope.showWinnerSidePotOne = data.data.pots[1].winner;
+      $scope.winnerSidePotOne = _.find($scope.showWinnerSidePotOne, {
+        'winRank': 1,
+        'winner': true
+      });
+    };
+
+    if (data.data.pots[2]) {
+      $scope.showWinnerSidePotTwo = data.data.pots[2].winner;
+      $scope.winnerSidePotTwo = _.find($scope.showWinnerSidePotTwo, {
+        'winRank': 1,
+        'winner': true
+      });
+    };
+
+    if (data.data.pots[3]) {
+      $scope.showWinnerSidePotThree = data.data.pots[3].winner;
+      $scope.winnerSidePotThree = _.find($scope.showWinnerSidePotThree, {
+        'winRank': 1,
+        'winner': true
+      });
+    };
+
+
+    // _.forEach($scope.showWinnerPlayer,
+    //   function (p) {
+    //     var playerNo = -1;
+    //     playerNo = _.findIndex($scope.players, function (pl) {
+    //       if (pl) {
+    //         return pl.playerNo == p.playerNo;
+    //       }
+    //     });
+    //     if (playerNo >= 0) {
+    //       $scope.players[playerNo] = p;
+    //       reArragePlayers($scope.players);
+    //     }
+    //   });
+
+    // if ($scope.winner && $scope.winner.playerNo) {
+    //   $scope.winnerPlayerNo = $scope.winner.playerNo;
+    // }
+    // console.log($scope.winner);
     // $scope.changeTableMessage($scope.winner.name + " won the game");
   }
 

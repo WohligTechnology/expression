@@ -24,17 +24,29 @@
 
 .transaction-history {
   margin: 4% 6%;
-  th {
+  .item {
     background-color: #221934;
     font-size: 1.3em;
     font-weight: 600;
     letter-spacing: 0.5px;
     color: $light;
+    border: none;
   }
-  td {
-    padding-left: 18px;
+  .table-heading {
+    display: block; // padding-left: 18px;
     background-color: #ddcb77;
     color: #000;
     font-size: 1.2em;
+    text-align: center;
+    padding: 10px 0px;
+    margin: 0px;
   }
+  .transaction-row {
+    font-size: 1.1em;
+  }
+}
+
+.table-top {
+  top: 52em;
+  bottom: 20px
 }

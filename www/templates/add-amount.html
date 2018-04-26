@@ -6,10 +6,10 @@
     <form name="signup">
       <div class="login_button row">
         <i class="icon ">&#x20b9;</i>
-        <input class="col bg-yellow padd-lr" type="text" name="amount" ng-model="data.coins" placeholder="0000" required>
+        <input class="col bg-yellow padd-lr" type="text" name="amount" ng-model="table.coins" placeholder="0000" required>
       </div>
       <div class="login_button_submit row">
-        <button class="button" type='submit' ng-click="buyCoins(data.coins)">PROCEED</button>
+        <button class="button" type='submit' ng-click="buyCoins(table.coins)" promise-btn="buyCoinsPromise">PROCEED</button>
       </div>
       <div>
         <p>*minimum amount to be withdrawn should be 1000/- *withdrawl process only on Tuesdays and Friday
@@ -17,47 +17,51 @@
       </div>
     </form>
   </div>
-  <div class="transaction-history">
-    <table style="width:100%">
-      <caption class="transaction">TRANSACTION HISTORY </caption>
+  <ion-content class="table-top">
+    <div class="transaction-history">
 
-      <tr>
-        <th>Date</th>
-        <th>Amount</th>
-        <th>Status</th>
-        <th>Balance</th>
-      </tr>
-      <tr>
-        <td>January</td>
-        <td>$100</td>
-        <td>January</td>
-        <td>$100</td>
-      </tr>
-      <tr>
-        <td>February</td>
-        <td>$50</td>
-        <td>January</td>
-        <td>$100</td>
-      </tr>
-      <tr>
-        <td>February</td>
-        <td>$50</td>
-        <td>January</td>
-        <td>$100</td>
-      </tr>
-      <tr>
-        <td>February</td>
-        <td>$50</td>
-        <td>January</td>
-        <td>$100</td>
-      </tr>
-      <tr>
-        <td>February</td>
-        <td>$50</td>
-        <td>January</td>
-        <td>$100</td>
-      </tr>
+      <ion-list>
+        <ion-title class="table-heading">TRANSACTION HISTORY</ion-title>
 
-    </table>
-  </div>
+        <ion-item class="item">
+          <div class="row">
+            <div class="col-25 text-center">
+              <div class="">Date</div>
+            </div>
+            <div class="col-25">
+              <div class=" text-center">Amount</div>
+            </div>
+            <div class="col-25">
+              <div class=" text-center">Status</div>
+            </div>
+            <div class="col-25">
+              <div class=" text-center">Balance</div>
+            </div>
+          </div>
+        </ion-item>
+        <ion-item collection-repeat="data in withdrawDetails" class="table-heading">
+          <div class="row transaction-row">
+            <div class="col-25 ">
+              <div class="bold ">{{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</div>
+            </div>
+            <div class="col-25">
+              <div class="text-center bold">${{data.amount}}</div>
+            </div>
+            <div class="col-25">
+              <div class="text-center bold">{{data.transType}}</div>
+            </div>
+            <div class="col-25">
+              <div class="text-center bold">${{data.balance}}</div>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+    </div>
+
+    <!-- loader -->
+    <div class="loader" ng-if="!withdrawDetails">
+      Loading ..
+    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" icon="ion-loading-c"></ion-infinite-scroll>
+  </ion-content>
 </div>
