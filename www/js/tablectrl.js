@@ -435,22 +435,26 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   function showWinnerFunction(data) {
     console.log("show winner", data);
     _.each($scope.players, function (player) {
-      _.each(data.data.pots, function (pot, number) {
-        var winners = _.filter(pot.winner, function (potPlayer) {
-          return potPlayer.winner;
+      if (player) {
+        _.each(data.data.pots, function (pot, number) {
+          var winners = _.filter(pot.winner, function (potPlayer) {
+            return potPlayer.winner;
+          });
+          var isThisPlayerWinner = _.find(winners, function (winner) {
+            console.log(player);
+            return winner.playerId == player._id;
+          });
+          if (isThisPlayerWinner) {
+            player.winnerDetails = {
+              potNumber: number,
+              potDetail: pot,
+              amount: pot.totalAmount,
+              winnerDetail: isThisPlayerWinner
+            };
+          }
         });
-        var isThisPlayerWinner = _.find(winners, function (winner) {
-          return winner.playerId == player._id;
-        });
-        if (isThisPlayerWinner) {
-          player.winnerDetails = {
-            potNumber: number,
-            potDetail: pot,
-            amount: totalAmount,
-            winnerDetail: isThisPlayerWinner
-          };
-        }
-      });
+      }
+
     });
     $scope.updateSocketVar = 1;
 
