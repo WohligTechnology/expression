@@ -7,12 +7,12 @@
   </div>
   <div class="rel" ng-if="player.tableLeft && !sitHere">
     <div class="player_pic">
-      <img src="img/not.png" class="pic">
+        <img src="img/sithere.png" class="pic">
     </div>
   </div>
   <div class="rel" ng-if="!player && !sitHere">
     <div class="player_pic">
-      <img src="img/not.png" class="pic">
+        <img src="img/sithere.png" class="pic">
     </div>
   </div>
   <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winnerDetails">
@@ -66,7 +66,7 @@
       <div class="turn_status all_in" ng-if="player.isAllIn && !player.winnerDetails">All In</div>
       <div class="turn_status call" ng-if="player.hasChecked && !player.winnerDetails">Checked</div>
       <div class="turn_status call" ng-if="player.hasCalled && !player.winnerDetails">Call</div>
-      <div class="turn_status call" ng-if="player.hasRaised && !player.winnerDetails">Raised</div>
+      <div class="turn_status raise" ng-if="player.hasRaised && !player.winnerDetails">Raised</div>
       <div class="turn_status call" ng-if="!player.isActive && !player.winnerDetails">Waiting</div>
       <div class="name">{{player.user.name}}</div>
       <div class="amt">{{player.buyInAmt-player.totalAmount | number}}</div>

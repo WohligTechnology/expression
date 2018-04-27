@@ -1,5 +1,5 @@
 <div class="total_played_coin">
-  <span ng-repeat="pots in pot"><img src="img/coin.svg" class="coin">{{pots.totalAmount}} </span>
+  <span ng-repeat="pots in pot"><img src="img/coin.svg" class="coin">{{pots.totalAmount | number}} </span>
 </div>
 <!-- 
 <div class="total_played_coin" ng-class=" {

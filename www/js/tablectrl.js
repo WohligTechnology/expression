@@ -164,8 +164,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         });
-        $scope.activePlayerNo =  $scope.activePlayer[0].playerNo;
-        console.log("$scope.activePlayerNo",$scope.activePlayerNo);
+        $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+        console.log("$scope.activePlayerNo", $scope.activePlayerNo);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
           if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -237,8 +237,10 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
+    $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    // if ($scope.activePlayer[0].buyInAmt >= 0) {
 
-    $scope.activePlayerNo =  $scope.activePlayer[0].playerNo;
+    // }
     console.log("$scope.activePlayer", $scope.activePlayer);
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -288,7 +290,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     // In Case he is already Sitting Please Enable the Game
   };
 
-
   //table info modal
   $ionicModal.fromTemplateUrl('templates/modal/game-price-range.html', {
     scope: $scope,
@@ -299,7 +300,9 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   $scope.modalgame = function (sitNum) {
-    // console.log(sitNum);
+    if (!$scope.sitHere) {
+      return;
+    }
     $scope.gameModal.show();
     $scope.sitNo = sitNum;
   };
@@ -320,7 +323,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.amount = data.value;
     $scope.dataPlayer.autoRebuy = isAutoBuy;
-    // console.log("$scope.dataPlayer.amount", $scope.dataPlayer.amount);
     console.log("data.isAutoBuy", isAutoBuy);
 
     $timeout(function () {
@@ -330,7 +332,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       }
     }, 5000);
     if ($scope.dataPlayer.amount >= $scope.playerData.balance) {
-      // console.log("inside not save Player");
       $scope.message = {
         heading: "Insufficent Balance",
         content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
@@ -506,7 +507,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    $scope.activePlayerNo =  $scope.activePlayer[0].playerNo;
+    $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
     $scope.$apply();
   };
 
@@ -554,7 +555,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    $scope.activePlayerNo =  $scope.activePlayer[0].playerNo;
+    $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
     $scope.$apply();
   };
   io.socket.on("newGame", newGameSocketFunction);
