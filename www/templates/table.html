@@ -119,11 +119,15 @@
         <span class="light"></span>
         <span class="btn_name"> FOLD </span>
       </button>
-      <button class="call" ng-click="call();" ng-if="isCall" ng-disabled="!activePlayer[0].isTurn" promise-btn="callPromise">
+      <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn" promise-btn="callPromise">
+          <span class="light"></span>
+          <span class="btn_name"> Call </span>
+        </button>
+      <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn" promise-btn="callPromise">
         <span class="light"></span>
         <span class="btn_name"> Call </span>
       </button>
-      <button class="call" ng-click="call();" ng-if="isCheck" ng-disabled="!activePlayer[0].isTurn" promise-btn="checkPromise">
+      <button class="call" ng-click="call();" ng-if="isChecked" ng-disabled="!activePlayer[0].isTurn" promise-btn="checkPromise">
         <span class="light"></span>
         <span class="btn_name"> Check </span>
       </button>

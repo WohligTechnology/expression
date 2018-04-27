@@ -138,7 +138,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.isCheck = data.data.data.isCheck;
         $scope.minimumBuyin = data.data.data.table.minimumBuyin;
         $scope.isCalled = data.data.isCalled;
-        $scope.isCheck = data.data.isChecked;
+        $scope.isChecked = data.data.isChecked;
         $scope.isRaised = data.data.isRaised;
 
         $scope.fromRaised = data.data.data.fromRaised;
@@ -207,7 +207,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.pots = data.data.pots;
     $scope.hasTurn = data.data.hasTurn;
     $scope.isCalled = data.data.isCalled;
-    $scope.isCheck = data.data.isChecked;
+    $scope.isChecked = data.data.isChecked;
     $scope.isRaised = data.data.isRaised;
     $scope.fromRaised = data.data.fromRaised;
     $scope.toRaised = data.data.toRaised;
@@ -496,7 +496,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.pots = data.data.pots;
     $scope.hasTurn = data.data.hasTurn;
     $scope.isCalled = data.data.isCalled;
-    $scope.isCheck = data.data.isChecked;
+    $scope.isChecked = data.data.isChecked;
     $scope.isRaised = data.data.isRaised;
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
@@ -521,7 +521,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.pots = data.data.pots;
     $scope.hasTurn = data.data.hasTurn;
     $scope.isCalled = data.data.isCalled;
-    $scope.isCheck = data.data.isChecked;
+    $scope.isChecked = data.data.isChecked;
     $scope.isRaised = data.data.isRaised;
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
