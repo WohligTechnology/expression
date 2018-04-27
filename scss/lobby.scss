@@ -193,7 +193,12 @@
   font-size: 1em;
   font-weight: 600;
   text-transform: capitalize;
+  background: #803aca;
+  &.user-amount{
+    background: #6d33aa;
+  }
 }
+
 
 //side menu for right side
 //profile menu
@@ -242,7 +247,7 @@
       }
       .item {
         background: transparent;
-        color: #ac8a0e;
+        color: #cebd22;
         border: none;
         font-size: 1.1em;
         font-weight: 600;
@@ -257,7 +262,7 @@
         }
         .item-content {
           background: transparent;
-          color: #ac8a0e;
+          color: #cebd22;
           padding: 0px;
         }
       }

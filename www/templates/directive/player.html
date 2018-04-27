@@ -24,13 +24,18 @@
   </div>
   <!-- after Player Sitting -->
   <div class="rel" ng-if="(!sitHere && player && !player.tableLeft) || sitHere && player">
-    <div class="tcard tcard{{pos}}" ng-if="player.cards.length==1">
+    <div class="tcard tcard{{pos}}" ng-if="player.cards.length==1 && !player.isWinner">
       <card card='DONE' class="none card-rotate-right" ng-style="style"> </card>
       <card card='' class="none card-rotate" ng-style="style" class="low-opacity"></card>
     </div>
-    <div class="tcard tcard{{pos}}" ng-if="player.cards.length==2">
+    <div class="tcard tcard{{pos}}" ng-if="player.cards.length==2 && !player.isWinner">
       <card card='DONE' class="none card-rotate-right" ng-style="style"> </card>
       <card card='DONE' class="none card-rotate" ng-style="style"> </card>
+    </div>
+    <!-- winner -->
+    <div class="tcard winnercard tcard{{pos}}" ng-if="player.cards.length==2 && !player.isFold && player.isWinner">
+      <card card='{{player.cards[0]}}' class="none card-rotate-right" ng-style="style"> </card>
+      <card card='{{player.cards[1]}}' class="none card-rotate" ng-style="style"> </card>
     </div>
     <div class="you" ng-if="player.user._id == activePlayer.user._id">
       You
@@ -41,7 +46,8 @@
     </div>
 
     <div class="player_pic">
-      <img src="img/player_pic.png" class="pic">
+        <img src="img/not.png" class="pic" ng-if="!player.isActive">
+      <img src="img/player_pic.png" class="pic" ng-if="player.isActive">
       <div class="border_loader">
       </div>
     </div>
@@ -61,6 +67,7 @@
       <div class="turn_status call" ng-if="player.hasChecked && !player.winnerDetails">Checked</div>
       <div class="turn_status call" ng-if="player.hasCalled && !player.winnerDetails">Call</div>
       <div class="turn_status call" ng-if="player.hasRaised && !player.winnerDetails">Raised</div>
+      <div class="turn_status call" ng-if="!player.isActive && !player.winnerDetails">Waiting</div>
       <div class="name">{{player.user.name}}</div>
       <div class="amt">{{player.buyInAmt-player.totalAmount | number}}</div>
     </div>

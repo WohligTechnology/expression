@@ -10191,7 +10191,10 @@ body {
   color: #fff;
   font-size: 1em;
   font-weight: 600;
-  text-transform: capitalize; }
+  text-transform: capitalize;
+  background: #803aca; }
+  .user-name.user-amount {
+    background: #6d33aa; }
 
 .profile_menu .menu_cont {
   width: 40%;
@@ -10227,7 +10230,7 @@ body {
     height: 65vh; }
   .profile_menu .menu_cont .menu_list .item {
     background: transparent;
-    color: #ac8a0e;
+    color: #cebd22;
     border: none;
     font-size: 1.1em;
     font-weight: 600;
@@ -10241,7 +10244,7 @@ body {
       font-size: 1.2em; }
     .profile_menu .menu_cont .menu_list .item .item-content {
       background: transparent;
-      color: #ac8a0e;
+      color: #cebd22;
       padding: 0px; }
 
 .setting_menu {
@@ -10331,7 +10334,8 @@ body {
       height: 26vh;
       border-radius: 10px;
       border: 4px solid #dddddd;
-      overflow: hidden; }
+      overflow: hidden;
+      background: #ddd; }
       .table .table_field .video_frame iframe {
         width: 100% !important;
         height: 100% !important; }
@@ -10963,6 +10967,11 @@ body {
 .none {
   width: 30px;
   position: absolute; }
+
+.winnercard .none {
+  width: 60px; }
+  .winnercard .none img {
+    width: 60%; }
 
 .card-rotate {
   margin-left: 7px;

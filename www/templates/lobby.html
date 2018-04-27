@@ -104,6 +104,9 @@
     <div class="text-center user-name">
       {{playerData.name}}
     </div>
+    <div class="text-center user-name user-amount">
+      {{playerData.balance|number:0}}
+    </div>
     <ion-list class="menu_list">
       <ion-item ui-sref="addamount">
         Add

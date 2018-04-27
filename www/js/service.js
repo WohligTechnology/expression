@@ -10,7 +10,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
   io.socket.on('connect', function (socket) {
     socketId = io.socket._raw.id;
     $.jStorage.set("socketId", io.socket._raw.id);
-    obj.connectSocket(function () {});
+    obj.connectSocket(function () { });
   });
 
   var obj = {
@@ -69,9 +69,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     buyCoins: function (coins, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post( url + 'Transaction/buyCoins', {
-            coins: coins,
-            accessToken: accessToken
+        return $http.post(url + 'Transaction/buyCoins', {
+          coins: coins,
+          accessToken: accessToken
         }).then(function (data) {
           callback(data);
         });
@@ -80,9 +80,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     withdrawCoins: function (coins, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post( url + 'Transaction/withdrawCoins', {
-            coins: coins,
-            accessToken: accessToken
+        return $http.post(url + 'Transaction/withdrawCoins', {
+          coins: coins,
+          accessToken: accessToken
         }).then(function (data) {
           console.log(data);
           callback(data);
@@ -105,12 +105,13 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     savePlayerToTable: function (dataPlayer, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-         $http.post( url + 'Table/addUserToTable', {
-            playerNo: dataPlayer.playerNo,
-            tableId: dataPlayer.tableId,
-            amount: dataPlayer.amount,
-            socketId: socketId,
-            accessToken: accessToken
+        $http.post(url + 'Table/addUserToTable', {
+          playerNo: dataPlayer.playerNo,
+          tableId: dataPlayer.tableId,
+          amount: dataPlayer.amount,
+          autoRebuy: dataPlayer.autoRebuy,
+          socketId: socketId,
+          accessToken: accessToken
         }).then(function (data) {
           callback(data);
         });
@@ -140,25 +141,25 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         }
       };
     },
-    getVoucher: function (data,callback) {
+    getVoucher: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Transaction/useVoucher', {
-            accessToken: accessToken,
-            voucherCode:data.code
+          accessToken: accessToken,
+          voucherCode: data.code
         }).then(function (data) {
           callback(data);
         });
       }
     },
 
-    raise: function (tableId,raiseAmount, callback) {
+    raise: function (tableId, raiseAmount, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post( url + 'Player/raise',{
-            tableId: tableId,
-            accessToken: accessToken,
-            amount:raiseAmount
+        return $http.post(url + 'Player/raise', {
+          tableId: tableId,
+          accessToken: accessToken,
+          amount: raiseAmount
         }).then(function (data) {
           callback(data);
         });
@@ -169,18 +170,19 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/fold', {
-            tableId: tableId,
-            accessToken: accessToken
+          tableId: tableId,
+          accessToken: accessToken
         }).then(function (data) {
           callback(data);
         });
       }
-    },    
-    allIn: function (callback) {
+    },
+    allIn: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/allIn', {
-            accessToken: accessToken
+          tableId: tableId,
+          accessToken: accessToken
         }).then(function (data) {
           callback(data);
         });
@@ -189,9 +191,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     check: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Player/check',{
-            tableId: tableId,
-            accessToken: accessToken
+        return $http.post(url + 'Player/check', {
+          tableId: tableId,
+          accessToken: accessToken
         }).then(function (data) {
           callback(data);
         });
@@ -200,9 +202,9 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     call: function (tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post( url + 'Player/call', {
-            tableId: tableId,
-            accessToken: accessToken
+        return $http.post(url + 'Player/call', {
+          tableId: tableId,
+          accessToken: accessToken
         }).then(function (data) {
           callback(data);
         });
@@ -218,13 +220,16 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       });
     },
     removePlayer: function (tableId, playerNo, callback) {
+      console.log("playerNo",playerNo);
+      console.log("tableId",tableId);
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        $http.post(url +'Table/removePlayer', {
-            tableId: tableId,
-            playerNo: playerNo,
-            accessToken: accessToken
+        $http.post(url + 'Table/removePlayer', {
+          tableId: tableId,
+          playerNo: playerNo,
+          accessToken: accessToken
         }).then(function (data) {
+          console.log(data.data);
           callback(data);
         });
       }

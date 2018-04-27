@@ -164,6 +164,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         });
+        $scope.activePlayerNo =  $scope.activePlayer[0].playerNo;
+        console.log("$scope.activePlayerNo",$scope.activePlayerNo);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
           if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -235,6 +237,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
+
+    $scope.activePlayerNo =  $scope.activePlayer[0].playerNo;
     console.log("$scope.activePlayer", $scope.activePlayer);
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
@@ -315,11 +319,10 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.playerNo = $scope.sitNo;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.amount = data.value;
-    console.log("$scope.dataPlayer.amount", $scope.dataPlayer.amount);
+    $scope.dataPlayer.autoRebuy = isAutoBuy;
+    // console.log("$scope.dataPlayer.amount", $scope.dataPlayer.amount);
     console.log("data.isAutoBuy", isAutoBuy);
-    if (isAutoBuy) {
-      $.jStorage.set("autoBuy", $scope.dataPlayer.amount);
-    }
+
     $timeout(function () {
       if ($scope.ShowLoader) {
         $scope.ShowLoader = false;
@@ -395,7 +398,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   }
   // Turn Actions
   $scope.allIn = function () {
-    $scope.allInPromise = Service.allIn(function (data) { });
+    $scope.allInPromise = Service.allIn($scope.tableId, function (data) { });
   };
   $scope.fold = function () {
     $scope.foldPromise = Service.fold($scope.tableId, function (data) { });
@@ -450,7 +453,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.winnerData = data.data.pots;
     _.each($scope.players, function (player) {
       if (player) {
-        player.isTurn = "false";
+        player.isTurn = false;
+        player.isWinner = true;
         _.each(data.data.pots, function (pot, number) {
           var winners = _.filter(pot.winner, function (potPlayer) {
             return potPlayer.winner;
@@ -502,11 +506,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
+    $scope.activePlayerNo =  $scope.activePlayer[0].playerNo;
     $scope.$apply();
   };
 
 
-  io.socket.on("seatSelection", seatSelectionFunction);
+  io.socket.on("seatSelection" + $scope.tableId, seatSelectionFunction);
 
   removePlayerFunction = function (data) {
     console.log("removePlayerFunction", data);
@@ -530,7 +535,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
 
-  io.socket.on("removePlayer", removePlayerFunction);
+  io.socket.on("removePlayer" + $scope.tableId, removePlayerFunction);
 
   newGameSocketFunction = function (data) {
     console.log("NewGame", data);
@@ -549,6 +554,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
+    $scope.activePlayerNo =  $scope.activePlayer[0].playerNo;
     $scope.$apply();
   };
   io.socket.on("newGame", newGameSocketFunction);
