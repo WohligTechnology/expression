@@ -164,7 +164,9 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         });
-        $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+        if ($scope.activePlayer) {
+          $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+        };
         console.log("$scope.activePlayerNo", $scope.activePlayerNo);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
@@ -220,10 +222,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.raiseSlider.options.floor = $scope.fromRaised;
     $scope.raiseSlider.options.ceil = $scope.toRaised;
 
-
-    // console.log($scope.raiseSlider.value, "$scope.raiseSlider.value");
-    // console.log($scope.raiseSlider.options.floor, "$scope.raiseSlider.options.floor");
-    // console.log($scope.raiseSlider.options.ceil, "$scope.raiseSlider.options.ceil");
     $scope.minimumBuyin = data.data.table.minimumBuyin;
     if (data.data.pots[0]) {
       $scope.potAmount = data.data.pots[0].totalAmount;
@@ -231,17 +229,24 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
     }
-    // console.log($scope.players);
+
     $scope.activePlayer = _.filter($scope.players, function (player) {
       if (player && (player.user._id == $scope._id)) {
         return true;
       }
     });
-    $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
-    // if ($scope.activePlayer[0].buyInAmt >= 0) {
 
-    // }
+    if ($scope.activePlayer[0].playerNo) {
+      $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    };
     console.log("$scope.activePlayer", $scope.activePlayer);
+    if ($scope.activePlayer[0].buyInAmt > $scope.table.bigBlind) {
+      var autoBuy
+      autoBuy = true;
+      $scope.autoBuygame(autoBuy);
+
+      console.log("modal open");
+    }
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
         return true;
@@ -306,11 +311,31 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.gameModal.show();
     $scope.sitNo = sitNum;
   };
-
+  $scope.autoBuygame = function (autoBuy) {
+    $scope.autoBuy=autoBuy;
+    console.log($scope.autoBuy);
+    $scope.gameModal.show();
+  };
   $scope.closeGameModal = function () {
     $scope.gameModal.hide();
   };
-
+  $scope.reBuyFunction= function(data){
+    console.log(data);
+    $scope.dataPlayer = {};
+    $scope.dataPlayer.tableId = $scope.tableId;
+    $scope.dataPlayer.amount = data.value;
+    if ($scope.dataPlayer.amount >= $scope.playerData.balance) {
+      $scope.message = {
+        heading: "Insufficent Balance",
+        content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
+      };
+      $scope.showMessageModal();
+      $state.go('lobby');
+    };
+    Service.getReFillBuyIn($scope.dataPlayer, function (data) {
+    console.log(data);
+    });
+  };
   //sit Here Function
   //player sitting
   $scope.sitHereFunction = function (data, isAutoBuy) {
@@ -413,6 +438,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.call = function () {
     $scope.callPromise = Service.call($scope.tableId, function (data) { });
   };
+
+  //check
   $scope.check = function () {
     $scope.checkPromise = Service.check($scope.tableId, function (data) { });
   };
@@ -507,7 +534,9 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    if ($scope.activePlayer) {
+      $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    };
     $scope.$apply();
   };
 
@@ -555,7 +584,9 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    if ($scope.activePlayer) {
+      $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    };
     $scope.$apply();
   };
   io.socket.on("newGame", newGameSocketFunction);

@@ -243,6 +243,15 @@
           width: 12%;
         }
       }
+      .community-card.low-opacity {
+        background: rgba(0, 0, 0, 0.3);
+        display: block;
+        border-radius: 5px;
+      }
+      
+      .community-card.low-opacity img {
+        opacity: 0;
+      }
     }
   }
   .bottom {
@@ -862,7 +871,7 @@
 .tcard {
   position: absolute;
   img {
-    width: 50%;
+    width: 70%;
   }
 }
 

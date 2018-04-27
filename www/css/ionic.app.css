@@ -10460,6 +10460,12 @@ body {
         .table .table_field .card_shuffle .cards card {
           padding: 2px;
           width: 12%; }
+      .table .table_field .card_shuffle .community-card.low-opacity {
+        background: rgba(0, 0, 0, 0.3);
+        display: block;
+        border-radius: 5px; }
+      .table .table_field .card_shuffle .community-card.low-opacity img {
+        opacity: 0; }
   .table .bottom {
     position: absolute;
     bottom: 0;
@@ -10964,7 +10970,7 @@ body {
 .tcard {
   position: absolute; }
   .tcard img {
-    width: 50%; }
+    width: 70%; }
 
 .none {
   width: 30px;
@@ -11525,6 +11531,9 @@ ion-item.item {
   font-weight: bold;
   font-size: 1em;
   border: 0px; }
+
+button.custom_button {
+  padding: 8px 20px; }
 
 .cont {
   padding: 15px 10px;

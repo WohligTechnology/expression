@@ -141,6 +141,21 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         }
       };
     },
+
+    getReFillBuyIn: function (data, callback) {
+      console.log("autobuyin",data);
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http.post(url + 'Player/reFillBuyIn', {
+          accessToken: accessToken,
+          tableId: data.tableId,
+          amount: data.amount
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+
     getVoucher: function (data, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
@@ -234,7 +249,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
-
     getTransaction: function (pageNo, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
