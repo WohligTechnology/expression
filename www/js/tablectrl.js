@@ -164,9 +164,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         });
-        if ($scope.activePlayer) {
-          $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+        if(!$scope.sitHere){
+          if ($scope.activePlayer) {
+            $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+          };
         };
+
         console.log("$scope.activePlayerNo", $scope.activePlayerNo);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
@@ -240,13 +243,16 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
     };
     console.log("$scope.activePlayer", $scope.activePlayer);
-    if ($scope.activePlayer[0].buyInAmt > $scope.table.bigBlind) {
-      var autoBuy
-      autoBuy = true;
-      $scope.autoBuygame(autoBuy);
-
-      console.log("modal open");
+    if($scope.sitHere){
+      if ($scope.activePlayer[0].buyInAmt > $scope.table.bigBlind) {
+        var autoBuy
+        autoBuy = true;
+        $scope.autoBuygame(autoBuy);
+  
+        console.log("modal open");
+      }
     }
+
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
         return true;
@@ -305,8 +311,10 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   $scope.modalgame = function (sitNum) {
-    if (!$scope.sitHere) {
-      return;
+    if(!$scope.activePlayer[0].tableLeft){
+      if (!$scope.sitHere) {
+        return;
+      }
     }
     $scope.gameModal.show();
     $scope.sitNo = sitNum;
@@ -339,9 +347,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //sit Here Function
   //player sitting
   $scope.sitHereFunction = function (data, isAutoBuy) {
-    if (!$scope.sitHere) {
-      return;
+    if(!$scope.activePlayer[0].tableLeft){
+      if (!$scope.sitHere) {
+        return;
+      }
     }
+
     $scope.ShowLoader = true;
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = $scope.sitNo;
@@ -534,8 +545,10 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    if ($scope.activePlayer) {
-      $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    if(!$scope.sitHere){
+      if ($scope.activePlayer) {
+        $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+      };
     };
     $scope.$apply();
   };
@@ -584,8 +597,10 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    if ($scope.activePlayer) {
-      $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    if(!$scope.sitHere){
+      if ($scope.activePlayer) {
+        $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+      };
     };
     $scope.$apply();
   };

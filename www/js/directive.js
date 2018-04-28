@@ -123,11 +123,12 @@ myApp.directive('card', function () {
         code: '='
       },
       replace: true,
-      template: '<iframe id="popup-youtube-player" style="overflow:hidden;" src="{{url}}" frameborder="0" allowscriptaccess="always"></iframe>',
+      template: '<iframe id="popup-youtube-player" src="{{url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
       link: function (scope) {
         scope.$watch('code', function (newVal) {
           if (newVal) {
             scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal + "?autoplay=1");
+            // scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/wfDSivif3FI?autoplay=1");
           }
         });
       }
