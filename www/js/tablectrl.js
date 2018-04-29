@@ -134,6 +134,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         // check whether dealer is selected or not
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
+        $scope.pots = data.data.data.pots;
         $scope.hasTurn = data.data.data.hasTurn;
         $scope.isCheck = data.data.data.isCheck;
         $scope.minimumBuyin = data.data.data.table.minimumBuyin;
@@ -164,7 +165,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         });
-        if(!$scope.sitHere){
+        if (!$scope.sitHere) {
           if ($scope.activePlayer) {
             $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
           };
@@ -243,12 +244,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
     };
     console.log("$scope.activePlayer", $scope.activePlayer);
-    if($scope.sitHere){
+    if ($scope.sitHere) {
       if ($scope.activePlayer[0].buyInAmt > $scope.table.bigBlind) {
         var autoBuy
         autoBuy = true;
         $scope.autoBuygame(autoBuy);
-  
+
         console.log("modal open");
       }
     }
@@ -311,23 +312,31 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   $scope.modalgame = function (sitNum) {
-    if(!$scope.activePlayer[0].tableLeft){
-      if (!$scope.sitHere) {
-        return;
+    if (!(_.isEmpty($scope.activePlayer[0]))) {
+      if (!$scope.activePlayer[0].tableLeft) {
+        if (!$scope.sitHere) {
+          $scope.message = {
+            heading: "You already seated",
+            content: "You have already seated the position"
+          };
+          $scope.showMessageModal();
+          return;
+        }
       }
     }
+
     $scope.gameModal.show();
     $scope.sitNo = sitNum;
   };
   $scope.autoBuygame = function (autoBuy) {
-    $scope.autoBuy=autoBuy;
+    $scope.autoBuy = autoBuy;
     console.log($scope.autoBuy);
     $scope.gameModal.show();
   };
   $scope.closeGameModal = function () {
     $scope.gameModal.hide();
   };
-  $scope.reBuyFunction= function(data){
+  $scope.reBuyFunction = function (data) {
     console.log(data);
     $scope.dataPlayer = {};
     $scope.dataPlayer.tableId = $scope.tableId;
@@ -338,20 +347,22 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
       };
       $scope.showMessageModal();
-      $state.go('lobby');
     };
     Service.getReFillBuyIn($scope.dataPlayer, function (data) {
-    console.log(data);
+      console.log(data);
     });
   };
   //sit Here Function
   //player sitting
   $scope.sitHereFunction = function (data, isAutoBuy) {
-    if(!$scope.activePlayer[0].tableLeft){
-      if (!$scope.sitHere) {
-        return;
+    if (!(_.isEmpty($scope.activePlayer[0]))) {
+      if (!$scope.activePlayer[0].tableLeft) {
+        if (!$scope.sitHere) {
+          return;
+        }
       }
     }
+    console.log("data.isAutoBuy", isAutoBuy);
 
     $scope.ShowLoader = true;
     $scope.dataPlayer = {};
@@ -359,7 +370,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.amount = data.value;
     $scope.dataPlayer.autoRebuy = isAutoBuy;
-    console.log("data.isAutoBuy", isAutoBuy);
+    // console.log("data.isAutoBuy", $scope.dataPlayer.autoRebuy);
 
     $timeout(function () {
       if ($scope.ShowLoader) {
@@ -545,7 +556,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    if(!$scope.sitHere){
+    if (!$scope.sitHere) {
       if ($scope.activePlayer) {
         $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
       };
@@ -597,7 +608,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    if(!$scope.sitHere){
+    if (!$scope.sitHere) {
       if ($scope.activePlayer) {
         $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
       };

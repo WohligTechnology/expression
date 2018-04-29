@@ -79,7 +79,7 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       scope: {
-        pot: "=ngPot",
+        pots: "=ngPots",
         winnerPlayerNo: "=ngWinner",
         players: "=ngPlayer"
       },
@@ -128,7 +128,6 @@ myApp.directive('card', function () {
         scope.$watch('code', function (newVal) {
           if (newVal) {
             scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal + "?autoplay=1");
-            // scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/wfDSivif3FI?autoplay=1");
           }
         });
       }

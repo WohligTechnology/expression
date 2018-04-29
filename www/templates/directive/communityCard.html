@@ -1,6 +1,11 @@
 <div ng-if="communityCard.cardValue==''">
     <card class="community-card low-opacity" card='NONE' ng-style="style"> </card>
 </div>
-<div ng-if="communityCard.cardValue!=''">
-    <card class="community-card" card='{{communityCard.cardValue}}' ng-style="style"></card>
+<div class="flip-container" ng-if="communityCard.cardValue!=''">
+    <div class="flipper" ng-show="communityCard.cardValue">
+        <div class="card-community">
+            <card card='NONE' class="front"></card>
+            <card class="back" card='{{communityCard.cardValue}}' ng-style="style"></card>
+        </div>
+    </div>
 </div>
