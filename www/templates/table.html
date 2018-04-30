@@ -17,7 +17,7 @@
   </div> -->
   <div class="tip-lobby back-lobby">
     <div class="tip-dealer_submit row">
-      <button class="button" type='submit' ng-click="removePlayer();" promise-btn="loginPromise">Back to lobby</button>
+      <button class="button" type='submit' ng-click="removePlayerFunction();">Back to lobby</button>
     </div>
   </div>
   <div class="tip-lobby tip-dealer">
@@ -133,6 +133,10 @@
         <span class="light"></span>
         <span class="btn_name"> Raise </span>
       </button>
+      <!-- <button class="raise" ng-click="modalrange();">
+        <span class="light"></span>
+        <span class="btn_name"> Raise </span>
+      </button> -->
       <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft" promise-btn="allInPromise">
         <span class="light"></span>
         <span class="btn_name"> All In </span>

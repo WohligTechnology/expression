@@ -1,5 +1,5 @@
 <ion-modal-view class="custom-model statement-model game_summary  small-model shadow-yellow ">
-  <ion-content scroll="false">
+  <ion-content>
     <!-- <img src="img/close-button.png" class="cross-btn mar-tr" ng-click="closeGameModal();"> -->
     <div class="heading">
       Take into Game
@@ -11,7 +11,7 @@
           <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
         </div>
         <div class="text-center">
-          <div ng-if="!autoBuy">
+          <div ng-if="!autoBuy" class="padding mar-negative">
             <ion-checkbox color="dark" ng-model="isAutoBuy">
               <span class="auto-rebuy">Auto-rebuy at table</span>
             </ion-checkbox>

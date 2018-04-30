@@ -41,8 +41,6 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
   };
-  $.jStorage.deleteKey("tableId");
-  $.jStorage.deleteKey("autoBuy");
   //*************basic ui login***************
   //to close all tab,modal,popup
   $scope.closeAll = function () {

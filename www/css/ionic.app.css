@@ -11039,11 +11039,6 @@ body {
   background-size: cover;
   background-position: center center; }
 
-.table-range-slider .text-scroll {
-  margin: 31% 14% 0% 20%;
-  height: 60%;
-  background: rgba(0, 0, 0, 0.6); }
-
 .t-range-model {
   top: 22%;
   right: 25%;
@@ -11375,6 +11370,14 @@ community {
     .statement-model .statement_content tr td:nth-child(1) {
       text-align: left; }
 
+.table-range-slider .text-scroll {
+  margin: 10% 15% 0% 25%;
+  height: 85%;
+  background: rgba(0, 0, 0, 0.6); }
+
+.table-range-slider .height-raise {
+  height: 32vh; }
+
 .small-model {
   top: 15%;
   right: 25%;
@@ -11548,10 +11551,14 @@ ion-item.item {
   font-weight: bold;
   font-weight: bold;
   font-size: 1em;
-  border: 0px; }
-
-button.custom_button {
+  border: 0px;
   padding: 8px 20px; }
+
+.mb0 {
+  margin-bottom: 0; }
+
+.mt5 {
+  margin-top: 5px; }
 
 .cont {
   padding: 15px 10px;
@@ -11702,13 +11709,14 @@ span.valid {
   -webkit-text-fill-color: transparent; }
 
 .text-scroll {
-  height: 71%;
-  overflow: scroll;
-  padding: 2%; }
+  height: 71%; }
   .text-scroll p {
     font-size: 11px;
     text-align: justify;
     line-height: 20px; }
+
+.mar-negative {
+  margin: 0 -25px; }
 
 .shadow-yellow {
   box-shadow: 0px 0px 3px 2px #d38a31; }
@@ -11848,7 +11856,7 @@ span.valid {
     font-size: 1.2em; }
   .game_summary .auto-rebuy {
     color: white;
-    font-size: 0.7em; }
+    font-size: 1em; }
   .game_summary .item {
     border-color: transparent;
     background-color: transparent;

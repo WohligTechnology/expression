@@ -8,8 +8,6 @@ var myTableNo = 0;
 myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $state, Service, $stateParams, $timeout, $interval) {
 
   $scope.tableId = $stateParams.id;
-  //Basic ui login
-  $.jStorage.set("tableId", $scope.tableId);
 
 
   $scope.verticalSlider = {};
@@ -27,7 +25,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     value: 100,
     options: {
       floor: 10,
-      ceil: 150000
+      ceil: 150000,
+      vertical: true
     },
   };
 
@@ -433,7 +432,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.playerDetails.show();
     }
   };
-  $scope.removePlayer = function () {
+  $scope.removePlayerFunction = function () {
     Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
       $state.go('lobby');
     });
@@ -557,7 +556,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       }
     });
     if (!$scope.sitHere) {
-      if ($scope.activePlayer) {
+      if ($scope.activePlayer[0]) {
         $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
       };
     };

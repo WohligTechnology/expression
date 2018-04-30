@@ -133,8 +133,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         if (!_.isEmpty(accessToken)) {
           $http.post(url + 'Player/updateSocket', {
             accessToken: accessToken,
-            socketId: socketId,
-            tableId: tableId
+            socketId: socketId
           }).then(function (data) {
             callback(data);
           });
@@ -235,8 +234,6 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       });
     },
     removePlayer: function (tableId, playerNo, callback) {
-      console.log("playerNo",playerNo);
-      console.log("tableId",tableId);
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         $http.post(url + 'Table/removePlayer', {

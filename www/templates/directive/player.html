@@ -1,4 +1,4 @@
-<div class="plyr player{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere}">
+<div class="plyr player{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere , 'sit_here':player.tableLeft}">
   <!-- before Player Sitting -->
   <div class="rel" ng-if="sitHere && !player">
     <div class="player_pic">
