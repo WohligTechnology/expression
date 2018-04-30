@@ -134,6 +134,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         // check whether dealer is selected or not
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
+        $scope.pots = data.data.data.pots;
         $scope.hasTurn = data.data.data.hasTurn;
         $scope.isCheck = data.data.data.isCheck;
         $scope.minimumBuyin = data.data.data.table.minimumBuyin;
@@ -164,7 +165,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         });
-        $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+        if (!$scope.sitHere) {
+          if ($scope.activePlayer) {
+            $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+          };
+        };
+
         console.log("$scope.activePlayerNo", $scope.activePlayerNo);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
@@ -220,10 +226,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.raiseSlider.options.floor = $scope.fromRaised;
     $scope.raiseSlider.options.ceil = $scope.toRaised;
 
-
-    // console.log($scope.raiseSlider.value, "$scope.raiseSlider.value");
-    // console.log($scope.raiseSlider.options.floor, "$scope.raiseSlider.options.floor");
-    // console.log($scope.raiseSlider.options.ceil, "$scope.raiseSlider.options.ceil");
     $scope.minimumBuyin = data.data.table.minimumBuyin;
     if (data.data.pots[0]) {
       $scope.potAmount = data.data.pots[0].totalAmount;
@@ -231,17 +233,27 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
     }
-    // console.log($scope.players);
+
     $scope.activePlayer = _.filter($scope.players, function (player) {
       if (player && (player.user._id == $scope._id)) {
         return true;
       }
     });
-    $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
-    // if ($scope.activePlayer[0].buyInAmt >= 0) {
 
-    // }
+    if ($scope.activePlayer[0].playerNo) {
+      $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    };
     console.log("$scope.activePlayer", $scope.activePlayer);
+    if ($scope.sitHere) {
+      if ($scope.activePlayer[0].buyInAmt > $scope.table.bigBlind) {
+        var autoBuy
+        autoBuy = true;
+        $scope.autoBuygame(autoBuy);
+
+        console.log("modal open");
+      }
+    }
+
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
         return true;
@@ -300,30 +312,65 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   $scope.modalgame = function (sitNum) {
-    if (!$scope.sitHere) {
-      return;
+    if (!(_.isEmpty($scope.activePlayer[0]))) {
+      if (!$scope.activePlayer[0].tableLeft) {
+        if (!$scope.sitHere) {
+          $scope.message = {
+            heading: "You already seated",
+            content: "You have already seated the position"
+          };
+          $scope.showMessageModal();
+          return;
+        }
+      }
     }
+
     $scope.gameModal.show();
     $scope.sitNo = sitNum;
   };
-
+  $scope.autoBuygame = function (autoBuy) {
+    $scope.autoBuy = autoBuy;
+    console.log($scope.autoBuy);
+    $scope.gameModal.show();
+  };
   $scope.closeGameModal = function () {
     $scope.gameModal.hide();
   };
-
+  $scope.reBuyFunction = function (data) {
+    console.log(data);
+    $scope.dataPlayer = {};
+    $scope.dataPlayer.tableId = $scope.tableId;
+    $scope.dataPlayer.amount = data.value;
+    if ($scope.dataPlayer.amount >= $scope.playerData.balance) {
+      $scope.message = {
+        heading: "Insufficent Balance",
+        content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
+      };
+      $scope.showMessageModal();
+    };
+    Service.getReFillBuyIn($scope.dataPlayer, function (data) {
+      console.log(data);
+    });
+  };
   //sit Here Function
   //player sitting
   $scope.sitHereFunction = function (data, isAutoBuy) {
-    if (!$scope.sitHere) {
-      return;
+    if (!(_.isEmpty($scope.activePlayer[0]))) {
+      if (!$scope.activePlayer[0].tableLeft) {
+        if (!$scope.sitHere) {
+          return;
+        }
+      }
     }
+    console.log("data.isAutoBuy", isAutoBuy);
+
     $scope.ShowLoader = true;
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = $scope.sitNo;
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.amount = data.value;
     $scope.dataPlayer.autoRebuy = isAutoBuy;
-    console.log("data.isAutoBuy", isAutoBuy);
+    // console.log("data.isAutoBuy", $scope.dataPlayer.autoRebuy);
 
     $timeout(function () {
       if ($scope.ShowLoader) {
@@ -413,6 +460,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.call = function () {
     $scope.callPromise = Service.call($scope.tableId, function (data) { });
   };
+
+  //check
   $scope.check = function () {
     $scope.checkPromise = Service.check($scope.tableId, function (data) { });
   };
@@ -507,7 +556,11 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    if (!$scope.sitHere) {
+      if ($scope.activePlayer) {
+        $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+      };
+    };
     $scope.$apply();
   };
 
@@ -555,7 +608,11 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+    if (!$scope.sitHere) {
+      if ($scope.activePlayer) {
+        $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+      };
+    };
     $scope.$apply();
   };
   io.socket.on("newGame", newGameSocketFunction);

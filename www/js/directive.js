@@ -79,7 +79,7 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       scope: {
-        pot: "=ngPot",
+        pots: "=ngPots",
         winnerPlayerNo: "=ngWinner",
         players: "=ngPlayer"
       },
@@ -123,7 +123,7 @@ myApp.directive('card', function () {
         code: '='
       },
       replace: true,
-      template: '<iframe id="popup-youtube-player" style="overflow:hidden;" src="{{url}}" frameborder="0" allowscriptaccess="always"></iframe>',
+      template: '<iframe id="popup-youtube-player" src="{{url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
       link: function (scope) {
         scope.$watch('code', function (newVal) {
           if (newVal) {

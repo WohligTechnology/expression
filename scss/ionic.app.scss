@@ -262,18 +262,6 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#575757', endColorstr='#141414', GradientType=0);
 }
 
-@media (min-aspect-ratio: 18/9) {
-  .table .table_field {
-    // width: 85%;
-    // left: 50%;
-    // transform: translate(-50%);
-    transform: scale(.8);
-  }
-  .table .bottom .main_player .status {
-    // top: -380%;
-  }
-}
-
 .spinner {
   position: fixed;
   left: 50%;
@@ -294,4 +282,25 @@ body {
 @import "modal";
 @import "timer";
 @import "signup";
-@import "addamount"
+@import "addamount";
+
+@media (min-aspect-ratio: 18/9) {
+  .table .table_field {
+    width: 78%;
+    left: 50%;
+    transform: translate(-50%);
+    .video_frame {
+      position: absolute;
+      width: 32vw;
+      top: -9%;
+    }
+  }
+}
+
+@media screen and (min-width: 900px){
+  .table .table_field .video_frame {
+    width: 35vw;
+    height: 30vh;
+    top: -20%;
+  }
+}
