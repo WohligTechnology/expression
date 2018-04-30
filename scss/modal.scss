@@ -137,12 +137,13 @@
 }
 .table-range-slider {
   .text-scroll {
-      margin: 10% 15% 0% 25%;
-      height: 85%;
+      // margin: 10% 15% 0% 25%;
+      height: 100%;
       background: rgba(0, 0, 0, 0.6);
+      padding: 2px;
   }
   .height-raise {
-      height: 32vh;
+    height: 44vh;
   }
 }
 .small-model {
@@ -766,9 +767,9 @@ span.valid {
 }
 
 .game_summary {
-  height: 60%;
+  height: 65%;
   width: 40%;
-  top: 17%;
+  top: 10%;
   left: 28%;
   .text-scroll {
     margin: 0% 15%;

@@ -315,8 +315,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       if (!$scope.activePlayer[0].tableLeft) {
         if (!$scope.sitHere) {
           $scope.message = {
-            heading: "You already seated",
-            content: "You have already seated the position"
+            heading: "You are already been seated",
+            content: "No need to sit again !!!"
           };
           $scope.showMessageModal();
           return;
@@ -351,9 +351,14 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       console.log(data);
     });
   };
+
+  $scope.auto = {
+    isAutoBuy: false,
+    payBigBlind: false,
+  };
   //sit Here Function
   //player sitting
-  $scope.sitHereFunction = function (data, isAutoBuy) {
+  $scope.sitHereFunction = function (sliderData, data) {
     if (!(_.isEmpty($scope.activePlayer[0]))) {
       if (!$scope.activePlayer[0].tableLeft) {
         if (!$scope.sitHere) {
@@ -361,15 +366,14 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         }
       }
     }
-    console.log("data.isAutoBuy", isAutoBuy);
-
+    console.log("data auto", data);
     $scope.ShowLoader = true;
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = $scope.sitNo;
     $scope.dataPlayer.tableId = $scope.tableId;
-    $scope.dataPlayer.amount = data.value;
-    $scope.dataPlayer.autoRebuy = isAutoBuy;
-    // console.log("data.isAutoBuy", $scope.dataPlayer.autoRebuy);
+    $scope.dataPlayer.amount = sliderData.value;
+    $scope.dataPlayer.autoRebuy = data.isAutoBuy;
+    $scope.dataPlayer.payBigBlind = data.payBigBlind;
 
     $timeout(function () {
       if ($scope.ShowLoader) {
@@ -432,9 +436,18 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.playerDetails.show();
     }
   };
+  //remove player function
   $scope.removePlayerFunction = function () {
     Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
-      $state.go('lobby');
+      if (data) {
+        $state.go('lobby');
+      }
+    });
+  };
+  //Tip Dealer
+  $scope.makeTipFunction = function (amount) {
+    console.log(amount);
+    Service.makeTip(amount, $scope.tableId, function (data) {
     });
   };
   $scope.getHistory = function () {
@@ -482,18 +495,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     }, 2000);
 
   });
-  $scope.makeTip = function (data) {
-    // $scope.coinAudio.play();
-    // $ionicPlatform.ready(function () {
-    //   if (window.cordova) {
-    //     window.plugins.NativeAudio.play('coin');
-    //   }
-    // })
-
-    $scope.amount = {};
-    $scope.amount = data;
-    Service.giveTip($scope.amount, function (data) { });
-  };
 
   //winner
   function showWinnerFunction(data) {

@@ -103,6 +103,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       });
     },
     savePlayerToTable: function (dataPlayer, callback) {
+      console.log("dataPlayer",dataPlayer);
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         $http.post(url + 'Table/addUserToTable', {
@@ -110,6 +111,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           tableId: dataPlayer.tableId,
           amount: dataPlayer.amount,
           autoRebuy: dataPlayer.autoRebuy,
+          payBigBlind: dataPlayer.payBigBlind,
           socketId: socketId,
           accessToken: accessToken
         }).then(function (data) {
@@ -142,7 +144,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     },
 
     getReFillBuyIn: function (data, callback) {
-      console.log("autobuyin",data);
+      console.log("autobuyin", data);
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         return $http.post(url + 'Player/reFillBuyIn', {
@@ -259,6 +261,18 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
             callback(data);
           }
 
+        });
+      }
+    },
+    makeTip: function (amount, tableId, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http.post(url + 'Transaction/makeTip', {
+          "tableId": tableId,
+          "amount": amount,
+          "accessToken": accessToken
+        }).then(function (data) {
+          callback(data);
         });
       }
     },
