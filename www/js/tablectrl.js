@@ -263,7 +263,20 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     }).length;
-    // $scope.$apply();
+      //tip socket
+      if($scope.extra.action == "tip"){
+        $scope.tipAmount = $scope.extra.amount;
+        $scope.TipPlayerNo = $scope.extra.playerNo;
+      
+        //to reset tip and plyr no
+        $timeout(function () {
+          $scope.tipAmount = -1;
+          $scope.TipPlayerNo = -1;
+        }, 2000);
+      }
+
+
+
     if ($scope.remainingActivePlayers == 9) {
       $scope.message = {
         heading: "Table Full",
@@ -279,7 +292,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
   function startSocketUpdate() {
-    // io.socket.off("Update", updateSocketFunction);
     io.socket.on("Update", updateSocketFunction);
   }
 
@@ -483,18 +495,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.raisePromise = Service.randomCard($scope.tableId, function (data) { });
   };
 
-  //tip socket
-  io.socket.on("tip", function (data) {
-    $scope.tipAmount = data.data.amount;
-    $scope.TipPlayerNo = data.data.playerNo;
-
-    //to reset tip and plyr no
-    $timeout(function () {
-      $scope.tipAmount = -1;
-      $scope.TipPlayerNo = -1;
-    }, 2000);
-
-  });
 
   //winner
   function showWinnerFunction(data) {
