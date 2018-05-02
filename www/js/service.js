@@ -10,7 +10,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
   io.socket.on('connect', function (socket) {
     socketId = io.socket._raw.id;
     $.jStorage.set("socketId", io.socket._raw.id);
-    obj.connectSocket(function () { });
+    obj.connectSocket(function () {});
   });
 
   var obj = {
@@ -103,7 +103,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       });
     },
     savePlayerToTable: function (dataPlayer, callback) {
-      console.log("dataPlayer",dataPlayer);
+      console.log("dataPlayer", dataPlayer);
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
         $http.post(url + 'Table/addUserToTable', {
@@ -113,6 +113,17 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
           autoRebuy: dataPlayer.autoRebuy,
           payBigBlind: dataPlayer.payBigBlind,
           socketId: socketId,
+          accessToken: accessToken
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+    getHistory: function (tableId, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        $http.post(url + 'Table/tableHistory', {
+          tableId: tableId,
           accessToken: accessToken
         }).then(function (data) {
           callback(data);

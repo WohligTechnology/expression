@@ -2,7 +2,9 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
 
   //ionic cordova 
   $ionicPlatform.ready(function () {
+
     screen.orientation.lock('landscape');
+
     if (window.cordova) {
       window.plugins.NativeAudio.stop('timer');
       window.plugins.NativeAudio.stop('coin');
@@ -144,7 +146,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         });
         $scope.loadingDisable = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else { }
+      } else {}
     });
   };
 
@@ -200,7 +202,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         });
         $scope.loadingDisable = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else { }
+      } else {}
     });
   };
 
@@ -469,8 +471,8 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
       $scope.message = {};
       if (data.data.value) {
         console.log(data.data.data[1]);
-        $scope.voucher=data.data.data[1];
-        $scope.voucherAmount=$scope.voucher[0].amount;
+        $scope.voucher = data.data.data[1];
+        $scope.voucherAmount = $scope.voucher[0].amount;
         console.log($scope.voucherAmount);
         $scope.closeVoucherModal();
         $scope.message = {
