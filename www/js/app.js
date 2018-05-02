@@ -156,7 +156,7 @@ myApp.filter('serverimage', function () {
 
     } else {
       //    return "img/logo.png";
-      return "img/not.png";
+      return "img/player_pic.png";
     }
   };
 });
@@ -168,7 +168,7 @@ myApp.filter('cardimg', function () {
 
     } else {
       //    return "img/logo.png";
-      return "img/not.png";
+      return "img/player_pic.png";
     }
   };
 });
