@@ -32,13 +32,15 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //loader for table
   $scope.ShowLoader = true;
   if ($.jStorage.get("socketId")) {
+    console.log("inside loader");
     $scope.ShowLoader = false;
   } else {
     $timeout(function () {
+      console.log("inside loader demo");
       $scope.ShowLoader = false;
     }, 5000);
   }
-  
+
   $scope._id = $.jStorage.get("_id");
   $scope.playerDataFunction = function () {
     Service.getProfile(function (data) {
@@ -299,6 +301,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   };
 
   function startSocketUpdate() {
+    io.socket.off("Update", updateSocketFunction);
     io.socket.on("Update", updateSocketFunction);
   }
 
@@ -330,7 +333,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   });
 
   $scope.modalgame = function (sitNum) {
-    if (!(_.isEmpty($scope.activePlayer[0]))) {
+    if (!(_.isEmpty($scope.activePlayer))) {
       if (!$scope.activePlayer[0].tableLeft) {
         if (!$scope.sitHere) {
           $scope.message = {
@@ -518,7 +521,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
             console.log("isThisPlayerWinner", isThisPlayerWinner);
             player.winnerDetails = {
-              potName: pot.name,
+              potName: winners[isThisPlayerWinner].winName,
               amount: pot.totalAmount,
               winnercard: winners[isThisPlayerWinner].winnigCards
             };
@@ -533,9 +536,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
-    // if (!dontDigest) {
-    //   $scope.$apply();
-    // }
   }
   io.socket.on("showWinner", showWinnerFunction);
 
