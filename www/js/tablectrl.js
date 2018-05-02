@@ -178,7 +178,17 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
           };
         };
-
+        if (!$scope.sitHere) {
+          if ($scope.activePlayer[0].buyInAmt < $scope.table.bigBlind) {
+            var autoBuy
+            autoBuy = true;
+            $scope.autoBuygame(autoBuy);
+            if($scope.activePlayer[0].buyInAmt < 0){
+              $scope.closeGameModal();
+              $state.go("lobby");
+            }
+          }
+        }
         console.log("$scope.activePlayerNo", $scope.activePlayerNo);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
@@ -252,13 +262,15 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
     };
     console.log("$scope.activePlayer", $scope.activePlayer);
-    if ($scope.sitHere) {
-      if ($scope.activePlayer[0].buyInAmt > $scope.table.bigBlind) {
+    if (!$scope.sitHere) {
+      if ($scope.activePlayer[0].buyInAmt < $scope.table.bigBlind) {
         var autoBuy
         autoBuy = true;
         $scope.autoBuygame(autoBuy);
-
-        console.log("modal open");
+        if($scope.activePlayer[0].buyInAmt < 0){
+          $scope.closeGameModal();
+          $state.go("lobby");
+        }
       }
     }
 

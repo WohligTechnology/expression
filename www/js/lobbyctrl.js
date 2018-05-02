@@ -144,7 +144,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         });
         $scope.loadingDisable = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else {}
+      } else { }
     });
   };
 
@@ -200,7 +200,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         });
         $scope.loadingDisable = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else {}
+      } else { }
     });
   };
 
@@ -466,21 +466,32 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $scope.vouchers = function (data) {
     Service.getVoucher(data, function (data) {
       console.log(data);
-
+      $scope.message = {};
       if (data.data.value) {
+        console.log(data.data.data[1]);
+        $scope.voucher=data.data.data[1];
+        $scope.voucherAmount=$scope.voucher[0].amount;
+        console.log($scope.voucherAmount);
         $scope.closeVoucherModal();
         $scope.message = {
           heading: "Voucher Redeem Successfully",
-          content: "Voucher Redeem Successfully",
+          content: "Voucher amount of " + $scope.voucherAmount + " has been Redeem Successfully",
           error: true
         };
         $scope.showMessageModal();
-      }
-      if (data.data.error.msg == "Voucher code already used") {
-        $scope.message = {
-          heading: "Voucher code already used",
+      };
+      if (data.data.error) {
+        if (data.data.error.msg == "Voucher code already used") {
+          $scope.message = {
+            heading: "Voucher code already used",
+          };
         };
-      }
+        if (data.data.error.msg == "Invalide voucher code.") {
+          $scope.message = {
+            heading: "Invalid voucher code.",
+          };
+        };
+      };
     });
   };
 });

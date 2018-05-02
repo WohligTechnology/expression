@@ -10679,23 +10679,23 @@ body {
     transform: translate(0%, 0%);
     transition: all ease 1s; }
     .total_played_coin span.coin1 {
-      animation: animecoin1 1.2s forwards; }
+      animation: animecoin1 4s forwards; }
     .total_played_coin span.coin2 {
-      animation: animecoin2 1.2s forwards; }
+      animation: animecoin2 4s forwards; }
     .total_played_coin span.coin3 {
-      animation: animecoin3 1.2s forwards; }
+      animation: animecoin3 4s forwards; }
     .total_played_coin span.coin4 {
-      animation: animecoin4 1.2s forwards; }
+      animation: animecoin4 4s forwards; }
     .total_played_coin span.coin5 {
-      animation: animecoin5 1.2s forwards; }
+      animation: animecoin5 4s forwards; }
     .total_played_coin span.coin6 {
-      animation: animecoin6 1.2s forwards; }
+      animation: animecoin6 4s forwards; }
     .total_played_coin span.coin7 {
-      animation: animecoin7 1.2s forwards; }
+      animation: animecoin7 4s forwards; }
     .total_played_coin span.coin8 {
-      animation: animecoin8 1.2s forwards; }
+      animation: animecoin8 4s forwards; }
     .total_played_coin span.coin9 {
-      animation: animecoin9 800ms forwards; }
+      animation: animecoin9 4s forwards; }
 
 @keyframes animecoin1 {
   0% {
@@ -11236,8 +11236,9 @@ community {
   top: -54%;
   left: 50%;
   width: 130px;
+  font-weight: 800;
   transform: translateX(-50%);
-  color: #e3aa00;
+  color: #f8bd0b;
   font-size: 1.1em;
   text-transform: uppercase; }
 
@@ -11780,12 +11781,10 @@ span.valid {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; }
 
-.text-scroll {
-  height: 71%; }
-  .text-scroll p {
-    font-size: 11px;
-    text-align: justify;
-    line-height: 20px; }
+.text-scroll p {
+  font-size: 11px;
+  text-align: justify;
+  line-height: 20px; }
 
 .mar-negative {
   margin: 0 -25px; }
@@ -11814,7 +11813,6 @@ span.valid {
     bottom: 2%;
     background-color: #3d236c; }
   .faq-modal .text-scroll {
-    height: 92%;
     padding: 3%; }
   .faq-modal label {
     font-weight: 600;
@@ -11916,8 +11914,7 @@ span.valid {
   top: 10%;
   left: 28%; }
   .game_summary .text-scroll {
-    margin: 0% 15%;
-    height: 55%; }
+    margin: 0% 15%; }
   .game_summary .item-checkbox .checkbox {
     top: 70%;
     right: 8px;

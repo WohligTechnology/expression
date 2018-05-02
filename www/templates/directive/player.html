@@ -18,6 +18,7 @@
   <!-- after Player Sitting -->
   <div class="rel" ng-if="(!sitHere && player && !player.tableLeft) || sitHere && player">
     <div class="winner-pot-name" ng-if="player.winnerDetails">
+      Name
       {{player.winnerDetails.potName}}
     </div>
     <div class="tcard tcard{{pos}}" ng-if="!player.isFold">
@@ -64,10 +65,10 @@
     </div>
     <div class="details">
       <div class="turn_status fold" ng-if="player.isFold && !player.winnerDetails">Fold</div>
-      <div class="turn_status all_in" ng-if="player.isAllIn && !player.winnerDetails">All In</div>
       <div class="turn_status checked" ng-if="player.hasChecked && !player.winnerDetails">Checked</div>
       <div class="turn_status call" ng-if="player.hasCalled && !player.winnerDetails">Call</div>
-      <div class="turn_status raise" ng-if="player.hasRaised && !player.winnerDetails">Raised</div>
+      <div class="turn_status raise" ng-if="player.hasRaised && !player.isAllIn && !player.winnerDetails">Raised</div>
+      <div class="turn_status all_in" ng-if="player.isAllIn && !player.winnerDetails">All In</div>
       <div class="turn_status waiting" ng-if="!player.isActive && !player.winnerDetails">Waiting</div>
       <div class="name">{{player.user.name}}</div>
       <div class="amt">{{player.buyInAmt-player.totalAmount | number}}</div>
