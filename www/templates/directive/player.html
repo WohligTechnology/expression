@@ -18,7 +18,6 @@
   <!-- after Player Sitting -->
   <div class="rel" ng-if="(!sitHere && player && !player.tableLeft) || sitHere && player">
     <div class="winner-pot-name" ng-if="player.winnerDetails">
-      Name
       {{player.winnerDetails.potName}}
     </div>
     <div class="tcard tcard{{pos}}" ng-if="!player.isFold">

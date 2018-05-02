@@ -127,7 +127,7 @@ myApp.directive('card', function () {
       link: function (scope) {
         scope.$watch('code', function (newVal) {
           if (newVal) {
-            scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal + "?autoplay=1");
+            scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal + "?modestbranding=1");
           }
         });
       }

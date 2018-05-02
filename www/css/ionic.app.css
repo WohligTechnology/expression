@@ -11242,6 +11242,16 @@ community {
   font-size: 1.1em;
   text-transform: uppercase; }
 
+.col-15 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 15%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 15%;
+  -ms-flex: 0 0 15%;
+  flex: 0 0 15%;
+  max-width: 15%;
+  padding: 2px; }
+
 .login {
   background: linear-gradient(to top, #000000, black);
   background-size: cover; }
@@ -12013,17 +12023,17 @@ span.valid {
     -o-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); }
 
-.platform-browser .animation_wrapper,
-.platform-browser .animation_wrapper * {
+platform-android .animation_wrapper,
+platform-android .animation_wrapper * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.platform-browser .animation_wrapper {
+platform-android .animation_wrapper {
   width: 56px;
   height: 56px; }
 
-.platform-browser .animation_wrapper .pie {
+platform-android .animation_wrapper .pie {
   width: 50%;
   height: 100%;
   -webkit-transform-origin: 100% 50%;
@@ -12037,7 +12047,7 @@ span.valid {
   background: #FFEB3B;
   border: 5px solid #FFEB3B; }
 
-.platform-browser .animation_wrapper .spinner {
+platform-android .animation_wrapper .spinner {
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
   z-index: 200;
   border-right: none;
@@ -12047,12 +12057,12 @@ span.valid {
   -o-animation: rota 20s linear infinite;
   animation: rota 20s linear infinite; }
 
-.platform-browser .animation_wrapper:hover .spinner,
-.platform-browser .animation_wrapper:hover .filler,
-.platform-browser .animation_wrapper:hover .mask {
+platform-android .animation_wrapper:hover .spinner,
+platform-android .animation_wrapper:hover .filler,
+platform-android .animation_wrapper:hover .mask {
   animation-play-state: running; }
 
-.platform-browser .animation_wrapper .filler {
+platform-android .animation_wrapper .filler {
   border-radius: 0 100% 100% 0 / 0 50% 50% 0;
   left: 50%;
   opacity: 0;
@@ -12065,7 +12075,7 @@ span.valid {
   -webkit-animation: opa 20s steps(1, end) infinite reverse;
   border-left: none; }
 
-.platform-browser .animation_wrapper .mask {
+platform-android .animation_wrapper .mask {
   width: 50%;
   height: 100%;
   position: absolute;

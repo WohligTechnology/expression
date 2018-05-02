@@ -208,4 +208,4 @@
   }
 }
 
-@include timer('.platform-browser', '.animation_wrapper', 20, 56px, #FFEB3B, '5px solid #FFEB3B');
+@include timer('platform-android', '.animation_wrapper', 20, 56px, #FFEB3B, '5px solid #FFEB3B');
