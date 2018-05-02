@@ -1,9 +1,9 @@
 <div class="login signup add-amount">
-    <div class="tip-lobby back-lobby">
-      <div class="tip-dealer_submit row">
-        <button class="button" type="submit" ui-sref="lobby">Back to lobby</button>
-      </div>
+  <div class="tip-lobby back-lobby">
+    <div class="tip-dealer_submit row">
+      <button class="button" type="submit" ui-sref="lobby">Back to lobby</button>
     </div>
+  </div>
   <div class="logo mar-t">
     <img src="img/login/logo.jpg">
   </div>
@@ -47,7 +47,7 @@
         <ion-item collection-repeat="data in withdrawDetails" class="table-heading">
           <div class="row transaction-row">
             <div class="col-25 ">
-              <div class="bold ">{{data.updatedAt | date:'d-MMM-yyyy h:mm a'}}</div>
+              <div class="bold ">{{data.updatedAt | date:'d-MMM-yy'}}</div>
             </div>
             <div class="col-25">
               <div class="text-center bold">${{data.amount | number}}</div>

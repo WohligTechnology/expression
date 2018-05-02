@@ -53,7 +53,9 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
   // .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
 
   //   }]
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+    $ionicConfigProvider.views.maxCache(10);
+    $ionicConfigProvider.views.swipeBackEnabled(false);
     //for loader
     // cfpLoadingBarProvider.includeSpinner = true;
     // cfpLoadingBarProvider.includeBar = false;

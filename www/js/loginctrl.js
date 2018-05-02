@@ -2,7 +2,17 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   $ionicPlatform.ready(function () {
     screen.orientation.lock('portrait');
   })
-  screen.orientation.lock('portrait');
+
+  var accessToken = $.jStorage.get("accessToken");
+  console.log("accesstoken", accessToken);
+  if (accessToken) {
+    $state.go("lobby");
+  } else {
+    $state.go("login");
+  }
+
+
+  // screen.orientation.lock('portrait');
 
 
   $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {

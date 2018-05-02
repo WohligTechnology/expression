@@ -15,7 +15,6 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   $ionicPlatform.registerBackButtonAction(function (event) {
     event.preventDefault();
   }, 100);
-  screen.orientation.lock('landscape');
   //end of ionic cordova
 
   $scope.accessToken = $.jStorage.get("accessToken");
@@ -145,7 +144,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         });
         $scope.loadingDisable = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else { }
+      } else {}
     });
   };
 
@@ -201,7 +200,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         });
         $scope.loadingDisable = false;
         $scope.$broadcast('scroll.infiniteScrollComplete');
-      } else { }
+      } else {}
     });
   };
 
@@ -477,7 +476,7 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
         };
         $scope.showMessageModal();
       }
-      if(data.data.error.msg=="Voucher code already used"){
+      if (data.data.error.msg == "Voucher code already used") {
         $scope.message = {
           heading: "Voucher code already used",
         };
