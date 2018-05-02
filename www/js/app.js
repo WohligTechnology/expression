@@ -4,15 +4,12 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons', 'rzModule', 'angular-loading-bar', 'ngAnimate'])
+var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons', 'rzModule', 'ngAnimate'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
-
-
-
       if (window.MobileAccessibility) {
         window.MobileAccessibility.usePreferredTextZoom(false);
       }
@@ -56,11 +53,11 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
   // .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
 
   //   }]
-  .config(function ($stateProvider, $urlRouterProvider, cfpLoadingBarProvider) {
+  .config(function ($stateProvider, $urlRouterProvider) {
     //for loader
-    cfpLoadingBarProvider.includeSpinner = true;
-    cfpLoadingBarProvider.includeBar = false;
-    cfpLoadingBarProvider.spinnerTemplate = '<div class="spinner-overlay"><img class="spinner" src="img/spinner.gif" /></div>';
+    // cfpLoadingBarProvider.includeSpinner = true;
+    // cfpLoadingBarProvider.includeBar = false;
+    // cfpLoadingBarProvider.spinnerTemplate = '<div class="spinner-overlay"><img class="spinner" src="img/spinner.gif" /></div>';
     //End of loader
     $stateProvider
 

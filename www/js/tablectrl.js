@@ -29,7 +29,16 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       vertical: true
     },
   };
-
+  //loader for table
+  $scope.ShowLoader = true;
+  if ($.jStorage.get("socketId")) {
+    $scope.ShowLoader = false;
+  } else {
+    $timeout(function () {
+      $scope.ShowLoader = false;
+    }, 5000);
+  }
+  
   $scope._id = $.jStorage.get("_id");
   $scope.playerDataFunction = function () {
     Service.getProfile(function (data) {
@@ -50,8 +59,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     animation: 'slide-in-up'
   }).then(function (modal) {
     $scope.messageModal = modal;
-    // $scope.showMessageModal();
-
   });
 
   $scope.showMessageModal = function () {
@@ -263,17 +270,17 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     }).length;
-      //tip socket
-      if($scope.extra.action == "tip"){
-        $scope.tipAmount = $scope.extra.amount;
-        $scope.TipPlayerNo = $scope.extra.playerNo;
-      
-        //to reset tip and plyr no
-        $timeout(function () {
-          $scope.tipAmount = -1;
-          $scope.TipPlayerNo = -1;
-        }, 2000);
-      }
+    //tip socket
+    if ($scope.extra.action == "tip") {
+      $scope.tipAmount = $scope.extra.amount;
+      $scope.TipPlayerNo = $scope.extra.playerNo;
+
+      //to reset tip and plyr no
+      $timeout(function () {
+        $scope.tipAmount = -1;
+        $scope.TipPlayerNo = -1;
+      }, 2000);
+    }
 
 
 
@@ -448,20 +455,14 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.playerDetails.show();
     }
   };
-  //remove player function
-  $scope.removePlayerFunction = function () {
-    Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
-      if (data) {
-        $state.go('lobby');
-      }
-    });
-  };
   //Tip Dealer
   $scope.makeTipFunction = function (amount) {
     console.log(amount);
     Service.makeTip(amount, $scope.tableId, function (data) {
     });
   };
+
+  //Game History
   $scope.getHistory = function () {
     Service.getHistory($scope.tableId, function (data) {
       $scope.showHistory = data.data.data
@@ -591,6 +592,18 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
   io.socket.on("removePlayer" + $scope.tableId, removePlayerFunction);
 
+
+
+  //remove player function
+  $scope.removePlayerFunction = function () {
+    Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
+      if (data) {
+        $state.go('lobby');
+      }
+    });
+  };
+
+
   newGameSocketFunction = function (data) {
     console.log("NewGame", data);
     $scope.communityCards = data.data.communityCards;
@@ -615,6 +628,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     };
     $scope.$apply();
   };
+
   io.socket.on("newGame", newGameSocketFunction);
 
 

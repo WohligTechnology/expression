@@ -456,45 +456,134 @@
         margin-right: 5px;
         display: inline-block;
         transform: translate(0%, 0%);
-        transition: all ease 1s;
-        animation: pulse 5s forwards;
-        animation-delay: 1s;
-        &.coin1.ng-hide-remove {
-            transform: translate(425%, -250%);
+        transition: all ease 1s; 
+        &.coin1 {
+            animation: animecoin1 1.2s forwards;
         }
-        &.coin2.ng-hide-remove {
-            transform: translate(575%, 185%);
+        &.coin2 {
+            animation: animecoin2 1.2s forwards;
         }
-        &.coin3.ng-hide-remove {
-            transform: translate(575%, 820%);
+        &.coin3 {
+            animation: animecoin3 1.2s forwards;
         }
-        &.coin4.ng-hide-remove {
-            transform: translate(285%, 1080%);
+        &.coin4 {
+            animation: animecoin4 1.2s forwards;
         }
-        &.coin5.ng-hide-remove {
-            transform: translate(5%, 1080%);
+        &.coin5 {
+            animation: animecoin5 1.2s forwards;
         }
-        &.coin6.ng-hide-remove {
-            transform: translate(-285%, 1080%);
+        &.coin6 {
+            animation: animecoin6 1.2s forwards;
         }
-        &.coin7.ng-hide-remove {
-            transform: translate(-565%, 835%);
+        &.coin7 {
+            animation: animecoin7 1.2s forwards;
         }
-        &.coin8.ng-hide-remove {
-            transform: translate(-575%, 200%);
+        &.coin8 {
+            animation: animecoin8 1.2s forwards;
         }
-        &.coin9.ng-hide-remove {
-            transform: translate(-410%, -200%);
+        &.coin9 {
+            animation: animecoin9 800ms forwards;
         }
     }
 }
 
-@keyframes opacity-none {
+@keyframes animecoin1 {
     0% {
         opacity: 1;
+        transform: translate(0%, 0%);
     }
     100% {
         opacity: 0;
+        transform: translate(425%, -250%);
+    }
+}
+
+@keyframes animecoin2 {
+    0% {
+        opacity: 1;
+        transform: translate(0%, 0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(575%, 185%);
+    }
+}
+
+@keyframes animecoin3 {
+    0% {
+        opacity: 1;
+        transform: translate(0%, 0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(575%, 820%);
+    }
+}
+
+@keyframes animecoin4 {
+    0% {
+        opacity: 1;
+        transform: translate(0%, 0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(285%, 1080%);
+    }
+}
+
+@keyframes animecoin5 {
+    0% {
+        opacity: 1;
+        transform: translate(0%, 0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(5%, 1080%);
+    }
+}
+
+@keyframes animecoin6 {
+    0% {
+        opacity: 1;
+        transform: translate(0%, 0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-285%, 1080%);
+    }
+}
+
+
+@keyframes animecoin7 {
+    0% {
+        opacity: 1;
+        transform: translate(0%, 0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-565%, 835%);
+    }
+}
+
+@keyframes animecoin8 {
+    0% {
+        opacity: 1;
+        transform: translate(0%, 0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-575%, 200%);
+    }
+}
+
+@keyframes animecoin9 {
+    0% {
+        opacity: 1;
+        transform: translate(0%, 0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-410%, -200%);
     }
 }
 
@@ -629,6 +718,7 @@
     color: white;
     opacity: 0;
     white-space: nowrap;
+    z-index: 0;
     animation-duration: 1s;
     -webkit-animation-duration: 1s;
     .coin {
@@ -636,38 +726,21 @@
         vertical-align: middle;
         margin-right: 10%;
     }
-    &.p1 {
-        bottom: 35% !important;
-        left: unset !important;
-        right: 90% !important;
-        animation-name: tipmovefrombottom;
-        -webkit-animation-name: tipmovefrombottom;
-        transform: translateY(-100%);
-    }
-    &.p2 {
-        bottom: 70% !important;
-        top: unset !important;
-        left: unset !important;
-        right: 73% !important;
-        animation-name: tipmovefrombottom;
-        -webkit-animation-name: tipmovefrombottom;
-        transform: translateY(-100%);
-    }
-    &.p3 {
+    &.p9 {
         top: 10% !important;
-        right: 26% !important;
+        right: 80% !important;
         animation-name: tipmovefromright;
         -webkit-animation-name: tipmovefromright;
     }
-    &.p4 {
-        top: 52% !important;
-        right: 10% !important;
+    &.p8 {
+        top: 40% !important;
+        right: 90% !important;
         animation-name: tipmovefromright;
         -webkit-animation-name: tipmovefromright;
     }
-    &.p5 {
-        top: 85% !important;
-        right: 26% !important;
+    &.p7 {
+        top: 70% !important;
+        right: 80% !important;
         animation-name: tipmovefromright;
         -webkit-animation-name: tipmovefromright;
     }
@@ -677,6 +750,42 @@
         right: 70% !important;
         animation-name: tipmovefrombottom;
         -webkit-animation-name: tipmovefrombottom;
+    }
+    &.p5 {
+        bottom: -8% !important;
+        left: unset !important;
+        right: 50% !important;
+        animation-name: tipmovefrombottom;
+        -webkit-animation-name: tipmovefrombottom;
+    }
+    &.p4 {
+        bottom: -8% !important;
+        left: unset !important;
+        right: 28% !important;
+        animation-name: tipmovefrombottom;
+        -webkit-animation-name: tipmovefrombottom;
+    }
+    &.p3 {
+        top: 70% !important;
+        left: unset !important;
+        right: 5% !important;
+        animation-name: tipmovefromright;
+        -webkit-animation-name: tipmovefromright;
+    }
+    &.p2 {
+        top: 40% !important;
+        left: unset !important;
+        right: 5% !important;
+        animation-name: tipmovefromright;
+        -webkit-animation-name: tipmovefromright;
+    }
+    &.p1 {
+        top: 13% !important;
+        left: unset !important;
+        right: 15% !important;
+        z-index: 0;
+        animation-name: tipmovefromright;
+        -webkit-animation-name: tipmovefromright;
     }
 }
 

@@ -146,13 +146,6 @@
     height: 44vh;
   }
 }
-.small-model {
-  top: 15%;
-  right: 25%;
-  bottom: 15%;
-  left: 25%;
-  width: 50%;
-}
 
 .player-details {
   background: url('../img/player_bg.png');
@@ -858,4 +851,14 @@ span.valid {
 
 .voucher-mar {
   margin: 3% 10%;
+}
+.small-model {
+  top: 15%;
+  right: 25%;
+  bottom: 15%;
+  left: 25%;
+  width: 50%;
+  .cont{
+    padding: 2% 5%;
+  }
 }
