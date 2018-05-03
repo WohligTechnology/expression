@@ -1,128 +1,132 @@
-<div class="lobby" ng-click="closeAll()">
-  <div class="top">
-    <div class="left">
-      <div class="setting" ng-click="$event.stopPropagation();openLeftMenu()">
-        <i class="ionic ion-gear-b text_glow"></i>
-      </div>
-    </div>
-    <div class="right mar-r">
-      <div class="profile" ng-click="$event.stopPropagation();openRightMenu();">
-        <div class="info">
-          <div> {{playerData.name}}</div>
-          <div> {{playerData.balance|number:0}}</div>
-        </div>
-        <div class="pic">
-          <div class="profile-pic">
-            <img ng-src="{{image | serverimage}}" alt="profile pic">
+<ion-content scroll="false" class="lobby">
+    <div ng-click="closeAll()">
+        <div class="top">
+          <div class="left">
+            <div class="setting" ng-click="$event.stopPropagation();openLeftMenu()">
+              <i class="ionic ion-gear-b text_glow"></i>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="main" ng-class="{'variation_active':activeVariation}">
-    <div class="logo">
-      <img src="img/lobby/logo.png" alt="logo">
-    </div>
-    <div class="category play_type">
-      <ion-scroll direction="x">
-        <div class="row">
-          <div class="col col-25" ng-click="goToTable(table._id)" ng-repeat="table in getAllTables">
-            <div class="play_now">
-              <img src="img/lobby/empty.png">
-              <div class="card-heading">
-                <h6 class="heading-yellow">{{table.name}}</h6>
-                <!-- <p>Cash Table</p> -->
+          <div class="right mar-r">
+            <div class="profile" ng-click="$event.stopPropagation();openRightMenu();">
+              <div class="info">
+                <div> {{playerData.name}}</div>
+                <div> {{playerData.balance|number:0}}</div>
               </div>
-              <div class="card-btn">
-                <span>stakes</span>
-                <span>${{table.smallBlind}} / ${{table.bigBlind}}</span>
-                <div>
-                  <button class="custom_Card_button  btn_search btn-green"> Select Table</button>
+              <div class="pic">
+                <div class="profile-pic">
+                  <img ng-src="{{image | serverimage}}" alt="profile pic">
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </ion-scroll>
-    </div>
-  </div>
-</div>
+        <div class="main" ng-class="{'variation_active':activeVariation}">
+          <div class="logo">
+            <img src="img/lobby/logo.png" alt="logo">
+          </div>
+          <div class="category play_type">
+            <ion-scroll direction="x">
+              <div class="row">
+                <div class="col col-25" ng-click="goToTable(table._id)" ng-repeat="table in getAllTables">
+                  <div class="play_now">
+                    <img src="img/lobby/empty.png">
+                    <div class="card-heading">
+                      <h6 class="heading-yellow">{{table.name}}</h6>
+                      <!-- <p>Cash Table</p> -->
+                    </div>
+                    <div class="card-btn">
+                      <span>stakes</span>
+                      <span>${{table.smallBlind}} / ${{table.bigBlind}}</span>
+                      <div>
+                        <button class="custom_Card_button  btn_search btn-green"> Select Table</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ion-scroll>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+      <!-- left menu (profile) -->
+      <div class="custom_menu profile_menu" ng-class="{'menu_open':leftMenu}" ng-click="closeAll()">
+        <div class="menu_cont" ng-click="$event.stopPropagation()">
+          <div class="heading-navigation">
+            <!--<span> Navigation </span>
+            <i class="icon ion-chevron-right" ng-click="closeRightMenu()"></i>-->
+      
+            <img src="img/lobby/sidemenulogo.png" class="img-responsive">
+          </div>
+          <ion-list class="menu_list">
+            <!-- <ion-item>
+              Lobby
+              <div class="custom_toggle">
+              </div>
+            </ion-item> -->
+            <!-- <ion-item ng-click="modalgame();">
+              Settings
+              <div class="custom_toggle" ng-class="{'toggle_on':notification,'toggle_off':!notification}" ng-click="notification=!notification">
+              </div>
+            </ion-item> -->
+            <ion-item ng-click="modalfaq();">
+              FAQ's
+              <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
+              </div>
+            </ion-item>
+            <ion-item ng-click="termsAndCondition();">
+              Terms and Condition
+              <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
+              </div>
+            </ion-item>
+            <!-- <ion-item ng-click="modalVoucher();">
+              Contact us
+              <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
+              </div>
+            </ion-item> -->
+            <ion-item ng-click="logout();">
+              Log Out
+              <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" vibration="vibration=!vibration">
+              </div>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+      
+      <!-- right menu(setting) -->
+      <div class="custom_menu custom_menu_right setting_menu profile_menu" ng-class="{'menu_open': rightMenu}" ng-click="closeAll()">
+        <div class="menu_cont" ng-click="$event.stopPropagation()">
+          <div class="profile-pic" ng-click="modalProfile();">
+            <img ng-src="{{image | serverimage}}" class="pic img-responsive">
+          </div>
+          <div class="text-center user-name">
+            {{playerData.name}}
+          </div>
+          <div class="text-center user-name user-amount">
+            {{playerData.balance|number:0}}
+          </div>
+          <ion-list class="menu_list">
+            <ion-item ui-sref="addamount">
+              Add
+              <div class="custom_toggle" ng-class="{'toggle_on':sound,'toggle_off':!sound}" ng-click="sound=!sound">
+              </div>
+            </ion-item>
+            <ion-item ui-sref="withdrawal">
+              Withdrawal
+              <div class="custom_toggle" ng-class="{'toggle_on':notification,'toggle_off':!notification}" ng-click="notification=!notification">
+              </div>
+            </ion-item>
+            <ion-item ng-click="modalVoucher();">
+              Voucher
+              <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
+              </div>
+            </ion-item>
+          </ion-list>
+        </div>
+      </div>
+</ion-content>
 
 
-
-
-<!-- left menu (profile) -->
-<div class="custom_menu profile_menu" ng-class="{'menu_open':leftMenu}" ng-click="closeAll()">
-  <div class="menu_cont" ng-click="$event.stopPropagation()">
-    <div class="heading-navigation">
-      <!--<span> Navigation </span>
-      <i class="icon ion-chevron-right" ng-click="closeRightMenu()"></i>-->
-
-      <img src="img/lobby/sidemenulogo.png" class="img-responsive">
-    </div>
-    <ion-list class="menu_list">
-      <!-- <ion-item>
-        Lobby
-        <div class="custom_toggle">
-        </div>
-      </ion-item> -->
-      <!-- <ion-item ng-click="modalgame();">
-        Settings
-        <div class="custom_toggle" ng-class="{'toggle_on':notification,'toggle_off':!notification}" ng-click="notification=!notification">
-        </div>
-      </ion-item> -->
-      <ion-item ng-click="modalfaq();">
-        FAQ's
-        <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
-        </div>
-      </ion-item>
-      <ion-item ng-click="termsAndCondition();">
-        Terms and Condition
-        <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
-        </div>
-      </ion-item>
-      <!-- <ion-item ng-click="modalVoucher();">
-        Contact us
-        <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
-        </div>
-      </ion-item> -->
-      <ion-item ng-click="logout();">
-        Log Out
-        <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" vibration="vibration=!vibration">
-        </div>
-      </ion-item>
-    </ion-list>
-  </div>
-</div>
-
-<!-- right menu(setting) -->
-<div class="custom_menu custom_menu_right setting_menu profile_menu" ng-class="{'menu_open': rightMenu}" ng-click="closeAll()">
-  <div class="menu_cont" ng-click="$event.stopPropagation()">
-    <div class="profile-pic" ng-click="modalProfile();">
-      <img ng-src="{{image | serverimage}}" class="pic img-responsive">
-    </div>
-    <div class="text-center user-name">
-      {{playerData.name}}
-    </div>
-    <div class="text-center user-name user-amount">
-      {{playerData.balance|number:0}}
-    </div>
-    <ion-list class="menu_list">
-      <ion-item ui-sref="addamount">
-        Add
-        <div class="custom_toggle" ng-class="{'toggle_on':sound,'toggle_off':!sound}" ng-click="sound=!sound">
-        </div>
-      </ion-item>
-      <ion-item ui-sref="withdrawal">
-        Withdrawal
-        <div class="custom_toggle" ng-class="{'toggle_on':notification,'toggle_off':!notification}" ng-click="notification=!notification">
-        </div>
-      </ion-item>
-      <ion-item ng-click="modalVoucher();">
-        Voucher
-        <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" ng-click="vibration=!vibration">
-        </div>
-      </ion-item>
-    </ion-list>
-  </div>
-</div>

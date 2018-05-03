@@ -10035,12 +10035,14 @@ body {
   z-index: 9999;
   opacity: 1; }
 
+.min-100vh {
+  min-height: 100vh; }
+
 .rzslider .rz-bubble.rz-limit {
   color: #fff; }
 
 .lobby {
-  background: url("../img/lobby/background.jpg");
-  background-size: 100% 100%;
+  background: #27143d;
   width: 100vw;
   height: 100vh; }
   .lobby .top {
@@ -10061,8 +10063,8 @@ body {
       .lobby .top .right .profile .info {
         white-space: nowrap;
         text-align: center;
-        line-height: 1.5;
-        font-size: 0.9em; }
+        line-height: 1.8;
+        font-size: 1em; }
     .lobby .top .left .setting {
       margin: 10px;
       font-size: 2.5em; }
@@ -10072,7 +10074,6 @@ body {
     position: absolute; }
     .lobby .main .logo {
       width: 40%;
-      opacity: .7;
       margin: 0 auto;
       margin-top: 5%;
       transition: all 500ms;
@@ -10336,10 +10337,12 @@ body {
         width: 100% !important;
         height: 100% !important; }
     .table .table_field .plyr {
-      width: 7vw;
+      width: 9vw;
       position: absolute;
       z-index: 1;
       font-size: .7em; }
+      .table .table_field .plyr.sit_here, .table .table_field .plyr.no_player {
+        width: 6vw; }
       .table .table_field .plyr .rel {
         position: relative; }
       .table .table_field .plyr .you {
@@ -10588,9 +10591,9 @@ body {
     bottom: 3%; }
   .table .player6 {
     left: 26%;
-    bottom: 0%; }
+    bottom: 3%; }
   .table .player7 {
-    left: 10%;
+    left: 6%;
     top: 60%; }
   .table .player8 {
     top: 21%;
@@ -11003,8 +11006,8 @@ body {
     transform: translate(-300%, -450%); }
 
 .tcard5 {
-  left: -85%;
-  top: -22%; }
+  left: -62%;
+  top: -12%; }
   .tcard5 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard5 .card-two {
@@ -11015,8 +11018,8 @@ body {
     transform: translate(160%, -450%); }
 
 .tcard6 {
-  left: -85%;
-  top: -21%; }
+  left: -66%;
+  top: -20%; }
   .tcard6 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard6 .card-two {
@@ -11027,8 +11030,8 @@ body {
     transform: translate(560%, -465%); }
 
 .tcard7 {
-  right: -15%;
-  top: 20%; }
+  right: 10px;
+  top: -25%; }
   .tcard7 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard7 .card-two {
@@ -12245,7 +12248,9 @@ platform-android .animation_wrapper .mask {
     .table .table_field .video_frame {
       position: absolute;
       width: 32vw;
-      top: -9%; } }
+      top: -9%; }
+  .table .table_field .plyr {
+    width: 7vw; } }
 
 @media screen and (min-width: 900px) {
   .table .table_field .video_frame {

@@ -12,9 +12,6 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   }
 
 
-  // screen.orientation.lock('portrait');
-
-
   $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -58,35 +55,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
       } else {
         console.log(data.error);
         $scope.invalidUser = data.error;
-      }
-
-
-
-      // $.jStorage.set("accessToken", data.data);
-      // if (data && !_.isEmpty(data.data)) {
-      //   $state.go("lobby");
-      // } else if (data.error == "Member already Logged In") {
-      //   $scope.message = {
-      //     heading: "User Already Loged In",
-      //     content: "User already loged in another device. Logout from that device. Try Again!!!"
-      //   };
-      //   $scope.showMessageModal();
-      // } else if(data.error=="Login denied")
-      // {
-      //   $scope.message = {
-      //     heading: "Login denied",
-      //     content: "Login denied"
-      //   };
-      //   $scope.showMessageModal();
-      // }
-
-      //   else {
-      //   $scope.message = {
-      //     heading: "Incorrect Username Password",
-      //     content: "Try Again!!!"
-      //   };
-      //   $scope.showMessageModal();
-      // }
+      };
     });
   };
 
@@ -101,8 +70,7 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
         $state.go("lobby");
       } else {
 
-      }
-      // $.jStorage.set("accessToken");
+      };
     })
   }
 
@@ -115,7 +83,6 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   }
   $ionicPlatform.registerBackButtonAction(function (event) {
     ionic.Platform.exitApp();
-    // event.preventDefault();
   }, 100);
 
   /************otp modal****** */
@@ -124,7 +91,6 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
     animation: 'slide-in-up'
   }).then(function (otpModal) {
     $scope.otpModal = otpModal;
-    // $scope.otpModal.show();
   });
   $scope.modalotp = function () {
     $scope.otpModal.show();
@@ -145,15 +111,5 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   };
   $scope.closeConfirmModal = function () {
     $scope.confirmotpModal.hide();
-  };
-
-
-  $scope.verticalSlider = {
-    value: 0,
-    options: {
-      floor: 0,
-      ceil: 10,
-      vertical: true
-    }
   };
 });

@@ -21,6 +21,12 @@
       {{player.winnerDetails.potName}}
     </div>
     <div class="tcard tcard{{pos}}" ng-if="!player.isFold">
+      <card card='DONE' ng-style="style" class="card-one none card-rotate-right">
+      </card>
+      <card card='DONE' ng-style="style" class="card-two none card-rotate">
+      </card>
+    </div>
+    <div class="tcard tcard{{pos}}" ng-if="!player.isFold">
       <card card='DONE' ng-style="style" class="card-one none card-rotate-right" ng-show="(player.cards.length==1 || player.cards.length==2) && !player.isWinner">
       </card>
       <card card='DONE' ng-style="style" class="card-two none card-rotate" ng-show="player.cards.length==2 && !player.isWinner">

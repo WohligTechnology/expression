@@ -5,11 +5,11 @@
 
 <div class="total_played_coin" ng-if="players">
   <span ng-if="!pots[0].winner">
-    <img src="img/coin.svg" class="coin">{{pots[0].totalAmount | number}} </span>
-</div>
-<div class="total_played_coin" ng-if="players">
+    <img src="img/coin.svg" class="coin">{{pots[0].totalAmount | number}} 
+  </span>
   <span ng-if="pots[1]">
-    <img src="img/coin.svg" class="coin">{{pots[1].totalAmount | number}} </span>
+    <img src="img/coin.svg" class="coin">{{pots[1].totalAmount | number}} 
+  </span>
 </div>
 <!-- //winner Players -->
 <div class="total_played_coin" ng-if="players[0].isWinner">

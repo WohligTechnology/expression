@@ -32,10 +32,14 @@
             }
         }
         .plyr {
-            width: 7vw; // background: red;
+            width: 9vw; // background: red;
             position: absolute;
             z-index: 1;
             font-size: .7em;
+            &.sit_here,
+            &.no_player{
+                width: 6vw;
+            }
             .rel {
                 position: relative;
             }
@@ -343,10 +347,10 @@
     }
     .player6 {
         left: 26%;
-        bottom: 0%;
+        bottom: 3%;
     }
     .player7 {
-        left: 10%;
+        left: 6%;
         top: 60%;
     }
     .player8 {
@@ -890,8 +894,8 @@
 }
 
 .tcard5 {
-    left: -85%;
-    top: -22%;
+    left: -62%;
+    top: -12%;
     .card-one {
         transform: translate(0%, 0%) rotate(-12deg);
     }
@@ -907,8 +911,8 @@
 }
 
 .tcard6 {
-    left: -85%;
-    top: -21%;
+    left: -66%;
+    top: -20%;
     .card-one {
         transform: translate(0%, 0%) rotate(-12deg);
     }
@@ -924,8 +928,8 @@
 }
 
 .tcard7 {
-    right: -15%;
-    top: 20%;
+    right: 10px;
+    top: -25%;
     .card-one {
         transform: translate(0%, 0%) rotate(-12deg);
     }
