@@ -1,211 +1,194 @@
 .platform-android,
 .platform-browser {
-  .pie_loader {
-    overflow: hidden;
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    top: 0px;
-    left: 50%;
-    z-index: -1;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    .animation_wrapper {
-      position: relative; // margin: 40px auto;
-      // background: white;
-      background: transparent;
-      left: 50%;
-      top: 50%;
-      -webkit-transform: translate(-50%, -50%);
-      -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      -o-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
+    .pie_loader {
+        overflow: hidden;
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        top: 0px;
+        left: 50%;
+        z-index: -1;
+        transform: translateX(-50%);
+        border-radius: 50%;
+        .animation_wrapper {
+            position: relative; // margin: 40px auto;
+            // background: white;
+            background: transparent;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -o-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
     }
-  }
 }
 
-@mixin timer($platformsource, $item, $duration, $size, $color, $border, $hover: running) {
-  #{$platformsource} {
+@mixin timer($item, $duration, $size, $color, $border, $hover: running) {
     #{$item},
     #{$item} * {
-      @include box-sizing(border-box);
+        @include box-sizing(border-box);
     }
     #{$item} {
-      width: $size;
-      height: $size;
+        width: $size;
+        height: $size;
     }
     #{$item} .pie {
-      width: 50%;
-      height: 100%;
-      -webkit-transform-origin: 100% 50%;
-      -moz-transform-origin: 100% 50%;
-      -ms-transform-origin: 100% 50%;
-      -o-transform-origin: 100% 50%;
-      transform-origin: 100% 50%;
-      position: absolute;
-      left: -3px;
-      top:-3px;
-      background: $color;
-      border: #{$border};
+        width: 50%;
+        height: 100%;
+        -webkit-transform-origin: 100% 50%;
+        -moz-transform-origin: 100% 50%;
+        -ms-transform-origin: 100% 50%;
+        -o-transform-origin: 100% 50%;
+        transform-origin: 100% 50%;
+        position: absolute;
+        left: -3px;
+        top: -3px;
+        background: $color;
+        border: #{$border};
     }
     #{$item} .spinner {
-      border-radius: 100% 0 0 100% / 50% 0 0 50%;
-      z-index: 200;
-      border-right: none; // animation: rota $duration + s linear infinite; // animation-iteration-count: 1; // animation-fill-mode: forwards;
-      -webkit-animation: rota $duration + s linear infinite;
-      -moz-animation: rota $duration + s linear infinite;
-      -ms-animation: rota $duration + s linear infinite;
-      -o-animation: rota $duration + s linear infinite;
-      animation: rota $duration + s linear infinite;
+        border-radius: 100% 0 0 100% / 50% 0 0 50%;
+        z-index: 200;
+        border-right: none; // animation: rota $duration + s linear infinite; // animation-iteration-count: 1; // animation-fill-mode: forwards;
+        -webkit-animation: rota $duration + s linear infinite;
+        -moz-animation: rota $duration + s linear infinite;
+        -ms-animation: rota $duration + s linear infinite;
+        -o-animation: rota $duration + s linear infinite;
+        animation: rota $duration + s linear infinite;
     }
     #{$item}:hover .spinner,
     #{$item}:hover .filler,
     #{$item}:hover .mask {
-      animation-play-state: $hover;
+        animation-play-state: $hover;
     }
     #{$item} .filler {
-      border-radius: 0 100% 100% 0 / 0 50% 50% 0;
-      left: 50%;
-      opacity: 0;
-      z-index: 100;
-      -webkit-animation: opa $duration + s steps(1, end) infinite reverse;
-      -moz-animation: opa $duration + s steps(1, end) infinite reverse;
-      -ms-animation: opa $duration + s steps(1, end) infinite reverse;
-      -o-animation: opa $duration + s steps(1, end) infinite reverse;
-      animation: opa $duration + s steps(1, end) infinite reverse;
-      -webkit-animation: opa $duration + s steps(1, end) infinite reverse;
-      border-left: none; // animation-iteration-count: 1; // animation-fill-mode: forwards;
+        border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+        left: 50%;
+        opacity: 0;
+        z-index: 100;
+        -webkit-animation: opa $duration + s steps(1, end) infinite reverse;
+        -moz-animation: opa $duration + s steps(1, end) infinite reverse;
+        -ms-animation: opa $duration + s steps(1, end) infinite reverse;
+        -o-animation: opa $duration + s steps(1, end) infinite reverse;
+        animation: opa $duration + s steps(1, end) infinite reverse;
+        -webkit-animation: opa $duration + s steps(1, end) infinite reverse;
+        border-left: none; // animation-iteration-count: 1; // animation-fill-mode: forwards;
     }
     #{$item} .mask {
-      width: 50%;
-      height: 100%;
-      position: absolute;
-      background: inherit;
-      opacity: 1;
-      z-index: 300; // animation: opa $duration + s steps(1, end) infinite; // animation-iteration-count: 1; // animation-fill-mode: forwards;
-      -webkit-animation: opa $duration + s steps(1, end) infinite;
-      -moz-animation: opa $duration + s steps(1, end) infinite;
-      -ms-animation: opa $duration + s steps(1, end) infinite;
-      -o-animation: opa $duration + s steps(1, end) infinite;
-      animation: opa $duration + s steps(1, end) infinite;
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        background: inherit;
+        opacity: 1;
+        z-index: 300; // animation: opa $duration + s steps(1, end) infinite; // animation-iteration-count: 1; // animation-fill-mode: forwards;
+        -webkit-animation: opa $duration + s steps(1, end) infinite;
+        -moz-animation: opa $duration + s steps(1, end) infinite;
+        -ms-animation: opa $duration + s steps(1, end) infinite;
+        -o-animation: opa $duration + s steps(1, end) infinite;
+        animation: opa $duration + s steps(1, end) infinite;
     }
     @-webkit-keyframes opa {
-      0% {
-        opacity: 1;
-      }
-      50%,
-      100% {
-        opacity: 0;
-      }
+        0% {
+            opacity: 1;
+        }
+        50%,
+        100% {
+            opacity: 0;
+        }
     }
     @-moz-keyframes opa {
-      0% {
-        opacity: 1;
-      }
-      50%,
-      100% {
-        opacity: 0;
-      }
+        0% {
+            opacity: 1;
+        }
+        50%,
+        100% {
+            opacity: 0;
+        }
     }
     @-o-keyframes opa {
-      0% {
-        opacity: 1;
-      }
-      50%,
-      100% {
-        opacity: 0;
-      }
+        0% {
+            opacity: 1;
+        }
+        50%,
+        100% {
+            opacity: 0;
+        }
     }
     @keyframes opa {
-      0% {
-        opacity: 1;
-      }
-      50%,
-      100% {
-        opacity: 0;
-      }
+        0% {
+            opacity: 1;
+        }
+        50%,
+        100% {
+            opacity: 0;
+        }
     }
     @-webkit-keyframes rota {
-      0% {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
+        0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
     }
     @-moz-keyframes rota {
-      0% {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
+        0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
     }
     @-o-keyframes rota {
-      0% {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
+        0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
     }
     @keyframes rota {
-      0% {
-        -webkit-transform: rotate(0deg);
-        -moz-transform: rotate(0deg);
-        -ms-transform: rotate(0deg);
-        -o-transform: rotate(0deg);
-        transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(360deg);
-        -moz-transform: rotate(360deg);
-        -ms-transform: rotate(360deg);
-        -o-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
-    } // @keyframes rota {
-    //   0% {
-    //     -webkit-transform: rotate(0deg);
-    //     -moz-transform: rotate(0deg);
-    //     -ms-transform: rotate(0deg);
-    //     -o-transform: rotate(0deg);
-    //     transform: rotate(0deg);
-    //   }
-    //   100% {
-    //     -webkit-transform: rotate(360deg);
-    //     -moz-transform: rotate(360deg);
-    //     -ms-transform: rotate(360deg);
-    //     -o-transform: rotate(360deg);
-    //     transform: rotate(360deg);
-    //   }
-    // }
-  }
+        0% {
+            -webkit-transform: rotate(0deg);
+            -moz-transform: rotate(0deg);
+            -ms-transform: rotate(0deg);
+            -o-transform: rotate(0deg);
+            transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+            -moz-transform: rotate(360deg);
+            -ms-transform: rotate(360deg);
+            -o-transform: rotate(360deg);
+            transform: rotate(360deg);
+        }
+    }
 }
 
-@include timer('platform-android', '.animation_wrapper', 20, 56px, #FFEB3B, '5px solid #FFEB3B');
+@include timer('.animation_wrapper', 20, 56px, #FFEB3B, '5px solid #FFEB3B');

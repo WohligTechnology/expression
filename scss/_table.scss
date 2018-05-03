@@ -37,7 +37,7 @@
             z-index: 1;
             font-size: .7em;
             &.sit_here,
-            &.no_player{
+            &.no_player {
                 width: 6vw;
             }
             .rel {
@@ -453,6 +453,33 @@
         vertical-align: middle;
         margin-right: 5px;
     }
+    &.coin1 {
+        animation: animecoin1 4s forwards;
+    }
+    &.coin2 {
+        animation: animecoin2 4s forwards;
+    }
+    &.coin3 {
+        animation: animecoin3 4s forwards;
+    }
+    &.coin4 {
+        animation: animecoin4 4s forwards;
+    }
+    &.coin5 {
+        animation: animecoin5 4s forwards;
+    }
+    &.coin6 {
+        animation: animecoin6 4s forwards;
+    }
+    &.coin7 {
+        animation: animecoin7 4s forwards;
+    }
+    &.coin8 {
+        animation: animecoin8 4s forwards;
+    }
+    &.coin9 {
+        animation: animecoin9 4s forwards;
+    }
     span {
         background-image: url('../img/table/pot_bg.png');
         background-size: 100% 100%;
@@ -460,34 +487,7 @@
         margin-right: 5px;
         display: inline-block;
         transform: translate(0%, 0%);
-        transition: all ease 1s; 
-        &.coin1 {
-            animation: animecoin1 4s forwards;
-        }
-        &.coin2 {
-            animation: animecoin2 4s forwards;
-        }
-        &.coin3 {
-            animation: animecoin3 4s forwards;
-        }
-        &.coin4 {
-            animation: animecoin4 4s forwards;
-        }
-        &.coin5 {
-            animation: animecoin5 4s forwards;
-        }
-        &.coin6 {
-            animation: animecoin6 4s forwards;
-        }
-        &.coin7 {
-            animation: animecoin7 4s forwards;
-        }
-        &.coin8 {
-            animation: animecoin8 4s forwards;
-        }
-        &.coin9 {
-            animation: animecoin9 4s forwards;
-        }
+        transition: all ease 1s;
     }
 }
 
@@ -498,7 +498,7 @@
     }
     100% {
         opacity: 0;
-        transform: translate(425%, -250%);
+        transform: translate(275%, -250%);
     }
 }
 
@@ -509,7 +509,7 @@
     }
     100% {
         opacity: 0;
-        transform: translate(575%, 185%);
+        transform: translate(365%, 115%);
     }
 }
 
@@ -520,7 +520,7 @@
     }
     100% {
         opacity: 0;
-        transform: translate(575%, 820%);
+        transform: translate(365%, 600%);
     }
 }
 
@@ -531,7 +531,7 @@
     }
     100% {
         opacity: 0;
-        transform: translate(285%, 1080%);
+        transform: translate(170%, 695%);
     }
 }
 
@@ -542,7 +542,7 @@
     }
     100% {
         opacity: 0;
-        transform: translate(5%, 1080%);
+        transform: translate(-40%, 640%);
     }
 }
 
@@ -553,10 +553,9 @@
     }
     100% {
         opacity: 0;
-        transform: translate(-285%, 1080%);
+        transform: translate(-200%, 640%);
     }
 }
-
 
 @keyframes animecoin7 {
     0% {
@@ -565,7 +564,7 @@
     }
     100% {
         opacity: 0;
-        transform: translate(-565%, 835%);
+        transform: translate(-375%, 560%);
     }
 }
 
@@ -576,7 +575,7 @@
     }
     100% {
         opacity: 0;
-        transform: translate(-575%, 200%);
+        transform: translate(-395%, 160%);
     }
 }
 
@@ -587,7 +586,7 @@
     }
     100% {
         opacity: 0;
-        transform: translate(-410%, -200%);
+        transform: translate(-305%, -140%);
     }
 }
 
@@ -826,7 +825,7 @@
 }
 
 .tcard1 {
-    left: -87%;
+    left: -62%;
     bottom: 0%;
     .card-one {
         transform: translate(0%, 0%) rotate(-12deg);

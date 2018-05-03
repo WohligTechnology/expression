@@ -533,6 +533,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
             console.log("isThisPlayerWinner", isThisPlayerWinner);
             player.winnerDetails = {
+              potMainName: pot.name,
               potName: winners[isThisPlayerWinner].winName,
               amount: pot.totalAmount,
               winnercard: winners[isThisPlayerWinner].winnigCards

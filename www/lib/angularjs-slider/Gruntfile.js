@@ -129,7 +129,7 @@ module.exports = function(grunt) {
       all: {
         files: ['dist/*', 'demo/*'],
         options: {
-          livereload: true,
+          livereload:12345,
         },
       },
       js: {
