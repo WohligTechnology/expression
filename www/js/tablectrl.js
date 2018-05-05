@@ -173,6 +173,11 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         });
+        $scope.isAllInPlayers = _.filter($scope.players, function (player) {
+          if ((player && player.isAllIn) || (player && player.isAllIn == false)) {
+            return true;
+          }
+        }).length;
         if (!$scope.sitHere) {
           if ($scope.activePlayer) {
             $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
@@ -183,7 +188,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             var autoBuy
             autoBuy = true;
             $scope.autoBuygame(autoBuy);
-            if($scope.activePlayer[0].buyInAmt < 0){
+            if ($scope.activePlayer[0].buyInAmt < 0) {
               $scope.closeGameModal();
               $state.go("lobby");
             }
@@ -267,7 +272,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         var autoBuy
         autoBuy = true;
         $scope.autoBuygame(autoBuy);
-        if($scope.activePlayer[0].buyInAmt < 0){
+        if ($scope.activePlayer[0].buyInAmt < 0) {
           $scope.closeGameModal();
           $state.go("lobby");
         }
@@ -279,6 +284,13 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     }).length;
+
+    $scope.isAllInPlayers = _.filter($scope.players, function (player) {
+      if ((player && player.isAllIn) || (player && player.isAllIn == false)) {
+        return true;
+      }
+    }).length;
+
     $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold) {
         return true;
@@ -294,10 +306,31 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.tipAmount = -1;
         $scope.TipPlayerNo = -1;
       }, 2000);
-    }
+    };
+    //Raise socket
+    if ($scope.extra.action == "raise") {
+      $scope.tipAmount = $scope.extra.amount;
+      $scope.TipPlayerNo = $scope.extra.playerNo;
 
+      //to reset tip and plyr no
+      $timeout(function () {
+        $scope.tipAmount = -1;
+        $scope.TipPlayerNo = -1;
+      }, 2000);
+    };
 
+    if ($scope.extra.action == "call") {
+      $scope.tipAmount = $scope.extra.amount;
+      $scope.TipPlayerNo = $scope.extra.playerNo;
 
+      //to reset tip and plyr no
+      $timeout(function () {
+        $scope.tipAmount = -1;
+        $scope.TipPlayerNo = -1;
+      }, 2000);
+    };
+    
+    // remainingActivePlayers
     if ($scope.remainingActivePlayers == 9) {
       $scope.message = {
         heading: "Table Full",
@@ -308,7 +341,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     };
     if (!dontDigest) {
       $scope.$apply();
-    }
+    };
 
   };
 
@@ -515,7 +548,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //winner
   function showWinnerFunction(data) {
     console.log("show winner", data);
-
     $scope.winnerData = data.data.pots;
     _.each($scope.players, function (player) {
       if (player) {
@@ -530,7 +562,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return winner.playerId == player._id;
           });
           if (isThisPlayerWinner >= 0) {
-
             console.log("isThisPlayerWinner", isThisPlayerWinner);
             player.winnerDetails = {
               potMainName: pot.name,
@@ -608,9 +639,11 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
 
   //remove player function
-  $scope.removePlayerFunction = function () {
+  $scope.removePlayers = function () {
+    $scope.ShowLoader = true;
     Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
       if (data) {
+        $scope.ShowLoader = false;
         $state.go('lobby');
       }
     });

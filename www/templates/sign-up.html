@@ -26,15 +26,15 @@
               <input class="col bg-yellow" type="number" name="password" placeholder="Mobile No" required>
             </div> -->
             <div class="login_button row">
-              <input class="col bg-yellow" type="date" name="dob" placeholder="*DOB" ng-model="data.dob" required>
+              <input class="col bg-yellow" type="date" name="dob" placeholder="*DOB: " ng-model="data.dob" required>
             </div>
             <div class="valid" ng-if="signup.dob.$touched && signup.dob.$invalid"> Please Enter Valid DOB </div>
-            <!-- <div class="login_button row">
-              <input class="col bg-yellow" type="text" name="city" ng-model="data.city" placeholder="*City" required>
-            </div>
-            <div class="valid" ng-if="signup.city.$touched && signup.city.$invalid"> Please Enter City </div> -->
             <div class="login_button row">
-              <input class="col bg-yellow" type="text" name="country" ng-model="data.country" placeholder="*Country" required >
+              <input class="col bg-yellow" type="text" name="State" ng-model="data.state" placeholder="*State" required>
+            </div>
+            <div class="valid" ng-if="signup.state.$touched && signup.state.$invalid"> Please Enter State </div>
+            <div class="login_button row">
+              <input class="col bg-yellow" type="text" name="country" ng-model="data.country" placeholder="*Country" ng-init="data.country='India'" required disabled>
             </div>
             <div class="valid" ng-if="signup.country.$touched && signup.country.$invalid"> Please Enter Country </div>
             <div class="sign_up_status" ng-if="signUpStatus">{{signUpStatus}}</div>

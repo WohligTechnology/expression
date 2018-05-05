@@ -1,6 +1,8 @@
 <div class="plyr player{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere || player.tableLeft}">
+  <!-- <div class="plyr player{{pos}}"> -->
+
   <!-- before Player Sitting -->
-  <div class="rel" ng-if="sitHere && !player">
+  <div class="rel width-6vw" ng-if="sitHere && !player">
     <div class="player_pic">
       <img src="img/sithere.png" class="pic">
     </div>
@@ -16,21 +18,17 @@
     </div>
   </div>
   <!-- after Player Sitting -->
+  <!-- <div class="rel"> -->
   <div class="rel" ng-if="(!sitHere && player && !player.tableLeft) || sitHere && player">
-    <div class="winner-pot-name" ng-if="player.winnerDetails">
-      <div>
-        {{player.winnerDetails.potMainName}}
-      </div>
-      <div>
-        {{player.winnerDetails.potName}}
-      </div>
-    </div>
-    <!-- <div class="tcard tcard{{pos}}" ng-if="!player.isFold">
-      <card card='DONE' ng-style="style" class="card-one none card-rotate-right">
-      </card>
-      <card card='DONE' ng-style="style" class="card-two none card-rotate">
-      </card>
-    </div> -->
+      <div class="winner-pot-name" ng-if="player.winnerDetails">
+          <div>
+            {{player.winnerDetails.potMainName}} : {{player.winnerDetails.potName}}
+          </div>
+        </div>
+        <div class="winner" ng-if="player.winnerDetails">
+          <img src="img/table/winner_crown.png" class="crown">
+          <img src="img/table/winner_belt.png" class="belt">
+        </div>
     <div class="tcard tcard{{pos}}" ng-if="!player.isFold">
       <card card='DONE' ng-style="style" class="card-one none card-rotate-right" ng-show="(player.cards.length==1 || player.cards.length==2) && !player.isWinner">
       </card>
@@ -43,10 +41,6 @@
     </div>
     <div class="you" ng-if="player.user._id == activePlayer.user._id">
       You
-    </div>
-    <div class="winner" ng-if="player.winnerDetails">
-      <img src="img/table/winner_crown.png" class="crown">
-      <img src="img/table/winner_belt.png" class="belt">
     </div>
 
     <div class="player_pic">
@@ -63,7 +57,6 @@
       <div class="border_loader">
       </div>
     </div>
-
     <div class="player_badge dealer" ng-if="player.isDealer">
       <div> D </div>
     </div>

@@ -1,13 +1,13 @@
 <div class="table" ng-click="closeAll()">
   <div class="tip-lobby back-lobby">
     <div class="tip-dealer_submit row">
-      <button class="button" type='submit' ng-click="removePlayerFunction();">Back to lobby</button>
+      <button class="button" type='submit' ng-click="removePlayers();">Back to lobby</button>
     </div>
   </div>
   <div class="tip-lobby tip-dealer">
     <div class="tip-dealer_submit row">
-      <button class="button mr5" type='submit' ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve ||  communityCards[4].serve ||  communityCards[6].serve">Serve</button>
-      <button class="button" type='submit' ng-click="makeTipFunction(100);">Tip Dealer</button>
+      <button class="button mr5" type='submit' ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve ||  communityCards[4].serve ||  communityCards[6].serve || extra.community">Serve</button>
+      <button class="button" type='submit' ng-click="makeTipFunction(100);" ng-disabled="sitHere">Tip Dealer</button>
     </div>
   </div>
   <div class="table_field">
@@ -16,6 +16,7 @@
     </div>
     <img src="img/table.png" alt="table" class="bg_table">
     <pot-amount ng-pots="pots" ng-player="players"> </pot-amount>
+    <tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </tip-amount>
     <tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </tip-amount>
     <!-- community cards -->
     <div class="card_shuffle">
@@ -29,7 +30,7 @@
 
     </div>
     <!-- {{players}} -->
-    <players ng-pos="1" ng-click="modalgame(1)" ng-player="players[0]" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
+    <players ng-pos="1" ng-click="modalgame(1)" ng-player="players[0]" ng-extra="extra" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer">
     </players>
 
@@ -122,11 +123,11 @@
 
 
   <!-- spiner -->
+  <!-- <div class="loader table_loader"> -->
   <div class="loader table_loader" ng-if="ShowLoader">
     <div class="center">
-      <img src="img/lobby/logo.png" class="loader-logo">
       <div>Loading... </div>
-      <img src="img/spinner.gif">
+      <custom-loader></custom-loader>
     </div>
   </div>
 </div>

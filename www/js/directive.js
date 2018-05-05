@@ -37,6 +37,7 @@ myApp.directive('card', function () {
         winnerPlayerNo: "=ngWin",
         startAnimation: "=ngAnimation",
         activePlayer: "=ngActivePlayer",
+        extra: "=ngExtra",
       },
       templateUrl: 'templates/directive/player.html',
       link: function (scope, element, attr) {}
@@ -105,6 +106,14 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       templateUrl: 'templates/directive/left-menu.html',
+      link: function ($scope, element, attr) {}
+    };
+  })  
+  .directive('customLoader', function () {
+    return {
+      restrict: 'E',
+      replace: false,
+      templateUrl: 'templates/directive/loader.html',
       link: function ($scope, element, attr) {}
     };
   })
