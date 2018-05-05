@@ -1,17 +1,11 @@
 myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform, $ionicModal, $timeout) {
-  $ionicPlatform.ready(function () {
-    screen.orientation.lock('portrait');
-  })
-
+  // $ionicPlatform.ready(function () {
+  //   screen.orientation.lock('portrait');
+  // })
+  console.log(window.location.href)
+  console.log($state.current.name)
   var accessToken = $.jStorage.get("accessToken");
-  console.log("accesstoken", accessToken);
-  if (accessToken) {
-    $state.go("lobby");
-  } else {
-    $state.go("login");
-  }
-
-
+  console.log("accesstoken", $.jStorage.get("accessToken"));
   $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {
     scope: $scope,
     animation: 'slide-in-up'
