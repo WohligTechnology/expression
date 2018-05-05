@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons', 'rzModule', 'ngAnimate'])
 
-  .run(function ($ionicPlatform) {
+  .run(function ($ionicPlatform, $state) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -17,6 +17,11 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
 
+      }
+      if (_.isEmpty($.jStorage.get("accessToken"))) {
+        $state.go('login');
+      } else {
+        $state.go('lobby');
       }
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
@@ -32,9 +37,9 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       }
 
       // Preload audio resources
-      // window.plugins.NativeAudio.preloadComplex('timer', 'audio/timer.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-      //   console.log('error: ' + msg);
-      // });
+      window.plugins.NativeAudio.preloadComplex('turn', 'audio/win.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+        console.log('error: ' + msg);
+      });
       // window.plugins.NativeAudio.preloadComplex('coin', 'audio/coin.mp3', 1, 1, 0, function (msg) {}, function (msg) {
       //   console.log('error: ' + msg);
       // });
@@ -68,17 +73,18 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       //   templateUrl: 'templates/app.html',
       //   controller: 'AppCtrl'
       // })
+
+      .state('lobby', {
+        url: '/lobby',
+        cache: false,
+        templateUrl: 'templates/lobby.html',
+        controller: 'LobbyCtrl'
+      })
       .state('login', {
         url: '/login',
         cache: false,
         templateUrl: 'templates/login.html',
         controller: 'LoginCtrl'
-      })
-      .state('lobby', {
-        url: '/lobby',
-        templateUrl: 'templates/lobby.html',
-        cache: false,
-        controller: 'LobbyCtrl'
       })
       .state('signup', {
         url: '/signup',
@@ -107,7 +113,7 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
 
     ;
     // if none of the above states are matche d, use this as the fallback
-    $urlRouterProvider.otherwise('login');
+    $urlRouterProvider.otherwise('/login');
   });
 
 

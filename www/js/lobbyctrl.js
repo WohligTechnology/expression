@@ -1,10 +1,11 @@
-myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout, Service, $ionicModal) {
-
+myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state, $timeout, Service, $ionicModal) {
+  console.log($state.current.name)
   //ionic cordova 
+  console.log($window.location.href)
   $ionicPlatform.ready(function () {
 
-    screen.orientation.lock('landscape');
-
+    screen.orientation.lock("landscape");
+    console.log('Orientation is ' + screen.orientation.type);
     if (window.cordova) {
       window.plugins.NativeAudio.stop('timer');
       window.plugins.NativeAudio.stop('coin');
@@ -288,7 +289,8 @@ myApp.controller('LobbyCtrl', function ($scope, $ionicPlatform, $state, $timeout
   //Logout
   $scope.logout = function () {
     $.jStorage.flush();
-    $state.go('login');
+    // $state.go('login');
+
   }
 
   //private Table

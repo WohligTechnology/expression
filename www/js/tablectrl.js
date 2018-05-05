@@ -169,6 +169,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         // console.log($scope.players);
         $scope.iAmThere($scope.players);
         $scope.activePlayer = _.filter($scope.players, function (player) {
+          console.log("activeplayer172", player)
           if (player && (player.user._id == $scope._id)) {
             return true;
           }
@@ -258,6 +259,19 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     }
 
     $scope.activePlayer = _.filter($scope.players, function (player) {
+      console.log("activeplayer257", player)
+      if (_.isEmpty(player)) {} else {
+        if (player.isTurn && $.jStorage.get("socketId") == player.socketId) {
+          $ionicPlatform.ready(function () {
+            if (window.cordova) {
+              window.plugins.NativeAudio.play('turn');
+              navigator.vibrate(500);
+            }
+          })
+        } else {
+
+        }
+      }
       if (player && (player.user._id == $scope._id)) {
         return true;
       }
@@ -265,6 +279,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
     if ($scope.activePlayer[0].playerNo) {
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
+      console.log("272", $scope.activePlayer)
     };
     console.log("$scope.activePlayer", $scope.activePlayer);
     if (!$scope.sitHere) {
@@ -506,8 +521,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //Tip Dealer
   $scope.makeTipFunction = function (amount) {
     console.log(amount);
-    Service.makeTip(amount, $scope.tableId, function (data) {
-    });
+    Service.makeTip(amount, $scope.tableId, function (data) {});
   };
 
   //Game History
@@ -519,29 +533,29 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   }
   // Turn Actions
   $scope.allIn = function () {
-    $scope.allInPromise = Service.allIn($scope.tableId, function (data) { });
+    $scope.allInPromise = Service.allIn($scope.tableId, function (data) {});
   };
   $scope.fold = function () {
-    $scope.foldPromise = Service.fold($scope.tableId, function (data) { });
+    $scope.foldPromise = Service.fold($scope.tableId, function (data) {});
   };
   $scope.raise = function (raiseAmount) {
-    $scope.raisePromise = Service.raise($scope.tableId, raiseAmount, function (data) { });
+    $scope.raisePromise = Service.raise($scope.tableId, raiseAmount, function (data) {});
   };
   $scope.move = function () {
-    $scope.movePromise = Service.move($scope.tableId, function (data) { });
+    $scope.movePromise = Service.move($scope.tableId, function (data) {});
   };
   $scope.call = function () {
-    $scope.callPromise = Service.call($scope.tableId, function (data) { });
+    $scope.callPromise = Service.call($scope.tableId, function (data) {});
   };
 
   //check
   $scope.check = function () {
-    $scope.checkPromise = Service.check($scope.tableId, function (data) { });
+    $scope.checkPromise = Service.check($scope.tableId, function (data) {});
   };
 
   //random card serve
   $scope.randomCard = function () {
-    $scope.raisePromise = Service.randomCard($scope.tableId, function (data) { });
+    $scope.raisePromise = Service.randomCard($scope.tableId, function (data) {});
   };
 
 

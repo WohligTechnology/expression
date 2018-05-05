@@ -135,12 +135,13 @@
     }
   }
 }
+
 .table-range-slider {
   .text-scroll {
-      // margin: 10% 15% 0% 25%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 2px;
+    // margin: 10% 15% 0% 25%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2px;
   }
   .height-raise {
     height: 44vh;
@@ -399,12 +400,15 @@ ion-item.item {
   border: 0px;
   padding: 8px 20px;
 }
-.mb0{
+
+.mb0 {
   margin-bottom: 0;
 }
+
 .mt5 {
   margin-top: 5px;
 }
+
 //message
 .cont {
   padding: 15px 10px;
@@ -608,9 +612,11 @@ span.valid {
     line-height: 20px;
   }
 }
-.mar-negative{
+
+.mar-negative {
   margin: 0 -25px;
 }
+
 .shadow-yellow {
   box-shadow: 0px 0px 3px 2px #d38a31;
 }
@@ -639,7 +645,6 @@ span.valid {
     bottom: 2%;
     background-color: #3d236c;
   }
-
   .text-scroll {
     // height: 92%;
     padding: 3%;
@@ -728,6 +733,11 @@ span.valid {
   height: 37%;
 }
 
+.platform-ios .otp-modal {
+  top: 5%;
+  min-height: 85vh;
+}
+
 .otp-modal {
   top: 35%;
   right: 11%;
@@ -766,8 +776,7 @@ span.valid {
   top: 10%;
   left: 28%;
   .text-scroll {
-    margin: 0% 15%;
-    // height: 55%;
+    margin: 0% 15%; // height: 55%;
   }
   .item-checkbox .checkbox {
     top: 70%;
@@ -853,13 +862,14 @@ span.valid {
 .voucher-mar {
   margin: 3% 10%;
 }
+
 .small-model {
   top: 15%;
   right: 25%;
   bottom: 15%;
   left: 25%;
   width: 50%;
-  .cont{
+  .cont {
     padding: 2% 5%;
   }
 }

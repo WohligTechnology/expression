@@ -1,4 +1,12 @@
 //login page scss
+.scroll-content {
+  margin-top: 0px !important;
+}
+
+.platform-ios .login .login_block {
+  width: 65%;
+}
+
 .login {
   // background: black; // background: url('../img/login/bg.png');
   background: linear-gradient(to top, #000000, black);
@@ -78,7 +86,7 @@
         z-index: 1;
       }
       input {
-        padding: 6px 0px; 
+        padding: 6px 0px;
         height: 100%;
         font-weight: bold; // font-family: 'Cinzel-Bold';
         font-size: 1.7em;
