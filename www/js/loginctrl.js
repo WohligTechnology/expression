@@ -1,7 +1,9 @@
 myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform, $ionicModal, $timeout) {
-  // $ionicPlatform.ready(function () {
-  //   screen.orientation.lock('portrait');
-  // })
+  $ionicPlatform.ready(function () {
+    if (ionic.Platform.isAndroid()) {
+      screen.orientation.lock('portrait');
+    } else {}
+  })
   console.log(window.location.href)
   console.log($state.current.name)
   var accessToken = $.jStorage.get("accessToken");
