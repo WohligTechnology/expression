@@ -1,6 +1,7 @@
 //login page scss
 .scroll-content {
   margin-top: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .platform-ios .login .login_block {
@@ -85,7 +86,7 @@
         transform: translateY(-50%);
         z-index: 1;
       }
-      input {
+      input , select {
         padding: 6px 0px;
         height: 100%;
         font-weight: bold; // font-family: 'Cinzel-Bold';
