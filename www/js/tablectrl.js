@@ -257,8 +257,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       console.log("activeplayer257", player)
       if (_.isEmpty(player)) {} else {
         if (player.isTurn && $.jStorage.get("socketId") == player.socketId) {
-          //  window.plugins.NativeAudio.play('turn');
-          // navigator.vibrate(500);
+          $ionicPlatform.ready(function () {
+            if (window.cordova) {
+              window.plugins.NativeAudio.play('turn');
+              navigator.vibrate(500);
+            }
+          })
         } else {
 
         }
