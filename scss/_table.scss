@@ -722,7 +722,7 @@
 
 .tip_animate {
     position: absolute;
-    z-index: 6;
+    z-index: 6 !important;
     color: white;
     opacity: 0;
     white-space: nowrap;

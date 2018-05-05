@@ -10874,7 +10874,7 @@ body {
 
 .tip_animate {
   position: absolute;
-  z-index: 6;
+  z-index: 6 !important;
   color: white;
   opacity: 0;
   white-space: nowrap;
@@ -11337,7 +11337,7 @@ community {
         transform: translateY(-50%);
         z-index: 1; }
       .login .login_block .login_button input, .login .login_block .login_button select {
-        padding: 6px 0px;
+        padding: 0px 0px;
         height: 100%;
         font-weight: bold;
         font-size: 1.7em;
@@ -12372,7 +12372,9 @@ span.valid {
       width: 30vw;
       top: -7%; }
   .table .table_field .plyr {
-    width: 7vw; } }
+    width: 7vw; }
+  .login .login_block .login_button input, .login .login_block .login_button select {
+    padding: 0px 0px; } }
 
 @media screen and (min-width: 900px) {
   .table .table_field .video_frame {

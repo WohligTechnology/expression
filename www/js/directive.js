@@ -36,6 +36,7 @@ myApp.directive('card', function () {
         sitHere: "=ngSitHere",
         winnerPlayerNo: "=ngWin",
         startAnimation: "=ngAnimation",
+        allInPlayers: "=ngAllIn",
         activePlayer: "=ngActivePlayer",
         extra: "=ngExtra",
       },

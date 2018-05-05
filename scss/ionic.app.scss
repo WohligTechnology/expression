@@ -304,6 +304,9 @@ body {
     .table .table_field .plyr {
         width: 7vw;
     }
+    .login .login_block .login_button input, .login .login_block .login_button select {
+        padding: 0px 0px;
+    }
 }
 
 @media screen and (min-width: 900px) {
