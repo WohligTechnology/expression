@@ -156,12 +156,9 @@ myApp.directive('card', function () {
               }
             });
         }, 100);
-
         function onPlayerReady(event) {
           event.target.playVideo();
         }
-        // player.playVideo();
-
       }
     }
   });

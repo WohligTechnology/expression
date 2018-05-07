@@ -5,7 +5,7 @@
 }
 .table {
     // background: url("../img/background.jpg");
-    background: #27143d;
+    background: #000;
     width: 100vw;
     height: 100vh;
     position: relative;
@@ -29,7 +29,7 @@
             border-radius: 10px;
             top: -6%;
             left: 50%;
-            z-index: 2;
+            z-index: 7;
             transform: translate(-50%, -35%);
             overflow: hidden;
             iframe {
