@@ -125,7 +125,7 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;
-      $scope.accountStatement();
+      $scope.tableTransaction();
     } else {
 
     }
@@ -181,21 +181,17 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
     if ($scope.pageNo < $scope.paging.maxPage) {
       $scope.pageNo++;
       $scope.loadingDisable = true;
-      $scope.accountStatement();
+      $scope.tableTransaction();
     } else {
 
     }
   };
 
-  $scope.accountStatement = function () {
-    Service.getTransaction($scope.pageNo, function (data) {
+  $scope.tableTransaction = function () {
+    Service.getTableTransaction($scope.pageNo, function (data) {
       if (data) {
         if (data.data.data.total === 0) {
           $scope.noDataFound = true;
-          // Error Message or no data found 
-          // $scope.displayMessage = {
-          //   main: "<p>No Data Found.</p>",
-          // };
         }
         $scope.paging = data.data.data.options;
         _.each(data.data.data.results, function (n) {
@@ -289,9 +285,7 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
   //Logout
   $scope.logout = function () {
     $.jStorage.flush();
-    // $state.go('login');
-
-  }
+  };
 
   //private Table
 

@@ -10306,6 +10306,11 @@ body {
   width: 100%;
   height: 30px; }
 
+.custom-table.top-pad {
+  padding-top: 40px;
+  position: relative;
+  z-index: -1; }
+
 .table {
   background: #27143d;
   width: 100vw;
@@ -10931,7 +10936,8 @@ body {
 
 /***************card css************/
 .tcard {
-  position: absolute; }
+  position: absolute;
+  z-index: 5; }
   .tcard img {
     width: 70%; }
 
@@ -11397,7 +11403,7 @@ input[type="date"]:valid::before {
   background-color: #3d236c;
   background-size: 100% 100%;
   color: white;
-  padding: 2%; }
+  padding: 0% 2% 2% 2%; }
   .custom-model ion-content {
     padding: 2%; }
 
@@ -11405,9 +11411,10 @@ input[type="date"]:valid::before {
   font-size: 1em; }
   .statement-model .close {
     position: absolute;
-    right: 0%;
-    top: 0%;
-    font-size: 1.7em; }
+    right: 3%;
+    top: 4%;
+    font-size: 1.7em;
+    z-index: 5; }
   .statement-model .top_field {
     border-image: linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%);
     border-image-slice: 2;
@@ -11814,9 +11821,12 @@ span.valid {
   font-weight: 600;
   font-size: 18px;
   letter-spacing: 0.5px;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#e9c95c), to(#d38a31));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; }
+  color: #fff;
+  padding: 10px 0;
+  margin: -1px -2%;
+  background: #3d236c;
+  z-index: 1;
+  position: relative; }
 
 .text-scroll p {
   font-size: 11px;

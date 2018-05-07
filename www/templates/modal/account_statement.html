@@ -1,41 +1,10 @@
 <ion-modal-view class="custom-model statement-model">
-
-  <ion-content>
     <div class="close" ng-click="closeACStatement()">
-      <i class="icon ion-close text_glow"></i>
-    </div>
-    <div class="heading">Account Statement</div>
-    <div class="top_field">
-      <!-- Date within
-      <select>
-        <option selected>1 Day</option>
-        <option>2 Day</option>
-        <option>3 Day</option>
-      </select>
-      of
-      <input type="text" ng-model="month"> -->
-    </div>
-
-    <!-- <div class="statement_content ">
-      <table>
-        <tr>
-          <th>Date</th>
-          <th>W &amp; L</th>
-          <th>amount</th>
-        </tr>
-        <tr ng-repeat="result in results" infinite-scroll="loadMore()" infinite-scroll-distance="1" infinite-scroll-disabled="loadingDisable">
-          <td>
-            {{result.createdAt | date:'d-MMM-yyyy h:mm a'}}
-            <br/> teenpatti
-          </td>
-          <td>{{result.type}}</td>
-          <td>{{result.amount}}</td>
-        </tr>
-      </table>
-    </div> -->
-
-
-    <div class="custom-table" ng-if="results">
+        <i class="icon ion-close text_glow"></i>
+      </div>
+      <div class="heading">Account Statement</div>
+  <ion-content>
+    <div class="custom-table top-pad" ng-if="results">
       <ion-list>
         <ion-item class="item">
           <div class="row">
@@ -53,11 +22,11 @@
         <ion-item collection-repeat="result in results" class="item">
           <div class="row">
             <div class="col-60">
-              <div class="bold">{{result.createdAt | date:'d-MMM-yyyy h:mm a'}}
-                <br/> teenpatti</div>
+              <div class="bold">{{result.createdAt | date:'d-MMM-yyyy h:mm a'}}</div>
             </div>
             <div class="col-20">
-              <div class="text-center bold">{{result.type}}</div>
+              <div class="text-center bold" ng-if="result.transType=== 'tableLost'">Lose</div>
+              <div class="text-center bold" ng-if="result.transType=== 'tableWon'">Win</div>
             </div>
             <div class="col-20">
               <div class="text-center bold">{{result.amount}}</div>

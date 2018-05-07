@@ -1,28 +1,29 @@
+var globalPlayer;
 myApp.directive('card', function () {
-    return {
-      restrict: 'E',
-      replace: false,
-      scope: {
-        card: "@",
-        width: "@",
-        height: "@"
-      },
-      templateUrl: 'templates/directive/card.html',
-      link: function ($scope, element, attr) {
-        function calc() {
-          // $scope.style = {
-          //   width: $scope.width + "px",
-          //   height: $scope.height + "px"
-          // };
-          $scope.cardFile = "img/cards/" + _.toUpper($scope.card) + ".svg";
-        }
-        calc();
-        $scope.$watch("card", function () {
-          calc();
-        });
+  return {
+    restrict: 'E',
+    replace: false,
+    scope: {
+      card: "@",
+      width: "@",
+      height: "@"
+    },
+    templateUrl: 'templates/directive/card.html',
+    link: function ($scope, element, attr) {
+      function calc() {
+        // $scope.style = {
+        //   width: $scope.width + "px",
+        //   height: $scope.height + "px"
+        // };
+        $scope.cardFile = "img/cards/" + _.toUpper($scope.card) + ".svg";
       }
-    };
-  })
+      calc();
+      $scope.$watch("card", function () {
+        calc();
+      });
+    }
+  };
+})
   .directive('players', function () {
     return {
       restrict: 'E',
@@ -41,7 +42,7 @@ myApp.directive('card', function () {
         extra: "=ngExtra",
       },
       templateUrl: 'templates/directive/player.html',
-      link: function (scope, element, attr) {}
+      link: function (scope, element, attr) { }
     };
   })
   .directive('mainplayer', function () {
@@ -60,7 +61,7 @@ myApp.directive('card', function () {
         showCard: "&"
       },
       templateUrl: 'templates/directive/main-player.html',
-      link: function (scope, element, attr) {}
+      link: function (scope, element, attr) { }
     };
   })
   .directive('community', function () {
@@ -86,7 +87,7 @@ myApp.directive('card', function () {
         players: "=ngPlayer"
       },
       templateUrl: 'templates/directive/pot-amount.html',
-      link: function ($scope, element, attr) {}
+      link: function ($scope, element, attr) { }
     };
   })
   .directive('tipAmount', function () {
@@ -99,7 +100,7 @@ myApp.directive('card', function () {
         players: "=ngPlayer"
       },
       templateUrl: 'templates/directive/tip-amount.html',
-      link: function ($scope, element, attr) {}
+      link: function ($scope, element, attr) { }
     };
   })
   .directive('leftMenu', function () {
@@ -107,15 +108,15 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       templateUrl: 'templates/directive/left-menu.html',
-      link: function ($scope, element, attr) {}
+      link: function ($scope, element, attr) { }
     };
-  })  
+  })
   .directive('customLoader', function () {
     return {
       restrict: 'E',
       replace: false,
       templateUrl: 'templates/directive/loader.html',
-      link: function ($scope, element, attr) {}
+      link: function ($scope, element, attr) { }
     };
   })
   .directive('tableInfo', function () {
@@ -123,23 +124,44 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       templateUrl: 'templates/directive/table-info.html',
-      link: function ($scope, element, attr) {}
+      link: function ($scope, element, attr) { }
     };
   })
-  .directive('youtube', function ($sce) {
+  // .directive('youtube', function ($sce) {
+  //   return {
+  //     restrict: 'EA',
+  //     scope: {
+  //       code: '='
+  //     },
+  //     replace: true,
+  //     template: '<iframe id="popup-youtube-player" src="{{url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
+  //     link: function (scope) {
+  //       scope.$watch('code', function (newVal) {
+  //         if (newVal) {
+  //           scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal + "?modestbranding=1");
+  //         }
+  //       });
+  //     }
+  //   };
+  // });
+  .directive('youtube', function ($timeout) {
     return {
       restrict: 'EA',
-      scope: {
-        code: '='
-      },
-      replace: true,
-      template: '<iframe id="popup-youtube-player" src="{{url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>',
-      link: function (scope) {
-        scope.$watch('code', function (newVal) {
-          if (newVal) {
-            scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal + "?modestbranding=1");
-          }
-        });
+      link: function ($scope) {
+        $timeout(function () {
+          player = new YT.Player("ytplayer",
+            {
+              events: {
+                'onReady': onPlayerReady
+              }
+            });
+        }, 100);
+
+        function onPlayerReady(event) {
+          event.target.playVideo();
+        }
+        // player.playVideo();
+
       }
-    };
+    }
   });

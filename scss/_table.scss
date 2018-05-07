@@ -1,3 +1,8 @@
+.custom-table.top-pad {
+    padding-top: 40px;
+    position: relative;
+    z-index: -1;
+}
 .table {
     // background: url("../img/background.jpg");
     background: #27143d;
@@ -792,6 +797,7 @@
 
 .tcard {
     position: absolute;
+    z-index: 5;
     img {
         width: 70%;
     }

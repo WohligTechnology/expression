@@ -275,6 +275,22 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
+    getTableTransaction: function (pageNo, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http.post(url + 'Transaction/getTableStatusDetails', {
+          "page": pageNo,
+          "accessToken": accessToken
+        }).then(function (data) {
+          if (data.data) {
+            var totalCount = data.data.data.total;
+            data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+            callback(data);
+          }
+
+        });
+      }
+    },
     makeTip: function (amount, tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {

@@ -6,13 +6,14 @@
   </div>
   <div class="tip-lobby tip-dealer">
     <div class="tip-dealer_submit row">
-      <!-- <button class="button mr5" type='submit' ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve ||  communityCards[4].serve ||  communityCards[6].serve || extra.community">Serve</button> -->
+      <button class="button mr5" type='submit' ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve ||  communityCards[4].serve ||  communityCards[6].serve || extra.community">Serve</button>
       <button class="button" type='submit' ng-click="makeTipFunction(100);" ng-disabled="sitHere">Tip Dealer</button>
     </div>
   </div>
   <div class="table_field">
-    <div class="video_frame">
-      <div class="hello videocss " youtube code="table.youTubeUrl"></div>
+    <div class="video_frame" >
+      <!-- <div class="hello videocss " youtube code="table.youTubeUrl"></div> -->
+      <iframe  id="ytplayer" youtube src="{{tableYoutube | trustUrl}}" frameborder="0"></iframe>
     </div>
     <img src="img/table.png" alt="table" class="bg_table">
     <pot-amount ng-pots="pots" ng-player="players"> </pot-amount>
