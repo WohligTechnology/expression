@@ -9613,10 +9613,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -12373,7 +12373,8 @@ span.valid {
       top: -7%; }
   .table .table_field .plyr {
     width: 7vw; }
-  .login .login_block .login_button input, .login .login_block .login_button select {
+  .login .login_block .login_button input,
+  .login .login_block .login_button select {
     padding: 0px 0px; } }
 
 @media screen and (min-width: 900px) {
@@ -12381,3 +12382,26 @@ span.valid {
     width: 35vw;
     height: 30vh;
     top: -20%; } }
+
+.exp_loader {
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.69);
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0; }
+  .exp_loader .loader {
+    width: 220px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 75px;
+    transform: translate(-50%, -50%);
+    background: transparent url("../img/loader.png") 0 0 no-repeat;
+    animation: expLoader 1s steps(15) infinite; }
+
+@keyframes expLoader {
+  100% {
+    background-position-y: -1125px; } }
