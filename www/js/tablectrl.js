@@ -47,7 +47,9 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.playerData = data.data.data;
         $scope.playerDataId = data.data.data._id;
       } else {
-        $state.go("login");
+        $timeout(function () {
+          $state.go("login");
+        }, 3000);
       }
     });
   };
@@ -79,7 +81,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope.PotAmount = 0;
   $scope.startAnimation = false;
   $scope.insufficientFunds = false;
-  $scope.chaalAmt = 0;
+  $scope.chaalAmt = {};
   $scope.startCoinAnime = false;
   $scope.winnerPlayerNo = -1;
   $scope.showNewGameTime = false;
@@ -141,6 +143,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         // check whether dealer is selected or not
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
+        $scope.currentRoundAmt = $scope.table.currentRoundAmt;
         $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
         $scope.pots = data.data.data.pots;
         $scope.hasTurn = data.data.data.hasTurn;
@@ -196,6 +199,11 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             }
           }
         }
+        if (!(_.isEmpty($scope.extra))) {
+          if (($scope.extra.action == "raise") || ($scope.extra.action == "call")) {
+            $scope.chaalAmt = $scope.extra;
+          };
+        }
         // console.log("$scope.activePlayerNo", $scope.activePlayerNo);
         $scope.sideShowDataFrom = 0;
         $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
@@ -234,7 +242,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     console.log("updateSocketFunction", data);
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
-    $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl +"?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
+    $scope.currentRoundAmt = $scope.table.currentRoundAmt;
+    $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
     $scope.extra = data.data.extra;
     $scope.pots = data.data.pots;
     $scope.hasTurn = data.data.hasTurn;
@@ -243,7 +252,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.isRaised = data.data.isRaised;
     $scope.fromRaised = data.data.fromRaised;
     $scope.toRaised = data.data.toRaised;
-
+    console.log("$scope.currentRoundAmt", $scope.currentRoundAmt);
 
     $scope.slider.value = $scope.minimumBuyin;
     $scope.slider.options.floor = $scope.minimumBuyin;
@@ -262,7 +271,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
     $scope.activePlayer = _.filter($scope.players, function (player) {
       // console.log("activeplayer257", player);
-      if (_.isEmpty(player)) { } else {
+      if (_.isEmpty(player)) {} else {
         if (player.isTurn && $.jStorage.get("socketId") == player.socketId) {
           $ionicPlatform.ready(function () {
             if (window.cordova) {
@@ -330,18 +339,24 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.tipAmount = $scope.extra.amount;
       $scope.TipPlayerNo = $scope.extra.playerNo;
 
-      //to reset tip and plyr no
+      //to reset raise and plyr no
       $timeout(function () {
         $scope.tipAmount = -1;
         $scope.TipPlayerNo = -1;
       }, 2000);
     };
 
+    if (!(_.isEmpty($scope.extra))) {
+      if (($scope.extra.action == "raise") || ($scope.extra.action == "call")) {
+        $scope.chaalAmt = $scope.extra;
+      };
+    }
+
     if ($scope.extra.action == "call") {
       $scope.tipAmount = $scope.extra.amount;
       $scope.TipPlayerNo = $scope.extra.playerNo;
 
-      //to reset tip and plyr no
+      //to reset call and plyr no
       $timeout(function () {
         $scope.tipAmount = -1;
         $scope.TipPlayerNo = -1;
@@ -425,16 +440,27 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer = {};
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.amount = data.value;
-    if ($scope.dataPlayer.amount >= $scope.playerData.balance) {
+    if ($scope.dataPlayer.amount < $scope.minimumBuyin) {
+      // console.log("inside not save Player");
       $scope.message = {
         heading: "Insufficent Balance",
         content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
       };
       $scope.showMessageModal();
+    }
+    if ($scope.dataPlayer.amount > $scope.slider.options.ceil) {
+      // console.log("inside not save Player");
+      $scope.message = {
+        heading: "You are exceded max balance",
+        content: "Min Buy In for this table is " + $scope.slider.options.ceil + "<br/> Try Again!"
+      };
+      $scope.showMessageModal();
     };
-    Service.getReFillBuyIn($scope.dataPlayer, function (data) {
-      // console.log(data);
-    });
+    if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
+      Service.getReFillBuyIn($scope.dataPlayer, function (data) {
+        // console.log(data);
+      });
+    };
   };
 
   $scope.auto = {
@@ -476,7 +502,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       console.log("one");
     };
     if (!_.isEmpty($scope.dataPlayer.tableId)) {
-      if ($scope.dataPlayer.amount >= $scope.minimumBuyin) {
+      if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
         // console.log("inside save Player");
         Service.savePlayerToTable($scope.dataPlayer, function (data) {
           $scope.ShowLoader = false;
@@ -495,21 +521,27 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
               $scope.showMessageModal();
 
             } else if (data.data.error == "Insufficient Balance") {
-              // $scope.showInsufficientFundsModal();
               $scope.message = {
                 heading: "Insufficient Funds",
-                content: "Minimum amount required to enter this table is <span class='balance-error'> " + ($scope.chalAmt * 10) + "</span>",
+                content: "Minimum amount required to enter this table",
                 error: true
               };
               $scope.showMessageModal();
             }
           }
         });
-      } else {
+      } else if ($scope.dataPlayer.amount < $scope.minimumBuyin) {
         // console.log("inside not save Player");
         $scope.message = {
           heading: "Insufficent Balance",
           content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
+        };
+        $scope.showMessageModal();
+      } else if ($scope.dataPlayer.amount > $scope.slider.options.ceil) {
+        // console.log("inside not save Player");
+        $scope.message = {
+          heading: "You are exceded max balance",
+          content: "Min Buy In for this table is " + $scope.slider.options.ceil + "<br/> Try Again!"
         };
         $scope.showMessageModal();
       }
@@ -525,7 +557,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //Tip Dealer
   $scope.makeTipFunction = function (amount) {
     // console.log(amount);
-    Service.makeTip(amount, $scope.tableId, function (data) { });
+    Service.makeTip(amount, $scope.tableId, function (data) {});
   };
 
   //Game History
@@ -537,34 +569,35 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   }
   // Turn Actions
   $scope.allIn = function () {
-    $scope.allInPromise = Service.allIn($scope.tableId, function (data) { });
+    $scope.allInPromise = Service.allIn($scope.tableId, function (data) {});
   };
   $scope.fold = function () {
-    $scope.foldPromise = Service.fold($scope.tableId, function (data) { });
+    $scope.foldPromise = Service.fold($scope.tableId, function (data) {});
   };
   $scope.raise = function (raiseAmount) {
-    $scope.raisePromise = Service.raise($scope.tableId, raiseAmount, function (data) { });
+    $scope.raisePromise = Service.raise($scope.tableId, raiseAmount, function (data) {});
   };
   $scope.move = function () {
-    $scope.movePromise = Service.move($scope.tableId, function (data) { });
+    $scope.movePromise = Service.move($scope.tableId, function (data) {});
   };
   $scope.call = function () {
-    $scope.callPromise = Service.call($scope.tableId, function (data) { });
+    $scope.callPromise = Service.call($scope.tableId, function (data) {});
   };
 
   //check
   $scope.check = function () {
-    $scope.checkPromise = Service.check($scope.tableId, function (data) { });
+    $scope.checkPromise = Service.check($scope.tableId, function (data) {});
   };
 
   //random card serve
   $scope.randomCard = function () {
-    $scope.raisePromise = Service.randomCard($scope.tableId, function (data) { });
+    $scope.raisePromise = Service.randomCard($scope.tableId, function (data) {});
   };
 
 
   //winner
   function showWinnerFunction(data) {
+    $scope.chaalAmt = {};
     console.log("show winner", data);
     $scope.winnerData = data.data.pots;
     _.each($scope.players, function (player) {
@@ -605,6 +638,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     // console.log("seatSelectionFunction", data);
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
+    $scope.currentRoundAmt = $scope.table.currentRoundAmt;
     $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
     $scope.extra = data.data.extra;
     $scope.pots = data.data.pots;
@@ -676,7 +710,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.communityCards = data.data.communityCards;
     $scope.playersChunk = data.data.players;
     $scope.table = data.data.table;
-    $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl +"?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
+    $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;

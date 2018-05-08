@@ -20,6 +20,7 @@ $color:#FF8072 !default;
 $yellow:#ebbd15 !default;
 $blue:#10fbf7 !default;
 $orange:#f5510a !default;
+$bg-background:#000 !default;
 $border-image:linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%) !default;
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
@@ -337,13 +338,11 @@ body {
     transform: translate(-50%, -50%);
     background: transparent url('../img/loader.png') 0 0 no-repeat;
     animation: expLoader 1s steps(15) infinite;
-
   }
 }
 
-
-@keyframes expLoader{
-100%{
+@keyframes expLoader {
+  100% {
     background-position-y: -1125px;
-}
+  }
 }

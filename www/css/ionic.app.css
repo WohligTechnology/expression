@@ -9683,7 +9683,9 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex, a.item.item-complex, button.item.item-complex {
+  .item-complex,
+  a.item.item-complex,
+  button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -10042,7 +10044,7 @@ body {
   color: #fff; }
 
 .lobby {
-  background: #27143d;
+  background: #000;
   width: 100vw;
   height: 100vh; }
   .lobby .top {
@@ -10312,7 +10314,7 @@ body {
   z-index: -1; }
 
 .table {
-  background: #27143d;
+  background: #000;
   width: 100vw;
   height: 100vh;
   position: relative; }
@@ -10335,7 +10337,7 @@ body {
       border-radius: 10px;
       top: -6%;
       left: 50%;
-      z-index: 2;
+      z-index: 7;
       transform: translate(-50%, -35%);
       overflow: hidden; }
       .table .table_field .video_frame iframe {
@@ -10879,60 +10881,72 @@ body {
 
 .tip_animate {
   position: absolute;
-  z-index: 6 !important;
   color: white;
-  opacity: 0;
   white-space: nowrap;
-  z-index: 0;
   animation-duration: 1s;
-  -webkit-animation-duration: 1s; }
+  -webkit-animation-duration: 1s;
+  transition: all ease 800ms;
+  z-index: 6;
+  opacity: 0; }
   .tip_animate .coin {
     width: 1em;
     vertical-align: middle;
     margin-right: 10%; }
   .tip_animate.p9 {
     top: 10% !important;
-    right: 80% !important;
+    right: 80% !important; }
+  .tip_animate.anime-p9 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p8 {
     top: 40% !important;
-    right: 90% !important;
+    right: 90% !important; }
+  .tip_animate.anime-p8 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p7 {
     top: 70% !important;
-    right: 80% !important;
+    right: 86% !important; }
+  .tip_animate.anime-p7 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p6 {
     bottom: -8% !important;
     left: unset !important;
-    right: 70% !important;
+    right: 70% !important; }
+  .tip_animate.anime-p6 {
     animation: tipmovefrombottom 4s forwards; }
   .tip_animate.p5 {
     bottom: -8% !important;
     left: unset !important;
-    right: 50% !important;
+    right: 50% !important; }
+  .tip_animate.anime-p5 {
     animation: tipmovefrombottom 4s forwards; }
   .tip_animate.p4 {
     bottom: -8% !important;
     left: unset !important;
-    right: 28% !important;
+    right: 28% !important; }
+  .tip_animate.anime-p4 {
     animation: tipmovefrombottom 4s forwards; }
   .tip_animate.p3 {
     top: 70% !important;
     left: unset !important;
-    right: 5% !important;
+    right: 5% !important; }
+  .tip_animate.anime-p3 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p2 {
     top: 40% !important;
     left: unset !important;
-    right: 5% !important;
+    right: 5% !important; }
+  .tip_animate.anime-p2 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p1 {
     top: 13% !important;
     left: unset !important;
     right: 15% !important;
-    z-index: 0;
+    z-index: 0; }
+  .tip_animate.anime-p1 {
     animation: tipmovefromright 4s forwards; }
+
+.current-round .tip_animate {
+  opacity: 1; }
 
 /***************card css************/
 .tcard {
@@ -11006,7 +11020,7 @@ body {
     transform: translate(-300%, -450%); }
 
 .tcard5 {
-  left: -62%;
+  left: -78%;
   top: -12%; }
   .tcard5 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
@@ -11253,8 +11267,10 @@ community {
   color: #f8bd0b;
   font-size: 1.1em;
   text-transform: uppercase; }
-  .winner-pot-name.raise-amount {
-    top: -20%; }
+  .winner-pot-name.raised-amount {
+    top: -40%;
+    font-size: 1.4em;
+    color: #fff; }
 
 .player1 .winner-pot-name {
   top: -10%;
@@ -12008,8 +12024,7 @@ span.valid {
     border-top: 0;
     border-right: 0; }
   .game_summary .heading {
-    padding-bottom: 16px;
-    padding-top: 12px; }
+    padding: 8px; }
   .game_summary .custom_button {
     line-height: 0.5;
     padding: 12px 22px;
@@ -12383,8 +12398,7 @@ span.valid {
       top: -7%; }
   .table .table_field .plyr {
     width: 7vw; }
-  .login .login_block .login_button input,
-  .login .login_block .login_button select {
+  .login .login_block .login_button input, .login .login_block .login_button select {
     padding: 0px 0px; } }
 
 @media screen and (min-width: 900px) {

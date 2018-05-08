@@ -25,7 +25,6 @@ myApp.controller("SignUpCtrl", function ($scope, Service, $state, $ionicPlatform
   $scope.state = {
     "AP": "Andhra Pradesh",
     "AR": "Arunachal Pradesh",
-    "AS": "Assam",
     "BR": "Bihar",
     "CG": "Chhattisgarh",
     "Chandigarh": "Chandigarh",
@@ -45,8 +44,6 @@ myApp.controller("SignUpCtrl", function ($scope, Service, $state, $ionicPlatform
     "MN": "Manipur",
     "ML": "Meghalaya",
     "MZ": "Mizoram",
-    "NL": "Nagaland",
-    "OR": "Orissa",
     "PB": "Punjab",
     "PY": "Pondicherry",
     "RJ": "Rajasthan",

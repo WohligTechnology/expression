@@ -1,7 +1,7 @@
 .lobby {
   // background: url("../img/lobby/background.jpg");
   // background-size: 100% 100%;
-  background: #000;
+  background: $bg-background;
   width: 100vw;
   height: 100vh;
   .top {
@@ -191,11 +191,10 @@
   font-weight: 600;
   text-transform: capitalize;
   background: #803aca;
-  &.user-amount{
+  &.user-amount {
     background: #6d33aa;
   }
 }
-
 
 //side menu for right side
 //profile menu
@@ -266,6 +265,7 @@
     }
   }
 }
+
 //side menu for right side
 //settingmenu
 .setting_menu {
@@ -353,4 +353,3 @@
   width: 100%;
   height: 30px;
 }
-

@@ -3,7 +3,7 @@
     <div class="top">
       <div class="left">
         <div class="setting" ng-click="$event.stopPropagation();openLeftMenu()">
-          <i class="ionic ion-gear-b text_glow"></i>
+          <i class="ionic ion-navicon-round text_glow"></i>
         </div>
       </div>
       <div class="right mar-r">
@@ -45,6 +45,14 @@
             </div>
           </div>
         </ion-scroll>
+      </div>
+    </div>
+    <!-- spiner -->
+    <!-- <div class="loader table_loader"> -->
+    <div class="loader table_loader" ng-if="ShowLoader">
+      <div class="center">
+        <div>Loading... </div>
+        <custom-loader></custom-loader>
       </div>
     </div>
   </div>

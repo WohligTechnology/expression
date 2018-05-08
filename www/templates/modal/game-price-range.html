@@ -5,12 +5,17 @@
       Take into Game
 
     </div>
-    <form>
-      <div class="text-scroll">
-        <!-- <div class="login_button row">
-          <input class="col bg-yellow padd-lr" type="number" name="amount" ng-model="slider.value" placeholder="Enter the amount" maxlength="6"
-            required="">
-        </div> -->
+    <form name="sliderForm">
+      <div class="text-scroll signup">
+        <div class="login_button row">
+          <input class="col bg-yellow padd-lr" type="number" name="amount" ng-model="slider.value" placeholder="Enter the amount" required>
+        </div>
+        <div class="valid" ng-if="sliderForm.amount.$error.min">
+          Minimum amount
+        </div>
+        <div class="valid" ng-if="sliderForm.amount.$error.max">
+          Maximum amount
+        </div>
         <div>
           <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
         </div>

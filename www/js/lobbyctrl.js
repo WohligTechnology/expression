@@ -274,12 +274,15 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
   $scope.getAllTableData();
 
   $scope.goToTable = function (tableId) {
+    $scope.ShowLoader = true;
     $scope.tableId = tableId;
     $timeout(function () {
       $state.go('table', {
         'id': $scope.tableId
       });
-    }, 300)
+      $scope.ShowLoader = false;
+    }, 300);
+
   };
 
   //Logout

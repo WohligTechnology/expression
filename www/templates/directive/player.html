@@ -20,6 +20,9 @@
   <!-- after Player Sitting -->
   <!-- <div class="rel"> -->
   <div class="rel" ng-if="(!sitHere && player && !player.tableLeft) || sitHere && player">
+    <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner">
+      {{chalAmt.action}}: {{chalAmt.amount | number}}
+    </div>
     <div class="winner-pot-name" ng-if="player.winnerDetails">
       <div>
         {{player.winnerDetails.potMainName}} : {{player.winnerDetails.potName}}
@@ -35,7 +38,7 @@
       <card card='DONE' ng-style="style" class="card-two none card-rotate" ng-show="player.cards.length==2 && !player.isWinner">
       </card>
     </div>
-    <div class="tcard winnercard tcard{{pos}}" ng-if="(player.cards.length==2 && !player.isFold && player.isWinner)">
+    <div class="tcard winnercard tcard{{pos}}" ng-if="(!player.isFold && player.isWinner)">
       <card card='{{player.cards[0]}}' class="none card-rotate-right" ng-style="style"> </card>
       <card card='{{player.cards[1]}}' class="none card-rotate" ng-style="style"> </card>
     </div>
