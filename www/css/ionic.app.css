@@ -10332,10 +10332,10 @@ body {
       width: 30vw;
       height: 32vh;
       background: #ddd;
-      border: 12px solid #70646a;
+      border: 1.1em solid #70646a;
       box-shadow: 0px 2px 3px #624344;
       border-radius: 10px;
-      top: -6%;
+      top: -5%;
       left: 50%;
       z-index: 7;
       transform: translate(-50%, -35%);
@@ -10466,7 +10466,7 @@ body {
     .table .table_field .card_shuffle {
       width: 40%;
       position: absolute;
-      top: 35%;
+      top: 38%;
       left: 50%;
       transform: translate(-50%); }
       .table .table_field .card_shuffle .cards {
@@ -10674,7 +10674,7 @@ body {
   position: absolute;
   width: auto;
   left: 50%;
-  top: 29%;
+  top: 32%;
   transform: translateX(-50%);
   text-align: left;
   color: white;
@@ -10712,75 +10712,75 @@ body {
 
 @keyframes animecoin1 {
   0% {
-    opacity: 1;
-    transform: translate(0%, 0%); }
+    opacity: 1; }
   100% {
     opacity: 0;
-    transform: translate(275%, -250%); } }
+    left: 82%;
+    top: 5%; } }
 
 @keyframes animecoin2 {
   0% {
-    opacity: 1;
-    transform: translate(0%, 0%); }
+    opacity: 1; }
   100% {
     opacity: 0;
-    transform: translate(365%, 115%); } }
+    left: 89%;
+    top: 30%; } }
 
 @keyframes animecoin3 {
   0% {
-    opacity: 1;
-    transform: translate(0%, 0%); }
+    opacity: 1; }
   100% {
     opacity: 0;
-    transform: translate(365%, 600%); } }
+    left: 89%;
+    top: 66%; } }
 
 @keyframes animecoin4 {
   0% {
-    opacity: 1;
-    transform: translate(0%, 0%); }
+    opacity: 1; }
   100% {
     opacity: 0;
-    transform: translate(170%, 695%); } }
+    left: 72%;
+    top: 90%; } }
 
 @keyframes animecoin5 {
   0% {
-    opacity: 1;
-    transform: translate(0%, 0%); }
+    opacity: 1; }
   100% {
     opacity: 0;
-    transform: translate(-40%, 640%); } }
+    left: 50%;
+    top: 90%; } }
 
 @keyframes animecoin6 {
   0% {
-    opacity: 1;
-    transform: translate(0%, 0%); }
+    opacity: 1; }
   100% {
     opacity: 0;
-    transform: translate(-200%, 640%); } }
+    left: 30%;
+    top: 90%; } }
 
 @keyframes animecoin7 {
   0% {
-    opacity: 1;
-    transform: translate(0%, 0%); }
+    opacity: 1; }
   100% {
     opacity: 0;
-    transform: translate(-375%, 560%); } }
+    top: 77%;
+    left: 9%; } }
 
 @keyframes animecoin8 {
   0% {
-    opacity: 1;
-    transform: translate(0%, 0%); }
+    opacity: 1; }
   100% {
     opacity: 0;
-    transform: translate(-395%, 160%); } }
+    left: 7%;
+    top: 26%; } }
 
 @keyframes animecoin9 {
   0% {
-    opacity: 1;
-    transform: translate(0%, 0%); }
+    opacity: 1; }
   100% {
     opacity: 0;
-    transform: translate(-305%, -140%); } }
+    left: 19%;
+    top: -1%; } }
 
 .bootAnimate {
   position: absolute;
@@ -10947,6 +10947,17 @@ body {
 
 .current-round .tip_animate {
   opacity: 1; }
+  .current-round .tip_animate.p1 {
+    top: 70% !important;
+    left: unset !important;
+    right: 5% !important; }
+  .current-round .tip_animate.p7 {
+    top: 52% !important;
+    right: 90% !important; }
+  .current-round .tip_animate.p6 {
+    bottom: 25% !important;
+    left: unset !important;
+    right: 70% !important; }
 
 /***************card css************/
 .tcard {
@@ -11032,8 +11043,8 @@ body {
     transform: translate(160%, -450%); }
 
 .tcard6 {
-  left: -66%;
-  top: -20%; }
+  left: -84%;
+  top: -15%; }
   .tcard6 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard6 .card-two {
@@ -11044,8 +11055,8 @@ body {
     transform: translate(560%, -465%); }
 
 .tcard7 {
-  right: 10px;
-  top: -25%; }
+  right: 0px;
+  top: 58%; }
   .tcard7 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard7 .card-two {

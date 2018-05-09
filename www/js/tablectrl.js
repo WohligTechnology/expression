@@ -231,6 +231,24 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         }).length;
         // $scope.changeTimer(data.data.data.table.autoFoldDelay);
       });
+
+      // _.each($scope.players, function (player) {
+      //   if (player) {
+      //     _.each(data.data.table.currentRoundAmt, function (number) {
+      //       var currentRoundAmount = data.data.table.currentRoundAmt
+      //       var currentRound = _.findIndex(currentRoundAmount, function (currentRoundAmount) {
+      //         // console.log(player);
+      //         return currentRoundAmount._id == player._id;
+      //       });
+      //       if (currentRound >= 0) {
+      //         // console.log("currentRound", currentRound);
+      //         player.currentRoundAmt = {
+      //           currentRoundAmt: currentRoundAmt.amount
+      //         };
+      //       }
+      //     });
+      //   }
+      // });
     }
   };
   $scope.updatePlayers();
@@ -386,6 +404,24 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.$apply();
     };
 
+    // _.each($scope.players, function (player) {
+    //   if (player) {
+    //     _.each(data.data.table.currentRoundAmt, function (pot, number) {
+    //       var currentRoundAmount = data.data.table.currentRoundAmt
+    //       var currentRound = _.findIndex(currentRoundAmount, function (currentRoundAmount) {
+    //         // console.log(player);
+    //         return currentRoundAmount._id == player._id;
+    //       });
+    //       if (currentRound >= 0) {
+    //         player.currentRoundAmt = {
+    //           currentRoundAmt: currentRoundAmt.amount
+    //         };
+    //       }
+    //     });
+    //   };
+    // });
+    // console.log("$scope.currentRoundAmount", $scope.players);
+
   };
 
   function startSocketUpdate() {
@@ -510,51 +546,55 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $state.go('lobby');
       console.log("one");
     };
-    if (!_.isEmpty($scope.dataPlayer.tableId)) {
-      if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
-        // console.log("inside save Player");
-        Service.savePlayerToTable($scope.dataPlayer, function (data) {
-          $scope.ShowLoader = false;
-          if (data.data.value) {
-            $scope.sitHere = false;
-            myTableNo = data.data.data.playerNo;
-            $scope.activePlayerNo = data.data.data.playerNo;
-            $scope.updatePlayers();
-            startSocketUpdate();
-          } else {
-            if (data.data.error == "Player Already Added") {
-              $scope.message = {
-                heading: "Player Already Added",
-                content: "Player Already Added"
-              };
-              $scope.showMessageModal();
+    if ($scope.dataPlayer.amount <= $scope.playerData.balance) {
+      console.log("savePlayerToTable inside");
+      if (!_.isEmpty($scope.dataPlayer.tableId)) {
+        if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
+          // console.log("inside save Player");
+          Service.savePlayerToTable($scope.dataPlayer, function (data) {
+            $scope.ShowLoader = false;
+            if (data.data.value) {
+              $scope.sitHere = false;
+              myTableNo = data.data.data.playerNo;
+              $scope.activePlayerNo = data.data.data.playerNo;
+              $scope.updatePlayers();
+              startSocketUpdate();
+            } else {
+              if (data.data.error == "Player Already Added") {
+                $scope.message = {
+                  heading: "Player Already Added",
+                  content: "Player Already Added"
+                };
+                $scope.showMessageModal();
 
-            } else if (data.data.error == "Insufficient Balance") {
-              $scope.message = {
-                heading: "Insufficient Funds",
-                content: "Minimum amount required to enter this table",
-                error: true
-              };
-              $scope.showMessageModal();
+              } else if (data.data.error == "Insufficient Balance") {
+                $scope.message = {
+                  heading: "Insufficient Funds",
+                  content: "Minimum amount required to enter this table",
+                  error: true
+                };
+                $scope.showMessageModal();
+              }
             }
-          }
-        });
-      } else if ($scope.dataPlayer.amount < $scope.minimumBuyin) {
-        // console.log("inside not save Player");
-        $scope.message = {
-          heading: "Insufficent Balance",
-          content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
-        };
-        $scope.showMessageModal();
-      } else if ($scope.dataPlayer.amount > $scope.slider.options.ceil) {
-        // console.log("inside not save Player");
-        $scope.message = {
-          heading: "You are exceded max balance",
-          content: "Min Buy In for this table is " + $scope.slider.options.ceil + "<br/> Try Again!"
-        };
-        $scope.showMessageModal();
+          });
+        } else if ($scope.dataPlayer.amount < $scope.minimumBuyin) {
+          // console.log("inside not save Player");
+          $scope.message = {
+            heading: "Insufficent Balance",
+            content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
+          };
+          $scope.showMessageModal();
+        } else if ($scope.dataPlayer.amount > $scope.slider.options.ceil) {
+          // console.log("inside not save Player");
+          $scope.message = {
+            heading: "You are exceded max balance",
+            content: "Min Buy In for this table is " + $scope.slider.options.ceil + "<br/> Try Again!"
+          };
+          $scope.showMessageModal();
+        }
       }
     }
+
   };
 
 

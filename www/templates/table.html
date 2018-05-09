@@ -6,7 +6,7 @@
   </div>
   <div class="tip-lobby tip-dealer">
     <div class="tip-dealer_submit row">
-      <button class="button mr5" type='submit' ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve ||  communityCards[4].serve ||  communityCards[6].serve || extra.community">Serve</button>
+      <button class="button mr5" type='submit' ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serve</button>
       <button class="button" type='submit' ng-click="makeTipFunction(100);" ng-disabled="sitHere">Tip Dealer</button>
     </div>
   </div>
@@ -18,8 +18,7 @@
     <img src="img/table.png" alt="table" class="bg_table">
     <pot-amount ng-pots="pots" ng-player="players"> </pot-amount>
     <tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players"> </tip-amount>
-    <!-- <current-round ng-current-round-amount="currentRoundAmt" ng-player="players">
-    </current-round> -->
+    <!-- <current-round ng-player="players"></current-round> -->
     <!-- community cards -->
     <div class="card_shuffle">
       <div class="row">

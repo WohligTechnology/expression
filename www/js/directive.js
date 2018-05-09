@@ -109,7 +109,7 @@ myApp.directive('card', function () {
       restrict: 'E',
       replace: false,
       scope: {
-        currentRoundAmt: "=ngCurrentRoundAmount"
+        players: "=ngPlayer"
       },
       templateUrl: 'templates/directive/current-round.html',
       link: function ($scope, element, attr) {}
