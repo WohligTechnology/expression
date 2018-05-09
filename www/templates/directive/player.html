@@ -1,6 +1,4 @@
 <div class="plyr player{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere || player.tableLeft}">
-  <!-- <div class="plyr player{{pos}}"> -->
-
   <!-- before Player Sitting -->
   <div class="rel width-6vw" ng-if="sitHere && !player">
     <div class="player_pic">
@@ -10,6 +8,9 @@
   <div class="rel" ng-if="player.tableLeft && !sitHere">
     <div class="player_pic">
       <img src="img/sithere.png" class="pic">
+    </div>
+    <div class="player_badge dealer" ng-if="player.isDealer">
+      <div> D </div>
     </div>
   </div>
   <div class="rel" ng-if="!player && !sitHere">
@@ -38,14 +39,13 @@
       <card card='DONE' ng-style="style" class="card-two none card-rotate" ng-show="player.cards.length==2 && !player.isWinner">
       </card>
     </div>
-    <div class="tcard winnercard tcard{{pos}}" ng-if="(!player.isFold && player.isWinner)">
+    <div class="tcard winnercard tcard{{pos}}" ng-if="(!player.isFold && player.isWinner && remainingPlayerCount > 1)">
       <card card='{{player.cards[0]}}' class="none card-rotate-right" ng-style="style"> </card>
       <card card='{{player.cards[1]}}' class="none card-rotate" ng-style="style"> </card>
     </div>
     <div class="you" ng-if="player.user._id == activePlayer.user._id">
       You
     </div>
-
     <div class="player_pic">
       <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winnerDetails && !player.tableLeft && !player.isFold">
         <div class="animation_wrapper">

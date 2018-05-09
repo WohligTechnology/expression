@@ -166,11 +166,29 @@ myApp.directive('card', function () {
               'onReady': onPlayerReady
             }
           });
-        }, 100);
+        }, 1000);
 
         function onPlayerReady(event) {
+          console.log("played video");
           event.target.playVideo();
         }
       }
     }
+  })
+  .directive('numbersOnly', function () {
+    return {
+      require: 'ngModel',
+      link: function (scope, element, attrs, modelCtrl) {
+        modelCtrl.$parsers.push(function (inputValue) {
+          if (parseInt(inputValue) <= 150000 && parseInt(inputValue) > 0) {
+            modelCtrl.$setValidity('numbersOnly', true);
+            return inputValue;
+          } else {
+            modelCtrl.$setValidity('numbersOnly', false);
+            return modelCtrl.$modelValue;
+          }
+
+        });
+      }
+    };
   });

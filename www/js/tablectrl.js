@@ -15,7 +15,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     value: 100,
     options: {
       floor: 10,
-      ceil: 150000
+      ceil: 150000,
+      step: 100
     },
   };
 
@@ -25,6 +26,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     options: {
       floor: 10,
       ceil: 150000,
+      step: 10,
       vertical: true
     },
   };
@@ -126,11 +128,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $ionicPlatform.ready(function () {
       if (window.cordova) {
         // running on device/emulator
-        window.plugins.NativeAudio.stop('timer');
-        window.plugins.NativeAudio.stop('coin');
-        window.plugins.NativeAudio.stop('winner');
-        window.plugins.NativeAudio.stop('shuffle');
-        window.plugins.NativeAudio.stop('button');
+        window.plugins.NativeAudio.stop('turn');
       }
     });
   }
@@ -141,6 +139,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       Service.getOneTableDetails($scope.tableId, function (data) {
         // console.log("getOneTableDetails", data.data.data);
         // check whether dealer is selected or not
+        console.log("update socket", data);
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
         $scope.currentRoundAmt = $scope.table.currentRoundAmt;
@@ -158,6 +157,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
         $scope.slider.value = $scope.minimumBuyin;
         $scope.slider.options.floor = $scope.minimumBuyin;
+        $scope.slider.options.step = $scope.table.smallBlind;
 
         $scope.raiseSlider.value = $scope.fromRaised;
         $scope.raiseSlider.options.floor = $scope.fromRaised;
@@ -166,13 +166,10 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         if (data.data.data.pot) {
           $scope.potAmount = data.data.data.pot[0].totalAmount;
         }
-        $scope.slider.value = $scope.minimumBuyin;
-        $scope.slider.options.floor = $scope.minimumBuyin;
         reArragePlayers(data.data.data.players);
         // console.log($scope.players);
         $scope.iAmThere($scope.players);
         $scope.activePlayer = _.filter($scope.players, function (player) {
-          // console.log("activeplayer172", player)
           if (player && (player.user._id == $scope._id)) {
             return true;
           }
@@ -211,6 +208,13 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         }).length;
+
+        $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
+          if (player && player.isActive && !player.isFold) {
+            return true;
+          }
+        }).length;
+
         if ($scope.remainingActivePlayers == 9) {
           $scope.message = {
             heading: "Table Full",
@@ -256,6 +260,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
     $scope.slider.value = $scope.minimumBuyin;
     $scope.slider.options.floor = $scope.minimumBuyin;
+    $scope.slider.options.step = $scope.table.smallBlind;
 
     $scope.raiseSlider.value = $scope.fromRaised;
     $scope.raiseSlider.options.floor = $scope.fromRaised;
@@ -290,9 +295,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
     if ($scope.activePlayer[0].playerNo) {
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
-      // console.log("272", $scope.activePlayer);
     };
-    // console.log("$scope.activePlayer", $scope.activePlayer);
+
     if (!$scope.sitHere) {
       if ($scope.activePlayer[0].buyInAmt < $scope.table.bigBlind) {
         var autoBuy
@@ -308,6 +312,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
+        return true;
+      }
+    }).length;
+
+    $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
+      if (player && player.isActive && !player.isFold) {
         return true;
       }
     }).length;
@@ -386,9 +396,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //Sitting There
   $scope.iAmThere = function (data) {
     $scope.isThere = false;
-    // console.log($scope._id);
-    _.forEach(data, function (value) {
 
+    _.forEach(data, function (value) {
       if (value && value.user._id == $scope._id) {
         $scope.isThere = true;
         myTableNo = value.playerNo;

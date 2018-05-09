@@ -12,6 +12,7 @@
     "angular-loading-bar": "^0.9.0",
     "cordova-android": "^7.0.0",
     "cordova-plugin-device": "git+https://github.com/apache/cordova-plugin-device.git",
+    "cordova-plugin-fullscreen": "^1.2.0",
     "cordova-plugin-insomnia": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.2.1",
@@ -39,7 +40,8 @@
       "phonegap-plugin-mobile-accessibility": {},
       "cordova-plugin-nativeaudio": {},
       "cordova-plugin-vibration": {},
-      "cordova-plugin-insomnia": {}
+      "cordova-plugin-insomnia": {},
+      "cordova-plugin-fullscreen": {}
     },
     "platforms": [
       "android"

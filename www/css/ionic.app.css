@@ -10329,7 +10329,7 @@ body {
       width: 90%; }
     .table .table_field .video_frame {
       position: absolute;
-      width: 35vw;
+      width: 30vw;
       height: 32vh;
       background: #ddd;
       border: 12px solid #70646a;
@@ -12394,7 +12394,7 @@ span.valid {
     transform: translate(-50%); }
     .table .table_field .video_frame {
       position: absolute;
-      width: 30vw;
+      width: 24vw;
       top: -7%; }
   .table .table_field .plyr {
     width: 7vw; }

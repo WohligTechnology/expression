@@ -16,7 +16,6 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       if (window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
-
       }
       if (_.isEmpty($.jStorage.get("accessToken"))) {
         $state.go('login');
@@ -180,7 +179,7 @@ myApp.filter('cardimg', function () {
 });
 
 myApp.filter('trustUrl', function ($sce) {
-  return function(url) {
+  return function (url) {
     return $sce.trustAsResourceUrl(url);
   };
 });
