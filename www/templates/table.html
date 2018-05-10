@@ -7,13 +7,12 @@
   <div class="tip-lobby tip-dealer">
     <div class="tip-dealer_submit row">
       <button class="button mr5" type='submit' ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serve</button>
-      <button class="button" type='submit' ng-click="makeTipFunction(100);" ng-disabled="sitHere">Tip Dealer</button>
+      <button class="button" type='submit' ng-click="makeTipFunction(100);" ng-disabled="sitHere || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 100)">Tip Dealer</button>
     </div>
   </div>
   <div class="table_field">
     <div class="video_frame">
-      <!-- <div class="hello videocss " youtube code="table.youTubeUrl"></div> -->
-      <iframe id="ytplayer" youtube src="{{tableYoutube | trustUrl}}" frameborder="0"></iframe>
+      <iframe id="ytplayer" youtube src="{{tableYoutube | trustUrl}}" frameborder="0" allowfullscreen="true" allownetworking="internal"></iframe>
     </div>
     <img src="img/table.png" alt="table" class="bg_table">
     <pot-amount ng-pots="pots" ng-player="players"> </pot-amount>
@@ -100,26 +99,26 @@
         <span class="light"></span>
         <span class="btn_name"> FOLD </span>
       </button>
-      <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft"
+      <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="callPromise">
         <span class="light"></span>
         <span class="btn_name"> Call </span>
       </button>
-      <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft"
+      <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="callPromise">
         <span class="light"></span>
         <span class="btn_name"> Call </span>
       </button>
-      <button class="call" ng-click="check();" ng-if="isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft"
+      <button class="call" ng-click="check();" ng-if="isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="checkPromise">
         <span class="light"></span>
         <span class="btn_name"> Check </span>
       </button>
-      <button class="raise" ng-click="modalrange();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft && !isRaised">
+      <button class="raise" ng-click="modalrange();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) && !isRaised">
         <span class="light"></span>
         <span class="btn_name"> Raise </span>
       </button>
-      <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft"
+      <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft ||(activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 0)"
         promise-btn="allInPromise">
         <span class="light"></span>
         <span class="btn_name"> All In </span>

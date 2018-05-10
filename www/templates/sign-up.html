@@ -42,7 +42,7 @@
         </div>
         <div class="valid" ng-if="signup.country.$touched && signup.country.$invalid"> Please Enter Country </div>
         <div class="sign_up_status" ng-if="signUpStatus">{{signUpStatus}}</div>
-        <div class="sign_up_error" ng-if="signUpError"> *Something Went Wrong </div>
+        <div class="sign_up_error" ng-if="signUpError"> *Email Id or Mobile is registrated</div>
         <div class="login_button_submit row">
           <button class="button bg-blue" type='submit' ng-disabled="signup.$invalid" ng-click="signUp(data,signup)" promise-btn="signUpPromise">Sign Up</button>
         </div>

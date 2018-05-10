@@ -7,11 +7,14 @@
     </div>
     <form name="sliderForm">
       <div class="text-scroll signup">
-        <div class="login_button row">
-          <input class="col bg-yellow padd-lr" numbers-only type="number" name="amount" ng-model="slider.value" placeholder="Enter the amount"
-            required>
+        <!-- <div class="login_button row">
+          <input class="col bg-yellow padd-lr" type="number" name="amount" ng-model="slider.value" placeholder="Enter the amount" min="{{slider.options.floor}}"
+            max="{{slider.options.ceil}}" required>
         </div>
-        <span class="valid" ng-show="sliderForm.amount.$error.numbersOnly">Enter the numbers only between 1 to 150000 </span>
+        <span class="error" ng-show="sliderForm.amount.$error.min">
+          THIS IS A BIG NUMBER!</span>
+        <span class="error" ng-show="sliderForm.amount.$error.max">
+          THIS IS A BIG NUMBER!</span> -->
         <div>
           <rzslider rz-slider-model="slider.value" rz-slider-options="slider.options"></rzslider>
         </div>
@@ -21,7 +24,7 @@
               <span class="auto-rebuy">Auto Rebuy</span>
             </ion-checkbox>
           </div>
-          <div ng-if="!postBlind && remainingActivePlayers >= 4" class="padding-horizontal mar-negative">
+          <div ng-if="!autoBuy && remainingActivePlayers >= 4" class="padding-horizontal mar-negative">
             <ion-checkbox color="dark" ng-checked="auto.payBigBlind" ng-true-value="true" ng-false-value="false" ng-model="auto.payBigBlind">
               <span class="auto-rebuy">Post Big Blind</span>
             </ion-checkbox>

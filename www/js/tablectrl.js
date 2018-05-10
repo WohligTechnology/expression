@@ -33,11 +33,9 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //loader for table
   $scope.ShowLoader = true;
   if ($.jStorage.get("socketId")) {
-    // console.log("inside loader");
     $scope.ShowLoader = false;
   } else {
     $timeout(function () {
-      // console.log("inside loader demo");
       $scope.ShowLoader = false;
     }, 5000);
   }
@@ -45,6 +43,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   $scope._id = $.jStorage.get("_id");
   $scope.playerDataFunction = function () {
     Service.getProfile(function (data) {
+      console.log(data.data.data);
       if (data && data.data && data.data.data) {
         $scope.playerData = data.data.data;
         $scope.playerDataId = data.data.data._id;
@@ -143,7 +142,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
         $scope.currentRoundAmt = $scope.table.currentRoundAmt;
-        $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
+        $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&;disablekb=1&;modestbranding=1&;fs=1&;rel=0&;autohide=1";
         $scope.pots = data.data.data.pots;
         $scope.hasTurn = data.data.data.hasTurn;
         $scope.isCheck = data.data.data.isCheck;
@@ -153,7 +152,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.isRaised = data.data.isRaised;
 
         $scope.fromRaised = data.data.data.fromRaised;
-        $scope.fromRaised = data.data.data.toRaised;
+        $scope.toRaised = data.data.data.toRaised;
 
         $scope.slider.value = $scope.minimumBuyin;
         $scope.slider.options.floor = $scope.minimumBuyin;
@@ -184,18 +183,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
           };
         };
-        if (!$scope.sitHere) {
-          if ($scope.activePlayer[0].buyInAmt < $scope.table.bigBlind) {
-            var autoBuy
-            autoBuy = true;
-            $scope.autoBuygame(autoBuy);
-            if ($scope.activePlayer[0].buyInAmt < 0) {
-              $scope.closeGameModal();
-              $state.go("lobby");
-              console.log("one");
-            }
-          }
-        }
         if (!(_.isEmpty($scope.extra))) {
           if (($scope.extra.action == "raise") || ($scope.extra.action == "call")) {
             $scope.chaalAmt = $scope.extra;
@@ -315,19 +302,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
     };
 
-    if (!$scope.sitHere) {
-      if ($scope.activePlayer[0].buyInAmt < $scope.table.bigBlind) {
-        var autoBuy
-        autoBuy = true;
-        $scope.autoBuygame(autoBuy);
-        if ($scope.activePlayer[0].buyInAmt < 0) {
-          $scope.closeGameModal();
-          $state.go("lobby");
-          console.log("one");
-        }
-      }
-    }
-
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
         return true;
@@ -432,7 +406,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   //Sitting There
   $scope.iAmThere = function (data) {
     $scope.isThere = false;
-
+    console.log(data);
     _.forEach(data, function (value) {
       if (value && value.user._id == $scope._id) {
         $scope.isThere = true;
@@ -486,7 +460,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.dataPlayer.tableId = $scope.tableId;
     $scope.dataPlayer.amount = data.value;
     if ($scope.dataPlayer.amount < $scope.minimumBuyin) {
-      // console.log("inside not save Player");
       $scope.message = {
         heading: "Insufficent Balance",
         content: "Min Buy In for this table is " + $scope.minimumBuyin + "<br/> Try Again!"
@@ -494,14 +467,13 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.showMessageModal();
     }
     if ($scope.dataPlayer.amount > $scope.slider.options.ceil) {
-      // console.log("inside not save Player");
       $scope.message = {
         heading: "You are exceded max balance",
         content: "Min Buy In for this table is " + $scope.slider.options.ceil + "<br/> Try Again!"
       };
       $scope.showMessageModal();
     };
-    if ($scope.dataPlayer.amount <= $scope.balance) {
+    if ($scope.dataPlayer.amount <= $scope.playerData.balance) {
       if ($scope.dataPlayer.amount >= $scope.minimumBuyin && $scope.dataPlayer.amount <= $scope.slider.options.ceil) {
         Service.getReFillBuyIn($scope.dataPlayer, function (data) {
           // console.log(data);
@@ -607,7 +579,6 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   };
   //Tip Dealer
   $scope.makeTipFunction = function (amount) {
-    // console.log(amount);
     Service.makeTip(amount, $scope.tableId, function (data) {});
   };
 
@@ -775,10 +746,18 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       }
     });
     if (!$scope.sitHere) {
-      if ($scope.activePlayer) {
-        $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
-      };
-    };
+      if (($scope.activePlayer[0].buyInAmt - $scope.activePlayer[0].totalAmount) < $scope.table.bigBlind) {
+        var autoBuy
+        autoBuy = true;
+        $scope.autoBuygame(autoBuy);
+        if ($scope.activePlayer[0].buyInAmt < 0) {
+          $scope.removePlayers();
+          $scope.closeGameModal();
+          $state.go("lobby");
+          console.log("one");
+        }
+      }
+    }
     $scope.$apply();
   };
 

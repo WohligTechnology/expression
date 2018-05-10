@@ -6,7 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 'ngSanitize', 'angularPromiseButtons', 'rzModule', 'ngAnimate'])
 
-  .run(function ($ionicPlatform, $state) {
+  .run(function ($ionicPlatform, $state, $timeout) {
     $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -17,11 +17,13 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
       }
-      if (_.isEmpty($.jStorage.get("accessToken"))) {
-        $state.go('login');
-      } else {
-        $state.go('lobby');
-      }
+      // $timeout(function () {
+      //   if (_.isEmpty($.jStorage.get("accessToken"))) {
+      //     $state.go('login');
+      //   } else {
+      //     $state.go('lobby');
+      //   }
+      // }, 5000);
       if (window.StatusBar) {
         // org.apache.cordova.statusbar required
         StatusBar.styleDefault();
