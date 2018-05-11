@@ -10383,12 +10383,13 @@ body {
           z-index: 1;
           transform: scale(1.5); }
       .table .table_field .plyr .player_pic {
-        width: 100%;
-        height: auto; }
+        width: 14vh;
+        height: 14vh; }
         .table .table_field .plyr .player_pic .pic {
           width: 100%;
           height: 100%;
-          border-radius: 100%; }
+          border-radius: 100%;
+          padding: 7%; }
       .table .table_field .plyr .player_badge {
         position: absolute;
         top: 0;
@@ -10399,6 +10400,8 @@ body {
         border-radius: 15px;
         top: 20%;
         z-index: -1; }
+        .table .table_field .plyr .player_badge .left-dealer {
+          right: -45%; }
         .table .table_field .plyr .player_badge div {
           padding-right: 10%;
           font-size: 1em;
@@ -12068,115 +12071,73 @@ span.valid {
   .small-model .cont {
     padding: 2% 5%; }
 
-.platform-android .pie_loader,
-.platform-browser .pie_loader {
-  overflow: hidden;
+.pie_loader {
   position: absolute;
-  width: 110%;
-  height: 101%;
-  top: -3%;
-  left: 50%;
-  z-index: -1;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: #f6e33f33; }
-  .platform-android .pie_loader .animation_wrapper,
-  .platform-browser .pie_loader .animation_wrapper {
-    position: relative;
-    background: transparent;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%); }
+  top: 0;
+  left: 0;
+  width: 14vh;
+  height: 14vh;
+  z-index: -1; }
 
-.animation_wrapper,
-.animation_wrapper * {
+.wrapper {
+  position: relative;
+  background: #004568;
+  border-radius: 50%;
+  overflow: hidden; }
+
+.wrapper,
+.wrapper * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-.animation_wrapper {
-  width: 100%;
-  height: 100%; }
+.wrapper {
+  width: 14vh;
+  height: 14vh; }
 
-.animation_wrapper .pie {
+.wrapper .pie {
   width: 50%;
   height: 100%;
-  -webkit-transform-origin: 100% 50%;
-  -moz-transform-origin: 100% 50%;
-  -ms-transform-origin: 100% 50%;
-  -o-transform-origin: 100% 50%;
   transform-origin: 100% 50%;
   position: absolute;
-  left: -3px;
-  top: -3px;
-  background: #FFEB3B;
-  border: 5px solid #FFEB3B; }
+  background: transparent;
+  border: 5px solid #ffe500; }
 
-.animation_wrapper .spinner {
+.wrapper .spinner {
+  left: 0;
+  top: 0;
   border-radius: 100% 0 0 100% / 50% 0 0 50%;
   z-index: 200;
   border-right: none;
-  -webkit-animation: rota 20s linear infinite;
-  -moz-animation: rota 20s linear infinite;
-  -ms-animation: rota 20s linear infinite;
-  -o-animation: rota 20s linear infinite;
-  animation: rota 20s linear infinite; }
+  animation: rota 25s linear infinite; }
 
-.animation_wrapper:hover .spinner,
-.animation_wrapper:hover .filler,
-.animation_wrapper:hover .mask {
+.wrapper:hover .spinner,
+.wrapper:hover .filler,
+.wrapper:hover .mask {
   animation-play-state: running; }
 
-.animation_wrapper .filler {
+.wrapper .filler {
   border-radius: 0 100% 100% 0 / 0 50% 50% 0;
   left: 50%;
   opacity: 0;
   z-index: 100;
-  -webkit-animation: opa 20s steps(1, end) infinite reverse;
-  -moz-animation: opa 20s steps(1, end) infinite reverse;
-  -ms-animation: opa 20s steps(1, end) infinite reverse;
-  -o-animation: opa 20s steps(1, end) infinite reverse;
-  animation: opa 20s steps(1, end) infinite reverse;
-  -webkit-animation: opa 20s steps(1, end) infinite reverse;
+  animation: opa 25s steps(1, end) infinite reverse;
   border-left: none; }
 
-.animation_wrapper .mask {
+.wrapper .mask {
   width: 50%;
   height: 100%;
   position: absolute;
   background: inherit;
   opacity: 1;
   z-index: 300;
-  -webkit-animation: opa 20s steps(1, end) infinite;
-  -moz-animation: opa 20s steps(1, end) infinite;
-  -ms-animation: opa 20s steps(1, end) infinite;
-  -o-animation: opa 20s steps(1, end) infinite;
-  animation: opa 20s steps(1, end) infinite; }
+  animation: opa 25s steps(1, end) infinite; }
 
-@-webkit-keyframes opa {
+@keyframes rota {
   0% {
-    opacity: 1; }
-  50%,
+    transform: rotate(0deg); }
   100% {
-    opacity: 0; } }
-
-@-moz-keyframes opa {
-  0% {
-    opacity: 1; }
-  50%,
-  100% {
-    opacity: 0; } }
-
-@-o-keyframes opa {
-  0% {
-    opacity: 1; }
-  50%,
-  100% {
-    opacity: 0; } }
+    transform: rotate(360deg); } }
 
 @keyframes opa {
   0% {
@@ -12184,154 +12145,6 @@ span.valid {
   50%,
   100% {
     opacity: 0; } }
-
-@-webkit-keyframes rota {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-
-@-moz-keyframes rota {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-
-@-o-keyframes rota {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-
-@keyframes rota {
-  0% {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -ms-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    transform: rotate(360deg); } }
-
-.custom-loader {
-  margin: 10px auto;
-  border: 10px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 10px solid #27143d;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite; }
-
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(360deg); } }
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
-
-/* Add animation to "page content" */
-.animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s; }
-
-@-webkit-keyframes animatebottom {
-  from {
-    bottom: -100px;
-    opacity: 0; }
-  to {
-    bottom: 0px;
-    opacity: 1; } }
-
-@keyframes animatebottom {
-  from {
-    bottom: -100px;
-    opacity: 0; }
-  to {
-    bottom: 0;
-    opacity: 1; } }
-
-.custom-loader {
-  margin: 10px auto;
-  border: 10px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 10px solid #27143d;
-  width: 60px;
-  height: 60px;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite; }
-
-@-webkit-keyframes spin {
-  0% {
-    -webkit-transform: rotate(0deg); }
-  100% {
-    -webkit-transform: rotate(360deg); } }
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg); }
-  100% {
-    transform: rotate(360deg); } }
-
-/* Add animation to "page content" */
-.animate-bottom {
-  position: relative;
-  -webkit-animation-name: animatebottom;
-  -webkit-animation-duration: 1s;
-  animation-name: animatebottom;
-  animation-duration: 1s; }
-
-@-webkit-keyframes animatebottom {
-  from {
-    bottom: -100px;
-    opacity: 0; }
-  to {
-    bottom: 0px;
-    opacity: 1; } }
-
-@keyframes animatebottom {
-  from {
-    bottom: -100px;
-    opacity: 0; }
-  to {
-    bottom: 0;
-    opacity: 1; } }
 
 .signup .sign_up_error {
   color: red;
