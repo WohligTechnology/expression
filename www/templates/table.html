@@ -7,7 +7,7 @@
   <div class="tip-lobby tip-dealer">
     <div class="tip-dealer_submit row">
       <button class="button mr5" type='submit' ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serve</button>
-      <button class="button" type='submit' ng-click="makeTipFunction(100);" ng-disabled="sitHere || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 100)">Tip Dealer</button>
+      <button class="button" type='submit' ng-click="makeTipFunction(100);" ng-disabled="sitHere || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 100)">Tip Dealer {{remainingActiveTableLeftPlayers}}</button>
     </div>
   </div>
   <div class="table_field">

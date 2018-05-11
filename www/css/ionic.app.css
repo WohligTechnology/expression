@@ -10402,7 +10402,7 @@ body {
         border-radius: 15px;
         top: 20%;
         z-index: -1; }
-        .table .table_field .plyr .player_badge .left-dealer {
+        .table .table_field .plyr .player_badge.left-dealer {
           right: -45%; }
         .table .table_field .plyr .player_badge div {
           padding-right: 10%;

@@ -216,6 +216,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
             return true;
           }
         }).length;
+
+        $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function (player) {
+          if ((player && player.isActive && !player.tableLeft)) {
+            return true;
+          }
+        }).length;
         // $scope.changeTimer(data.data.data.table.autoFoldDelay);
       });
 
@@ -302,11 +308,18 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
     };
 
+    $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function (player) {
+      if ((player && player.isActive && !player.tableLeft)) {
+        return true;
+      }
+    }).length;
+
     $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
         return true;
       }
     }).length;
+
 
     $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold) {
@@ -681,6 +694,11 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
       };
     };
+    $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function (player) {
+      if ((player && player.isActive && !player.tableLeft)) {
+        return true;
+      }
+    }).length;
     $scope.$apply();
   };
 
@@ -706,6 +724,12 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         return true;
       }
     });
+
+    $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function (player) {
+      if ((player && player.isActive && !player.tableLeft)) {
+        return true;
+      }
+    }).length;
     $scope.$apply();
   };
 
