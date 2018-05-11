@@ -11116,7 +11116,7 @@ body {
   left: 1%;
   bottom: 2%; }
   .history .icon:before {
-    padding: 0 3px 1px 0;
+    padding: 3px 3px 1px 0;
     line-height: 0px !important;
     font-size: 20px; }
 
@@ -11280,7 +11280,7 @@ community {
 
 .winner-pot-name {
   position: absolute;
-  top: -54%;
+  top: -40%;
   left: 50%;
   width: 130px;
   font-weight: 800;

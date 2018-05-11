@@ -104,6 +104,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
 
   function reArragePlayers(playersData) {
     var diff = myTableNo - 1;
+    console.log("playersData rearrange", playersData)
     var players = _.times(9, function (n) {
       var playerReturn = _.find(playersData, function (singlePlayer) {
         if (singlePlayer) {
