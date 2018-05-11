@@ -602,9 +602,12 @@ span.valid {
   color: #fff;
   padding: 10px 0;
   margin: -1px -2%;
-  background: #3d236c;
   z-index: 1;
   position: relative;
+}
+
+.bg-purple {
+  background: #3f316b;
 }
 
 .text-scroll {
