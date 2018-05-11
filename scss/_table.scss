@@ -4,6 +4,10 @@
   z-index: -1;
 }
 
+.mr-5 {
+  margin-right: 5px;
+}
+
 .table {
   // background: url("../img/background.jpg");
   background: $bg-background;
@@ -1081,19 +1085,20 @@
     min-height: 0px
   }
   .tip-dealer_submit {
-    line-height: 0.5;
-    min-height: 21px;
-    margin-top: 6%;
-    margin-bottom: 10%;
-    text-align: center;
-    vertical-align: middle;
-    box-shadow: 0px 0px 2px 1px #553e70;
-    width: 100%;
-    transform: translateY(10%);
-    background: #321e4a; // background-image: url(../img/login/bgblue.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    .button {
+      line-height: 0.5;
+      min-height: 21px;
+      margin-top: 6%;
+      margin-bottom: 10%;
+      text-align: center;
+      vertical-align: middle;
+      box-shadow: 0px 0px 2px 1px #553e70;
+      transform: translateY(10%);
+      background: #321e4a; // background-image: url(../img/login/bgblue.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+    }
   }
 }
 
