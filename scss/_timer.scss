@@ -1,275 +1,83 @@
-.platform-android,
-.platform-browser {
-    .pie_loader {
-        overflow: hidden;
-        position: absolute;
-        width: 110%;
-        height: 101%;
-        top: -3%;
-        left: 50%;
-        z-index: -1;
-        transform: translateX(-50%);
-        border-radius: 50%;
-        background: #f6e33f33;
-        .animation_wrapper {
-            position: relative; // margin: 40px auto;
-            // background: white;
-            background: transparent;
-            left: 50%;
-            top: 50%;
-            -webkit-transform: translate(-50%, -50%);
-            -moz-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            -o-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-    }
+.pie_loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14vh;
+  height: 14vh;
+  z-index: -1;
+}
+
+.wrapper {
+  position: relative;
+  background: #004568;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 @mixin timer($item, $duration, $size, $color, $border, $hover: running) {
-    #{$item},
-    #{$item} * {
-        @include box-sizing(border-box);
+  #{$item},
+  #{$item} * {
+    @include box-sizing(border-box);
+  }
+  #{$item} {
+    width: $size;
+    height: $size;
+  }
+  #{$item} .pie {
+    width: 50%;
+    height: 100%;
+    transform-origin: 100% 50%;
+    position: absolute;
+    background: $color;
+    border: #{$border};
+  }
+  #{$item} .spinner {
+    left: 0;
+    top: 0;
+    border-radius: 100% 0 0 100% / 50% 0 0 50%;
+    z-index: 200;
+    border-right: none;
+    animation: rota $duration + s linear infinite;
+  }
+  #{$item}:hover .spinner,
+  #{$item}:hover .filler,
+  #{$item}:hover .mask {
+    animation-play-state: $hover;
+  }
+  #{$item} .filler {
+    border-radius: 0 100% 100% 0 / 0 50% 50% 0;
+    left: 50%;
+    opacity: 0;
+    z-index: 100;
+    animation: opa $duration + s steps(1, end) infinite reverse;
+    border-left: none;
+  }
+  #{$item} .mask {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    background: inherit;
+    opacity: 1;
+    z-index: 300;
+    animation: opa $duration + s steps(1, end) infinite;
+  }
+  @keyframes rota {
+    0% {
+      transform: rotate(0deg);
     }
-    #{$item} {
-        width: $size;
-        height: $size;
+    100% {
+      transform: rotate(360deg);
     }
-    #{$item} .pie {
-        width: 50%;
-        height: 100%;
-        -webkit-transform-origin: 100% 50%;
-        -moz-transform-origin: 100% 50%;
-        -ms-transform-origin: 100% 50%;
-        -o-transform-origin: 100% 50%;
-        transform-origin: 100% 50%;
-        position: absolute;
-        left: -3px;
-        top: -3px;
-        background: $color;
-        border: #{$border};
+  }
+  @keyframes opa {
+    0% {
+      opacity: 1;
     }
-    #{$item} .spinner {
-        border-radius: 100% 0 0 100% / 50% 0 0 50%;
-        z-index: 200;
-        border-right: none; // animation: rota $duration + s linear infinite; // animation-iteration-count: 1; // animation-fill-mode: forwards;
-        -webkit-animation: rota $duration + s linear infinite;
-        -moz-animation: rota $duration + s linear infinite;
-        -ms-animation: rota $duration + s linear infinite;
-        -o-animation: rota $duration + s linear infinite;
-        animation: rota $duration + s linear infinite;
+    50%,
+    100% {
+      opacity: 0;
     }
-    #{$item}:hover .spinner,
-    #{$item}:hover .filler,
-    #{$item}:hover .mask {
-        animation-play-state: $hover;
-    }
-    #{$item} .filler {
-        border-radius: 0 100% 100% 0 / 0 50% 50% 0;
-        left: 50%;
-        opacity: 0;
-        z-index: 100;
-        -webkit-animation: opa $duration + s steps(1, end) infinite reverse;
-        -moz-animation: opa $duration + s steps(1, end) infinite reverse;
-        -ms-animation: opa $duration + s steps(1, end) infinite reverse;
-        -o-animation: opa $duration + s steps(1, end) infinite reverse;
-        animation: opa $duration + s steps(1, end) infinite reverse;
-        -webkit-animation: opa $duration + s steps(1, end) infinite reverse;
-        border-left: none; // animation-iteration-count: 1; // animation-fill-mode: forwards;
-    }
-    #{$item} .mask {
-        width: 50%;
-        height: 100%;
-        position: absolute;
-        background: inherit;
-        opacity: 1;
-        z-index: 300; // animation: opa $duration + s steps(1, end) infinite; // animation-iteration-count: 1; // animation-fill-mode: forwards;
-        -webkit-animation: opa $duration + s steps(1, end) infinite;
-        -moz-animation: opa $duration + s steps(1, end) infinite;
-        -ms-animation: opa $duration + s steps(1, end) infinite;
-        -o-animation: opa $duration + s steps(1, end) infinite;
-        animation: opa $duration + s steps(1, end) infinite;
-    }
-    @-webkit-keyframes opa {
-        0% {
-            opacity: 1;
-        }
-        50%,
-        100% {
-            opacity: 0;
-        }
-    }
-    @-moz-keyframes opa {
-        0% {
-            opacity: 1;
-        }
-        50%,
-        100% {
-            opacity: 0;
-        }
-    }
-    @-o-keyframes opa {
-        0% {
-            opacity: 1;
-        }
-        50%,
-        100% {
-            opacity: 0;
-        }
-    }
-    @keyframes opa {
-        0% {
-            opacity: 1;
-        }
-        50%,
-        100% {
-            opacity: 0;
-        }
-    }
-    @-webkit-keyframes rota {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-    @-moz-keyframes rota {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-    @-o-keyframes rota {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
-    @keyframes rota {
-        0% {
-            -webkit-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -ms-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-        }
-        100% {
-            -webkit-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            -ms-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }
-    }
+  }
 }
 
-@include timer('.animation_wrapper', 20, 100%, #FFEB3B, '5px solid #FFEB3B');
-
-.custom-loader {
-    margin: 10px auto;
-    border: 10px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 10px solid #27143d;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-  }
-  
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  /* Add animation to "page content" */
-  .animate-bottom {
-    position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
-    animation-duration: 1s
-  }
-  
-  @-webkit-keyframes animatebottom {
-    from { bottom:-100px; opacity:0 } 
-    to { bottom:0px; opacity:1 }
-  }
-  
-  @keyframes animatebottom { 
-    from{ bottom:-100px; opacity:0 } 
-    to{ bottom:0; opacity:1 }
-  }
-  .custom-loader {
-    margin: 10px auto;
-    border: 10px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 10px solid #27143d;
-    width: 60px;
-    height: 60px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-  }
-  
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-  }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
-  
-  /* Add animation to "page content" */
-  .animate-bottom {
-    position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
-    animation-duration: 1s
-  }
-  
-  @-webkit-keyframes animatebottom {
-    from { bottom:-100px; opacity:0 } 
-    to { bottom:0px; opacity:1 }
-  }
-  
-  @keyframes animatebottom { 
-    from{ bottom:-100px; opacity:0 } 
-    to{ bottom:0; opacity:1 }
-  }
-  
+@include timer('.wrapper', 25, 14vh, transparent, '5px solid #ffe500');

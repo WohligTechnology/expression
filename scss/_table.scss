@@ -87,12 +87,13 @@
       }
       .player_pic {
         // border: 1px solid;
-        width: 100%;
-        height: auto;
+        width: 14vh;
+        height: 14vh;
         .pic {
           width: 100%;
           height: 100%;
           border-radius: 100%;
+          padding: 7%;
         }
       }
       .player_badge {
@@ -105,6 +106,9 @@
         border-radius: 15px;
         top: 20%;
         z-index: -1;
+        .left-dealer {
+          right: -45%;
+        }
         div {
           padding-right: 10%;
           font-size: 1em;
