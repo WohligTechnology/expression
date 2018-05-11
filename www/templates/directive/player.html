@@ -47,7 +47,7 @@
       You
     </div>
     <div class="player_pic">
-      <div class="pie_loader">
+      <div class="pie_loader" ng-if="player.isTurn && !sitHere && !player.winnerDetails && !player.tableLeft && !player.isFold">
         <!-- <div class="pie_loader"> -->
         <div class="wrapper">
           <div class="pie spinner"></div>
