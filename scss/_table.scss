@@ -50,6 +50,9 @@
       .rel {
         position: relative;
       }
+      .width-14vh {
+        width: 14vh;
+      }
       .you {
         position: absolute;
         background: #642aa2;
@@ -857,6 +860,9 @@
     img {
       width: 60%;
     }
+  }
+  .card-rotate {
+    transform: translateX(10%)rotate(10deg);
   }
 }
 

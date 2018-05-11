@@ -20,7 +20,7 @@
   </div>
   <!-- after Player Sitting -->
   <!-- <div class="rel"> -->
-  <div class="rel" ng-if="(!sitHere && player && !player.tableLeft) || sitHere && player">
+  <div class="rel width-14vh" ng-if="(!sitHere && player && !player.tableLeft) || sitHere && player">
     <div class="winner-pot-name raised-amount" ng-if="chalAmt.amount && player.playerNo == chalAmt.playerNo && !player.winner">
       {{chalAmt.action}}: {{chalAmt.amount | number}}
     </div>
@@ -74,7 +74,8 @@
       <div class="turn_status checked" ng-if="player.hasChecked && !player.winnerDetails">Checked</div>
       <div class="turn_status call" ng-if="player.hasCalled && !player.winnerDetails">Call</div>
       <div class="turn_status raise" ng-if="player.hasRaised && !player.isAllIn && !player.winnerDetails">Raised</div>
-      <div class="turn_status all_in" ng-if="player.isAllIn && !player.winnerDetails">All In</div>
+      <div class="turn_status raise" ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount > 0)">Raised</div>
+      <div class="turn_status all_in" ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount == 0)">All In</div>
       <div class="turn_status waiting" ng-if="!player.isActive && !player.winnerDetails">Waiting</div>
       <div class="name">{{player.user.name}}</div>
       <div class="amt">{{player.buyInAmt-player.totalAmount | number}}</div>
