@@ -38,7 +38,12 @@
     <div class="winner-pot-name raised-amount" ng-if="smallBlindAmt && player.isSmallBlind && !player.winner">
       Small Blind: {{smallBlindAmt | number}}
     </div>
-    <div ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name opac{{$index+1}}">
+    <div ng-if="player.winnerDetails.length == 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name">
+      <div>
+        {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
+      </div>
+    </div>
+    <div ng-if="player.winnerDetails.length > 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name opac{{$index+1}}">
       <div>
         {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
       </div>
