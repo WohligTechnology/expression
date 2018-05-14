@@ -41,6 +41,8 @@ myApp.directive('card', function () {
         activePlayer: "=ngActivePlayer",
         extra: "=ngExtra",
         chalAmt: "=ngChalAmount",
+        bigBlindAmt: "=ngBigBlind",
+        smallBlindAmt: "=ngSmallBlind",
       },
       templateUrl: 'templates/directive/player.html',
       link: function (scope, element, attr) {}

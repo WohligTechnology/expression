@@ -56,16 +56,17 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   };
 
   $scope.VerifyOtp = function (data) {
+    $scope.invalidOTP = false;
     var id = $.jStorage.get("id");
     data._id = id;
     Service.verifyOtp(data, function (data) {
       // console.log(data.data.accessToken[0]);
-      if (data.value) {
+      if (data.value == true) {
         $scope.closeModalOtp();
         $.jStorage.set("accessToken", data.data.accessToken[0]);
         $state.go("lobby");
       } else {
-
+        $scope.invalidOTP = true;
       };
     })
   }

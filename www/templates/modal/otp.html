@@ -6,22 +6,24 @@
     <div class="heading"> OTP </div>
     <div class="signup">
       <div class="login_block">
-        <form name="otp">
+        <form name="otpFrom">
           <div>
             <p class="account">Please Enter the 4 Digit Verification Code send to your Email id and Mobile no</p>
           </div>
           <div class="login_button">
             <input class="col bg-yellow padd-lr" type="password" name="otp" ng-model="data.otp" placeholder="****" required>
+            <span class="valid" ng-show="otpFrom.otp.$touched && otpFrom.otp.$invalid">* otp is required.</span>
           </div>
           <div>
             <a class="incorrect-otp">Incorrect OTP</a>
             <a class="resend-otp">Resend OTP</a>
           </div>
+          <div class="valid invailduser" ng-if="invalidOTP"> *Invalid OTP</div>
+          <div class="side_show_btn">
+            <button class="custom_button" ng-disabled="otpFrom.$invalid" ng-click="VerifyOtp(data)">Ok</button>
+          </div>
         </form>
       </div>
-    </div>
-    <div class="side_show_btn">
-      <button class="custom_button" ng-click=VerifyOtp(data)>Ok</button>
     </div>
   </ion-content>
 </ion-modal-view>

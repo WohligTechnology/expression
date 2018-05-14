@@ -475,33 +475,6 @@
     vertical-align: middle;
     margin-right: 5px;
   }
-  &.coin1 {
-    animation: animecoin1 4s forwards;
-  }
-  &.coin2 {
-    animation: animecoin2 4s forwards;
-  }
-  &.coin3 {
-    animation: animecoin3 4s forwards;
-  }
-  &.coin4 {
-    animation: animecoin4 4s forwards;
-  }
-  &.coin5 {
-    animation: animecoin5 4s forwards;
-  }
-  &.coin6 {
-    animation: animecoin6 4s forwards;
-  }
-  &.coin7 {
-    animation: animecoin7 4s forwards;
-  }
-  &.coin8 {
-    animation: animecoin8 4s forwards;
-  }
-  &.coin9 {
-    animation: animecoin9 4s forwards;
-  }
   span {
     background-image: url('../img/table/pot_bg.png');
     background-size: 100% 100%;
@@ -510,6 +483,222 @@
     display: inline-block;
     transform: translate(0%, 0%);
     transition: all ease 1s;
+  }
+}
+
+.player-coin1 {
+  .coin1 {
+    animation: animecoin1 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin1 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin1 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin1 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin1 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin1 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin1 3s ease 12s forwards;
+  }
+}
+
+.player-coin2 {
+  .coin1 {
+    animation: animecoin2 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin2 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin2 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin2 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin2 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin2 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin2 3s ease 12s forwards;
+  }
+}
+
+.player-coin3 {
+  .coin1 {
+    animation: animecoin3 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin3 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin3 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin3 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin3 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin3 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin3 3s ease 12s forwards;
+  }
+}
+
+.player-coin4 {
+  .coin1 {
+    animation: animecoin4 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin4 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin4 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin4 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin4 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin4 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin4 3s ease 12s forwards;
+  }
+}
+
+.player-coin5 {
+  .coin1 {
+    animation: animecoin5 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin5 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin5 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin5 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin5 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin5 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin5 3s ease 12s forwards;
+  }
+}
+
+.player-coin6 {
+  .coin1 {
+    animation: animecoin6 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin6 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin6 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin6 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin6 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin6 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin6 3s ease 12s forwards;
+  }
+}
+
+.player-coin7 {
+  .coin1 {
+    animation: animecoin7 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin7 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin7 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin7 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin7 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin7 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin7 3s ease 12s forwards;
+  }
+}
+
+.player-coin8 {
+  .coin1 {
+    animation: animecoin8 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin8 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin8 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin8 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin8 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin8 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin8 3s ease 12s forwards;
+  }
+}
+
+.player-coin9 {
+  .coin1 {
+    animation: animecoin9 3s ease 0s forwards;
+  }
+  .coin2 {
+    animation: animecoin9 3s ease 2s forwards;
+  }
+  .coin3 {
+    animation: animecoin9 3s ease 4s forwards;
+  }
+  .coin4 {
+    animation: animecoin9 3s ease 6s forwards;
+  }
+  .coin5 {
+    animation: animecoin9 3s ease 8s forwards;
+  }
+  .coin6 {
+    animation: animecoin9 3s ease 10s forwards;
+  }
+  .coin7 {
+    animation: animecoin9 3s ease 12s forwards;
   }
 }
 
@@ -1035,13 +1224,13 @@
 .back-lobby {
   position: absolute;
   left: 2%;
-  top: 10px;
+  top: 1%;
 }
 
 .tip-dealer {
   position: absolute;
   right: 11%;
-  top: 10px;
+  top: 1%;
 }
 
 .history {
@@ -1252,13 +1441,14 @@ community {
   top: -40%;
   left: 50%;
   width: 130px;
-  font-weight: 800;
+  font-weight: bold;
+  line-height: 1;
   transform: translateX(-50%);
   color: #f8bd0b;
   font-size: 1.1em;
   text-transform: uppercase;
   &.raised-amount {
-    top: -40%;
+    top: -30%;
     font-size: 1.4em;
     color: #fff;
   }
@@ -1282,4 +1472,202 @@ community {
   flex: 0 0 15%;
   max-width: 15%;
   padding: 2px;
+}
+
+.player1 {
+  .opac1 {
+    animation: opacitylow 4s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 4s ease 4s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 4s ease 8s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 4s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 4s ease 16s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 4s ease 20s forwards;
+  }
+}
+
+.player2 {
+  .opac1 {
+    animation: opacitylow 4s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 4s ease 4s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 4s ease 8s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 4s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 4s ease 16s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 4s ease 20s forwards;
+  }
+}
+
+.player3 {
+  .opac1 {
+    animation: opacitylow 4s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 4s ease 4s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 4s ease 8s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 4s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 4s ease 16s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 4s ease 20s forwards;
+  }
+}
+
+.player4 {
+  .opac1 {
+    animation: opacitylow 4s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 4s ease 4s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 4s ease 8s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 4s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 4s ease 16s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 4s ease 20s forwards;
+  }
+}
+
+.player5 {
+  .opac1 {
+    animation: opacitylow 4s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 4s ease 4s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 4s ease 8s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 4s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 4s ease 16s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 4s ease 20s forwards;
+  }
+}
+
+.player6 {
+  .opac1 {
+    animation: opacitylow 4s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 4s ease 4s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 4s ease 8s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 4s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 4s ease 16s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 4s ease 20s forwards;
+  }
+}
+
+.player7 {
+  .opac1 {
+    animation: opacitylow 4s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 4s ease 4s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 4s ease 8s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 4s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 4s ease 16s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 4s ease 20s forwards;
+  }
+}
+
+.player8 {
+  .opac1 {
+    animation: opacitylow 4s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 4s ease 4s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 4s ease 8s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 4s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 4s ease 16s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 4s ease 20s forwards;
+  }
+}
+
+.player9 {
+  .opac1 {
+    animation: opacitylow 4s ease 0s forwards;
+  }
+  .opac2 {
+    animation: opacitylow 4s ease 4s forwards;
+  }
+  .opac3 {
+    animation: opacitylow 4s ease 8s forwards;
+  }
+  .opac4 {
+    animation: opacitylow 4s ease 12s forwards;
+  }
+  .opac5 {
+    animation: opacitylow 4s ease 16s forwards;
+  }
+  .opac6 {
+    animation: opacitylow 4s ease 20s forwards;
+  }
+}
+
+@keyframes opacitylow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

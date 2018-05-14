@@ -10691,24 +10691,6 @@ body {
     width: 1em;
     vertical-align: middle;
     margin-right: 5px; }
-  .total_played_coin.coin1 {
-    animation: animecoin1 4s forwards; }
-  .total_played_coin.coin2 {
-    animation: animecoin2 4s forwards; }
-  .total_played_coin.coin3 {
-    animation: animecoin3 4s forwards; }
-  .total_played_coin.coin4 {
-    animation: animecoin4 4s forwards; }
-  .total_played_coin.coin5 {
-    animation: animecoin5 4s forwards; }
-  .total_played_coin.coin6 {
-    animation: animecoin6 4s forwards; }
-  .total_played_coin.coin7 {
-    animation: animecoin7 4s forwards; }
-  .total_played_coin.coin8 {
-    animation: animecoin8 4s forwards; }
-  .total_played_coin.coin9 {
-    animation: animecoin9 4s forwards; }
   .total_played_coin span {
     background-image: url("../img/table/pot_bg.png");
     background-size: 100% 100%;
@@ -10717,6 +10699,195 @@ body {
     display: inline-block;
     transform: translate(0%, 0%);
     transition: all ease 1s; }
+
+.player-coin1 .coin1 {
+  animation: animecoin1 3s ease 0s forwards; }
+
+.player-coin1 .coin2 {
+  animation: animecoin1 3s ease 2s forwards; }
+
+.player-coin1 .coin3 {
+  animation: animecoin1 3s ease 4s forwards; }
+
+.player-coin1 .coin4 {
+  animation: animecoin1 3s ease 6s forwards; }
+
+.player-coin1 .coin5 {
+  animation: animecoin1 3s ease 8s forwards; }
+
+.player-coin1 .coin6 {
+  animation: animecoin1 3s ease 10s forwards; }
+
+.player-coin1 .coin7 {
+  animation: animecoin1 3s ease 12s forwards; }
+
+.player-coin2 .coin1 {
+  animation: animecoin2 3s ease 0s forwards; }
+
+.player-coin2 .coin2 {
+  animation: animecoin2 3s ease 2s forwards; }
+
+.player-coin2 .coin3 {
+  animation: animecoin2 3s ease 4s forwards; }
+
+.player-coin2 .coin4 {
+  animation: animecoin2 3s ease 6s forwards; }
+
+.player-coin2 .coin5 {
+  animation: animecoin2 3s ease 8s forwards; }
+
+.player-coin2 .coin6 {
+  animation: animecoin2 3s ease 10s forwards; }
+
+.player-coin2 .coin7 {
+  animation: animecoin2 3s ease 12s forwards; }
+
+.player-coin3 .coin1 {
+  animation: animecoin3 3s ease 0s forwards; }
+
+.player-coin3 .coin2 {
+  animation: animecoin3 3s ease 2s forwards; }
+
+.player-coin3 .coin3 {
+  animation: animecoin3 3s ease 4s forwards; }
+
+.player-coin3 .coin4 {
+  animation: animecoin3 3s ease 6s forwards; }
+
+.player-coin3 .coin5 {
+  animation: animecoin3 3s ease 8s forwards; }
+
+.player-coin3 .coin6 {
+  animation: animecoin3 3s ease 10s forwards; }
+
+.player-coin3 .coin7 {
+  animation: animecoin3 3s ease 12s forwards; }
+
+.player-coin4 .coin1 {
+  animation: animecoin4 3s ease 0s forwards; }
+
+.player-coin4 .coin2 {
+  animation: animecoin4 3s ease 2s forwards; }
+
+.player-coin4 .coin3 {
+  animation: animecoin4 3s ease 4s forwards; }
+
+.player-coin4 .coin4 {
+  animation: animecoin4 3s ease 6s forwards; }
+
+.player-coin4 .coin5 {
+  animation: animecoin4 3s ease 8s forwards; }
+
+.player-coin4 .coin6 {
+  animation: animecoin4 3s ease 10s forwards; }
+
+.player-coin4 .coin7 {
+  animation: animecoin4 3s ease 12s forwards; }
+
+.player-coin5 .coin1 {
+  animation: animecoin5 3s ease 0s forwards; }
+
+.player-coin5 .coin2 {
+  animation: animecoin5 3s ease 2s forwards; }
+
+.player-coin5 .coin3 {
+  animation: animecoin5 3s ease 4s forwards; }
+
+.player-coin5 .coin4 {
+  animation: animecoin5 3s ease 6s forwards; }
+
+.player-coin5 .coin5 {
+  animation: animecoin5 3s ease 8s forwards; }
+
+.player-coin5 .coin6 {
+  animation: animecoin5 3s ease 10s forwards; }
+
+.player-coin5 .coin7 {
+  animation: animecoin5 3s ease 12s forwards; }
+
+.player-coin6 .coin1 {
+  animation: animecoin6 3s ease 0s forwards; }
+
+.player-coin6 .coin2 {
+  animation: animecoin6 3s ease 2s forwards; }
+
+.player-coin6 .coin3 {
+  animation: animecoin6 3s ease 4s forwards; }
+
+.player-coin6 .coin4 {
+  animation: animecoin6 3s ease 6s forwards; }
+
+.player-coin6 .coin5 {
+  animation: animecoin6 3s ease 8s forwards; }
+
+.player-coin6 .coin6 {
+  animation: animecoin6 3s ease 10s forwards; }
+
+.player-coin6 .coin7 {
+  animation: animecoin6 3s ease 12s forwards; }
+
+.player-coin7 .coin1 {
+  animation: animecoin7 3s ease 0s forwards; }
+
+.player-coin7 .coin2 {
+  animation: animecoin7 3s ease 2s forwards; }
+
+.player-coin7 .coin3 {
+  animation: animecoin7 3s ease 4s forwards; }
+
+.player-coin7 .coin4 {
+  animation: animecoin7 3s ease 6s forwards; }
+
+.player-coin7 .coin5 {
+  animation: animecoin7 3s ease 8s forwards; }
+
+.player-coin7 .coin6 {
+  animation: animecoin7 3s ease 10s forwards; }
+
+.player-coin7 .coin7 {
+  animation: animecoin7 3s ease 12s forwards; }
+
+.player-coin8 .coin1 {
+  animation: animecoin8 3s ease 0s forwards; }
+
+.player-coin8 .coin2 {
+  animation: animecoin8 3s ease 2s forwards; }
+
+.player-coin8 .coin3 {
+  animation: animecoin8 3s ease 4s forwards; }
+
+.player-coin8 .coin4 {
+  animation: animecoin8 3s ease 6s forwards; }
+
+.player-coin8 .coin5 {
+  animation: animecoin8 3s ease 8s forwards; }
+
+.player-coin8 .coin6 {
+  animation: animecoin8 3s ease 10s forwards; }
+
+.player-coin8 .coin7 {
+  animation: animecoin8 3s ease 12s forwards; }
+
+.player-coin9 .coin1 {
+  animation: animecoin9 3s ease 0s forwards; }
+
+.player-coin9 .coin2 {
+  animation: animecoin9 3s ease 2s forwards; }
+
+.player-coin9 .coin3 {
+  animation: animecoin9 3s ease 4s forwards; }
+
+.player-coin9 .coin4 {
+  animation: animecoin9 3s ease 6s forwards; }
+
+.player-coin9 .coin5 {
+  animation: animecoin9 3s ease 8s forwards; }
+
+.player-coin9 .coin6 {
+  animation: animecoin9 3s ease 10s forwards; }
+
+.player-coin9 .coin7 {
+  animation: animecoin9 3s ease 12s forwards; }
 
 @keyframes animecoin1 {
   0% {
@@ -11104,12 +11275,12 @@ body {
 .back-lobby {
   position: absolute;
   left: 2%;
-  top: 10px; }
+  top: 1%; }
 
 .tip-dealer {
   position: absolute;
   right: 11%;
-  top: 10px; }
+  top: 1%; }
 
 .history {
   position: absolute;
@@ -11283,13 +11454,14 @@ community {
   top: -40%;
   left: 50%;
   width: 130px;
-  font-weight: 800;
+  font-weight: bold;
+  line-height: 1;
   transform: translateX(-50%);
   color: #f8bd0b;
   font-size: 1.1em;
   text-transform: uppercase; }
   .winner-pot-name.raised-amount {
-    top: -40%;
+    top: -30%;
     font-size: 1.4em;
     color: #fff; }
 
@@ -11306,6 +11478,174 @@ community {
   flex: 0 0 15%;
   max-width: 15%;
   padding: 2px; }
+
+.player1 .opac1 {
+  animation: opacitylow 4s ease 0s forwards; }
+
+.player1 .opac2 {
+  animation: opacitylow 4s ease 4s forwards; }
+
+.player1 .opac3 {
+  animation: opacitylow 4s ease 8s forwards; }
+
+.player1 .opac4 {
+  animation: opacitylow 4s ease 12s forwards; }
+
+.player1 .opac5 {
+  animation: opacitylow 4s ease 16s forwards; }
+
+.player1 .opac6 {
+  animation: opacitylow 4s ease 20s forwards; }
+
+.player2 .opac1 {
+  animation: opacitylow 4s ease 0s forwards; }
+
+.player2 .opac2 {
+  animation: opacitylow 4s ease 4s forwards; }
+
+.player2 .opac3 {
+  animation: opacitylow 4s ease 8s forwards; }
+
+.player2 .opac4 {
+  animation: opacitylow 4s ease 12s forwards; }
+
+.player2 .opac5 {
+  animation: opacitylow 4s ease 16s forwards; }
+
+.player2 .opac6 {
+  animation: opacitylow 4s ease 20s forwards; }
+
+.player3 .opac1 {
+  animation: opacitylow 4s ease 0s forwards; }
+
+.player3 .opac2 {
+  animation: opacitylow 4s ease 4s forwards; }
+
+.player3 .opac3 {
+  animation: opacitylow 4s ease 8s forwards; }
+
+.player3 .opac4 {
+  animation: opacitylow 4s ease 12s forwards; }
+
+.player3 .opac5 {
+  animation: opacitylow 4s ease 16s forwards; }
+
+.player3 .opac6 {
+  animation: opacitylow 4s ease 20s forwards; }
+
+.player4 .opac1 {
+  animation: opacitylow 4s ease 0s forwards; }
+
+.player4 .opac2 {
+  animation: opacitylow 4s ease 4s forwards; }
+
+.player4 .opac3 {
+  animation: opacitylow 4s ease 8s forwards; }
+
+.player4 .opac4 {
+  animation: opacitylow 4s ease 12s forwards; }
+
+.player4 .opac5 {
+  animation: opacitylow 4s ease 16s forwards; }
+
+.player4 .opac6 {
+  animation: opacitylow 4s ease 20s forwards; }
+
+.player5 .opac1 {
+  animation: opacitylow 4s ease 0s forwards; }
+
+.player5 .opac2 {
+  animation: opacitylow 4s ease 4s forwards; }
+
+.player5 .opac3 {
+  animation: opacitylow 4s ease 8s forwards; }
+
+.player5 .opac4 {
+  animation: opacitylow 4s ease 12s forwards; }
+
+.player5 .opac5 {
+  animation: opacitylow 4s ease 16s forwards; }
+
+.player5 .opac6 {
+  animation: opacitylow 4s ease 20s forwards; }
+
+.player6 .opac1 {
+  animation: opacitylow 4s ease 0s forwards; }
+
+.player6 .opac2 {
+  animation: opacitylow 4s ease 4s forwards; }
+
+.player6 .opac3 {
+  animation: opacitylow 4s ease 8s forwards; }
+
+.player6 .opac4 {
+  animation: opacitylow 4s ease 12s forwards; }
+
+.player6 .opac5 {
+  animation: opacitylow 4s ease 16s forwards; }
+
+.player6 .opac6 {
+  animation: opacitylow 4s ease 20s forwards; }
+
+.player7 .opac1 {
+  animation: opacitylow 4s ease 0s forwards; }
+
+.player7 .opac2 {
+  animation: opacitylow 4s ease 4s forwards; }
+
+.player7 .opac3 {
+  animation: opacitylow 4s ease 8s forwards; }
+
+.player7 .opac4 {
+  animation: opacitylow 4s ease 12s forwards; }
+
+.player7 .opac5 {
+  animation: opacitylow 4s ease 16s forwards; }
+
+.player7 .opac6 {
+  animation: opacitylow 4s ease 20s forwards; }
+
+.player8 .opac1 {
+  animation: opacitylow 4s ease 0s forwards; }
+
+.player8 .opac2 {
+  animation: opacitylow 4s ease 4s forwards; }
+
+.player8 .opac3 {
+  animation: opacitylow 4s ease 8s forwards; }
+
+.player8 .opac4 {
+  animation: opacitylow 4s ease 12s forwards; }
+
+.player8 .opac5 {
+  animation: opacitylow 4s ease 16s forwards; }
+
+.player8 .opac6 {
+  animation: opacitylow 4s ease 20s forwards; }
+
+.player9 .opac1 {
+  animation: opacitylow 4s ease 0s forwards; }
+
+.player9 .opac2 {
+  animation: opacitylow 4s ease 4s forwards; }
+
+.player9 .opac3 {
+  animation: opacitylow 4s ease 8s forwards; }
+
+.player9 .opac4 {
+  animation: opacitylow 4s ease 12s forwards; }
+
+.player9 .opac5 {
+  animation: opacitylow 4s ease 16s forwards; }
+
+.player9 .opac6 {
+  animation: opacitylow 4s ease 20s forwards; }
+
+@keyframes opacitylow {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
 
 .scroll-content {
   margin-top: 0px !important;
@@ -12254,7 +12594,14 @@ span.valid {
   .table .table_field .plyr {
     width: 7vw; }
   .login .login_block .login_button input, .login .login_block .login_button select {
-    padding: 0px 0px; } }
+    padding: 0px 0px; }
+  .table .player5 {
+    bottom: 1%; }
+  .winner-pot-name {
+    width: 150px; }
+  .player1 .winner-pot-name {
+    top: -20%;
+    left: 170%; } }
 
 @media screen and (min-width: 900px) {
   .table .table_field .video_frame {

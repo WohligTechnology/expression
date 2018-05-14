@@ -309,6 +309,16 @@ body {
   .login .login_block .login_button select {
     padding: 0px 0px;
   }
+  .table .player5 {
+    bottom: 1%;
+  }
+  .winner-pot-name {
+    width: 150px;
+  }
+  .player1 .winner-pot-name {
+    top: -20%;
+    left: 170%;
+  }
 }
 
 @media screen and (min-width: 900px) {
