@@ -745,7 +745,7 @@ span.valid {
 }
 
 .otp-modal {
-  top: 35%;
+  top: 15%;
   right: 11%;
   bottom: 10%;
   left: 12%;
@@ -846,6 +846,9 @@ span.valid {
 .cross-btn {
   width: 20px;
   float: right;
+  position: absolute;
+  right: 10px;
+  z-index: 2;
 }
 
 //user profile modal
