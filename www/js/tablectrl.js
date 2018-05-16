@@ -769,6 +769,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
       if (data) {
         $scope.ShowLoader = false;
+        $scope.closeGameModal();
         $state.go('lobby');
       }
     });

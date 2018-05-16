@@ -1438,7 +1438,7 @@ community {
 
 .winner-pot-name {
   position: absolute;
-  top: -40%;
+  top: -34%;
   left: 50%;
   width: 130px;
   font-weight: bold;
@@ -1472,6 +1472,10 @@ community {
   flex: 0 0 15%;
   max-width: 15%;
   padding: 2px;
+}
+
+.opac {
+  opacity: 0;
 }
 
 .player1 {

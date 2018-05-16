@@ -43,7 +43,7 @@
         {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
       </div>
     </div>
-    <div ng-if="player.winnerDetails.length > 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name opac{{$index+1}}">
+    <div ng-if="player.winnerDetails.length > 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name opac opac{{$index+1}}">
       <div>
         {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
       </div>
