@@ -1478,192 +1478,32 @@ community {
   opacity: 0;
 }
 
-.player1 {
-  .opac1 {
-    animation: opacitylow 4s ease 0s forwards;
-  }
-  .opac2 {
-    animation: opacitylow 4s ease 4s forwards;
-  }
-  .opac3 {
-    animation: opacitylow 4s ease 8s forwards;
-  }
-  .opac4 {
-    animation: opacitylow 4s ease 12s forwards;
-  }
-  .opac5 {
-    animation: opacitylow 4s ease 16s forwards;
-  }
-  .opac6 {
-    animation: opacitylow 4s ease 20s forwards;
-  }
-}
-
-.player2 {
-  .opac1 {
-    animation: opacitylow 4s ease 0s forwards;
-  }
-  .opac2 {
-    animation: opacitylow 4s ease 4s forwards;
-  }
-  .opac3 {
-    animation: opacitylow 4s ease 8s forwards;
-  }
-  .opac4 {
-    animation: opacitylow 4s ease 12s forwards;
-  }
-  .opac5 {
-    animation: opacitylow 4s ease 16s forwards;
-  }
-  .opac6 {
-    animation: opacitylow 4s ease 20s forwards;
-  }
-}
-
-.player3 {
-  .opac1 {
-    animation: opacitylow 4s ease 0s forwards;
-  }
-  .opac2 {
-    animation: opacitylow 4s ease 4s forwards;
-  }
-  .opac3 {
-    animation: opacitylow 4s ease 8s forwards;
-  }
-  .opac4 {
-    animation: opacitylow 4s ease 12s forwards;
-  }
-  .opac5 {
-    animation: opacitylow 4s ease 16s forwards;
-  }
-  .opac6 {
-    animation: opacitylow 4s ease 20s forwards;
-  }
-}
-
-.player4 {
-  .opac1 {
-    animation: opacitylow 4s ease 0s forwards;
-  }
-  .opac2 {
-    animation: opacitylow 4s ease 4s forwards;
-  }
-  .opac3 {
-    animation: opacitylow 4s ease 8s forwards;
-  }
-  .opac4 {
-    animation: opacitylow 4s ease 12s forwards;
-  }
-  .opac5 {
-    animation: opacitylow 4s ease 16s forwards;
-  }
-  .opac6 {
-    animation: opacitylow 4s ease 20s forwards;
-  }
-}
-
-.player5 {
-  .opac1 {
-    animation: opacitylow 4s ease 0s forwards;
-  }
-  .opac2 {
-    animation: opacitylow 4s ease 4s forwards;
-  }
-  .opac3 {
-    animation: opacitylow 4s ease 8s forwards;
-  }
-  .opac4 {
-    animation: opacitylow 4s ease 12s forwards;
-  }
-  .opac5 {
-    animation: opacitylow 4s ease 16s forwards;
-  }
-  .opac6 {
-    animation: opacitylow 4s ease 20s forwards;
-  }
-}
-
-.player6 {
-  .opac1 {
-    animation: opacitylow 4s ease 0s forwards;
-  }
-  .opac2 {
-    animation: opacitylow 4s ease 4s forwards;
-  }
-  .opac3 {
-    animation: opacitylow 4s ease 8s forwards;
-  }
-  .opac4 {
-    animation: opacitylow 4s ease 12s forwards;
-  }
-  .opac5 {
-    animation: opacitylow 4s ease 16s forwards;
-  }
-  .opac6 {
-    animation: opacitylow 4s ease 20s forwards;
-  }
-}
-
-.player7 {
-  .opac1 {
-    animation: opacitylow 4s ease 0s forwards;
-  }
-  .opac2 {
-    animation: opacitylow 4s ease 4s forwards;
-  }
-  .opac3 {
-    animation: opacitylow 4s ease 8s forwards;
-  }
-  .opac4 {
-    animation: opacitylow 4s ease 12s forwards;
-  }
-  .opac5 {
-    animation: opacitylow 4s ease 16s forwards;
-  }
-  .opac6 {
-    animation: opacitylow 4s ease 20s forwards;
-  }
-}
-
-.player8 {
-  .opac1 {
-    animation: opacitylow 4s ease 0s forwards;
-  }
-  .opac2 {
-    animation: opacitylow 4s ease 4s forwards;
-  }
-  .opac3 {
-    animation: opacitylow 4s ease 8s forwards;
-  }
-  .opac4 {
-    animation: opacitylow 4s ease 12s forwards;
-  }
-  .opac5 {
-    animation: opacitylow 4s ease 16s forwards;
-  }
-  .opac6 {
-    animation: opacitylow 4s ease 20s forwards;
-  }
-}
-
+.player1,
+.player2,
+.player3,
+.player4,
+.player5,
+.player6,
+.player7,
+.player8,
 .player9 {
   .opac1 {
-    animation: opacitylow 4s ease 0s forwards;
+    animation: opacitylow 3s ease 0s forwards;
   }
   .opac2 {
-    animation: opacitylow 4s ease 4s forwards;
+    animation: opacitylow 3s ease 3s forwards;
   }
   .opac3 {
-    animation: opacitylow 4s ease 8s forwards;
+    animation: opacitylow 3s ease 9s forwards;
   }
   .opac4 {
-    animation: opacitylow 4s ease 12s forwards;
+    animation: opacitylow 3s ease 12s forwards;
   }
   .opac5 {
-    animation: opacitylow 4s ease 16s forwards;
+    animation: opacitylow 3s ease 15s forwards;
   }
   .opac6 {
-    animation: opacitylow 4s ease 20s forwards;
+    animation: opacitylow 3s ease 18s forwards;
   }
 }
 

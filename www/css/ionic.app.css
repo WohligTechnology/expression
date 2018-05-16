@@ -11482,167 +11482,71 @@ community {
 .opac {
   opacity: 0; }
 
-.player1 .opac1 {
-  animation: opacitylow 4s ease 0s forwards; }
-
-.player1 .opac2 {
-  animation: opacitylow 4s ease 4s forwards; }
-
-.player1 .opac3 {
-  animation: opacitylow 4s ease 8s forwards; }
-
-.player1 .opac4 {
-  animation: opacitylow 4s ease 12s forwards; }
-
-.player1 .opac5 {
-  animation: opacitylow 4s ease 16s forwards; }
-
-.player1 .opac6 {
-  animation: opacitylow 4s ease 20s forwards; }
-
-.player2 .opac1 {
-  animation: opacitylow 4s ease 0s forwards; }
-
-.player2 .opac2 {
-  animation: opacitylow 4s ease 4s forwards; }
-
-.player2 .opac3 {
-  animation: opacitylow 4s ease 8s forwards; }
-
-.player2 .opac4 {
-  animation: opacitylow 4s ease 12s forwards; }
-
-.player2 .opac5 {
-  animation: opacitylow 4s ease 16s forwards; }
-
-.player2 .opac6 {
-  animation: opacitylow 4s ease 20s forwards; }
-
-.player3 .opac1 {
-  animation: opacitylow 4s ease 0s forwards; }
-
-.player3 .opac2 {
-  animation: opacitylow 4s ease 4s forwards; }
-
-.player3 .opac3 {
-  animation: opacitylow 4s ease 8s forwards; }
-
-.player3 .opac4 {
-  animation: opacitylow 4s ease 12s forwards; }
-
-.player3 .opac5 {
-  animation: opacitylow 4s ease 16s forwards; }
-
-.player3 .opac6 {
-  animation: opacitylow 4s ease 20s forwards; }
-
-.player4 .opac1 {
-  animation: opacitylow 4s ease 0s forwards; }
-
-.player4 .opac2 {
-  animation: opacitylow 4s ease 4s forwards; }
-
-.player4 .opac3 {
-  animation: opacitylow 4s ease 8s forwards; }
-
-.player4 .opac4 {
-  animation: opacitylow 4s ease 12s forwards; }
-
-.player4 .opac5 {
-  animation: opacitylow 4s ease 16s forwards; }
-
-.player4 .opac6 {
-  animation: opacitylow 4s ease 20s forwards; }
-
-.player5 .opac1 {
-  animation: opacitylow 4s ease 0s forwards; }
-
-.player5 .opac2 {
-  animation: opacitylow 4s ease 4s forwards; }
-
-.player5 .opac3 {
-  animation: opacitylow 4s ease 8s forwards; }
-
-.player5 .opac4 {
-  animation: opacitylow 4s ease 12s forwards; }
-
-.player5 .opac5 {
-  animation: opacitylow 4s ease 16s forwards; }
-
-.player5 .opac6 {
-  animation: opacitylow 4s ease 20s forwards; }
-
-.player6 .opac1 {
-  animation: opacitylow 4s ease 0s forwards; }
-
-.player6 .opac2 {
-  animation: opacitylow 4s ease 4s forwards; }
-
-.player6 .opac3 {
-  animation: opacitylow 4s ease 8s forwards; }
-
-.player6 .opac4 {
-  animation: opacitylow 4s ease 12s forwards; }
-
-.player6 .opac5 {
-  animation: opacitylow 4s ease 16s forwards; }
-
-.player6 .opac6 {
-  animation: opacitylow 4s ease 20s forwards; }
-
-.player7 .opac1 {
-  animation: opacitylow 4s ease 0s forwards; }
-
-.player7 .opac2 {
-  animation: opacitylow 4s ease 4s forwards; }
-
-.player7 .opac3 {
-  animation: opacitylow 4s ease 8s forwards; }
-
-.player7 .opac4 {
-  animation: opacitylow 4s ease 12s forwards; }
-
-.player7 .opac5 {
-  animation: opacitylow 4s ease 16s forwards; }
-
-.player7 .opac6 {
-  animation: opacitylow 4s ease 20s forwards; }
-
-.player8 .opac1 {
-  animation: opacitylow 4s ease 0s forwards; }
-
-.player8 .opac2 {
-  animation: opacitylow 4s ease 4s forwards; }
-
-.player8 .opac3 {
-  animation: opacitylow 4s ease 8s forwards; }
-
-.player8 .opac4 {
-  animation: opacitylow 4s ease 12s forwards; }
-
-.player8 .opac5 {
-  animation: opacitylow 4s ease 16s forwards; }
-
-.player8 .opac6 {
-  animation: opacitylow 4s ease 20s forwards; }
-
+.player1 .opac1,
+.player2 .opac1,
+.player3 .opac1,
+.player4 .opac1,
+.player5 .opac1,
+.player6 .opac1,
+.player7 .opac1,
+.player8 .opac1,
 .player9 .opac1 {
-  animation: opacitylow 4s ease 0s forwards; }
+  animation: opacitylow 3s ease 0s forwards; }
 
+.player1 .opac2,
+.player2 .opac2,
+.player3 .opac2,
+.player4 .opac2,
+.player5 .opac2,
+.player6 .opac2,
+.player7 .opac2,
+.player8 .opac2,
 .player9 .opac2 {
-  animation: opacitylow 4s ease 4s forwards; }
+  animation: opacitylow 3s ease 3s forwards; }
 
+.player1 .opac3,
+.player2 .opac3,
+.player3 .opac3,
+.player4 .opac3,
+.player5 .opac3,
+.player6 .opac3,
+.player7 .opac3,
+.player8 .opac3,
 .player9 .opac3 {
-  animation: opacitylow 4s ease 8s forwards; }
+  animation: opacitylow 3s ease 9s forwards; }
 
+.player1 .opac4,
+.player2 .opac4,
+.player3 .opac4,
+.player4 .opac4,
+.player5 .opac4,
+.player6 .opac4,
+.player7 .opac4,
+.player8 .opac4,
 .player9 .opac4 {
-  animation: opacitylow 4s ease 12s forwards; }
+  animation: opacitylow 3s ease 12s forwards; }
 
+.player1 .opac5,
+.player2 .opac5,
+.player3 .opac5,
+.player4 .opac5,
+.player5 .opac5,
+.player6 .opac5,
+.player7 .opac5,
+.player8 .opac5,
 .player9 .opac5 {
-  animation: opacitylow 4s ease 16s forwards; }
+  animation: opacitylow 3s ease 15s forwards; }
 
+.player1 .opac6,
+.player2 .opac6,
+.player3 .opac6,
+.player4 .opac6,
+.player5 .opac6,
+.player6 .opac6,
+.player7 .opac6,
+.player8 .opac6,
 .player9 .opac6 {
-  animation: opacitylow 4s ease 20s forwards; }
+  animation: opacitylow 3s ease 18s forwards; }
 
 @keyframes opacitylow {
   0% {
