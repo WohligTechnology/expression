@@ -259,7 +259,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
     $scope.currentRoundAmt = $scope.table.currentRoundAmt;
-    $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
+    // $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
     $scope.extra = data.data.extra;
     $scope.pots = data.data.pots;
     $scope.hasTurn = data.data.hasTurn;
@@ -655,6 +655,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   function showWinnerFunction(data) {
     $scope.chaalAmt = {};
     console.log("show winner", data);
+    reArragePlayers(data.data.players);
     $scope.winnerData = data.data.pots;
     _.each($scope.players, function (player) {
       if (player) {
@@ -697,7 +698,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
     $scope.currentRoundAmt = $scope.table.currentRoundAmt;
-    $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
+    // $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
     $scope.extra = data.data.extra;
     $scope.pots = data.data.pots;
     $scope.hasTurn = data.data.hasTurn;
@@ -732,7 +733,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     // console.log("removePlayerFunction", data);
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
-    $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
+    // $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
     $scope.extra = data.data.extra;
     $scope.pots = data.data.pots;
     $scope.hasTurn = data.data.hasTurn;
