@@ -10496,7 +10496,6 @@ body {
     display: flex;
     align-items: center; }
     .table .bottom .main_card {
-      width: 14%;
       position: relative;
       align-self: flex-end;
       flex: .3; }
@@ -10504,12 +10503,16 @@ body {
         display: flex;
         position: absolute;
         bottom: 0;
-        right: 0;
-        width: 40%; }
+        right: -10px;
+        width: 55%; }
         .table .bottom .main_card .cards card {
           width: 100%; }
           .table .bottom .main_card .cards card:nth-child(2) {
-            margin-left: -35%; }
+            margin-left: -20%; }
+          .table .bottom .main_card .cards card:nth-child(3) {
+            margin-left: -20%; }
+          .table .bottom .main_card .cards card:nth-child(4) {
+            margin-left: -20%; }
     .table .bottom .player_turn_button {
       padding: 1%;
       margin: 1%;
@@ -11147,7 +11150,8 @@ body {
 
 .none {
   width: 8vh;
-  position: absolute; }
+  position: absolute;
+  transition: all ease 800ms; }
 
 .winnercard .none {
   width: 12vh; }
@@ -11155,14 +11159,14 @@ body {
     width: 60%; }
 
 .winnercard .card-rotate {
-  transform: translateX(10%) rotate(10deg); }
+  transform: translate(-14%, -5%) rotate(1deg); }
 
 .card-rotate {
   margin-left: 7px;
-  transform: rotate(7deg); }
+  transform: translate(-14%, -5%) rotate(1deg); }
 
 .card-rotate-right {
-  transform: rotate(-10deg); }
+  transform: translate(-25%, -5%) rotate(-15deg); }
 
 .tcard1 {
   left: -62%;
@@ -11171,9 +11175,16 @@ body {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard1 .card-two {
     transform: translate(0%, 0%) rotate(7deg); }
-  .tcard1 .card-one.ng-hide-remove {
-    transform: translate(-500%, -100%); }
-  .tcard1 .card-two.ng-hide-remove {
+  .tcard1 .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1; }
+  .tcard1 .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1; }
+  .tcard1 .card-one.ng-hide-remove,
+  .tcard1 .card-two.ng-hide-remove,
+  .tcard1 .card-three.ng-hide-remove,
+  .tcard1 .card-four.ng-hide-remove {
     transform: translate(-500%, -100%); }
 
 .tcard2 {
@@ -11183,9 +11194,16 @@ body {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard2 .card-two {
     transform: translate(0%, 0%) rotate(7deg); }
-  .tcard2 .card-one.ng-hide-remove {
-    transform: translate(-750%, -200%); }
-  .tcard2 .card-two.ng-hide-remove {
+  .tcard2 .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1; }
+  .tcard2 .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1; }
+  .tcard2 .card-one.ng-hide-remove,
+  .tcard2 .card-two.ng-hide-remove,
+  .tcard2 .card-three.ng-hide-remove,
+  .tcard2 .card-four.ng-hide-remove {
     transform: translate(-750%, -200%); }
 
 .tcard3 {
@@ -11195,9 +11213,16 @@ body {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard3 .card-two {
     transform: translate(0%, 0%) rotate(7deg); }
-  .tcard3 .card-one.ng-hide-remove {
-    transform: translate(-750%, -360%); }
-  .tcard3 .card-two.ng-hide-remove {
+  .tcard3 .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1; }
+  .tcard3 .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1; }
+  .tcard3 .card-one.ng-hide-remove,
+  .tcard3 .card-two.ng-hide-remove,
+  .tcard3 .card-three.ng-hide-remove,
+  .tcard3 .card-four.ng-hide-remove {
     transform: translate(-750%, -360%); }
 
 .tcard4 {
@@ -11207,9 +11232,16 @@ body {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard4 .card-two {
     transform: translate(0%, 0%) rotate(7deg); }
-  .tcard4 .card-one.ng-hide-remove {
-    transform: translate(-300%, -450%); }
-  .tcard4 .card-two.ng-hide-remove {
+  .tcard4 .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1; }
+  .tcard4 .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1; }
+  .tcard4 .card-one.ng-hide-remove,
+  .tcard4 .card-two.ng-hide-remove,
+  .tcard4 .card-three.ng-hide-remove,
+  .tcard4 .card-four.ng-hide-remove {
     transform: translate(-300%, -450%); }
 
 .tcard5 {
@@ -11219,9 +11251,16 @@ body {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard5 .card-two {
     transform: translate(0%, 0%) rotate(7deg); }
-  .tcard5 .card-one.ng-hide-remove {
-    transform: translate(160%, -450%); }
-  .tcard5 .card-two.ng-hide-remove {
+  .tcard5 .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1; }
+  .tcard5 .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1; }
+  .tcard5 .card-one.ng-hide-remove,
+  .tcard5 .card-two.ng-hide-remove,
+  .tcard5 .card-three.ng-hide-remove,
+  .tcard5 .card-four.ng-hide-remove {
     transform: translate(160%, -450%); }
 
 .tcard6 {
@@ -11231,10 +11270,17 @@ body {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard6 .card-two {
     transform: translate(0%, 0%) rotate(7deg); }
-  .tcard6 .card-one.ng-hide-remove {
+  .tcard6 .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1; }
+  .tcard6 .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1; }
+  .tcard6 .card-one.ng-hide-remove,
+  .tcard6 .card-two.ng-hide-remove,
+  .tcard6 .card-three.ng-hide-remove,
+  .tcard6 .card-four.ng-hide-remove {
     transform: translate(550%, -465%); }
-  .tcard6 .card-two.ng-hide-remove {
-    transform: translate(560%, -465%); }
 
 .tcard7 {
   right: 0px;
@@ -11243,9 +11289,16 @@ body {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard7 .card-two {
     transform: translate(0%, 0%) rotate(7deg); }
-  .tcard7 .card-one.ng-hide-remove {
-    transform: translate(700%, -400%); }
-  .tcard7 .card-two.ng-hide-remove {
+  .tcard7 .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1; }
+  .tcard7 .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1; }
+  .tcard7 .card-one.ng-hide-remove,
+  .tcard7 .card-two.ng-hide-remove,
+  .tcard7 .card-three.ng-hide-remove,
+  .tcard7 .card-four.ng-hide-remove {
     transform: translate(700%, -400%); }
 
 .tcard8 {
@@ -11255,10 +11308,17 @@ body {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard8 .card-two {
     transform: translate(0%, 0%) rotate(7deg); }
-  .tcard8 .card-one.ng-hide-remove {
+  .tcard8 .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1; }
+  .tcard8 .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1; }
+  .tcard8 .card-one.ng-hide-remove,
+  .tcard8 .card-two.ng-hide-remove,
+  .tcard8 .card-three.ng-hide-remove,
+  .tcard8 .card-four.ng-hide-remove {
     transform: translate(675%, -200%); }
-  .tcard8 .card-two.ng-hide-remove {
-    transform: translate(700%, -200%); }
 
 .tcard9 {
   bottom: -5%;
@@ -11267,9 +11327,16 @@ body {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard9 .card-two {
     transform: translate(0%, 0%) rotate(7deg); }
-  .tcard9 .card-one.ng-hide-remove {
-    transform: translate(500%, -150%); }
-  .tcard9 .card-two.ng-hide-remove {
+  .tcard9 .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1; }
+  .tcard9 .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1; }
+  .tcard9 .card-one.ng-hide-remove,
+  .tcard9 .card-two.ng-hide-remove,
+  .tcard9 .card-three.ng-hide-remove,
+  .tcard9 .card-four.ng-hide-remove {
     transform: translate(500%, -150%); }
 
 .back-lobby {
@@ -11550,6 +11617,8 @@ community {
 
 @keyframes opacitylow {
   0% {
+    opacity: 1; }
+  80% {
     opacity: 1; }
   100% {
     opacity: 0; } }
