@@ -259,6 +259,15 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
+    newGame: function (tableId, callback) {
+      var isDealer = "true"
+      $http.post(url + 'Player/newGame', {
+        tableId: tableId,
+        isDealer: isDealer
+      }).then(function (data) {
+        callback(data);
+      });
+    },
     getTransaction: function (pageNo, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {

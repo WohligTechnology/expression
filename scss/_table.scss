@@ -241,7 +241,7 @@
     display: flex;
     align-items: center;
     .main_card {
-      width: 14%;
+      // width: 14%;
       position: relative; // display: inline-block;
       align-self: flex-end;
       flex: .3;
@@ -249,12 +249,18 @@
         display: flex;
         position: absolute;
         bottom: 0;
-        right: 0;
-        width: 40%; // transform: translate(0, 25%);
+        right: -10px;
+        width: 55%; // transform: translate(0, 25%);
         card {
           width: 100%;
           &:nth-child(2) {
-            margin-left: -35%;
+            margin-left: -20%;
+          }
+          &:nth-child(3) {
+            margin-left: -20%;
+          }
+          &:nth-child(4) {
+            margin-left: -20%;
           }
         }
       }
@@ -1045,6 +1051,7 @@
 .none {
   width: 8vh;
   position: absolute;
+  transition: all ease 800ms;
 }
 
 .winnercard {
@@ -1055,17 +1062,17 @@
     }
   }
   .card-rotate {
-    transform: translateX(10%)rotate(10deg);
+    transform: translate(-14%, -5%) rotate(1deg);
   }
 }
 
 .card-rotate {
   margin-left: 7px;
-  transform: rotate(7deg);
+  transform: translate(-14%, -5%) rotate(1deg);
 }
 
 .card-rotate-right {
-  transform: rotate(-10deg);
+  transform: translate(-25%, -5%)rotate(-15deg);
 }
 
 .tcard1 {
@@ -1077,10 +1084,18 @@
   .card-two {
     transform: translate(0%, 0%) rotate(7deg);
   }
-  .card-one.ng-hide-remove {
-    transform: translate(-500%, -100%);
+  .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1;
   }
-  .card-two.ng-hide-remove {
+  .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1;
+  }
+  .card-one.ng-hide-remove,
+  .card-two.ng-hide-remove,
+  .card-three.ng-hide-remove,
+  .card-four.ng-hide-remove {
     transform: translate(-500%, -100%);
   }
 }
@@ -1094,10 +1109,18 @@
   .card-two {
     transform: translate(0%, 0%) rotate(7deg);
   }
-  .card-one.ng-hide-remove {
-    transform: translate(-750%, -200%);
+  .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1;
   }
-  .card-two.ng-hide-remove {
+  .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1;
+  }
+  .card-one.ng-hide-remove,
+  .card-two.ng-hide-remove,
+  .card-three.ng-hide-remove,
+  .card-four.ng-hide-remove {
     transform: translate(-750%, -200%);
   }
 }
@@ -1111,10 +1134,18 @@
   .card-two {
     transform: translate(0%, 0%) rotate(7deg);
   }
-  .card-one.ng-hide-remove {
-    transform: translate(-750%, -360%);
+  .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1;
   }
-  .card-two.ng-hide-remove {
+  .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1;
+  }
+  .card-one.ng-hide-remove,
+  .card-two.ng-hide-remove,
+  .card-three.ng-hide-remove,
+  .card-four.ng-hide-remove {
     transform: translate(-750%, -360%);
   }
 }
@@ -1128,10 +1159,18 @@
   .card-two {
     transform: translate(0%, 0%) rotate(7deg);
   }
-  .card-one.ng-hide-remove {
-    transform: translate(-300%, -450%);
+  .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1;
   }
-  .card-two.ng-hide-remove {
+  .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1;
+  }
+  .card-one.ng-hide-remove,
+  .card-two.ng-hide-remove,
+  .card-three.ng-hide-remove,
+  .card-four.ng-hide-remove {
     transform: translate(-300%, -450%);
   }
 }
@@ -1145,10 +1184,18 @@
   .card-two {
     transform: translate(0%, 0%) rotate(7deg);
   }
-  .card-one.ng-hide-remove {
-    transform: translate(160%, -450%);
+  .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1;
   }
-  .card-two.ng-hide-remove {
+  .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1;
+  }
+  .card-one.ng-hide-remove,
+  .card-two.ng-hide-remove,
+  .card-three.ng-hide-remove,
+  .card-four.ng-hide-remove {
     transform: translate(160%, -450%);
   }
 }
@@ -1162,11 +1209,19 @@
   .card-two {
     transform: translate(0%, 0%) rotate(7deg);
   }
-  .card-one.ng-hide-remove {
-    transform: translate(550%, -465%);
+  .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1;
   }
-  .card-two.ng-hide-remove {
-    transform: translate(560%, -465%);
+  .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1;
+  }
+  .card-one.ng-hide-remove,
+  .card-two.ng-hide-remove,
+  .card-three.ng-hide-remove,
+  .card-four.ng-hide-remove {
+    transform: translate(550%, -465%);
   }
 }
 
@@ -1179,10 +1234,18 @@
   .card-two {
     transform: translate(0%, 0%) rotate(7deg);
   }
-  .card-one.ng-hide-remove {
-    transform: translate(700%, -400%);
+  .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1;
   }
-  .card-two.ng-hide-remove {
+  .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1;
+  }
+  .card-one.ng-hide-remove,
+  .card-two.ng-hide-remove,
+  .card-three.ng-hide-remove,
+  .card-four.ng-hide-remove {
     transform: translate(700%, -400%);
   }
 }
@@ -1196,11 +1259,19 @@
   .card-two {
     transform: translate(0%, 0%) rotate(7deg);
   }
-  .card-one.ng-hide-remove {
-    transform: translate(675%, -200%);
+  .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1;
   }
-  .card-two.ng-hide-remove {
-    transform: translate(700%, -200%);
+  .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1;
+  }
+  .card-one.ng-hide-remove,
+  .card-two.ng-hide-remove,
+  .card-three.ng-hide-remove,
+  .card-four.ng-hide-remove {
+    transform: translate(675%, -200%);
   }
 }
 
@@ -1213,10 +1284,18 @@
   .card-two {
     transform: translate(0%, 0%) rotate(7deg);
   }
-  .card-one.ng-hide-remove {
-    transform: translate(500%, -150%);
+  .card-three {
+    transform: translate(12%, 3%) rotate(15deg);
+    z-index: 1;
   }
-  .card-two.ng-hide-remove {
+  .card-four {
+    transform: translate(32%, 20%) rotate(40deg);
+    z-index: 1;
+  }
+  .card-one.ng-hide-remove,
+  .card-two.ng-hide-remove,
+  .card-three.ng-hide-remove,
+  .card-four.ng-hide-remove {
     transform: translate(500%, -150%);
   }
 }

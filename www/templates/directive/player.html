@@ -38,12 +38,12 @@
     <div class="winner-pot-name raised-amount" ng-if="smallBlindAmt && player.isSmallBlind && !player.winner">
       Small Blind: {{smallBlindAmt | number}}
     </div>
-    <div ng-if="player.winnerDetails.length == 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name">
+    <div ng-if="player.winnerDetails.length == 1 && !player.fold" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name">
       <div>
         {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
       </div>
     </div>
-    <div ng-if="player.winnerDetails.length > 1" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name opac opac{{$index+1}}">
+    <div ng-if="player.winnerDetails.length > 1 && !player.fold" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name opac opac{{$index+1}}">
       <div>
         {{winnerDetail.potMainName}} : {{winnerDetail.potName}}
       </div>
@@ -54,14 +54,27 @@
     </div>
     <div class="tcard tcard{{pos}} " ng-if="!player.isFold ">
       <card card='DONE' ng-style="style " class="card-one none card-rotate-right " ng-show="(player.cards.length==1 ||
-      player.cards.length==2) && !player.isWinner ">
+      player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
       </card>
-      <card card='DONE' ng-style="style " class="card-two none card-rotate " ng-show="player.cards.length==2 && !player.isWinner ">
+      <card card='DONE' ng-style="style " class="card-two none card-rotate " ng-show="(player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
+      </card>
+      <card card='DONE' ng-style="style " class="card-three none card-rotate " ng-show="(player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
+      </card>
+      <card card='DONE' ng-style="style " class="card-four none card-rotate " ng-show="(player.cards.length==4) && !player.isWinner ">
       </card>
     </div>
+    <!-- <div class="tcard winnercard tcard{{pos}}">
+      <card card='3s' class="none card-rotate-right" ng-style="style"> </card>
+      <card card='3s' class="none card-rotate" ng-style="style"> </card>
+      <card card='3s' class="none card-rotate card-three" ng-style="style"> </card>
+      <card card='3s' class="none card-rotate card-four" ng-style="style"> </card>
+    </div> -->
+
     <div class="tcard winnercard tcard{{pos}} " ng-if="(!player.isFold && player.isWinner && remainingPlayerCount> 1)">
       <card card='{{player.cards[0]}}' class="none card-rotate-right" ng-style="style"> </card>
       <card card='{{player.cards[1]}}' class="none card-rotate" ng-style="style"> </card>
+      <card card='{{player.cards[2]}}' class="none card-rotate card-three" ng-style="style"> </card>
+      <card card='{{player.cards[3]}}' class="none card-rotate card-four" ng-style="style"> </card>
     </div>
     <div class="you" ng-if="player.user._id == activePlayer.user._id">
       You
