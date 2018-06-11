@@ -3,14 +3,14 @@
   "version": "0.0.1",
   "description": "An Ionic project",
   "devDependencies": {
-    "gulp": "^3.5.6",
+    "gulp": "^4.0.0",
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^4.0.1"
   },
   "dependencies": {
     "angular-loading-bar": "^0.9.0",
-    "cordova-android": "^7.0.0",
+    "cordova-android": "^7.1.0",
     "cordova-plugin-device": "git+https://github.com/apache/cordova-plugin-device.git",
     "cordova-plugin-fullscreen": "^1.2.0",
     "cordova-plugin-insomnia": "git+https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git",
