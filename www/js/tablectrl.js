@@ -763,6 +763,22 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("removePlayer" + $scope.tableId, removePlayerFunction);
 
 
+  $ionicModal.fromTemplateUrl('templates/modal/remove-player.html.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.gameRemovePlayerModal = modal;
+    // $scope.gameModal.show();
+  });
+
+  $scope.openRemovePlayerModal = function (autoBuy) {
+    $scope.gameRemovePlayerModal.show();
+  };
+  $scope.closeRemovePlayerModal = function () {
+    $scope.gameRemovePlayerModal.hide();
+  };
+
+
 
   //remove player function
   $scope.removePlayers = function () {
