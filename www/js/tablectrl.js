@@ -787,6 +787,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       if (data) {
         $scope.ShowLoader = false;
         $scope.closeGameModal();
+        $scope.closeRemovePlayerModal();
         $state.go('lobby');
       }
     });
