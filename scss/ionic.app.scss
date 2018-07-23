@@ -356,3 +356,16 @@ body {
     background-position-y: -1125px;
   }
 }
+
+.side_show_btn button {
+  padding: 0 20px;
+  min-height: 35px;
+  line-height: 35px;
+  color: #fff;
+  &.btn-green {
+    background: linear-gradient(to bottom, #497911 0%, #4CAF50 100%);
+  }
+  &.btn-red {
+    background: linear-gradient(to bottom, #871c14 0%, #F44336 100%);
+  }
+}
