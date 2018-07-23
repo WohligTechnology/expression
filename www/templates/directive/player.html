@@ -111,8 +111,8 @@
       <div class="turn_status all_in" ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount == 0)">All In</div>
       <div class="turn_status waiting" ng-if="!player.isActive && !player.winnerDetails">Waiting</div>
       <div class="name">{{player.user.name}}</div>
-      <div class="amt" ng-if="player.buyInAmt-player.totalAmount < 0">0</div>
-      <div class="amt" ng-if="player.buyInAmt-player.totalAmount >= 0">{{player.buyInAmt-player.totalAmount | number}}</div>
+      <div class="amt" ng-if="player.buyInAmt-player.totalAmount <= 0">0</div>
+      <div class="amt" ng-if="player.buyInAmt-player.totalAmount > 0">{{player.buyInAmt-player.totalAmount | number}}</div>
     </div>
   </div>
 </div>
