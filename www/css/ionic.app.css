@@ -9613,10 +9613,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -9683,9 +9683,7 @@ a.button {
     padding-right: calc(constant(safe-area-inset-right) + 54px); }
     .item-icon-right .icon {
       right: calc(constant(safe-area-inset-right) + 11px); }
-  .item-complex,
-  a.item.item-complex,
-  button.item.item-complex {
+  .item-complex, a.item.item-complex, button.item.item-complex {
     padding: 0; }
     .item-complex .item-content, a.item.item-complex .item-content, button.item.item-complex .item-content {
       padding: 16px calc(constant(safe-area-inset-right) + 49px) 16px calc(constant(safe-area-inset-left) + 16px); }
@@ -10101,6 +10099,8 @@ body {
       .lobby .main .category p {
         font-size: 0.7em;
         line-height: 1.5em; }
+      .lobby .main .category .fnt-1em {
+        font-size: 0.9em; }
       .lobby .main .category h6 {
         margin-bottom: 0px;
         font-weight: 600;
@@ -12572,7 +12572,8 @@ span.valid {
       top: -7%; }
   .table .table_field .plyr {
     width: 7vw; }
-  .login .login_block .login_button input, .login .login_block .login_button select {
+  .login .login_block .login_button input,
+  .login .login_block .login_button select {
     padding: 0px 0px; }
   .table .player5 {
     bottom: 1%; }
@@ -12610,3 +12611,13 @@ span.valid {
 @keyframes expLoader {
   100% {
     background-position-y: -1125px; } }
+
+.side_show_btn button {
+  padding: 0 20px;
+  min-height: 35px;
+  line-height: 35px;
+  color: #fff; }
+  .side_show_btn button.btn-green {
+    background: linear-gradient(to bottom, #497911 0%, #4CAF50 100%); }
+  .side_show_btn button.btn-red {
+    background: linear-gradient(to bottom, #871c14 0%, #F44336 100%); }
