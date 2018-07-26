@@ -290,7 +290,7 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
     $.jStorage.flush();
   };
 
-  //private Table
+  //create private Table
 
   $ionicModal.fromTemplateUrl('templates/modal/create-private-table.html', {
     scope: $scope,
@@ -307,6 +307,21 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
     $scope.ModalCreate.hide();
   };
 
+//private table
+$ionicModal.fromTemplateUrl('templates/modal/private-table.html', {
+  scope: $scope,
+  animation: 'slide-in-up'
+}).then(function (modal) {
+  $scope.ModalPCreate = modal;
+});
+
+$scope.privateModal = function ($event) {
+  $scope.ModalPCreate.show();
+  $event.stopPropagation();
+}
+$scope.closePTable = function () {
+  $scope.ModalPCreate.hide();
+};
   //Rules
 
   $ionicModal.fromTemplateUrl('templates/modal/rules.html', {
