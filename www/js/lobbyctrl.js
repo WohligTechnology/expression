@@ -322,6 +322,23 @@ $scope.privateModal = function ($event) {
 $scope.closePTable = function () {
   $scope.ModalPCreate.hide();
 };
+
+//private table card 
+
+$ionicModal.fromTemplateUrl('templates/modal/private-table-card.html', {
+  scope: $scope,
+  animation: 'slide-in-up'
+}).then(function (modal) {
+  $scope.ModalCCreate = modal;
+});
+
+$scope.privateCModal = function ($event) {
+  $scope.ModalCCreate.show();
+  $event.stopPropagation();
+}
+$scope.closeCTable = function () {
+  $scope.ModalCCreate.hide();
+};
   //Rules
 
   $ionicModal.fromTemplateUrl('templates/modal/rules.html', {
