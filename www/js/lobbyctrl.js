@@ -307,38 +307,37 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
     $scope.ModalCreate.hide();
   };
 
-//private table
-$ionicModal.fromTemplateUrl('templates/modal/private-table.html', {
-  scope: $scope,
-  animation: 'slide-in-up'
-}).then(function (modal) {
-  $scope.ModalPCreate = modal;
-});
+  //private table
+  $ionicModal.fromTemplateUrl('templates/modal/private-table.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.ModalPCreate = modal;
+  });
 
-$scope.privateModal = function ($event) {
-  $scope.ModalPCreate.show();
-  $event.stopPropagation();
-}
-$scope.closePTable = function () {
-  $scope.ModalPCreate.hide();
-};
+  $scope.privateModal = function ($event) {
+    $scope.ModalPCreate.show();
+  }
+  $scope.closePTable = function () {
+    $scope.ModalPCreate.hide();
+  };
 
-//private table card 
+  //private table card 
 
-$ionicModal.fromTemplateUrl('templates/modal/private-table-card.html', {
-  scope: $scope,
-  animation: 'slide-in-up'
-}).then(function (modal) {
-  $scope.ModalCCreate = modal;
-});
+  $ionicModal.fromTemplateUrl('templates/modal/private-table-card.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.ModalCCreate = modal;
+  });
 
-$scope.privateCModal = function ($event) {
-  $scope.ModalCCreate.show();
-  $event.stopPropagation();
-}
-$scope.closeCTable = function () {
-  $scope.ModalCCreate.hide();
-};
+  $scope.privateCModal = function ($event) {
+    $scope.ModalCCreate.show();
+    $event.stopPropagation();
+  }
+  $scope.closeCTable = function () {
+    $scope.ModalCCreate.hide();
+  };
   //Rules
 
   $ionicModal.fromTemplateUrl('templates/modal/rules.html', {
