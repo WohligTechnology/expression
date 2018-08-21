@@ -275,18 +275,19 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
 
 
   $scope.goToPokerPrivateTable = function (tableID, password) {
-    console.log(password);
     Service.getAccessToTable({
       'tableId': tableID,
       'password': password
     }, function (data) {
       if (data.data.value) {
+        $scope.ShowLoader = true;
         $scope.tableId = data.data.data._id;
         $timeout(function () {
           $state.go('table', {
             'id': $scope.tableId
           });
-        }, 300)
+          $scope.ShowLoader = false;
+        }, 300);
       } else {
         $scope.errorInPrivateLogIn = true;
       }
@@ -294,10 +295,10 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
   };
 
   $scope.goToTable = function (tableId, type) {
-    $scope.ShowLoader = true;
     $scope.tableId = tableId;
     $scope.tableType = type;
     if ($scope.tableType == "Public") {
+      $scope.ShowLoader = true;
       $timeout(function () {
         $state.go('table', {
           'id': $scope.tableId
