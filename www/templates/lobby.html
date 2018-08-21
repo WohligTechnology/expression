@@ -27,7 +27,7 @@
       <div class="category play_type">
         <ion-scroll direction="x">
           <div class="row">
-            <div class="col col-25" ng-click="goToTable(table._id)" ng-repeat="table in getAllTables">
+            <div class="col col-25" ng-click="goToTable(table._id,table.type)" ng-repeat="table in getAllTables">
               <div class="play_now">
                 <img src="img/lobby/empty.png">
                 <div class="card-heading">
@@ -35,25 +35,9 @@
                   <p class="fnt-1em">{{table.gameType}}</p>
                 </div>
                 <div class="card-btn">
+                    <h6 class="heading-yellow">{{table.type}}</h6>
                   <span>Stakes</span>
                   <span>{{table.smallBlind}} / {{table.bigBlind}}</span>
-                  <div>
-                    <button class="custom_Card_button  btn_search btn-green"> Select Table</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col col-25" ng-click="privateCModal()">
-              <div class="play_now">
-                <img src="img/lobby/empty.png">
-                <div class="card-heading">
-                  <h6 class="heading-yellow">Table 1</h6>
-                  <p class="fnt-1em">Omaha</p>
-                </div>
-                <div class="card-btn">
-                  <h6 class="heading-yellow">Private Table</h6>
-                  <span>Stakes</span>
-                  <span>100 / 200</span>
                   <div>
                     <button class="custom_Card_button  btn_search btn-green"> Select Table</button>
                   </div>
