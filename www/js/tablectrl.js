@@ -150,6 +150,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.isCalled = data.data.isCalled;
         $scope.isChecked = data.data.isChecked;
         $scope.isRaised = data.data.isRaised;
+        $scope.callAmount = data.data.data.callAmount;
 
         $scope.fromRaised = data.data.data.fromRaised;
         $scope.toRaised = data.data.data.toRaised;
@@ -740,6 +741,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.isCalled = data.data.isCalled;
     $scope.isChecked = data.data.isChecked;
     $scope.isRaised = data.data.isRaised;
+    $scope.callAmount = data.data.callAmount;
     $scope.bigBlindAmt = "";
     $scope.smallBlindAmt = "";
     if ($scope.updateSocketVar == 0) {
@@ -815,6 +817,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.bigBlindAmt = data.data.table.bigBlind;
     $scope.smallBlindAmt = data.data.table.smallBlind;
     $scope.tableYoutube2 = $scope.table.youTubeUrl;
+    $scope.callAmount = data.data.callAmount;
+
 
     if ($scope.tableYoutube1 != $scope.tableYoutube2) {
       console.log("indside URL");
