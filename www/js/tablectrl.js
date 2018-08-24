@@ -268,7 +268,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.isRaised = data.data.isRaised;
     $scope.fromRaised = data.data.fromRaised;
     $scope.toRaised = data.data.toRaised;
-
+    $scope.callAmount = data.data.callAmount;
     $scope.slider.value = $scope.minimumBuyin;
     $scope.slider.options.floor = $scope.minimumBuyin;
     $scope.slider.options.step = $scope.table.smallBlind;

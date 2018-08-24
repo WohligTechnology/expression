@@ -106,12 +106,12 @@
       <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="callPromise">
         <span class="light"></span>
-        <span class="btn_name"> Call </span>
+        <span class="btn_name"> Call {{callAmount | number}} </span>
       </button>
       <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="callPromise">
         <span class="light"></span>
-        <span class="btn_name"> Call </span>
+        <span class="btn_name"> Call {{callAmount | number}} </span>
       </button>
       <button class="call" ng-click="check();" ng-if="isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="checkPromise">
