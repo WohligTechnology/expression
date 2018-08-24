@@ -52,9 +52,9 @@
       <!-- <img src="img/table/winner_crown.png " class="crown "> -->
       <img src="img/table/winner_belt.png " class="belt ">
     </div>
-    <div class="tcard tcard{{pos}} " ng-if="!player.isFold ">
+    <div class="tcard tcard{{pos}}" ng-if="!player.isFold">
       <card card='DONE' ng-style="style " class="card-one none card-rotate-right " ng-show="(player.cards.length==1 ||
-      player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
+player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
       </card>
       <card card='DONE' ng-style="style " class="card-two none card-rotate " ng-show="(player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
       </card>

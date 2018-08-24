@@ -38,9 +38,13 @@ var myApp = angular.module('starter', ['ionic', 'starter.service', 'ui.select', 
       }
 
       // Preload audio resources
-      window.plugins.NativeAudio.preloadComplex('turn', 'audio/win.mp3', 1, 1, 0, function (msg) {}, function (msg) {
-        console.log('error: ' + msg);
-      });
+      $ionicPlatform.ready(function () {
+        if (window.cordova) {
+          window.plugins.NativeAudio.preloadComplex('turn', 'audio/win.mp3', 1, 1, 0, function (msg) {}, function (msg) {
+            console.log('error: ' + msg);
+          });
+        }
+      })
       // window.plugins.NativeAudio.preloadComplex('coin', 'audio/coin.mp3', 1, 1, 0, function (msg) {}, function (msg) {
       //   console.log('error: ' + msg);
       // });
