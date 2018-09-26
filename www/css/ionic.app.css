@@ -12593,6 +12593,30 @@ span.valid {
     top: -20%;
     left: 170%; } }
 
+@media (min-aspect-ratio: 18 / 9) {
+  .play_now {
+    width: 90%;
+    margin: 0 auto; }
+  .table .table_field {
+    width: 78%;
+    left: 50%;
+    transform: translate(-50%); }
+    .table .table_field .video_frame {
+      position: absolute;
+      width: 24vw;
+      top: -7%; }
+  .table .table_field .plyr {
+    width: 7vw; }
+  .login .login_block .login_button input, .login .login_block .login_button select {
+    padding: 0px 0px; }
+  .table .player5 {
+    bottom: 1%; }
+  .winner-pot-name {
+    width: 150px; }
+  .player1 .winner-pot-name {
+    top: -20%;
+    left: 170%; } }
+
 @media screen and (min-width: 900px) {
   .table .table_field .video_frame {
     width: 35vw;
