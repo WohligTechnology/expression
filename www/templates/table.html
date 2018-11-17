@@ -2,14 +2,13 @@
   <div class="tip-lobby back-lobby">
     <div class="tip-dealer_submit row">
       <!-- <button class="button mr-5" type='submit' ng-click="newGame()">NewGame</button> -->
-      <button class="button" type='submit' ng-click="removePlayers();">Back to lobby</button>
+      <button class="button" type='submit' ng-click="openRemovePlayerModal();">Back to lobby</button>
     </div>
   </div>
   <div class="tip-lobby tip-dealer">
     <div class="tip-dealer_submit row">
-
-      <button class="button mr-5" type='submit' ng-click="randomCard();" disabled ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serving</button>
       <!-- <button class="button mr-5" type='submit' ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serving</button> -->
+      <button class="button mr-5" type='submit' ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serving</button>
       <button class="button" type='submit' ng-click="makeTipFunction(100);" ng-disabled="sitHere || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 100)">Tip Dealer</button>
     </div>
   </div>
@@ -107,12 +106,12 @@
       <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="callPromise">
         <span class="light"></span>
-        <span class="btn_name"> Call </span>
+        <span class="btn_name"> Call {{callAmount | number}} </span>
       </button>
       <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="callPromise">
         <span class="light"></span>
-        <span class="btn_name"> Call </span>
+        <span class="btn_name"> Call {{callAmount | number}} </span>
       </button>
       <button class="call" ng-click="check();" ng-if="isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="checkPromise">

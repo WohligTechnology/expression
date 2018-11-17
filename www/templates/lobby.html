@@ -27,14 +27,15 @@
       <div class="category play_type">
         <ion-scroll direction="x">
           <div class="row">
-            <div class="col col-25" ng-click="goToTable(table._id)" ng-repeat="table in getAllTables">
+            <div class="col col-25" ng-click="goToTable(table._id,table.type)" ng-repeat="table in getAllTables">
               <div class="play_now">
                 <img src="img/lobby/empty.png">
                 <div class="card-heading">
                   <h6 class="heading-yellow">{{table.name}}</h6>
-                  <!-- <p>Cash Table</p> -->
+                  <p class="fnt-1em">{{table.gameType}}</p>
                 </div>
                 <div class="card-btn">
+                    <h6 class="heading-yellow">{{table.type}}</h6>
                   <span>Stakes</span>
                   <span>{{table.smallBlind}} / {{table.bigBlind}}</span>
                   <div>
@@ -102,6 +103,11 @@
             </ion-item> -->
         <ion-item ng-click="logout();" ui-sref="login">
           Log Out
+          <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" vibration="vibration=!vibration">
+          </div>
+        </ion-item>
+        <ion-item ng-click="privateModal();">
+          Request for Private Table
           <div class="custom_toggle" ng-class="{'toggle_on':vibration,'toggle_off':!vibration}" vibration="vibration=!vibration">
           </div>
         </ion-item>

@@ -95,6 +95,19 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         callback(data);
       })
     },
+
+    getAccessToTable: function (data, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http.post(url + 'Table/getAccessToTable', {
+          tableId: data.tableId,
+          password: data.password
+        }).then(function (data) {
+          callback(data);
+        });
+      }
+    },
+
     getOneTableDetails: function (id, callback) {
       return $http.post(url + 'Player/getAllDetails', {
         tableId: id

@@ -204,7 +204,7 @@ body {
   z-index: 20;
   .center {
     position: absolute;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 1em;
@@ -287,6 +287,39 @@ body {
 @import "timer";
 @import "signup";
 @import "addamount";
+@media screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape) {
+  .play_now {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .table .table_field {
+    width: 78%;
+    left: 50%;
+    transform: translate(-50%);
+    .video_frame {
+      position: absolute;
+      width: 24vw;
+      top: -7%;
+    }
+  }
+  .table .table_field .plyr {
+    width: 7vw;
+  }
+  .login .login_block .login_button input,
+  .login .login_block .login_button select {
+    padding: 0px 0px;
+  }
+  .table .player5 {
+    bottom: 1%;
+  }
+  .winner-pot-name {
+    width: 150px;
+  }
+  .player1 .winner-pot-name {
+    top: -20%;
+    left: 170%;
+  }
+}
 @media (min-aspect-ratio: 18/9) {
   .play_now {
     width: 90%;
@@ -355,4 +388,21 @@ body {
   100% {
     background-position-y: -1125px;
   }
+}
+
+.side_show_btn button {
+  padding: 0 20px;
+  min-height: 35px;
+  line-height: 35px;
+  color: #fff;
+  &.btn-green {
+    background: linear-gradient(to bottom, #497911 0%, #4CAF50 100%);
+  }
+  &.btn-red {
+    background: linear-gradient(to bottom, #871c14 0%, #F44336 100%);
+  }
+}
+
+.color-white{
+  color: #fff;
 }

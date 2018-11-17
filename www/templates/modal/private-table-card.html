@@ -1,0 +1,21 @@
+<ion-modal-view class="custom-model statement-model game_summary  private_summary small-model shadow-yellow ">
+  <ion-content scroll="false">
+    <img src="img/close-button.png" class="cross-btn mar-tr" ng-click="closeCTable();">
+    <div class="heading ">
+      Please Enter The Password Provided by Admin for the table
+    </div>
+    <div class="voucher-mar signup ">
+      <form name="loginTable">
+        <div class="login_button row">
+          <input class="col bg-yellow padd-lr" type="text" name="password" ng-model="password" placeholder="Please Enter Password"
+            required>
+        </div>
+        <span class="valid" ng-show="loginTable.tablePassword.$touched && loginTable.tablePassword.$invalid">* Table Password is required.</span>
+        <span class="valid" ng-if="errorInPrivateLogIn && !(loginTable.tablePassword.$touched && loginTable.tablePassword.$invalid)">* Incorrect Table Password</span>
+      </form>
+    </div>
+    <div class="side_show_btn">
+      <button class="custom_button" ng-click="goToPrivateTable(password)" ng-disabled="loginTable.$invalid">Submit</button>
+    </div>
+  </ion-content>
+</ion-modal-view>

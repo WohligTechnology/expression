@@ -150,6 +150,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.isCalled = data.data.isCalled;
         $scope.isChecked = data.data.isChecked;
         $scope.isRaised = data.data.isRaised;
+        $scope.callAmount = data.data.data.callAmount;
 
         $scope.fromRaised = data.data.data.fromRaised;
         $scope.toRaised = data.data.data.toRaised;
@@ -268,7 +269,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.isRaised = data.data.isRaised;
     $scope.fromRaised = data.data.fromRaised;
     $scope.toRaised = data.data.toRaised;
-
+    $scope.callAmount = data.data.callAmount;
     $scope.slider.value = $scope.minimumBuyin;
     $scope.slider.options.floor = $scope.minimumBuyin;
     $scope.slider.options.step = $scope.table.smallBlind;
@@ -740,6 +741,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.isCalled = data.data.isCalled;
     $scope.isChecked = data.data.isChecked;
     $scope.isRaised = data.data.isRaised;
+    $scope.callAmount = data.data.callAmount;
     $scope.bigBlindAmt = "";
     $scope.smallBlindAmt = "";
     if ($scope.updateSocketVar == 0) {
@@ -763,6 +765,30 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   io.socket.on("removePlayer" + $scope.tableId, removePlayerFunction);
 
 
+  // $ionicModal.fromTemplateUrl('templates/modal/remove-player.html.html', {
+  //   scope: $scope,
+  //   animation: 'slide-in-up'
+  // }).then(function (modal) {
+  //   $scope.gameRemovePlayerModal = modal;
+  //   // $scope.gameModal.show();
+  // });
+
+
+  $ionicModal.fromTemplateUrl('templates/modal/remove-player.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.gameRemovePlayerModal = modal;
+  });
+
+  $scope.openRemovePlayerModal = function (autoBuy) {
+    $scope.gameRemovePlayerModal.show();
+  };
+  $scope.closeRemovePlayerModal = function () {
+    $scope.gameRemovePlayerModal.hide();
+  };
+
+
 
   //remove player function
   $scope.removePlayers = function () {
@@ -771,6 +797,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
       if (data) {
         $scope.ShowLoader = false;
         $scope.closeGameModal();
+        $scope.closeRemovePlayerModal();
         $state.go('lobby');
       }
     });
@@ -790,6 +817,8 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
     $scope.bigBlindAmt = data.data.table.bigBlind;
     $scope.smallBlindAmt = data.data.table.smallBlind;
     $scope.tableYoutube2 = $scope.table.youTubeUrl;
+    $scope.callAmount = data.data.callAmount;
+
 
     if ($scope.tableYoutube1 != $scope.tableYoutube2) {
       console.log("indside URL");

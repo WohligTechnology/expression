@@ -268,20 +268,46 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
     Service.getAllTable(function (data) {
       // console.log(data);
       $scope.getAllTables = data.data;
-      console.log($scope.getAllTables);
+      // console.log($scope.getAllTables);
     });
   };
   $scope.getAllTableData();
 
-  $scope.goToTable = function (tableId) {
-    $scope.ShowLoader = true;
+
+  $scope.goToPokerPrivateTable = function (tableID, password) {
+    Service.getAccessToTable({
+      'tableId': tableID,
+      'password': password
+    }, function (data) {
+      if (data.data.value) {
+        $scope.ShowLoader = true;
+        $scope.tableId = data.data.data._id;
+        $timeout(function () {
+          $state.go('table', {
+            'id': $scope.tableId
+          });
+          $scope.ShowLoader = false;
+        }, 300);
+      } else {
+        $scope.errorInPrivateLogIn = true;
+      }
+    });
+  };
+
+  $scope.goToTable = function (tableId, type) {
     $scope.tableId = tableId;
-    $timeout(function () {
-      $state.go('table', {
-        'id': $scope.tableId
-      });
-      $scope.ShowLoader = false;
-    }, 300);
+    $scope.tableType = type;
+    if ($scope.tableType == "Public") {
+      $scope.ShowLoader = true;
+      $timeout(function () {
+        $state.go('table', {
+          'id': $scope.tableId
+        });
+        $scope.ShowLoader = false;
+      }, 300);
+    } else {
+      $scope.privateCModal(tableId);
+    }
 
   };
 
@@ -290,7 +316,7 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
     $.jStorage.flush();
   };
 
-  //private Table
+  //create private Table
 
   $ionicModal.fromTemplateUrl('templates/modal/create-private-table.html', {
     scope: $scope,
@@ -307,7 +333,59 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
     $scope.ModalCreate.hide();
   };
 
+  //private table
+  $ionicModal.fromTemplateUrl('templates/modal/private-table.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.ModalPCreate = modal;
+  });
+
+  $scope.privateModal = function ($event) {
+    $scope.ModalPCreate.show();
+  }
+  $scope.closePTable = function () {
+    $scope.ModalPCreate.hide();
+  };
+
+  //private table card 
+
+  $ionicModal.fromTemplateUrl('templates/modal/private-table-card.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.ModalCCreate = modal;
+  });
+
+  $scope.privateCModal = function (tableID) {
+    $scope.ModalCCreate.show();
+    $scope.privateTableId= tableID;
+    console.log("$scope.privateTableId////////",$scope.privateTableId);
+  }
+  $scope.closeCTable = function () {
+    $scope.ModalCCreate.hide();
+  };
   //Rules
+
+  $scope.goToPrivateTable = function (password) {
+    Service.getAccessToTable({
+      'tableId': $scope.privateTableId,
+      'password': password
+    }, function (data) {
+      if (data.data.value) {
+        $scope.tableId = data.data.data._id;
+        $scope.closeCTable();
+        $timeout(function () {
+          $state.go('table', {
+            'id': $scope.tableId
+          });
+        }, 300)
+      } else {
+        $scope.errorInPrivateLogIn = true;
+      }
+
+    })
+  };
 
   $ionicModal.fromTemplateUrl('templates/modal/rules.html', {
     scope: $scope,
