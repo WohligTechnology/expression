@@ -3085,7 +3085,7 @@ a:hover {
  */
 a {
   -webkit-user-drag: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: transparent; }
   a[href]:hover {
     cursor: pointer; }
@@ -3322,7 +3322,7 @@ body,
   -webkit-text-size-adjust: none;
   -moz-text-size-adjust: none;
   text-size-adjust: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: transparent;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -3731,7 +3731,7 @@ a.subdued {
   z-index: 11;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0); }
+  background-color: transparent; }
   .action-sheet-backdrop.active {
     background-color: rgba(0, 0, 0, 0.4); }
 
@@ -5401,7 +5401,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   z-index: 10;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0); }
+  background-color: transparent; }
   .popover-backdrop.active {
     background-color: rgba(0, 0, 0, 0.1); }
 
@@ -5525,7 +5525,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0);
+  background: transparent;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -7105,51 +7105,51 @@ button.swiper-pagination-bullet {
   z-index: 10; }
 
 .swiper-container-3d .swiper-slide-shadow-left {
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.5)), to(transparent));
   /* Safari 4+, Chrome */
-  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0.5), transparent);
   /* Chrome 10+, Safari 5.1+, iOS 5+ */
-  background-image: -moz-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(right, rgba(0, 0, 0, 0.5), transparent);
   /* Firefox 3.6-15 */
-  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0.5), transparent);
   /* Opera 11.10-12.00 */
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent);
   /* Firefox 16+, IE10, Opera 12.50+ */ }
 
 .swiper-container-3d .swiper-slide-shadow-right {
-  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
   /* Safari 4+, Chrome */
-  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5), transparent);
   /* Chrome 10+, Safari 5.1+, iOS 5+ */
-  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.5), transparent);
   /* Firefox 3.6-15 */
-  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.5), transparent);
   /* Opera 11.10-12.00 */
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
   /* Firefox 16+, IE10, Opera 12.50+ */ }
 
 .swiper-container-3d .swiper-slide-shadow-top {
-  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(transparent));
   /* Safari 4+, Chrome */
-  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-linear-gradient(bottom, rgba(0, 0, 0, 0.5), transparent);
   /* Chrome 10+, Safari 5.1+, iOS 5+ */
-  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.5), transparent);
   /* Firefox 3.6-15 */
-  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.5), transparent);
   /* Opera 11.10-12.00 */
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
   /* Firefox 16+, IE10, Opera 12.50+ */ }
 
 .swiper-container-3d .swiper-slide-shadow-bottom {
-  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0)));
+  background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.5)), to(transparent));
   /* Safari 4+, Chrome */
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5), transparent);
   /* Chrome 10+, Safari 5.1+, iOS 5+ */
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5), transparent);
   /* Firefox 3.6-15 */
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.5), transparent);
   /* Opera 11.10-12.00 */
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
   /* Firefox 16+, IE10, Opera 12.50+ */ }
 
 /* Coverflow */
@@ -8511,8 +8511,8 @@ input:checked + .checkbox-icon:after {
     width: 0;
     height: 0;
     border-top: 5px solid;
-    border-right: 5px solid rgba(0, 0, 0, 0);
-    border-left: 5px solid rgba(0, 0, 0, 0);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
     color: #999;
     content: "";
     pointer-events: none; }
@@ -9397,7 +9397,7 @@ a.button {
   -ms-user-select: none;
   user-select: none;
   -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: transparent;
   -webkit-user-drag: none;
   -ms-touch-action: none;
@@ -9613,10 +9613,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -11211,6 +11211,8 @@ body {
 .tcard3 {
   left: -86%;
   top: 7%; }
+  .tcard3.Omaha {
+    left: -100%; }
   .tcard3 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard3 .card-two {
@@ -11230,6 +11232,8 @@ body {
 .tcard4 {
   left: -85%;
   top: -20%; }
+  .tcard4.Omaha {
+    left: -100%; }
   .tcard4 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard4 .card-two {
@@ -11249,6 +11253,9 @@ body {
 .tcard5 {
   left: -78%;
   top: -12%; }
+  .tcard5.Omaha {
+    left: -100%;
+    top: 5%; }
   .tcard5 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard5 .card-two {
@@ -11268,6 +11275,9 @@ body {
 .tcard6 {
   left: -84%;
   top: -15%; }
+  .tcard6.Omaha {
+    left: -100%;
+    top: -3%; }
   .tcard6 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard6 .card-two {
@@ -11287,6 +11297,8 @@ body {
 .tcard7 {
   right: 0px;
   top: 58%; }
+  .tcard7.Omaha {
+    top: -35%; }
   .tcard7 .card-one {
     transform: translate(0%, 0%) rotate(-12deg); }
   .tcard7 .card-two {
@@ -12040,6 +12052,9 @@ ion-item.item {
 .side_show_btn {
   text-align: center; }
 
+.mb30 {
+  margin-bottom: 30px; }
+
 .change_password-model .field {
   text-align: center;
   padding: 5%;
@@ -12190,6 +12205,12 @@ span.valid {
   text-align: justify;
   line-height: 20px; }
 
+.text-scroll h5,
+.text-scroll a {
+  color: #fff;
+  font-weight: normal;
+  text-decoration: none; }
+
 .mar-negative {
   margin: 0 -25px; }
 
@@ -12223,11 +12244,11 @@ span.valid {
     font-size: 13px; }
 
 .faq-tab {
-  padding: 0% 15% 3% 5%;
+  padding: 0% 12% 2% 5%;
   font-size: 15px;
   font-weight: 600;
   background: #43217f;
-  color: #140c27;
+  color: #fff;
   box-shadow: inset 1px 0px 6px 0px black;
   border-top: 1px solid #7549a4;
   border-radius: 4px; }
@@ -12235,7 +12256,7 @@ span.valid {
     vertical-align: sub; }
 
 .changecolor {
-  background: linear-gradient(to top, #fbd14f, #fbe1ae); }
+  background: linear-gradient(to top, #b78a00, #fbe1ae); }
 
 /*********
 ******otp*********/

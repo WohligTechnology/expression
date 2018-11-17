@@ -9,6 +9,7 @@
   background-size: 100% 100%;
   color: white; // font-family: 'Cinzel-Regular';
   padding: 0% 2% 2% 2%;
+
   ion-content {
     padding: 2%;
   }
@@ -16,13 +17,16 @@
 
 .statement-model {
   font-size: 1em;
+
   .close {
     position: absolute;
     right: 3%;
     top: 4%;
     font-size: 1.7em;
     z-index: 5;
-  } // .heading {
+  }
+
+  // .heading {
   //   text-align: center;
   //   font-size: 1.2em;
   //   font-family: 'CinzelDecorative-Bold';
@@ -33,6 +37,7 @@
     border-image-slice: 2;
     border-bottom: 1px solid;
     padding: 2%;
+
     select {
       font-family: 'Cinzel-Regular';
       font-size: 1em;
@@ -45,6 +50,7 @@
       padding: 2px 3%;
       height: 1.8em;
       margin: 0px 1%;
+
       option {
         font-family: 'Cinzel-Regular';
         font-size: 1em;
@@ -54,6 +60,7 @@
         padding: 2px 3%;
       }
     }
+
     input {
       display: inline-block;
       padding: 2%;
@@ -69,50 +76,63 @@
       border: 1px solid rgba(255, 255, 255, 0.1);
     }
   }
+
   .statement_content {
     overflow-y: scroll;
     height: 75%;
+
     &::-webkit-scrollbar {
       width: 3px;
       height: 6px;
     }
+
     &::-webkit-scrollbar-button {
       width: 6px;
       height: 6px;
     }
+
     &::-webkit-scrollbar-thumb {
       background: #c43a3a;
       border: 0px none #ffffff;
       border-radius: 100px;
     }
+
     &::-webkit-scrollbar-thumb:hover {
       background: #c43a3a;
     }
+
     &::-webkit-scrollbar-thumb:active {
       background: #c43a3a;
     }
+
     &::-webkit-scrollbar-track {
       background: #5c5757;
       border: 0px none #ffffff;
       border-radius: 100px;
     }
+
     &::-webkit-scrollbar-track:hover {
       background: #5c5757;
     }
+
     &::-webkit-scrollbar-track:active {
       background: #5c5757;
     }
+
     &::-webkit-scrollbar-corner {
       background: transparent;
     }
+
     table {
       width: 90%;
       text-align: center;
       margin: 2% auto;
+
       th {
         font-family: 'Cinzel-Bold';
         font-size: .9em;
       }
+
       td {
         font-size: .8em;
         border-bottom: 1px solid grey;
@@ -122,12 +142,14 @@
         vertical-align: bottom;
       }
     }
+
     tr {
       th {
         &:nth-child(1) {
           text-align: left;
         }
       }
+
       td {
         &:nth-child(1) {
           text-align: left;
@@ -144,6 +166,7 @@
     background: rgba(0, 0, 0, 0.6);
     padding: 2px;
   }
+
   .height-raise {
     height: 44vh;
   }
@@ -152,32 +175,40 @@
 .player-details {
   background: url('../img/player_bg.png');
   background-size: 100% 100%;
+
   .outer {
     padding: 2% 4%;
     width: 100%;
+
     .profile {
       display: flex;
       flex-direction: row;
+
       .profile_info {
         flex: 0.7;
         font-size: 1.1em;
         font-family: "Cinzel-Bold";
         line-height: 1.8;
+
         .amt {
           padding-bottom: 5px;
+
           .coin {
             width: 1em;
             vertical-align: middle;
           }
         }
       }
+
       .profile_pic {
         flex: 0.25;
       }
     }
+
     .profile_data {
       font-size: .9em;
       padding-top: 5%;
+
       .p_heading {
         text-align: center;
         padding: 0px;
@@ -186,6 +217,7 @@
         border-bottom: 2px solid;
         padding-bottom: 4%;
       }
+
       .table_stats {
         .chips_won {
           padding: 5% 0px;
@@ -194,12 +226,14 @@
           border-image-slice: 2;
           border-bottom: 1px solid;
           padding-bottom: 4%;
+
           .coin {
             width: 1em;
             vertical-align: middle;
             padding: 1%;
           }
         }
+
         .hands_won {
           padding: 5% 0px;
           line-height: 1.5;
@@ -209,6 +243,7 @@
           padding-bottom: 4%;
         }
       }
+
       .player_rank {
         .last_week {
           border-image: $border-image;
@@ -220,6 +255,7 @@
         }
       }
     }
+
     .active_days {
       position: absolute;
       right: 15%;
@@ -234,6 +270,7 @@
   width: 50%;
   top: 20%;
   left: 25%; // .heading {
+
   //   font-size: 1.5em; // padding-top: 8%;
   //   font-family: 'Cinzel-Bold';
   //   border-image: $border-image;
@@ -247,10 +284,12 @@
     font-family: 'Cinzel-Bold';
     margin: 6% auto;
     width: 70%;
+
     td {
       padding: 2%;
     }
   }
+
   button {
     // background: url("../img/model/submit_background.png");
     background: linear-gradient(to bottom, rgba(152, 56, 83, 0.48) 0%, #983853 100%);
@@ -259,6 +298,7 @@
     padding: 5px 25px;
     border: 0px;
   }
+
   .ok {
     // text-align: center;
     position: absolute;
@@ -267,6 +307,7 @@
     transform: translateX(-50%);
     padding-bottom: 5%;
   }
+
   .scroll {
     height: 100%;
   }
@@ -278,18 +319,22 @@
     margin: 0%;
     margin-bottom: 5%;
   }
+
   .close {
     position: absolute;
     right: 3%;
     top: 5%;
   }
+
   .btn_search {
     padding: 3%;
     width: 50%;
     margin: 1% auto;
     display: block;
     margin-bottom: 0px;
-  } // height: 40vh;
+  }
+
+  // height: 40vh;
   // top: 40%;
   // background: url("../img/model/price_range_bg.png");
   // background-size: 100% 100%;
@@ -420,6 +465,10 @@ ion-item.item {
   text-align: center;
 }
 
+.mb30 {
+  margin-bottom: 30px;
+}
+
 .change_password-model {
   .field {
     text-align: center;
@@ -428,9 +477,11 @@ ion-item.item {
     padding-top: 2%;
     height: calc(80vh - 17vh);
     overflow-y: scroll;
+
     form {
       width: 70%;
       margin: 0 auto;
+
       .login_button {
         background: url('../img/login/input_bg.png');
         background-size: 100% 100%;
@@ -439,10 +490,12 @@ ion-item.item {
         align-items: center; // margin: 10px;
         margin: 3%;
         padding: 7px 15px 11px;
+
         .icon {
           width: 25%;
           transform: translateY(30%);
         }
+
         input {
           height: 100%;
           width: 100%;
@@ -451,6 +504,7 @@ ion-item.item {
           font-size: 1em;
           color: white;
           background: transparent;
+
           &::-webkit-input-placeholder {
             /* WebKit, Blink, Edge */
             background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
@@ -459,6 +513,7 @@ ion-item.item {
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
+
           &:-moz-placeholder {
             /* Mozilla Firefox 4 to 18 */
             background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
@@ -467,6 +522,7 @@ ion-item.item {
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
+
           &::-moz-placeholder {
             /* Mozilla Firefox 19+ */
             background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
@@ -475,6 +531,7 @@ ion-item.item {
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
+
           &:-ms-input-placeholder {
             background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
             background: linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
@@ -482,6 +539,7 @@ ion-item.item {
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
+
           &::-ms-input-placeholder {
             /* Microsoft Edge */
             background: -webkit-linear-gradient(right, #bababa 40%, #ffffff 40%, #565151 100%);
@@ -490,6 +548,7 @@ ion-item.item {
             background-clip: text;
             -webkit-text-fill-color: transparent;
           }
+
           &::placeholder {
             /* Most modern browsers support this now. */
             background: -webkit-linear-gradient(right, #fffbfb 40%, #ffffff 40%, #989696 100%);
@@ -504,14 +563,17 @@ ion-item.item {
           }
         }
       }
+
       table {
         width: 90%;
         margin: 0 auto;
+
         td {
           padding: 3%;
           font-size: 1.1em;
         }
       }
+
       button {
         padding: 8px 25px;
       }
@@ -538,6 +600,7 @@ span.valid {
   width: 50%;
   top: 25%;
   left: 25%; // transform: translate(-50%,-50%) !important;
+
   &.room_summary-potrate {
     width: 80%;
     top: 10%;
@@ -545,7 +608,9 @@ span.valid {
     bottom: 40%;
     height: auto;
     min-height: 78%;
-  } // .heading {
+  }
+
+  // .heading {
   //   font-family: 'Cinzel-Bold'; // border-image: $border-color;
   //   border-image-slice: 2;
   //   border-bottom: 1px solid;
@@ -563,16 +628,19 @@ span.valid {
     transform: translateX(-50%);
     padding-bottom: 2%;
   }
+
   button {
     padding: 5px 16px;
     margin: 3%;
     border: 0px;
   }
+
   .cont {
     text-align: center;
     padding: 13% 5%;
     font-family: 'Cinzel-Bold';
   }
+
   .scroll {
     height: 100%;
   }
@@ -580,10 +648,13 @@ span.valid {
 
 .side-show {
   height: 35%;
+
   ion-content {
     padding: 3%;
     box-shadow: inset 0px 0px 19px 8px #25104a;
-  } // .heading {
+  }
+
+  // .heading {
   //   padding-bottom: 3%;
   // }
   .row {
@@ -611,11 +682,19 @@ span.valid {
 }
 
 .text-scroll {
+
   // height: 71%;
   p {
     font-size: 11px;
     text-align: justify;
     line-height: 20px;
+  }
+
+  h5,
+  a {
+    color: #fff;
+    font-weight: normal;
+    text-decoration: none;
   }
 }
 
@@ -644,6 +723,7 @@ span.valid {
   background-color: transparent;
   background-size: 100% 100%;
   color: white; // padding: 2%;
+
   .scroll-content {
     top: 15%;
     left: 2.5%;
@@ -651,10 +731,12 @@ span.valid {
     bottom: 2%;
     background-color: #3d236c;
   }
+
   .text-scroll {
     // height: 92%;
     padding: 3%;
   }
+
   label {
     font-weight: 600;
     font-size: 13px;
@@ -662,14 +744,15 @@ span.valid {
 }
 
 .faq-tab {
-  padding: 0% 15% 3% 5%;
+  padding: 0% 12% 2% 5%;
   font-size: 15px;
   font-weight: 600;
   background: #43217f;
-  color: #140c27;
+  color: #fff;
   box-shadow: inset 1px 0px 6px 0px black;
   border-top: 1px solid #7549a4;
   border-radius: 4px;
+
   span {
     vertical-align: sub;
   }
@@ -679,7 +762,7 @@ span.valid {
 //   box-shadow: 8px 0px 4px 8px #160e26;
 // }
 .changecolor {
-  background: linear-gradient(to top, #fbd14f, #fbe1ae);
+  background: linear-gradient(to top, #b78a00, #fbe1ae);
 }
 
 /*********
@@ -695,6 +778,7 @@ span.valid {
   .login_block {
     margin-top: 0%;
   }
+
   .account {
     font-size: 2em;
     line-height: 1;
@@ -703,14 +787,17 @@ span.valid {
     padding: 0px 14%;
     text-align: center;
   }
+
   .login_button {
     margin: 3% 24%;
   }
+
   .custom_button {
     margin-top: 14%;
     padding: 3% 10%;
     font-size: 2em;
   }
+
   .incorrect-otp {
     padding: 2% 4%;
     font-size: 1.5em;
@@ -719,6 +806,7 @@ span.valid {
     text-decoration: underline;
     letter-spacing: 0.5px;
   }
+
   .resend-otp {
     padding: 2% 4%;
     font-size: 1.5em;
@@ -727,6 +815,7 @@ span.valid {
     text-decoration: underline;
     letter-spacing: 0.5px;
   }
+
   .heading {
     font-size: 3em;
     padding-bottom: 5%;
@@ -755,6 +844,7 @@ span.valid {
 
 .confirm-otp {
   height: 30%;
+
   .custom_button {
     margin-top: 10%;
   }
@@ -766,9 +856,11 @@ span.valid {
     height: 11px;
     background: linear-gradient(to top, #fbd14f, #fbe1ae);
   }
+
   .rz-pointer {
     background-image: url("../img/coin.svg");
   }
+
   .rz-bubble {
     color: #fff;
     font-weight: 600;
@@ -781,29 +873,35 @@ span.valid {
   width: 40%;
   top: 10%;
   left: 28%;
+
   .text-scroll {
     margin: 0% 15%; // height: 55%;
   }
+
   .item-checkbox .checkbox {
     top: 70%;
     right: 8px;
     left: 4%;
   }
+
   .balance {
     color: #fff;
     font-weight: 600;
     font-size: 1.2em;
   }
+
   .auto-rebuy {
     color: white;
     font-size: 1em;
   }
+
   .item {
     border-color: transparent;
     background-color: transparent;
     border-width: 0px;
     padding: 4px;
   }
+
   .checkbox input,
   .checkbox-icon {
     width: 15px;
@@ -812,18 +910,21 @@ span.valid {
     box-shadow: inset 0px 0px 2px 2px rgba(0, 0, 0, 0.52);
     border-radius: 0;
   }
+
   .checkbox-icon:before {
     background: #fbdc90;
     border-color: transparent;
     border-width: 0px;
     border-radius: 0;
   }
+
   .checkbox input:checked:before,
   .checkbox input:checked+.checkbox-icon:before {
     background: transparent;
     border-color: transparent;
     color: black;
   }
+
   .checkbox-icon:after {
     width: 11px;
     top: 18%;
@@ -832,9 +933,11 @@ span.valid {
     border-top: 0;
     border-right: 0;
   }
+
   .heading {
     padding: 8px;
   }
+
   .custom_button {
     line-height: 0.5;
     padding: 12px 22px;
@@ -877,22 +980,25 @@ span.valid {
   bottom: 15%;
   left: 25%;
   width: 50%;
+
   .cont {
     padding: 2% 5%;
   }
 }
+
 //private table
 
-.private-no{
+.private-no {
   color: $bg-background;
   padding: 11px 10px;
   margin: 35px 59px;
 }
-.private_summary{
-.heading{
-  line-height: 25px;
 
-  padding: 44px 20px 8px;
-}
-  
+.private_summary {
+  .heading {
+    line-height: 25px;
+
+    padding: 44px 20px 8px;
+  }
+
 }
