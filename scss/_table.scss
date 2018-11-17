@@ -1128,6 +1128,9 @@
 .tcard3 {
   left: -86%;
   top: 7%;
+  &.Omaha {
+    left: -100%;
+  }
   .card-one {
     transform: translate(0%, 0%) rotate(-12deg);
   }
@@ -1153,6 +1156,9 @@
 .tcard4 {
   left: -85%;
   top: -20%;
+  &.Omaha {
+    left: -100%;
+  }
   .card-one {
     transform: translate(0%, 0%) rotate(-12deg);
   }
@@ -1178,6 +1184,10 @@
 .tcard5 {
   left: -78%;
   top: -12%;
+  &.Omaha {
+    left: -100%;
+    top: 5%;
+  }
   .card-one {
     transform: translate(0%, 0%) rotate(-12deg);
   }
@@ -1203,6 +1213,10 @@
 .tcard6 {
   left: -84%;
   top: -15%;
+  &.Omaha {
+    left: -100%;
+    top: -3%;
+  }
   .card-one {
     transform: translate(0%, 0%) rotate(-12deg);
   }
@@ -1228,6 +1242,9 @@
 .tcard7 {
   right: 0px;
   top: 58%;
+  &.Omaha {
+    top: -35%;
+  }
   .card-one {
     transform: translate(0%, 0%) rotate(-12deg);
   }
