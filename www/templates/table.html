@@ -103,10 +103,10 @@
     </div>
     <div class="main_card">
       <div class="cards">
-        <card card="{{activePlayer[0].cards[0]}}" ng-if="!activePlayer[0].isFold"></card>
-        <card card="{{activePlayer[0].cards[1]}}" ng-if="!activePlayer[0].isFold"></card>
-        <card card="{{activePlayer[0].cards[2]}}" ng-if="!activePlayer[0].isFold"></card>
-        <card card="{{activePlayer[0].cards[3]}}" ng-if="!activePlayer[0].isFold"></card>
+        <card card="{{activePlayer[0].cards[0]}}" ng-if="!activePlayer[0].isFold && activePlayer[0].cards[0]"></card>
+        <card card="{{activePlayer[0].cards[1]}}" ng-if="!activePlayer[0].isFold && activePlayer[0].cards[1]"></card>
+        <card card="{{activePlayer[0].cards[2]}}" ng-if="!activePlayer[0].isFold && activePlayer[0].cards[2]"></card>
+        <card card="{{activePlayer[0].cards[3]}}" ng-if="!activePlayer[0].isFold && activePlayer[0].cards[3]"></card>
       </div>
     </div>
     <div class="player_turn_button">
