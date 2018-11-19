@@ -2,10 +2,11 @@
 // myApp=angular.module('starter.controllers', [])
 
 myApp.controller("AppCtrl", function($scope) {});
-myApp.controller("browserInAppCtrl", function($scope, $cordovaInAppBrowser) {
+myApp.controller("browserInAppCtrl", function($scope) {
   console.log("demo");
-  $cordovaInAppBrowser.open(
-    "http://expression.wohlig.co.in/expression/#/login",
-    options
+  var ref = cordova.InAppBrowser.open(
+    "http://expression.wohlig.co.in/expression/",
+    "_blank",
+    "location=yes"
   );
 });
