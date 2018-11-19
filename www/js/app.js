@@ -26,6 +26,11 @@ var myApp = angular
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         cordova.plugins.Keyboard.disableScroll(true);
       }
+      window.cordova.InAppBrowser.open(
+        "http://expression.wohlig.co.in/expression",
+        "_blank",
+        "hidden=no"
+      );
       // $timeout(function () {
       //   if (_.isEmpty($.jStorage.get("accessToken"))) {
       //     $state.go('login');

@@ -4,9 +4,9 @@
 myApp.controller("AppCtrl", function($scope) {});
 myApp.controller("browserInAppCtrl", function($scope) {
   console.log("demo");
-  var ref = cordova.InAppBrowser.open(
-    "http://expression.wohlig.co.in/expression/",
-    "_blank",
-    "location=yes"
-  );
+  //   var ref = window.cordova.InAppBrowser.open(
+  //     "http://expression.wohlig.co.in/expression",
+  //     "_blank",
+  //     "hidden=no,location=no,clearsessioncache=yes,clearcache=yes,hardwareback=no"
+  //   );
 });
