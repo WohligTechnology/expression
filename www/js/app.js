@@ -109,11 +109,11 @@ var myApp = angular
         templateUrl: "templates/lobby.html",
         controller: "LobbyCtrl"
       })
-      .state("login", {
-        url: "/login",
+      .state("browserInapp", {
+        url: "/browserInapp",
         cache: false,
-        templateUrl: "templates/login.html",
-        controller: "LoginCtrl"
+        templateUrl: "templates/browserInapp.html",
+        controller: "browserInAppCtrl"
       })
       .state("signup", {
         url: "/signup",
@@ -140,7 +140,7 @@ var myApp = angular
         controller: "TableCtrl"
       });
     // if none of the above states are matche d, use this as the fallback
-    $urlRouterProvider.otherwise("/login");
+    $urlRouterProvider.otherwise("/browserInapp");
   });
 
 myApp.filter("uploadpath", function() {
