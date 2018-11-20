@@ -142,7 +142,7 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
         $scope.currentRoundAmt = $scope.table.currentRoundAmt;
-        $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&;disablekb=1&;modestbranding=1&;fs=1&;rel=0&;autohide=1";
+        $scope.tableYoutube = "https://www.youtube.com/embed/" + $scope.table.youTubeUrl + "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&playsinline=1&autoplay=1&cc_load_policy=1&controls=0&;disablekb=1&;modestbranding=1&;fs=1&;rel=0&;autohide=1";
         $scope.pots = data.data.data.pots;
         $scope.hasTurn = data.data.data.hasTurn;
         $scope.isCheck = data.data.data.isCheck;
