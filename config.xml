@@ -87,6 +87,7 @@
     <allow-navigation href="http://*/*" />
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
+    <allow-navigation href="*://*.youtube.com/*" />
     <icon src="resources/ios/icon/icon-small@3x.png" />
     <engine name="android" spec="^7.1.0" />
     <engine name="ios" spec="^4.5.5" />
