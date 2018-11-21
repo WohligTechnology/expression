@@ -46,7 +46,7 @@
       width: 7vw;
       position: absolute;
       z-index: 1;
-      font-size: .7em;
+      font-size: 0.7em;
       &.sit_here,
       &.no_player {
         width: 6vw;
@@ -81,7 +81,7 @@
           position: absolute;
           top: 0;
           left: 50%;
-          transform: translate(-50%, -85%)
+          transform: translate(-50%, -85%);
         }
         .belt {
           position: absolute;
@@ -162,16 +162,16 @@
             background: #5c00ff;
           }
           &.all_in {
-            background: #4ccd9d
+            background: #4ccd9d;
           }
           &.fold {
-            background: #ff1402
+            background: #ff1402;
           }
           &.raise {
-            background: #ff1402
+            background: #ff1402;
           }
           &.waiting {
-            background: #2196F3;
+            background: #2196f3;
           }
         }
         .amt {
@@ -192,8 +192,7 @@
       &.no_player {
         &.player4,
         &.player5,
-        &.player6,
-          {
+        &.player6 {
           bottom: -3%;
         }
         &.player7,
@@ -234,23 +233,21 @@
     }
   }
   .bottom {
-    position: absolute; // right: 0;
-    // left: 15%;
+    position: absolute;
     bottom: 0;
     width: 100vw;
     display: flex;
     align-items: center;
     .main_card {
-      // width: 14%;
-      position: relative; // display: inline-block;
+      position: relative;
       align-self: flex-end;
-      flex: .3;
+      flex: 0.3;
       .cards {
         display: flex;
         position: absolute;
         bottom: 0;
         right: -10px;
-        width: 55%; // transform: translate(0, 25%);
+        width: 50%;
         card {
           width: 100%;
           &:nth-child(2) {
@@ -268,11 +265,10 @@
     //   min-width: 15%;
     // }
     .player_turn_button {
-      // display: inline-block;
-      padding: 1%;
+      padding: 5px;
       margin: 1%;
       width: 100%;
-      flex: .7;
+      flex: 0.7;
       text-align: center;
       border: 1px solid #7851a2;
       button {
@@ -322,7 +318,7 @@
           .btn_name {
             color: grey;
             text-shadow: 0px 0px 25px black;
-            -webkit-text-stroke: .2px #000000;
+            -webkit-text-stroke: 0.2px #000000;
           }
           .light {
             background: #6b6565;
@@ -330,13 +326,13 @@
             -moz-box-shadow: none;
             box-shadow: none;
             text-shadow: 0px 0px 25px black;
-            -webkit-text-stroke: .2px #000000;
+            -webkit-text-stroke: 0.2px #000000;
           }
           &.activated {
             .light {
               background: #6b6565;
               text-shadow: 0px 0px 25px black;
-              -webkit-text-stroke: .2px #000000;
+              -webkit-text-stroke: 0.2px #000000;
             }
           }
         }
@@ -351,7 +347,19 @@
         text-shadow: 0px 1px 2px #419941;
       }
     }
-  } //player position
+  }
+
+  .platform-ios {
+    .player_turn_button {
+      button {
+        min-width: 22%;
+        .btn_name {
+          font-size: 1.3em;
+        }
+      }
+    }
+  }
+  //player position
   .player1 {
     right: 16%;
     top: -6%;
@@ -410,7 +418,8 @@
       i {
         padding-right: 10%;
       }
-      span {}
+      span {
+      }
     }
     .menu_list {
       .item {
@@ -418,7 +427,12 @@
         color: white;
         border: none;
         font-size: 1em;
-        border-image: linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%);
+        border-image: linear-gradient(
+          to right,
+          rgba(254, 255, 255, 0) 5%,
+          rgba(255, 255, 255, 0.671) 50%,
+          rgba(160, 217, 239, 0) 95%
+        );
         border-bottom: 1px solid;
         border-image-slice: 2;
         padding: 5% 10%;
@@ -482,7 +496,7 @@
     margin-right: 5px;
   }
   span {
-    background-image: url('../img/table/pot_bg.png');
+    background-image: url("../img/table/pot_bg.png");
     background-size: 100% 100%;
     padding: 0px 10px 3px;
     margin-right: 5px;
@@ -1072,7 +1086,7 @@
 }
 
 .card-rotate-right {
-  transform: translate(-25%, -5%)rotate(-15deg);
+  transform: translate(-25%, -5%) rotate(-15deg);
 }
 
 .tcard1 {
@@ -1333,8 +1347,7 @@
   position: absolute;
   left: 1%;
   bottom: 2%;
-  .icon:before,
-    {
+  .icon:before {
     padding: 3px 3px 1px 0;
     line-height: 0px !important;
     font-size: 20px;
@@ -1343,7 +1356,12 @@
 
 .dealer-history {
   padding: 2px 9px;
-  border-image: linear-gradient(to right, #463758 20%, #5b4771 50%, #130e19 95%);
+  border-image: linear-gradient(
+    to right,
+    #463758 20%,
+    #5b4771 50%,
+    #130e19 95%
+  );
   border-bottom: 1px solid;
   border-image-slice: 2;
   p {
@@ -1357,7 +1375,6 @@
     width: 100%;
   }
 }
-
 .tip-lobby {
   .button {
     padding: 2px 5px 4px;
@@ -1367,7 +1384,7 @@
     font-size: 0.9em;
     line-height: 1px;
     font-weight: 600;
-    min-height: 0px
+    min-height: 0px;
   }
   .tip-dealer_submit {
     .button {
@@ -1379,14 +1396,14 @@
       vertical-align: middle;
       box-shadow: 0px 0px 2px 1px #553e70;
       transform: translateY(10%);
-      background: #321e4a; // background-image: url(../img/login/bgblue.png);
+      background: #321e4a;
+      // background-image: url(../img/login/bgblue.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
     }
   }
 }
-
 .t-range-model {
   top: 22%;
   bottom: calc(0px + 4.5em);
@@ -1399,7 +1416,6 @@
   color: white;
   padding: 2%;
 }
-
 @keyframes tipmovefrombottom {
   0% {
     opacity: 1;
@@ -1416,7 +1432,6 @@
     opacity: 0;
   }
 }
-
 @-webkit-keyframes tipmovefrombottom {
   0% {
     opacity: 1;
@@ -1433,7 +1448,6 @@
     opacity: 0;
   }
 }
-
 @keyframes tipmovefromright {
   0% {
     opacity: 1;
@@ -1450,7 +1464,6 @@
     opacity: 0;
   }
 }
-
 @-webkit-keyframes tipmovefromright {
   0% {
     opacity: 1;
@@ -1467,27 +1480,22 @@
     opacity: 0;
   }
 }
-
 .card-one,
 .card-two {
   transition: all ease 300ms;
 }
-
 .community-card {
   display: block;
   position: relative;
 }
-
 community {
   position: relative;
 }
-
 .platform-ios {
   .front {
     display: none;
   }
 }
-
 .platform-android,
 .platform-browser {
   .flip-container {
@@ -1531,7 +1539,6 @@ community {
     transform: rotateY(180deg);
   }
 }
-
 .winner-pot-name {
   position: absolute;
   top: -34%;
@@ -1549,16 +1556,12 @@ community {
     color: #fff;
   }
 }
-
 .player1 {
   .winner-pot-name {
     top: -10%;
-    left: 170%; // &.raised-amount {
-    //   left: 145%;
-    // }
+    left: 170%; // &.raised-amount { // left: 145%; // }
   }
 }
-
 .col-15 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 15%;
@@ -1569,11 +1572,9 @@ community {
   max-width: 15%;
   padding: 2px;
 }
-
 .opac {
   opacity: 0;
 }
-
 .player1,
 .player2,
 .player3,
@@ -1602,7 +1603,6 @@ community {
     animation: opacitylow 3s ease 18s forwards;
   }
 }
-
 @keyframes opacitylow {
   0% {
     opacity: 1;

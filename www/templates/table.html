@@ -39,20 +39,28 @@
   </div>
   <div class="table_field">
     <div class="video_frame">
-
-        <iframe id="ytplayer" youtube src="{{tableYoutube | trustUrl}}" frameborder="0" allowfullscreen="true" 
-        allownetworking="internal" playsinline="1"
-        allowInlineMediaPlayback="true"></iframe>
-      <!-- <iframe
+      <iframe
         id="ytplayer"
         youtube
-        src="https://www.youtube.com/embed/JmkXobNoMBY"
+        src="{{tableYoutube | trustUrl}}"
         frameborder="0"
         allowfullscreen="true"
         allownetworking="internal"
-        width="460"
-        height="315"
-      ></iframe> -->
+        playsinline="1"
+        allowInlineMediaPlayback="true"
+      ></iframe>
+      <!--
+        <iframe
+          id="ytplayer"
+          youtube
+          src="https://www.youtube.com/embed/JmkXobNoMBY"
+          frameborder="0"
+          allowfullscreen="true"
+          allownetworking="internal"
+          width="460"
+          height="315"
+        ></iframe>
+      -->
     </div>
     <img src="img/table.png" alt="table" class="bg_table" />
     <pot-amount ng-pots="pots" ng-player="players"> </pot-amount>
@@ -273,6 +281,8 @@
     </div>
     <div class="main_card">
       <div class="cards">
+        <card card="2c"></card> <card card="2c"></card> <card card="2c"></card>
+        <card card="2c"></card>
         <card
           card="{{activePlayer[0].cards[0]}}"
           ng-if="!activePlayer[0].isFold && activePlayer[0].cards[0]"

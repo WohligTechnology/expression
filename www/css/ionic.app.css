@@ -9613,10 +9613,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -10352,7 +10352,7 @@ body {
       width: 7vw;
       position: absolute;
       z-index: 1;
-      font-size: .7em; }
+      font-size: 0.7em; }
       .table .table_field .plyr.sit_here, .table .table_field .plyr.no_player {
         width: 6vw; }
       .table .table_field .plyr .rel {
@@ -10454,7 +10454,7 @@ body {
           .table .table_field .plyr .details .turn_status.raise {
             background: #ff1402; }
           .table .table_field .plyr .details .turn_status.waiting {
-            background: #2196F3; }
+            background: #2196f3; }
         .table .table_field .plyr .details .amt {
           font-size: 1.1em; }
       .table .table_field .plyr.no_player .tcard,
@@ -10500,13 +10500,13 @@ body {
     .table .bottom .main_card {
       position: relative;
       align-self: flex-end;
-      flex: .3; }
+      flex: 0.3; }
       .table .bottom .main_card .cards {
         display: flex;
         position: absolute;
         bottom: 0;
         right: -10px;
-        width: 55%; }
+        width: 50%; }
         .table .bottom .main_card .cards card {
           width: 100%; }
           .table .bottom .main_card .cards card:nth-child(2) {
@@ -10519,7 +10519,7 @@ body {
       padding: 1%;
       margin: 1%;
       width: 100%;
-      flex: .7;
+      flex: 0.7;
       text-align: center;
       border: 1px solid #7851a2; }
       .table .bottom .player_turn_button button {
@@ -10578,24 +10578,26 @@ body {
         .table .bottom .player_turn_button button:disabled .btn_name {
           color: grey;
           text-shadow: 0px 0px 25px black;
-          -webkit-text-stroke: .2px #000000; }
+          -webkit-text-stroke: 0.2px #000000; }
         .table .bottom .player_turn_button button:disabled .light {
           background: #6b6565;
           -webkit-box-shadow: none;
           -moz-box-shadow: none;
           box-shadow: none;
           text-shadow: 0px 0px 25px black;
-          -webkit-text-stroke: .2px #000000; }
+          -webkit-text-stroke: 0.2px #000000; }
         .table .bottom .player_turn_button button:disabled.activated .light {
           background: #6b6565;
           text-shadow: 0px 0px 25px black;
-          -webkit-text-stroke: .2px #000000; }
+          -webkit-text-stroke: 0.2px #000000; }
     .table .bottom .tip-lobby .button {
       min-height: 20px;
       font-size: 1.2em;
       color: #81b781;
       letter-spacing: 0.5px;
       text-shadow: 0px 1px 2px #419941; }
+  .table .platform-ios .player_turn_button button {
+    min-width: 22%; }
   .table .player1 {
     right: 16%;
     top: -6%; }
