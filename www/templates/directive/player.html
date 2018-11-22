@@ -73,7 +73,7 @@
     </div>
     <div
       class="tcard tcard{{pos}}"
-      ng-if="!player.isFold && player.cards.length==1"
+      ng-if="!player.isFold"
     >
       <card
         card="DONE"
@@ -105,14 +105,6 @@ player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !p
       >
       </card>
     </div>
-    <!--
-      <div class="tcard winnercard tcard{{pos}}">
-        <card card='3s' class="none card-rotate-right" ng-style="style"> </card>
-        <card card='3s' class="none card-rotate" ng-style="style"> </card>
-        <card card='3s' class="none card-rotate card-three" ng-style="style"> </card>
-        <card card='3s' class="none card-rotate card-four" ng-style="style"> </card>
-      </div>
-    -->
 
     <div
       class="tcard winnercard tcard{{pos}} "
@@ -121,25 +113,30 @@ player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !p
       <card
         card="{{player.cards[0]}}"
         class="none card-rotate-right"
-        ng-style="style"
+        ng-style="style" 
+        ng-if="(player.cards.length==1 ||
+        player.cards.length==2 || player.cards.length==3|| player.cards.length==4)"
       >
       </card>
       <card
         card="{{player.cards[1]}}"
         class="none card-rotate"
         ng-style="style"
+        ng-if="(player.cards.length==2 || player.cards.length==3|| player.cards.length==4)"
       >
       </card>
       <card
         card="{{player.cards[2]}}"
         class="none card-rotate card-three"
         ng-style="style"
+        ng-if="( player.cards.length==3|| player.cards.length==4)"
       >
       </card>
       <card
         card="{{player.cards[3]}}"
         class="none card-rotate card-four"
-        ng-style="style"
+        ng-style="style" 
+        ng-if="(player.cards.length==4)"
       >
       </card>
     </div>

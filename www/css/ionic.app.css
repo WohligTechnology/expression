@@ -9613,10 +9613,10 @@ a.button {
     margin-top: env(safe-area-inset-top); }
 
 .platform-ios.platform-cordova:not(.fullscreen) .bar-header {
-  padding-left: calc( constant(safe-area-inset-left) + 5px);
+  padding-left: calc( constant(safe-area-inset-left) + 5px);
   padding-left: calc(env(safe-area-inset-left) + 5px);
-  padding-right: calc( constant(safe-area-inset-right) + 5px);
-  padding-right: calc( env(safe-area-inset-right) + 5px); }
+  padding-right: calc( constant(safe-area-inset-right) + 5px);
+  padding-right: calc( env(safe-area-inset-right) + 5px); }
   .platform-ios.platform-cordova:not(.fullscreen) .bar-header .buttons:last-child {
     right: calc(constant(safe-area-inset-right) + 5px);
     right: calc(env(safe-area-inset-right) + 5px); }
@@ -10506,9 +10506,10 @@ body {
         position: absolute;
         bottom: 0;
         right: -10px;
-        width: 50%; }
+        width: 40%; }
         .table .bottom .main_card .cards card {
-          width: 100%; }
+          width: 100%;
+          max-width: 65%; }
           .table .bottom .main_card .cards card:nth-child(2) {
             margin-left: -20%; }
           .table .bottom .main_card .cards card:nth-child(3) {
@@ -10516,7 +10517,7 @@ body {
           .table .bottom .main_card .cards card:nth-child(4) {
             margin-left: -20%; }
     .table .bottom .player_turn_button {
-      padding: 1%;
+      padding: 5px;
       margin: 1%;
       width: 100%;
       flex: 0.7;
@@ -10537,10 +10538,11 @@ body {
         height: 2em;
         font-weight: bold; }
         .table .bottom .player_turn_button button .btn_name {
+          font-size: 0.8em;
           vertical-align: middle;
           color: #cece3f; }
         .table .bottom .player_turn_button button .light {
-          margin: 2% 0px;
+          margin: 2% 1%;
           height: 85%;
           display: inline-block;
           width: 5px;
@@ -10596,8 +10598,6 @@ body {
       color: #81b781;
       letter-spacing: 0.5px;
       text-shadow: 0px 1px 2px #419941; }
-  .table .platform-ios .player_turn_button button {
-    min-width: 22%; }
   .table .player1 {
     right: 16%;
     top: -6%; }

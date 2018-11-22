@@ -1,9 +1,9 @@
 <div class="table" ng-click="closeAll()">
   <div class="tip-lobby back-lobby">
     <div class="tip-dealer_submit row">
-      <!--
+      
         <button class="button mr-5" type='submit' ng-click="newGame()">NewGame</button>
-      -->
+     
       <button class="button" type="submit" ng-click="openRemovePlayerModal();">
         Back to lobby
       </button>
@@ -19,14 +19,9 @@
       >
         Serving
       </button>
-      <!--
-        <button class="button mr-5" type="submit" ng-click="newGame();">
-          New Game
-        </button>
-      -->
-      <!--
-        <button class="button mr-5" type='submit' ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serving</button>
-      -->
+      
+        <!-- <button class="button mr-5" type='submit' ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serving</button> -->
+     
       <button
         class="button"
         type="submit"
@@ -49,18 +44,6 @@
         playsinline="1"
         allowInlineMediaPlayback="true"
       ></iframe>
-      <!--
-        <iframe
-          id="ytplayer"
-          youtube
-          src="https://www.youtube.com/embed/JmkXobNoMBY"
-          frameborder="0"
-          allowfullscreen="true"
-          allownetworking="internal"
-          width="460"
-          height="315"
-        ></iframe>
-      -->
     </div>
     <img src="img/table.png" alt="table" class="bg_table" />
     <pot-amount ng-pots="pots" ng-player="players"> </pot-amount>
@@ -281,8 +264,8 @@
     </div>
     <div class="main_card">
       <div class="cards">
-        <card card="2c"></card> <card card="2c"></card> <card card="2c"></card>
-        <card card="2c"></card>
+        <!-- <card card="2c"></card> <card card="2c"></card> <card card="2c"></card>
+        <card card="2c"></card> -->
         <card
           card="{{activePlayer[0].cards[0]}}"
           ng-if="!activePlayer[0].isFold && activePlayer[0].cards[0]"
@@ -318,7 +301,8 @@
         promise-btn="callPromise"
       >
         <span class="light"></span>
-        <span class="btn_name"> Call {{ callAmount | number }} </span>
+        <span class="btn_name"> Call </span>
+        <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
       </button>
       <button
         class="call"
@@ -328,7 +312,8 @@
         promise-btn="callPromise"
       >
         <span class="light"></span>
-        <span class="btn_name"> Call {{ callAmount | number }} </span>
+        <span class="btn_name"> Call </span>
+        <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
       </button>
       <button
         class="call"

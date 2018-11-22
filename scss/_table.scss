@@ -247,9 +247,10 @@
         position: absolute;
         bottom: 0;
         right: -10px;
-        width: 50%;
+        width: 40%;
         card {
           width: 100%;
+          max-width: 65%;
           &:nth-child(2) {
             margin-left: -20%;
           }
@@ -279,11 +280,12 @@
         height: 2em;
         font-weight: bold;
         .btn_name {
+          font-size: 0.8em;
           vertical-align: middle;
           color: #cece3f;
         }
         .light {
-          margin: 2% 0px;
+          margin: 2% 1%;
           height: 85%;
           display: inline-block;
           width: 5px;
@@ -345,17 +347,6 @@
         color: #81b781;
         letter-spacing: 0.5px;
         text-shadow: 0px 1px 2px #419941;
-      }
-    }
-  }
-
-  .platform-ios {
-    .player_turn_button {
-      button {
-        min-width: 22%;
-        .btn_name {
-          font-size: 1.3em;
-        }
       }
     }
   }
