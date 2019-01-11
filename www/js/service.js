@@ -300,7 +300,7 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
     getTableTransaction: function (pageNo, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Transaction/getTableStatusDetails', {
+        return $http.post(url + 'Transaction/getProfitLossDetails', {
           "page": pageNo,
           "accessToken": accessToken
         }).then(function (data) {
