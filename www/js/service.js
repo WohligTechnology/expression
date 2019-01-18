@@ -89,8 +89,8 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         });
       }
     },
-    getAllTable: function (callback) {
-      return $http.post(url + "Table/getAllTable").then(function (data) {
+    getAllTable: function (data, callback) {
+      return $http.post(url + "Table/getAllTable", data).then(function (data) {
         data = data.data;
         callback(data);
       })

@@ -265,7 +265,9 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
 
 
   $scope.getAllTableData = function (data) {
-    Service.getAllTable(function (data) {
+    var constraints = {};
+    constraints.pokerType = 'Virtual';
+    Service.getAllTable(constraints, function (data) {
       // console.log(data);
       $scope.getAllTables = data.data;
       // console.log($scope.getAllTables);
@@ -359,8 +361,8 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
 
   $scope.privateCModal = function (tableID) {
     $scope.ModalCCreate.show();
-    $scope.privateTableId= tableID;
-    console.log("$scope.privateTableId////////",$scope.privateTableId);
+    $scope.privateTableId = tableID;
+    console.log("$scope.privateTableId////////", $scope.privateTableId);
   }
   $scope.closeCTable = function () {
     $scope.ModalCCreate.hide();
