@@ -1,151 +1,103 @@
 <ion-content class="login">
   <div class="signup">
-    <div class="logo mar-t"><img src="img/login/logo.jpg" /></div>
+    <!-- <div class="logo mar-t"><img src="img/login/logo.jpg" /></div> -->
+    <div class="logo">
+      <!-- <img src="img/login/logo.jpg"> -->
+      <div class="logoText">
+        <p>Ante</p>
+        <p class="smallText">Poker</p>
+      </div>
+    </div>
     <div class="login_block">
       <form name="signup">
         <div class="login_button row">
-          <input
-            class="col bg-yellow"
-            type="text"
-            name="username"
-            placeholder="*Name"
-            ng-model="data.name"
-            required
-          />
+          <input class="col padd-lr" type="text" name="username" placeholder="Name" ng-model="data.name" required />
         </div>
-        <div
-          class="valid"
-          ng-if="signup.username.$touched && signup.username.$invalid"
-        >
+        <div class="valid" ng-if="signup.username.$touched && signup.username.$invalid">
           Please Enter Name
         </div>
         <div class="login_button row">
-          <input
-            class="col bg-yellow"
-            type="email"
-            name="email"
-            placeholder="*Email Id"
-            ng-model="data.email"
-            required
-          />
+          <input class="col padd-lr" type="text" ng-model="data.email" name="email" placeholder="Email Id" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+            required />
+          <!-- <input class="col padd-lr" type="email" name="email" placeholder="Email Id" ng-model="data.email" required /> -->
         </div>
-        <div
-          class="valid"
-          ng-if="signup.email.$touched && signup.email.$invalid"
-        >
-          Please Enter Valid Email
+        <div class="valid">
+          <span ng-show="signup.email.$touched && ! signup.email.$dirty">Email Id is required</span>
+          <span ng-if="signup.email.$dirty && signup.email.$error.pattern">Please Enter
+            Valid Email</span>
         </div>
+        <!-- <div class="valid" ng-show="signup.email.$dirty && signup.email.$error.pattern">Please Enter
+          Valid Email</div> -->
         <div class="login_button row">
-          <input
-            class="col bg-yellow"
-            type="tel"
-            name="mobile"
-            placeholder="*Mobile No"
-            ng-model="data.mobile"
-            maxlength="10"
-            minlength="10"
-            required
-          />
+          <input class="col padd-lr" type="tel" name="mobile" placeholder="Mobile No" ng-model="data.mobile" maxlength="10"
+            minlength="10" required />
         </div>
-        <div
-          class="valid"
-          ng-if="signup.mobile.$touched && signup.mobile.$invalid"
-        >
+        <div class="valid" ng-if="signup.mobile.$touched && signup.mobile.$invalid">
           Please Enter Valid Mobile Number
         </div>
         <div class="login_button row">
-          <input
-            class="col bg-yellow"
-            type="password"
-            name="password"
-            placeholder="*Password"
-            ng-model="data.password"
-            required
-          />
+          <input class="col padd-lr" type="password" name="password" placeholder="Password" ng-model="data.password"
+            required />
         </div>
-        <div
-          class="valid"
-          ng-if="signup.password.$touched && signup.password.$invalid"
-        >
+        <div class="valid" ng-if="signup.password.$touched && signup.password.$invalid">
           Please Enter Valid Password
         </div>
+
+        <div class="login_button row">
+          <input class="col padd-lr" type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="data.confirmPassword"
+            ng-change="matchPasswords(data)" required />
+        </div>
+        <div class="valid" ng-if="signup.confirmPassword.$touched && signup.confirmPassword.$invalid">
+          Please enter Password
+        </div>
+        <div class="valid" ng-if="notMatching">
+          Passwords does not match
+        </div>
+
         <!-- <div class="login_button row">
-              <input class="col bg-yellow" type="number" name="password" placeholder="Mobile No" required>
+              <input class="col padd-lr" type="number" name="password" placeholder="Mobile No" required>
             </div> -->
         <div class="login_button row">
-          <input
-            class="col bg-yellow"
-            type="date"
-            name="dob"
-            placeholder="*DOB"
-            ng-model="data.dob"
-            required
-          />
+          <input class="col padd-lr" type="text" name="dob" placeholder="DOB" ng-model="data.dob" pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
+            required />
         </div>
-        <div class="valid" ng-if="signup.dob.$touched && signup.dob.$invalid">
-          Please Enter Valid DOB
+        <div class="valid">
+          <span ng-show="signup.dob.$touched && !signup.dob.$dirty">Date of Birth is required</span>
+          <span ng-if="signup.dob.$dirty && signup.dob.$error.pattern">Please Enter Valid Date of Birth</span>
         </div>
 
-        <div class="login_button row">
-          <input
-            class="col bg-yellow"
-            type="text"
-            name="country"
-            ng-model="data.country"
-            placeholder="*Country"
-            ng-init="data.country='India'"
-            required
-            disabled
-          />
+        <!-- <div class="login_button row">
+          <input class="col padd-lr" type="text" name="country" ng-model="data.country" placeholder="Country" ng-init="data.country='India'"
+            required />
         </div>
-        <div
-          class="valid"
-          ng-if="signup.country.$touched && signup.country.$invalid"
-        >
+        <div class="valid" ng-if="signup.country.$touched && signup.country.$invalid">
           Please Enter Country
-        </div>
-
-        <div class="login_button row">
-          <select
-            ng-model="data.state"
-            class="col bg-yellow"
-            ng-options="x for x in state"
-            placeholder="Blind Amt"
-            name="state"
-          >
-            <option value="" disabled hidden selected>*State</option>
-          </select>
-          <!-- <input class="col bg-yellow" type="text" name="State" ng-model="data.state" placeholder="*State" required> -->
-        </div>
-        <!-- <div
-          class="valid"
-          ng-if="signup.state.$touched && signup.state.$invalid"
-        >
-          Please Enter State
         </div> -->
 
         <div class="login_button row">
-          <input
-            class="col bg-yellow"
-            type="text"
-            name="city"
-            ng-model="data.city"
-            placeholder="*City"
-            required
-          />
+          <select ng-model="data.state" class="col" ng-options="x for x in state" placeholder="Select State.." name="state">
+            <option value="" disabled hidden selected>State</option>
+          </select>
+          <!-- <input class="col padd-lr" type="text" name="State" ng-model="data.state" placeholder="*State" required> -->
+        </div>
+        <div class="valid" ng-if="signup.state.$touched && signup.state.$invalid">
+          Please Enter State
+        </div>
+
+        <!-- <div class="login_button row">
+          <input class="col padd-lr" type="text" name="city" ng-model="data.city" placeholder="City" required />
         </div>
         <div class="valid" ng-if="signup.city.$touched && signup.city.$invalid">
           Please Enter City
-        </div>
+        </div> -->
 
         <div class="login_button row">
-          <input
-            class="col bg-yellow"
-            type="text"
-            name="Referred By"
-            placeholder="Enter Referral Code if any .."
-            ng-model="data.referredBy"
-          />
+          <input class="col padd-lr" type="text" maxlength="7" name="ReferredBy" placeholder="Enter Referral Code if any .. "
+            ng-model="data.referredBy" />
+          <!-- <span class="optional-field">Optional</span> -->
+        </div>
+        <div class="valid" ng-if="signup.ReferredBy.$touched && signup.ReferredBy.$invalid">
+          Please Enter Valid Referral Code
         </div>
         <div class="sign_up_status" ng-if="signUpStatus">
           {{ signUpStatus }}
@@ -154,17 +106,14 @@
           *Email Id or Mobile is registrated
         </div>
         <div class="login_button_submit row">
-          <button
-            class="button bg-blue"
-            type="submit"
-            ng-disabled="signup.$invalid"
-            ng-click="signUp(data,signup)"
-            promise-btn="signUpPromise"
-          >
+          <button class="button bg-blue" type="submit" ng-disabled="signup.$invalid" ng-click="signUp(data,signup)"
+            promise-btn="signUpPromise">
             Sign Up
           </button>
         </div>
-        <div><p class="account">Dont have an account?</p></div>
+        <div>
+          <p class="account">Already have an account?</p>
+        </div>
         <div class="login_button_submit row">
           <button class="button" type="submit" ui-sref="login">Login</button>
         </div>

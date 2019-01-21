@@ -9,8 +9,10 @@
       <div class="right mar-r">
         <div class="profile" ng-click="$event.stopPropagation();openRightMenu();">
           <div class="info">
-            <div> {{playerData.name}}</div>
-            <div> {{playerData.balance|number:0}}</div>
+            <!-- <div> {{playerData.name}}</div>
+            <div> {{playerData.balance|number:0}}</div> -->
+            <div> Name</div>
+            <div> 5000.00</div>
           </div>
           <div class="pic">
             <div class="profile-pic">
@@ -35,7 +37,7 @@
                   <p class="fnt-1em">{{table.gameType}}</p>
                 </div>
                 <div class="card-btn">
-                    <h6 class="heading-yellow">{{table.type}}</h6>
+                  <h6 class="heading-yellow">{{table.type}}</h6>
                   <span>Stakes</span>
                   <span>{{table.smallBlind}} / {{table.bigBlind}}</span>
                   <div>
@@ -121,11 +123,11 @@
       <div class="profile-pic" ng-click="modalProfile();">
         <img ng-src="{{image | serverimage}}" class="pic img-responsive">
       </div>
-      <div class="text-center user-name">
-        {{playerData.name}}
+      <div class="text-center user-name">ABC
+        <!-- {{playerData.name}} -->
       </div>
-      <div class="text-center user-name user-amount">
-        {{playerData.balance|number:0}}
+      <div class="text-center user-name user-amount">50000
+        <!-- {{playerData.balance|number:0}} -->
       </div>
       <ion-list class="menu_list">
         <ion-item ui-sref="addamount">

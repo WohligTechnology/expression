@@ -15,8 +15,8 @@ var myApp = angular
     "ngAnimate"
   ])
 
-  .run(function($ionicPlatform, $state, $timeout) {
-    $ionicPlatform.ready(function() {
+  .run(function ($ionicPlatform, $state, $timeout) {
+    $ionicPlatform.ready(function () {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
       if (window.MobileAccessibility) {
@@ -45,7 +45,7 @@ var myApp = angular
       }
 
       // Preload audio resources
-      $ionicPlatform.ready(function() {
+      $ionicPlatform.ready(function () {
         if (window.cordova) {
           window.plugins.NativeAudio.preloadComplex(
             "turn",
@@ -53,8 +53,8 @@ var myApp = angular
             1,
             1,
             0,
-            function(msg) {},
-            function(msg) {
+            function (msg) {},
+            function (msg) {
               console.log("error: " + msg);
             }
           );
@@ -77,7 +77,7 @@ var myApp = angular
   // .config(['cfpLoadingBarProvider', function (cfpLoadingBarProvider) {
 
   //   }]
-  .config(function(
+  .config(function (
     $stateProvider,
     $urlRouterProvider,
     $ionicConfigProvider,
@@ -108,6 +108,12 @@ var myApp = angular
         cache: false,
         templateUrl: "templates/lobby.html",
         controller: "LobbyCtrl"
+      })
+      .state("new-lobby", {
+        url: "/new-lobby",
+        cache: false,
+        templateUrl: "templates/new-lobby.html",
+        controller: "NewLobbyCtrl"
       })
       .state("login", {
         url: "/login",
@@ -143,8 +149,8 @@ var myApp = angular
     $urlRouterProvider.otherwise("/login");
   });
 
-myApp.filter("uploadpath", function() {
-  return function(input, width, height, style) {
+myApp.filter("uploadpath", function () {
+  return function (input, width, height, style) {
     var other = "";
     if (width && width !== "") {
       other += "&width=" + width;
@@ -165,8 +171,8 @@ myApp.filter("uploadpath", function() {
   };
 });
 
-myApp.filter("serverimage", function() {
-  return function(input, width, height, style) {
+myApp.filter("serverimage", function () {
+  return function (input, width, height, style) {
     if (input) {
       if (input.substr(0, 4) == "http") {
         return input;
@@ -190,8 +196,8 @@ myApp.filter("serverimage", function() {
   };
 });
 
-myApp.filter("cardimg", function() {
-  return function(input) {
+myApp.filter("cardimg", function () {
+  return function (input) {
     if (input) {
       return "img/cards/" + input + ".svg";
     } else {
@@ -201,8 +207,8 @@ myApp.filter("cardimg", function() {
   };
 });
 
-myApp.filter("trustUrl", function($sce) {
-  return function(url) {
+myApp.filter("trustUrl", function ($sce) {
+  return function (url) {
     return $sce.trustAsResourceUrl(url);
   };
 });

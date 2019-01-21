@@ -20,11 +20,19 @@ $color:#FF8072 !default;
 $yellow:#ebbd15 !default;
 $blue:#10fbf7 !default;
 $orange:#f5510a !default;
-$bg-background:#000 !default;
+$black:#000 !default;
+$white: #fff !default;
+$pink-bg: #e93e66 !default;
+$input-bg: rgba(35, 35, 35, 0.62) !default;
+$app-background: #005658 !default;
+$header-bg: #004040 !default;
+$button-bg: #0c7b7b !default;
 $border-image:linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%) !default;
+$lobby-table: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), #0c7b7b, rgba(0, 86, 88, 0.18));
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
 @font-face {
   font-family: 'Cinzel-Black';
   /*to use later*/
@@ -70,7 +78,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 body {
   // font-family: 'Cinzel-Bold';
   font-size: 1.8vw;
-  color: white;
+  color: $white;
 }
 
 .heading-yellow {
@@ -152,12 +160,15 @@ body {
   transition: all 200ms;
   background: rgba(0, 0, 0, 0.7);
   background-size: 100% 100%; // font-family: 'Cinzel-Bold';
+
   &.activated {
     //no effect of transform  when clicked
     transform: none;
   }
+
   .menu_cont {
     margin-left: -50%; // font-family: 'Cinzel-Regular';
+
     &.activated {
       //no effect of transform  when clicked
       transform: none;
@@ -171,6 +182,7 @@ body {
     margin-right: -40%;
     transition: margin-right 500ms !important; //timing when closing 
   }
+
   &.menu_open {
     .menu_cont {
       transition: margin-right 500ms !important; // timing when opening
@@ -186,6 +198,7 @@ body {
   visibility: visible;
   left: 0;
   transition: opacity 500ms;
+
   .menu_cont {
     margin-left: 0px;
   }
@@ -199,9 +212,10 @@ body {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: $white;
   font-size: 1.5em;
   z-index: 20;
+
   .center {
     position: absolute;
     top: 50%;
@@ -210,9 +224,11 @@ body {
     font-size: 1em;
     text-align: center;
   }
+
   img {
     width: 80%;
   }
+
   .loader-logo {
     width: 30%;
     margin: 6%;
@@ -232,7 +248,7 @@ body {
   background: -o-linear-gradient(top, rgba(245, 217, 210, 1) 0%, rgba(240, 125, 110, 1) 50%, rgba(242, 118, 102, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
   background: -ms-linear-gradient(top, rgba(245, 217, 210, 1) 0%, rgba(240, 125, 110, 1) 50%, rgba(242, 118, 102, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
   background: linear-gradient(to bottom, rgba(245, 217, 210, 1) 0%, rgba(240, 125, 110, 1) 50%, rgba(242, 118, 102, 1) 51%, rgba(240, 47, 23, 1) 71%, rgba(231, 56, 39, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5d9d2', endColorstr='#e73827', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5d9d2', endColorstr='#e73827', GradientType=0);
   -webkit-box-shadow: 0px 4px 18px 1px rgba(250, 115, 115, 1);
   -moz-box-shadow: 0px 4px 18px 1px rgba(250, 115, 115, 1);
   box-shadow: 0px 4px 18px 1px rgba(250, 115, 115, 1);
@@ -246,7 +262,7 @@ body {
   background: -o-linear-gradient(top, rgba(240, 240, 240, 1) 0%, rgba(127, 240, 110, 1) 70%, rgba(104, 240, 124, 1) 51%, rgba(24, 240, 38, 1) 71%, rgba(39, 230, 67, 1) 100%);
   background: -ms-linear-gradient(top, rgba(240, 240, 240, 1) 0%, rgba(127, 240, 110, 1) 70%, rgba(104, 240, 124, 1) 51%, rgba(24, 240, 38, 1) 71%, rgba(39, 230, 67, 1) 100%);
   background: linear-gradient(to bottom, rgba(240, 240, 240, 1) 0%, rgba(127, 240, 110, 1) 70%, rgba(104, 240, 124, 1) 51%, rgba(24, 240, 38, 1) 71%, rgba(39, 230, 67, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#27e643', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#27e643', GradientType=0);
   -webkit-box-shadow: 0px 4px 18px 1px rgba(118, 250, 164, 1);
   -moz-box-shadow: 0px 4px 18px 1px rgba(118, 250, 164, 1);
   box-shadow: 0px 4px 18px 1px rgba(118, 250, 164, 1);
@@ -260,7 +276,7 @@ body {
   background: -o-linear-gradient(top, rgba(87, 87, 87, 1) 0%, rgba(33, 33, 33, 1) 50%, rgba(31, 31, 31, 1) 51%, rgba(36, 36, 36, 1) 71%, rgba(20, 20, 20, 1) 100%);
   background: -ms-linear-gradient(top, rgba(87, 87, 87, 1) 0%, rgba(33, 33, 33, 1) 50%, rgba(31, 31, 31, 1) 51%, rgba(36, 36, 36, 1) 71%, rgba(20, 20, 20, 1) 100%);
   background: linear-gradient(to bottom, rgba(87, 87, 87, 1) 0%, rgba(33, 33, 33, 1) 50%, rgba(31, 31, 31, 1) 51%, rgba(36, 36, 36, 1) 71%, rgba(20, 20, 20, 1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#575757', endColorstr='#141414', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#141414', GradientType=0);
 }
 
 .spinner {
@@ -277,7 +293,7 @@ body {
 }
 
 .rzslider .rz-bubble.rz-limit {
-  color: #fff;
+  color: $white;
 }
 
 @import "lobby";
@@ -287,67 +303,83 @@ body {
 @import "timer";
 @import "signup";
 @import "addamount";
+
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape) {
   .play_now {
     width: 90%;
     margin: 0 auto;
   }
+
   .table .table_field {
     width: 78%;
     left: 50%;
     transform: translate(-50%);
+
     .video_frame {
       position: absolute;
       width: 24vw;
       top: -7%;
     }
   }
+
   .table .table_field .plyr {
     width: 7vw;
   }
+
   .login .login_block .login_button input,
   .login .login_block .login_button select {
     padding: 0px 0px;
   }
+
   .table .player5 {
     bottom: 1%;
   }
+
   .winner-pot-name {
     width: 150px;
   }
+
   .player1 .winner-pot-name {
     top: -20%;
     left: 170%;
   }
 }
+
 @media (min-aspect-ratio: 18/9) {
   .play_now {
     width: 90%;
     margin: 0 auto;
   }
+
   .table .table_field {
     width: 78%;
     left: 50%;
     transform: translate(-50%);
+
     .video_frame {
       position: absolute;
       width: 24vw;
       top: -7%;
     }
   }
+
   .table .table_field .plyr {
     width: 7vw;
   }
+
   .login .login_block .login_button input,
   .login .login_block .login_button select {
     padding: 0px 0px;
   }
+
   .table .player5 {
     bottom: 1%;
   }
+
   .winner-pot-name {
     width: 150px;
   }
+
   .player1 .winner-pot-name {
     top: -20%;
     left: 170%;
@@ -371,6 +403,7 @@ body {
   z-index: 3;
   top: 0;
   left: 0;
+
   .loader {
     // width: 60%;
     width: 220px;
@@ -394,15 +427,17 @@ body {
   padding: 0 20px;
   min-height: 35px;
   line-height: 35px;
-  color: #fff;
+  color: $white;
+
   &.btn-green {
     background: linear-gradient(to bottom, #497911 0%, #4CAF50 100%);
   }
+
   &.btn-red {
     background: linear-gradient(to bottom, #871c14 0%, #F44336 100%);
   }
 }
 
-.color-white{
-  color: #fff;
+.color-white {
+  color: $white;
 }

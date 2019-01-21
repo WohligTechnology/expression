@@ -6,8 +6,8 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   })
   console.log(window.location.href)
   console.log($state.current.name)
-  var accessToken = $.jStorage.get("accessToken");
-  console.log("accesstoken", $.jStorage.get("accessToken"));
+  // var accessToken = $.jStorage.get("accessToken");
+  // console.log("accesstoken", $.jStorage.get("accessToken"));
   $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -74,10 +74,10 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
 
 
   // //js Storage 
-  $scope.accessToken = $.jStorage.get("accessToken");
-  if ($scope.accessToken) {
-    $state.go("lobby");
-  }
+  // $scope.accessToken = $.jStorage.get("accessToken");
+  // if ($scope.accessToken) {
+  //   $state.go("lobby");
+  // }
   $ionicPlatform.registerBackButtonAction(function (event) {
     ionic.Platform.exitApp();
   }, 100);

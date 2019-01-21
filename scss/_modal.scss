@@ -7,7 +7,7 @@
   width: 80%;
   background-color: #3d236c;
   background-size: 100% 100%;
-  color: white; // font-family: 'Cinzel-Regular';
+  color: $white; // font-family: 'Cinzel-Regular';
   padding: 0% 2% 2% 2%;
 
   ion-content {
@@ -46,7 +46,7 @@
       // border-image-slice: 2;
       // border-bottom: 1px solid;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      color: white;
+      color: $white;
       padding: 2px 3%;
       height: 1.8em;
       margin: 0px 1%;
@@ -56,7 +56,7 @@
         font-size: 1em;
         background-color: #3f474f; // background: url('../img/model/input_bg.png');
         // background-size: 100% 100%;
-        color: white;
+        color: $white;
         padding: 2px 3%;
       }
     }
@@ -64,7 +64,7 @@
     input {
       display: inline-block;
       padding: 2%;
-      color: white;
+      color: $white;
       font-family: 'Cinzel-Regular';
       font-size: 1em;
       background: url('../img/model/input_bg.png');
@@ -294,7 +294,7 @@
     // background: url("../img/model/submit_background.png");
     background: linear-gradient(to bottom, rgba(152, 56, 83, 0.48) 0%, #983853 100%);
     background-size: 100% 100%;
-    color: white;
+    color: $white;
     padding: 5px 25px;
     border: 0px;
   }
@@ -380,7 +380,7 @@
 //table Scss
 .custom-table .item {
   background: transparent;
-  color: #fff;
+  color: $white;
   font-size: 1em;
 }
 
@@ -502,7 +502,7 @@ ion-item.item {
           font-weight: bold; // font-family: 'Cinzel-Bold';
           font-weight: bold;
           font-size: 1em;
-          color: white;
+          color: $white;
           background: transparent;
 
           &::-webkit-input-placeholder {
@@ -670,7 +670,7 @@ span.valid {
   font-weight: 600;
   font-size: 18px;
   letter-spacing: 0.5px;
-  color: #fff;
+  color: $white;
   padding: 10px 0;
   margin: -1px -2%;
   z-index: 1;
@@ -692,7 +692,7 @@ span.valid {
 
   h5,
   a {
-    color: #fff;
+    color: $white;
     font-weight: normal;
     text-decoration: none;
   }
@@ -722,7 +722,7 @@ span.valid {
 .faq-modal {
   background-color: transparent;
   background-size: 100% 100%;
-  color: white; // padding: 2%;
+  color: $white; // padding: 2%;
 
   .scroll-content {
     top: 15%;
@@ -748,7 +748,7 @@ span.valid {
   font-size: 15px;
   font-weight: 600;
   background: #43217f;
-  color: #fff;
+  color: $white;
   box-shadow: inset 1px 0px 6px 0px black;
   border-top: 1px solid #7549a4;
   border-radius: 4px;
@@ -862,7 +862,7 @@ span.valid {
   }
 
   .rz-bubble {
-    color: #fff;
+    color: $white;
     font-weight: 600;
     font-size: 1.3em;
   }
@@ -885,13 +885,13 @@ span.valid {
   }
 
   .balance {
-    color: #fff;
+    color: $white;
     font-weight: 600;
     font-size: 1.2em;
   }
 
   .auto-rebuy {
-    color: white;
+    color: $white;
     font-size: 1em;
   }
 
@@ -929,7 +929,7 @@ span.valid {
     width: 11px;
     top: 18%;
     left: 18%;
-    border: 2px solid #000;
+    border: 2px solid $black;
     border-top: 0;
     border-right: 0;
   }
@@ -989,7 +989,7 @@ span.valid {
 //private table
 
 .private-no {
-  color: $bg-background;
+  color: $black;
   padding: 11px 10px;
   margin: 35px 59px;
 }

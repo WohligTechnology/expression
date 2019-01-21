@@ -1,27 +1,32 @@
 .lobby {
-  // background: url("../img/lobby/background.jpg");
-  // background-size: 100% 100%;
-  background: $bg-background;
+  background-color: $app-background;
+  background-image: radial-gradient($button-bg, $app-background, $header-bg);
+  // background-image: linear-gradient(to right, $header-bg, $button-bg, $header-bg);
   width: 100vw;
   height: 100vh;
+
   .top {
     position: relative;
     top: 0;
     z-index: 5;
+
     .right {
       .profile {
         display: flex;
         flex-direction: row;
         align-items: center;
+
         .pic {
           width: 10vw;
           margin: 5%;
           margin-right: 2%;
+
           img {
             max-width: 100%;
             max-height: 100%;
           }
         }
+
         .info {
           white-space: nowrap;
           text-align: center;
@@ -30,6 +35,7 @@
         }
       }
     }
+
     .left {
       .setting {
         margin: 10px;
@@ -37,10 +43,12 @@
       }
     }
   }
+
   .main {
     width: 100vw;
     height: 100vh;
     position: absolute;
+
     .logo {
       width: 40%;
       margin: 0 auto;
@@ -48,36 +56,44 @@
       transition: all 500ms;
       opacity: 1;
       visibility: visible;
+
       img {
         max-width: 100%;
       }
     }
+
     .category {
       width: 95%;
       margin: 0 auto;
       transition: all 500ms;
+
       .col {
         // height: 44vh;
         padding: 10px;
         text-align: center;
         position: relative;
+
         img {
           max-width: 100%;
           max-height: 100%;
         }
       }
+
       span {
         font-size: 0.8em;
         padding-right: 4px;
         padding-left: 7px;
       }
+
       p {
         font-size: 0.7em;
         line-height: 1.5em;
       }
-      .fnt-1em{
+
+      .fnt-1em {
         font-size: 0.9em;
-      } 
+      }
+
       h6 {
         margin-bottom: 0px;
         font-weight: 600;
@@ -85,19 +101,21 @@
         font-size: 1.1em;
       }
     }
+
     .custom_Card_button {
       line-height: 0.2;
       padding: 0px 5px;
       min-height: 20px;
       margin-bottom: 10%;
       text-align: center; // vertical-align: middle;
-      color: white;
+      color: $white;
       font-weight: bold;
       /* font-family: 'Cinzel-Bold'; */
       font-weight: bold;
       font-size: 0.8em;
       border: 0px;
     }
+
     .variation_type {
       width: 75%;
       opacity: 0;
@@ -105,21 +123,25 @@
       transition: all 500ms;
     }
   }
+
   .variation_active {
     .logo {
       transition: all 500ms;
       opacity: 0;
       visibility: hidden;
     }
+
     .play_type {
       margin-top: -10%;
       transition: 500ms;
+
       .play_now,
       .play_joker,
       .private_table {
         opacity: .3;
       }
     }
+
     .variation_type {
       transition: all 500ms;
       opacity: 1;
@@ -134,14 +156,17 @@
       background: url('../img/lobby/card1.png') no-repeat;
       background-size: 100%;
     }
+
     &:nth-child(2n+0) .play_now {
       background: url('../img/lobby/card2.png') no-repeat;
       background-size: 100%;
     }
+
     &:nth-child(3n+0) .play_now {
       background: url('../img/lobby/card3.png') no-repeat;
       background-size: 100%;
     }
+
     &:nth-child(4n+0) .play_now {
       background: url('../img/lobby/card4.png') no-repeat;
       background-size: 100%;
@@ -189,11 +214,12 @@
 }
 
 .user-name {
-  color: #fff;
+  color: $white;
   font-size: 1em;
   font-weight: 600;
   text-transform: capitalize;
   background: #803aca;
+
   &.user-amount {
     background: #6d33aa;
   }
@@ -204,21 +230,24 @@
 .profile_menu {
   .menu_cont {
     width: 40%; // background: linear-gradient(to right, #331e48 30%, #291a3b 70%);
-    // background: linear-gradient(to right, #9f63df 0%, #261638 60%, #261638 76%, #261638 85%, #000 100%);
+    // background: linear-gradient(to right, #9f63df 0%, #261638 60%, #261638 76%, #261638 85%, $black 100%);
     background-image: url("../img/lobby/sidebg.png");
     background-size: 100% 100%;
     height: 100%;
     transition: all 500ms;
+
     .close {
       position: absolute;
       font-size: 1.5em;
       padding: 1%;
     }
+
     .profile {
       display: flex;
       flex-direction: row;
       padding: 10%;
       padding-bottom: 5%;
+
       .details {
         flex: .75;
         overflow: hidden;
@@ -226,6 +255,7 @@
         text-overflow: ellipsis;
         padding-right: 2%;
         line-height: 1.5;
+
         .amt {
           .coin {
             width: 1em;
@@ -234,16 +264,19 @@
           }
         }
       }
+
       .profile_pic {
         flex: .25;
         align-self: center;
       }
     }
+
     .menu_list {
       .list {
         overflow: scroll;
         height: 65vh;
       }
+
       .item {
         background: transparent;
         color: #cebd22;
@@ -254,11 +287,13 @@
         border-bottom: 1px solid;
         border-image-slice: 2;
         padding: 3% 10%;
+
         i {
           padding-right: 5%;
           vertical-align: text-top;
           font-size: 1.2em;
         }
+
         .item-content {
           background: transparent;
           color: #cebd22;
@@ -276,11 +311,13 @@
   // background: url('../img/sidemenu_bg.png');
   // background-size: 100% 100%;
   background: rgba(0, 0, 0, 0.5);
+
   .menu_cont {
     width: 40%; // background: url('../img/menu_bg.png');
     background-size: 100% 100%; // border: 1px solid transparent;
     height: 100%;
     transition: all 500ms;
+
     .heading {
       background: url('../img/menu_heading.png');
       background-size: 100% 100%;
@@ -288,38 +325,46 @@
       padding: 4% 5%;
       margin-left: 1px;
       margin-right: 1px;
+
       span {
         padding-left: 10%;
       }
+
       i {
         float: right;
         padding-right: 5%;
       }
     }
+
     .menu_list {
       a {
         background: none;
         padding: none;
       }
+
       .list {
         width: 100%;
         height: 100%;
       }
-    } //to open from right
+    }
+
+    //to open from right
     .item {
       background: transparent;
-      color: white;
+      color: $white;
       border: none;
       font-size: 1em;
       border-image: linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%);
       border-bottom: 1px solid;
       border-image-slice: 2;
       padding: 5% 10%;
+
       .item-content {
         background: transparent;
-        color: white; // padding: 4% 10%;
+        color: $white; // padding: 4% 10%;
         padding: 0px;
       }
+
       .custom_toggle {
         display: inline-block;
         width: 5em;
@@ -327,12 +372,14 @@
         position: absolute;
         right: 10%;
         top: 10%;
+
         &.toggle_on {
           // background: url("../img/on.png");
           background-size: 100% 100%; // width: 4em;
           // height: 2.5em;
           // top: 15%;
         }
+
         &.toggle_off {
           // background: url("../img/off.png");
           background-size: 100% 100%;
@@ -355,4 +402,159 @@
   background-image: url("../img/login/bgblue.png");
   width: 100%;
   height: 30px;
+}
+
+/**New Lobby**/
+.lobby-bar {
+  background: $app-background;
+
+  .lobby-header {
+    margin-top: 10px;
+    background: $header-bg;
+    padding-left: 0px;
+
+    .left-head {
+      background: $button-bg;
+      padding: 5px 0 5px 5px;
+
+      .amount {
+        position: relative;
+        font-size: large;
+        transform: translate(-3%, -60%);
+        padding: 0 10px;
+        display: inline-block;
+        font-weight: 700;
+      }
+
+      .poker-coin-logo {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -3px;
+      }
+
+      .bar .button,
+      .bar button {
+        line-height: 27px
+      }
+
+      .plus-icon {
+        border: 0px $pink-bg;
+        position: relative;
+        transform: translateY(-35%);
+      }
+
+      .ion {
+        background: $pink-bg;
+      }
+
+      .ion-plus::before {
+        color: $white;
+        font-weight: 700;
+        line-height: 27px;
+        margin: 2px 0;
+      }
+    }
+
+    .right-icons {
+      position: absolute;
+      right: inherit;
+      padding-right: 10px;
+
+      .button {
+        margin-left: 5px;
+      }
+
+      .button-icon {
+        background: $button-bg;
+        // padding-left: 10px;
+      }
+
+      .button-icon::before {
+        color: $white;
+      }
+
+      .ribbon-badge {
+        position: absolute;
+        top: -10px;
+        right: 58px;
+        font-size: 12px;
+        padding: 2px;
+        width: 19px;
+        height: 19px;
+        background-color: $pink-bg;
+        color: $white;
+      }
+    }
+  }
+}
+
+.tables-content {
+  transform: translateY(42%);
+  max-width: 275px;
+  margin: 0 auto;
+  // background: linear-gradient(to bottom, $button-bg, $app-background);
+  background: $lobby-table;
+  border-radius: 20px;
+
+  .table-type {
+    h3 {
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+
+    .virtual {
+      color: $pink-bg;
+    }
+
+    .live {
+      color: $yellow;
+    }
+  }
+
+  .tables {
+    max-width: 220px;
+  }
+}
+
+.live-players {
+  position: relative;
+  top: 34%;
+  transform: translate(18%, 40%);
+}
+
+.lobby-footer {
+  background-color: transparent;
+  background-image: none;
+  padding: 0px;
+
+  .refer-btn {
+    border-radius: 0px;
+    color: $white;
+    padding: 5px 15px;
+    font-weight: 700;
+    font-size: 15px !important;
+  }
+
+  .users-online {
+    position: absolute;
+    right: inherit;
+    text-align: center;
+    bottom: inherit;
+    transform: translate(-13%, -30%);
+
+    .ion-person-stalker {
+      font-size: 25px;
+    }
+
+    .player-num {
+      font-size: 16px;
+      font-weight: 600;
+      color: $white;
+    }
+  }
+}
+
+.pinkbg {
+  background: $pink-bg;
 }

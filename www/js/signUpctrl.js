@@ -2,6 +2,14 @@ myApp.controller("SignUpCtrl", function ($scope, Service, $state, $ionicPlatform
   $ionicPlatform.ready(function () {
     screen.orientation.lock('portrait');
   })
+  $scope.notMatching = false;
+  $scope.matchPasswords = function (data) {
+    if (!_.isEqual(data.password, data.confirmPassword)) {
+      $scope.notMatching = true;
+    } else {
+      $scope.notMatching = false;
+    }
+  }
   $scope.signUpStatus = false;
   $scope.signUpError = false;
   $scope.signUp = function (data, signup) {
