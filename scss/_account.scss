@@ -1,0 +1,75 @@
+.account-profile {
+
+  .profile-img {
+    height: 125px;
+    width: 125px;
+    border-radius: 100%;
+    border: 2px solid $white;
+    margin-top: 4em;
+  }
+
+  .profile-name {
+    font-size: 22px;
+    margin-top: 10px;
+    font-weight: 600;
+  }
+}
+
+.account-bal {
+  padding: 5px 25px;
+  background: $pink-bg;
+  width: 100%;
+  margin-top: 15px;
+  margin: 15px auto;
+  text-align: -webkit-center;
+
+  .ac-bal {
+    display: -webkit-inline-box;
+    text-align: initial;
+  }
+
+  .poker-coin-logo {
+    max-width: 45px;
+    max-height: 45px;
+    vertical-align: -webkit-baseline-middle;
+  }
+
+  .amount {
+    font-size: 22px;
+    font-weight: 600;
+    position: relative;
+    top: 15px;
+    padding-left: 20px;
+  }
+}
+
+.add-withdraw {
+  margin-bottom: 10em;
+
+
+  .btn-account {
+    width: 95%;
+    color: $white;
+    font-weight: 700;
+    font-size: 17px;
+  }
+
+  .btn-add {
+    background: $button-green;
+  }
+
+  .btn-withdraw {
+    background: $button-yellow;
+  }
+}
+
+.account-list {
+  .item {
+    border-style: hidden hidden solid hidden;
+    border-width: 0px 0px 1px 0px;
+    background: transparent;
+    padding: 16px 35px;
+    color: $white;
+    border-color: rgba(221, 221, 221, 0.43);
+  }
+}

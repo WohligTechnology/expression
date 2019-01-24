@@ -1,0 +1,96 @@
+<ion-view class="lobby">
+  <ion-header-bar class="lobby-bar">
+    <div class="profile-header header-title">
+      <div class="bar bar-header lobby-header">
+        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <h1 class="title title-white">My Profile</h1>
+      </div>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <div class="change-pswd">
+      <a ui-sref="change-password">Change Password</a>
+    </div>
+    <div class="profile-tabs">
+      <div class="row text-center">
+        <div class="col-30 tab-item text-center"><a ng-click="goToTab('Personal')">Personal Details</a> </div>
+        <div class="col-30 tab-item text-center"><a ng-click="goToTab('Account')">Account Details</a></div>
+        <div class="col-30 tab-item text-center"><a ng-click="goToTab('Bank')">Bank Details</a></div>
+      </div>
+    </div>
+    <div class="profile-detail" ng-show="showThis=='Personal'">
+      <div class="list profile-detail-list">
+        <form name="profileData">
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Username</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="userName" placeholder="John123">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Email</span>
+            <input type="email" class="padd-lr color-white bor-bot" name="email" placeholder="sample@gmail.com">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Fisrt Name</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="firstName" placeholder="ABC">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Last Name</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="lastName" placeholder="XYZ">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Date of Birth</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="dob" placeholder="DOB" pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$" />
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Gender</span>
+          </label>
+          <div class="gender">
+            <label class="container padd-right">Male
+              <input type="radio" name="radio" value="male">
+              <span class="checkmark"></span>
+            </label>
+
+            <label class="container">Female
+              <input type="radio" name="radio" value="female">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+          <!-- </label> -->
+
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Contact</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="contact" placeholder="9876543210">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Address Line 1</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="addrressL1" placeholder="">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Address Line 2</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="addrressL2" placeholder="">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">City</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="city" placeholder="City">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Pincode</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="pincode" placeholder="">
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">State</span>
+            <!-- <input type="text" class="padd-lr color-white bor-bot" name="state" placeholder=""> -->
+            <select ng-model="data.state" class="col select-padd-lr color-white bor-bot" ng-options="x for x in state"
+              placeholder="Select State.." name="state">
+              <option value="" disabled hidden selected>State</option>
+            </select>
+          </label>
+          <label class="item item-input item-stacked-label">
+            <span class="input-label">Country</span>
+            <input type="text" class="padd-lr color-white bor-bot" name="country" placeholder="">
+          </label>
+        </form>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

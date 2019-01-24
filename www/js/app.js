@@ -102,7 +102,6 @@ var myApp = angular
       //   templateUrl: 'templates/app.html',
       //   controller: 'AppCtrl'
       // })
-
       .state("lobby", {
         url: "/lobby",
         cache: false,
@@ -127,6 +126,24 @@ var myApp = angular
         cache: false,
         controller: "SignUpCtrl"
       })
+      .state("profile", {
+        url: "/profile",
+        templateUrl: "templates/profile.html",
+        cache: false,
+        controller: "ProfileCtrl"
+      })
+      .state("change-password", {
+        url: "/change-password",
+        templateUrl: "templates/change-password.html",
+        cache: false,
+        controller: "ProfileCtrl"
+      })
+      .state("account", {
+        url: "/account",
+        templateUrl: "templates/account.html",
+        cache: false,
+        controller: "AccountCtrl"
+      })
       .state("addamount", {
         url: "/addamount",
         templateUrl: "templates/add-amount.html",
@@ -137,7 +154,7 @@ var myApp = angular
         url: "/withdrawal",
         templateUrl: "templates/withdrawal-amount.html",
         cache: false,
-        controller: "WithDrawalCtrl"
+        controller: "WithdrawalCtrl"
       })
       .state("table", {
         url: "/table/:id",

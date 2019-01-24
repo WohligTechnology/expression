@@ -2,4 +2,6 @@
 
 
 
-myApp.controller("AppCtrl", function ($scope) {});
+myApp.controller("AppCtrl", function ($scope) {
+
+});

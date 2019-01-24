@@ -82,6 +82,7 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
   $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
   };
+  */
   //*************basic ui login***************
   //to close all tab,modal,popup
   $scope.closeAll = function () {
@@ -98,7 +99,7 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
     $scope.activeVariation = !$scope.activeVariation;
   }
 
-*/
+
   //left menu
   $scope.openLeftMenu = function () {
     $scope.leftMenu = true;
@@ -483,135 +484,136 @@ myApp.controller('LobbyCtrl', function ($scope, $window, $ionicPlatform, $state,
       // $scope.privateLogInModal.remove();
       $scope.rulesModal.remove();
     });
-    //terms and condition modal
-    $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function (modal) {
-      $scope.modal = modal;
-    });
-    $scope.termsAndCondition = function () {
-      $scope.modal.show();
-    };
-    $scope.closeTermsModal = function () {
-      $scope.modal.hide();
-    };
+    */
+  //terms and condition modal
+  $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.termsAndCondition = function () {
+    $scope.modal.show();
+  };
+  $scope.closeTermsModal = function () {
+    $scope.modal.hide();
+  };
 
-    //faq modal
-    $ionicModal.fromTemplateUrl('templates/modal/faq.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function (faqModal) {
-      $scope.faqModal = faqModal;
-    });
-    $scope.modalfaq = function () {
-      $scope.faqModal.show();
-    };
-    $scope.closeFaqModal = function () {
-      $scope.faqModal.hide();
-    };
-    $scope.changetab = "question";
-    $scope.changeTab = function (data) {
-      console.log("***********", data)
-      $scope.changetab = data;
+  //faq modal
+  $ionicModal.fromTemplateUrl('templates/modal/faq.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (faqModal) {
+    $scope.faqModal = faqModal;
+  });
+  $scope.modalfaq = function () {
+    $scope.faqModal.show();
+  };
+  $scope.closeFaqModal = function () {
+    $scope.faqModal.hide();
+  };
+  $scope.changetab = "question";
+  $scope.changeTab = function (data) {
+    console.log("***********", data)
+    $scope.changetab = data;
+  }
+
+  //game-price-range modal
+
+  $ionicModal.fromTemplateUrl('templates/modal/game-price-range.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (gameModal) {
+    $scope.gameModal = gameModal;
+  });
+  $scope.modalgame = function () {
+    $scope.gameModal.show();
+  };
+  $scope.closeGameModal = function () {
+    $scope.gameModal.hide();
+  };
+  $scope.changetab = "question";
+  $scope.changeTab = function (data) {
+    console.log("***********", data)
+    $scope.changetab = data;
+  }
+  //range slider
+  $scope.slider = {
+    value: 150,
+    options: {
+      floor: 10,
+      ceil: 200
+    },
+  }
+  //range slider
+  $scope.verticalSlider = {
+    value: 0,
+    options: {
+      floor: 0,
+      ceil: 10,
+      vertical: true
     }
+  };
 
-    //game-price-range modal
-
-    $ionicModal.fromTemplateUrl('templates/modal/game-price-range.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function (gameModal) {
-      $scope.gameModal = gameModal;
-    });
-    $scope.modalgame = function () {
-      $scope.gameModal.show();
-    };
-    $scope.closeGameModal = function () {
-      $scope.gameModal.hide();
-    };
-    $scope.changetab = "question";
-    $scope.changeTab = function (data) {
-      console.log("***********", data)
-      $scope.changetab = data;
-    }
-    //range slider
-    $scope.slider = {
-      value: 150,
-      options: {
-        floor: 10,
-        ceil: 200
-      },
-    }
-    //range slider
-    $scope.verticalSlider = {
-      value: 0,
-      options: {
-        floor: 0,
-        ceil: 10,
-        vertical: true
-      }
-    };
-
-    //user profile modal
-    $ionicModal.fromTemplateUrl('templates/modal/user-profile.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function (profileModal) {
-      $scope.profileModal = profileModal;
-    });
-    $scope.modalProfile = function () {
-      $scope.profileModal.show();
-    };
-    $scope.closeProfileModal = function () {
-      $scope.profileModal.hide();
-    };
+  //user profile modal
+  $ionicModal.fromTemplateUrl('templates/modal/user-profile.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (profileModal) {
+    $scope.profileModal = profileModal;
+  });
+  $scope.modalProfile = function () {
+    $scope.profileModal.show();
+  };
+  $scope.closeProfileModal = function () {
+    $scope.profileModal.hide();
+  };
 
 
-    //voucher modal
-    $ionicModal.fromTemplateUrl('templates/modal/voucher.html', {
-      scope: $scope,
-      animation: 'slide-in-up'
-    }).then(function (voucherModal) {
-      $scope.voucherModal = voucherModal;
-    });
-    $scope.modalVoucher = function () {
-      $scope.voucherModal.show();
-    };
-    $scope.closeVoucherModal = function () {
-      $scope.voucherModal.hide();
-    };
-    //voucher 
+  //voucher modal
+  $ionicModal.fromTemplateUrl('templates/modal/voucher.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (voucherModal) {
+    $scope.voucherModal = voucherModal;
+  });
+  $scope.modalVoucher = function () {
+    $scope.voucherModal.show();
+  };
+  $scope.closeVoucherModal = function () {
+    $scope.voucherModal.hide();
+  };
+  //voucher 
 
-    $scope.vouchers = function (data) {
-      Service.getVoucher(data, function (data) {
-        console.log(data);
-        $scope.message = {};
-        if (data.data.value) {
-          console.log(data.data.data[1]);
-          $scope.voucher = data.data.data[1];
-          $scope.voucherAmount = $scope.voucher[0].amount;
-          console.log($scope.voucherAmount);
-          $scope.closeVoucherModal();
+  $scope.vouchers = function (data) {
+    Service.getVoucher(data, function (data) {
+      console.log(data);
+      $scope.message = {};
+      if (data.data.value) {
+        console.log(data.data.data[1]);
+        $scope.voucher = data.data.data[1];
+        $scope.voucherAmount = $scope.voucher[0].amount;
+        console.log($scope.voucherAmount);
+        $scope.closeVoucherModal();
+        $scope.message = {
+          heading: "Voucher Redeem Successfully",
+          content: "Voucher amount of " + $scope.voucherAmount + " has been Redeem Successfully",
+          error: true
+        };
+        $scope.showMessageModal();
+      };
+      if (data.data.error) {
+        if (data.data.error.msg == "Voucher code already used") {
           $scope.message = {
-            heading: "Voucher Redeem Successfully",
-            content: "Voucher amount of " + $scope.voucherAmount + " has been Redeem Successfully",
-            error: true
-          };
-          $scope.showMessageModal();
-        };
-        if (data.data.error) {
-          if (data.data.error.msg == "Voucher code already used") {
-            $scope.message = {
-              heading: "Voucher code already used",
-            };
-          };
-          if (data.data.error.msg == "Invalide voucher code.") {
-            $scope.message = {
-              heading: "Invalid voucher code.",
-            };
+            heading: "Voucher code already used",
           };
         };
-      });
-    };*/
+        if (data.data.error.msg == "Invalide voucher code.") {
+          $scope.message = {
+            heading: "Invalid voucher code.",
+          };
+        };
+      };
+    });
+  };
 });

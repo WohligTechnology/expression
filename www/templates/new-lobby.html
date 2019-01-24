@@ -4,41 +4,87 @@
       <div class="left-head">
         <img src="img/lobby/poker-coin-logo.png" alt="" class="poker-coin-logo">
         <p class="amount">8,76,543</p>
-        <button class="plus-icon ion icon ion-plus pinkbg"></button>
+        <button class="plus-icon ion icon ion-plus pinkbg" ui-sref="account"></button>
       </div>
       <div class="right-icons">
         <button class="button button-icon ion icon ion-gear-b "></button>
         <button class="button button-icon ion icon ion-ribbon-b"></button>
+        <button class="button button-icon ion icon ion-navicon-round" ng-click="toggleRightSideMenu()"></button>
         <span class="ribbon-badge badge">10</span>
-        <button class="button button-icon ion icon ion-navicon-round"></button>
       </div>
     </div>
   </ion-header-bar>
   <ion-content scroll="false" class="">
-    <div class="row">
-      <div class="col-50 text-center">
-        <div class="tables-content padding">
-          <div class="table-type">
-            <h3 class="virtual">Virutal Poker</h3>
+    <ion-side-menus class="lobby-bg">
+      <ion-side-menu side="right">
+        <!-- <button class="button button-icon ion icon ion-navicon-round" ng-click="toggleRightSideMenu()"></button> -->
+        <!-- <button menu-toggle="right" class="button button-icon icon ion-navicon"></button> -->
+        <ion-content class="main-menu">
+          <a class="item item-thumbnail-left lobby-profile" ui-sref="profile" menu-close>
+            <img src="img/player_pic.png" />
+            <h3 class="player-name fw600">Ganesh Avahad</h3>
+            <small class="fw600">Player Id: <span class="player-number">1234567890</span></small>
+            <div class="wallet-balance">
+              <img src="img/lobby/poker-coin-logo.png" alt="" class="poker-coin-logo">
+              <p class="amount fw600">8,76,543</p>
+            </div>
+          </a>
+          <ion-list>
+            <ion-item menu-close ng-click="goToShop()">
+              <i class=" ion-chatboxes "></i>FAQs
+            </ion-item>
+            <ion-item menu-close ng-click="goToCategories()">
+              <i class="ion-refresh"></i>Reset Password
+            </ion-item>
+            <ion-item menu-close ng-click="viewNotification()">
+              <i class=" ion-ios7-help"></i>Vibration
+            </ion-item>
+            <ion-item menu-close ng-click="recentlyAdded();">
+              <i class="ion-volume-high"></i>
+              Sound
+            </ion-item>
+            <ion-item menu-close ng-click="logout();">
+              <i class="ion-power"></i>Logout
+            </ion-item>
+            <ion-item menu-close ng-click="logout();">
+              <i class="ion-ios7-information"></i>Privacy Policy
+            </ion-item>
+            <ion-item menu-close ng-click="termsAndCondition();">
+              <i class="ion-android-note"></i>Terms & Conditions
+            </ion-item>
+          </ion-list>
+          <!-- </ion-content> -->
+      </ion-side-menu>
+      <ion-side-menu-content class="lobby-bg">
+
+        <div class="row">
+          <div class="col-50 text-center">
+            <div class="tables-content padding">
+              <div class="table-type">
+                <h3 class="virtual">Virutal Poker</h3>
+              </div>
+              <img src="img/table.png" alt="" class="tables">
+            </div>
           </div>
-          <img src="img/table.png" alt="" class="tables">
-        </div>
-      </div>
-      <div class="col-50 text-center">
-        <div class="tables-content padding">
-          <div class="table-type">
-            <h3 class="live">Live Poker</h3>
+          <div class="col-50 text-center">
+            <div class="tables-content padding">
+              <div class="table-type">
+                <h3 class="live">Live Poker</h3>
+              </div>
+              <img src="img/table.png" alt="" class="tables">
+            </div>
+            <div class="live-players">
+              <ion-icon class="icon ion-person-stalker" name="ion-person-stalker"></ion-icon>
+              <span class="player-num">320 Players</span>
+            </div>
           </div>
-          <img src="img/table.png" alt="" class="tables">
         </div>
-        <div class="live-players">
-          <ion-icon class="icon ion-person-stalker" name="ion-person-stalker"></ion-icon>
-          <span class="player-num">320 Players</span>
         </div>
-      </div>
-    </div>
-    </div>
+
+      </ion-side-menu-content>
+    </ion-side-menus>
   </ion-content>
+  <!-- <ion-footer-bar> -->
   <div class="bar bar-footer lobby-footer">
     <!-- <div class="title">Footer</div> -->
     <button class="button button-icon pinkbg refer-btn">Refer Friends</button>
@@ -48,4 +94,5 @@
       <span class="player-num">320 Players</span>
     </div>
   </div>
+  <!-- </ion-footer-bar> -->
 </ion-view>

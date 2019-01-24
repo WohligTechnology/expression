@@ -20,6 +20,8 @@ $color:#FF8072 !default;
 $yellow:#ebbd15 !default;
 $blue:#10fbf7 !default;
 $orange:#f5510a !default;
+$button-green: #00c000 !default;
+$button-yellow: #dda100 !default;
 $black:#000 !default;
 $white: #fff !default;
 $pink-bg: #e93e66 !default;
@@ -27,6 +29,8 @@ $input-bg: rgba(35, 35, 35, 0.62) !default;
 $app-background: #005658 !default;
 $header-bg: #004040 !default;
 $button-bg: #0c7b7b !default;
+$profile-label: #5bfdff !default;
+$profile-bg: #0e6a6b !default;
 $border-image:linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%) !default;
 $lobby-table: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), #0c7b7b, rgba(0, 86, 88, 0.18));
 $ionicons-font-path: "../lib/ionic/fonts" !default;
@@ -82,7 +86,7 @@ body {
 }
 
 .heading-yellow {
-  color: $yellow;
+  color: $button-yellow;
 }
 
 .heading-blue {
@@ -303,6 +307,8 @@ body {
 @import "timer";
 @import "signup";
 @import "addamount";
+@import "profile";
+@import "account";
 
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape) {
   .play_now {
@@ -439,5 +445,27 @@ body {
 }
 
 .color-white {
+  color: $white !important;
+}
+
+.input-select {
+
+  input,
+  select {
+    padding: 0px 0px;
+    // height: 100%;
+    font-weight: bold; // font-family: 'Cinzel-Bold';
+    font-size: 2em;
+    color: $white;
+    // background-color: rgba(46, 89, 92, 0.62),
+    background-color: $input-bg; // background-color: #2e595c;
+  }
+}
+
+.ion-arrow-left-c::before {
   color: $white;
+}
+
+.bor-bot {
+  border-bottom: 1px solid $pink-bg !important;
 }

@@ -485,12 +485,18 @@
         background-color: $pink-bg;
         color: $white;
       }
+
+      .menu {
+        position: relative;
+        width: auto;
+        background-color: transparent;
+      }
     }
   }
 }
 
 .tables-content {
-  transform: translateY(42%);
+  transform: translateY(39%);
   max-width: 275px;
   margin: 0 auto;
   // background: linear-gradient(to bottom, $button-bg, $app-background);
@@ -508,7 +514,7 @@
     }
 
     .live {
-      color: $yellow;
+      color: $button-yellow;
     }
   }
 
@@ -520,7 +526,7 @@
 .live-players {
   position: relative;
   top: 34%;
-  transform: translate(18%, 40%);
+  transform: translate(18%, -50%);
 }
 
 .lobby-footer {
@@ -557,4 +563,84 @@
 
 .pinkbg {
   background: $pink-bg;
+}
+
+.lobby-bg {
+  background-color: $app-background;
+  background-image: radial-gradient($button-bg, $app-background, $header-bg);
+
+  .menu {
+    top: 10px;
+    background-color: $app-background;
+    // background-image: radial-gradient($button-bg, $app-background, $header-bg);
+
+    .main-menu {
+      .item {
+        background-color: $app-background;
+        border-width: 0px;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: rgba(221, 221, 221, 0.54);
+        color: $white;
+      }
+
+      i {
+        margin-right: 5px;
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }
+
+    .lobby-profile>img:first-child {
+      max-width: 70px;
+      max-height: 70px;
+    }
+
+    .lobby-profile {
+      padding-left: 90px;
+
+      .wallet-balance {
+        margin-top: 4px;
+        display: -webkit-box;
+
+        img {
+          max-width: 25px;
+        }
+
+        .amount {
+          padding-left: 10px;
+          color: $white;
+          position: relative;
+          top: 2px;
+        }
+      }
+
+      .player-name {
+        font-size: 20px;
+        color: $white;
+        margin: 4px 0 0 0;
+      }
+
+      .player-number {
+        color: $pink-bg;
+      }
+    }
+  }
+
+}
+
+.menu-open {
+  .menu-content.lobby-bg {
+    background-color: rgba(0, 0, 0, 0.77);
+    background-image: none;
+    opacity: 0.75;
+  }
+
+  .lobby-footer {
+    visibility: hidden;
+  }
+}
+
+.fw600 {
+  font-weight: 600 !important;
 }
