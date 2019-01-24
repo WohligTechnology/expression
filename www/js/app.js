@@ -156,6 +156,12 @@ var myApp = angular
         cache: false,
         controller: "WithdrawalCtrl"
       })
+      .state("transfer-statement", {
+        url: "/transfer-statement",
+        templateUrl: "templates/transfer-statement.html",
+        cache: false,
+        controller: "TransferStatementCtrl"
+      })
       .state("table", {
         url: "/table/:id",
         cache: false,

@@ -9,15 +9,18 @@
 }
 
 .table {
-  // background: url("../img/background.jpg");
-  background: $black;
+  background: url("../img/in-play-bg.jpg");
+  // background: $black;
   width: 100vw;
   height: 100vh;
   position: relative;
+  background-size: cover;
+  background-position: center center;
 
   .table_field {
     position: absolute; // bottom: 0;
-    bottom: calc(0px + 5.8em);
+    // bottom: calc(0px + 5.8em);
+    bottom: calc(0px + 1.4em);
     width: 100%;
     left: 0;
     text-align: center;
@@ -227,16 +230,20 @@
         &.player4,
         &.player5,
         &.player6 {
-          bottom: -3%;
+          bottom: 16%;
         }
 
         &.player7,
+          {
+          left: 8%
+        }
+
         &.player8 {
           left: 5%;
         }
 
         &.player3 {
-          right: 5%;
+          right: 10%;
         }
       }
 
@@ -317,17 +324,42 @@
     //   min-width: 15%;
     // }
     .player_turn_button {
-      padding: 5px;
-      margin: 1%;
+      display: flex;
+      padding: 5px 5px 3px 15px;
+      // margin: 1%;
       width: 100%;
-      flex: 0.7;
+      flex: 0.8;
       text-align: center;
-      border: 1px solid #7851a2;
+      background: rgba(0, 0, 0, 0.5);
+      // border: 1px solid #7851a2;
+
+      .fold {
+        background: $button-yellow;
+      }
+
+      .call {
+        background: $button-green;
+      }
+
+      .raise {
+        background: $pink-bg;
+      }
+
+      .name-amount {
+        p {
+          font-size: 17px;
+          margin: 0 0 3px;
+          font-weight: 600;
+        }
+      }
 
       button {
         min-width: 24%; // background: rgba(127, 127, 127, 0.471);
+        margin-left: 10px;
+        border-radius: 10px;
         @include gradient_grey;
-        border: 3px solid rgba(0, 0, 0, 0.54);
+        // border: 3px solid rgba(0, 0, 0, 0.54);
+        border: 0px;
         font-size: 1.5em; // padding: 1% 0px;
         height: 2em;
         font-weight: bold;
@@ -335,7 +367,8 @@
         .btn_name {
           font-size: 0.8em;
           vertical-align: middle;
-          color: #cece3f;
+          // color: #cece3f;
+          color: $white;
         }
 
         .light {
@@ -377,9 +410,9 @@
 
         &:disabled {
           .btn_name {
-            color: grey;
-            text-shadow: 0px 0px 25px black;
-            -webkit-text-stroke: 0.2px #000000;
+            // color: grey;
+            // text-shadow: 0px 0px 25px black;
+            // -webkit-text-stroke: 0.2px #000000;
           }
 
           .light {
@@ -405,28 +438,31 @@
     .tip-lobby {
       .button {
         min-height: 20px;
-        font-size: 1.2em;
-        color: #81b781;
+        // font-size: 1.2em;
+        // color: #81b781;
         letter-spacing: 0.5px;
-        text-shadow: 0px 1px 2px #419941;
+        padding: 25px;
+        font-size: 18px;
+        left: -5px;
+        // text-shadow: 0px 1px 2px #419941;
       }
     }
   }
 
   //player position
   .player1 {
-    right: 16%;
-    top: -6%;
+    right: 19%;
+    top: -2%;
   }
 
   .player2 {
-    right: 5%;
-    top: 21%;
+    right: 8%;
+    top: 19%;
   }
 
   .player3 {
-    right: 6%;
-    top: 60%;
+    right: 10%;
+    top: 52%;
   }
 
   .player4 {
@@ -436,7 +472,7 @@
 
   .player5 {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-40%);
     bottom: 3%;
   }
 
@@ -447,7 +483,7 @@
 
   .player7 {
     left: 6%;
-    top: 60%;
+    top: 54%;
   }
 
   .player8 {
@@ -457,7 +493,7 @@
 
   .player9 {
     left: 16%;
-    top: -6%;
+    top: -3%;
   }
 }
 
@@ -1112,8 +1148,8 @@
   }
 
   &.p9 {
-    top: 10% !important;
-    right: 80% !important;
+    top: 3% !important;
+    right: 79% !important;
   }
 
   &.anime-p9 {
@@ -1121,7 +1157,7 @@
   }
 
   &.p8 {
-    top: 40% !important;
+    top: 27% !important;
     right: 90% !important;
   }
 
@@ -1130,8 +1166,8 @@
   }
 
   &.p7 {
-    top: 70% !important;
-    right: 86% !important;
+    top: 60% !important;
+    right: 87% !important;
   }
 
   &.anime-p7 {
@@ -1139,9 +1175,9 @@
   }
 
   &.p6 {
-    bottom: -8% !important;
+    bottom: 22% !important;
     left: unset !important;
-    right: 70% !important;
+    right: 69% !important;
   }
 
   &.anime-p6 {
@@ -1149,9 +1185,9 @@
   }
 
   &.p5 {
-    bottom: -8% !important;
+    bottom: 21% !important;
     left: unset !important;
-    right: 50% !important;
+    right: 47.5% !important;
   }
 
   &.anime-p5 {
@@ -1159,9 +1195,9 @@
   }
 
   &.p4 {
-    bottom: -8% !important;
+    bottom: 22% !important;
     left: unset !important;
-    right: 28% !important;
+    right: 27% !important;
   }
 
   &.anime-p4 {
@@ -1169,9 +1205,9 @@
   }
 
   &.p3 {
-    top: 70% !important;
+    top: 58% !important;
     left: unset !important;
-    right: 5% !important;
+    right: 11% !important;
   }
 
   &.anime-p3 {
@@ -1179,9 +1215,9 @@
   }
 
   &.p2 {
-    top: 40% !important;
+    top: 25% !important;
     left: unset !important;
-    right: 5% !important;
+    right: 9% !important;
   }
 
   &.anime-p2 {
@@ -1189,10 +1225,10 @@
   }
 
   &.p1 {
-    top: 13% !important;
+    top: 4% !important;
     left: unset !important;
-    right: 15% !important;
-    z-index: 0;
+    right: 20% !important;
+    z-index: 3;
   }
 
   &.anime-p1 {
@@ -1621,9 +1657,10 @@
       margin-bottom: 10%;
       text-align: center;
       vertical-align: middle;
-      box-shadow: 0px 0px 2px 1px #553e70;
+      // box-shadow: 0px 0px 2px 1px #553e70;
       transform: translateY(10%);
-      background: #321e4a;
+      // background: #321e4a;
+      background: rgba(0, 0, 0, 0.5);
       // background-image: url(../img/login/bgblue.png);
       background-repeat: no-repeat;
       background-size: cover;
