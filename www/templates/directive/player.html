@@ -1,16 +1,16 @@
 <div class="plyr player{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere || player.tableLeft}">
   <!-- before Player Sitting -->
   <div class="rel width-6vw" ng-if="sitHere && !player">
-    <div class="player_pic"><img src="img/sithere.png" class="pic" /></div>
+    <div class="player_pic"><img src="img/player_pic.png" class="pic" /></div>
   </div>
   <div class="rel" ng-if="player.tableLeft && !sitHere">
-    <div class="player_pic"><img src="img/sithere.png" class="pic" /></div>
+    <div class="player_pic"><img src="img/player_pic.png" class="pic" /></div>
     <div class="player_badge left-dealer " ng-if="player.isDealer">
       <div>D</div>
     </div>
   </div>
   <div class="rel" ng-if="!player && !sitHere">
-    <div class="player_pic"><img src="img/sithere.png" class="pic" /></div>
+    <div class="player_pic"><img src="img/player_pic.png" class="pic" /></div>
   </div>
   <!-- after Player Sitting -->
   <!-- <div class="rel"> -->

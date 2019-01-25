@@ -30,17 +30,29 @@
       width: 90%; // height: 85%;
     }
 
+    .top-frame-border {
+      position: absolute;
+      border: 0.6em solid rgba(0, 0, 0, 0.92);
+      top: -21%;
+      left: 30.8%;
+      width: 38vw;
+      box-shadow: -3px 2px 3px #40415c;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      z-index: 8;
+    }
+
     .video_frame {
       position: absolute;
       width: 30vw;
       height: 32vh;
       background: #ddd;
-      border: 1.1em solid #70646a;
-      box-shadow: 0px 2px 3px #624344;
+      border: 0.7em solid $black;
+      box-shadow: -3px 4px 3px #40415c;
       border-radius: 10px;
       top: -5%;
       left: 50%;
-      z-index: 7;
+      z-index: 9;
       transform: translate(-50%, -35%);
       overflow: hidden;
 
@@ -347,7 +359,7 @@
 
       .name-amount {
         p {
-          font-size: 17px;
+          font-size: 16px;
           margin: 0 0 3px;
           font-weight: 600;
         }
