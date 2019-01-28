@@ -56,7 +56,9 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   };
 
   $scope.VerifyOtp = function (data) {
+    $scope.regenerateOtp = false;
     $scope.invalidOTP = false;
+    $scope.expiredOTP = false;
     var id = $.jStorage.get("id");
     data._id = id;
     Service.verifyOtp(data, function (data) {
@@ -66,8 +68,26 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
         $.jStorage.set("accessToken", data.data.accessToken[0]);
         $state.go("lobby");
       } else {
-        $scope.invalidOTP = true;
+        if (data.error == "OTP Expired.") {
+          $scope.expiredOTP = true;
+          $scope.invalidOTP = false;
+        } else {
+          $scope.expiredOTP = false;
+          $scope.invalidOTP = true;
+        }
       };
+    })
+  }
+
+  $scope.resendOtp = function () {
+    $scope.regenerateOtp = false;
+    var id = $.jStorage.get("id");
+    var data = {};
+    data._id = id;
+    Service.resendOtp(data, function (data) {
+      if (data.value == true) {
+        $scope.regenerateOtp = true;
+      }
     })
   }
 

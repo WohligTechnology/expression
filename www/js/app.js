@@ -12,7 +12,8 @@ var myApp = angular
     "ngSanitize",
     "angularPromiseButtons",
     "rzModule",
-    "ngAnimate"
+    "ngAnimate",
+    "ionic-datepicker"
   ])
 
   .run(function ($ionicPlatform, $state, $timeout) {
@@ -102,14 +103,14 @@ var myApp = angular
       //   templateUrl: 'templates/app.html',
       //   controller: 'AppCtrl'
       // })
-      .state("lobby", {
-        url: "/lobby",
+      .state("old-lobby", {
+        url: "/old-lobby",
         cache: false,
         templateUrl: "templates/lobby.html",
         controller: "LobbyCtrl"
       })
-      .state("new-lobby", {
-        url: "/new-lobby",
+      .state("lobby", {
+        url: "/lobby",
         cache: false,
         templateUrl: "templates/new-lobby.html",
         controller: "NewLobbyCtrl"

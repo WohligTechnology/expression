@@ -17,22 +17,20 @@
           <!-- <i class="icon ion-ios-telephone"></i>
           <input class="col bg-yellow padd-lr" type="text" name="mobile" ng-model="data.mobile" placeholder="Mobile No"
             minlength="10" maxlength="10" required> -->
-          <input type="text" class="col padd-lr" name="username" ng-model="data.userName" placeholder="Username"
-            required>
+          <input type="text" only-digits class="col padd-lr" name="mobile" ng-model="data.mobile" placeholder="Mobile No" minlength="10"
+            maxlength="10" required>
         </div>
-        <span class="valid" ng-show="login.username.$touched && login.username.$invalid">*Username is Required</span>
-        <!-- <span class="valid" ng-show="login.mobile.$touched && login.mobile.$invalid">* Mobile No. is required.</span> -->
+        <!--<span class="valid" ng-show="login.username.$touched && login.username.$invalid">*Username is Required</span>-->
+        <span class="valid" ng-show="login.mobile.$touched && login.mobile.$invalid">* Mobile No. is required.</span>
         <div class="login_button row">
           <!-- <i class="icon ion-ios-locked"></i> -->
-          <input class="col padd-lr" type="password" name="password" ng-model="data.password" placeholder="Password"
-            required>
+          <input class="col padd-lr" type="password" name="password" ng-model="data.password" placeholder="Password" required>
         </div>
         <span class="valid" ng-show="login.password.$touched && login.password.$invalid">* Password is required.</span>
         <div class="valid invailduser" ng-if="invalidUser && !login.$invalid">* Invalid Credentials</div>
         <div class="login_button_submit row">
           <!--<button class="button" type='submit' ng-disabled="login.$invalid" ng-click="playerLogin(data,login)" promise-btn="loginPromise">LOGIN</button>-->
-          <button class="button" type='submit' ng-click="playerLogin(data,login)" ng-disabled="login.$invalid"
-            promise-btn="loginPromise">LOGIN</button>
+          <button class="button" type='submit' ng-click="playerLogin(data,login)" ng-disabled="login.$invalid" promise-btn="loginPromise">LOGIN</button>
         </div>
         <div>
           <p class="account">Dont have an account?</p>

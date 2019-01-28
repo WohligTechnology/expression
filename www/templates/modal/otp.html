@@ -12,15 +12,16 @@
             <p class="account">Please Enter the 4 Digit Verification Code send to your Email id and Mobile number</p>
           </div>
           <div class="login_button input-select">
-            <input class="col padd-lr text-center" type="password" name="otp" ng-model="data.otp" placeholder="****"
-              required>
+            <input class="col padd-lr text-center" type="password" name="otp" maxlength="4" ng-model="data.otp" placeholder="****" required>
             <span class="valid" ng-show="otpFrom.otp.$touched && otpFrom.otp.$invalid">* otp is required.</span>
           </div>
           <div>
             <!-- <a class="incorrect-otp">Incorrect OTP</a> -->
-            <a class="resend-otp">Resend OTP</a>
+            <a class="resend-otp" ng-click="resendOtp()">Resend OTP</a>
           </div>
           <div class="valid invailduser" ng-if="invalidOTP"> *Invalid OTP</div>
+          <div class="valid invailduser" ng-if="expiredOTP"> *Your OTP has been expired. Please click on Resend OTP to generate OTP.</div>
+          <div class="valid" ng-if="regenerateOtp"> OTP is Resend.</div>
           <div class="side_show_btn">
             <button class="custom_button" ng-disabled="otpFrom.$invalid" ng-click="VerifyOtp(data)">Ok</button>
           </div>

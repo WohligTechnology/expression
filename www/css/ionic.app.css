@@ -7694,7 +7694,7 @@ textarea {
   border-radius: 2px;
   padding: 4px 8px 3px 0;
   border: none;
-  background-color: #fff; }
+  background-color: rgba(35, 35, 35, 0.62); }
 
 .item-stacked-label input {
   overflow: hidden;
@@ -9912,10 +9912,10 @@ a.button {
 
 body {
   font-size: 1.8vw;
-  color: white; }
+  color: #fff; }
 
 .heading-yellow {
-  color: #ebbd15; }
+  color: #dda100; }
 
 .heading-blue {
   color: #10fbf7; }
@@ -10010,7 +10010,7 @@ body {
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.5);
-  color: white;
+  color: #fff;
   font-size: 1.5em;
   z-index: 20; }
   .table_loader .center {
@@ -10044,7 +10044,8 @@ body {
   color: #fff; }
 
 .lobby {
-  background: #000;
+  background-color: #005658;
+  background-image: radial-gradient(#0c7b7b, #005658, #004040);
   width: 100vw;
   height: 100vh; }
   .lobby .top {
@@ -10114,7 +10115,7 @@ body {
       min-height: 20px;
       margin-bottom: 10%;
       text-align: center;
-      color: white;
+      color: #fff;
       font-weight: bold;
       /* font-family: 'Cinzel-Bold'; */
       font-weight: bold;
@@ -10275,7 +10276,7 @@ body {
       height: 100%; }
     .setting_menu .menu_cont .item {
       background: transparent;
-      color: white;
+      color: #fff;
       border: none;
       font-size: 1em;
       border-image: linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%);
@@ -10284,7 +10285,7 @@ body {
       padding: 5% 10%; }
       .setting_menu .menu_cont .item .item-content {
         background: transparent;
-        color: white;
+        color: #fff;
         padding: 0px; }
       .setting_menu .menu_cont .item .custom_toggle {
         display: inline-block;
@@ -10310,6 +10311,897 @@ body {
   width: 100%;
   height: 30px; }
 
+/**New Lobby**/
+.lobby-bar {
+  background: #005658; }
+  .lobby-bar .lobby-header {
+    margin-top: 10px;
+    background: #004040;
+    padding-left: 0px; }
+    .lobby-bar .lobby-header .left-head {
+      background: #0c7b7b;
+      padding: 5px 0 5px 5px; }
+      .lobby-bar .lobby-header .left-head .amount {
+        position: relative;
+        font-size: large;
+        transform: translate(-3%, -60%);
+        padding: 0 10px;
+        display: inline-block;
+        font-weight: 700; }
+      .lobby-bar .lobby-header .left-head .poker-coin-logo {
+        width: 30px;
+        height: 30px;
+        position: relative;
+        top: -3px; }
+      .lobby-bar .lobby-header .left-head .bar .button,
+      .lobby-bar .lobby-header .left-head .bar button {
+        line-height: 27px; }
+      .lobby-bar .lobby-header .left-head .plus-icon {
+        border: 0px #e93e66;
+        position: relative;
+        transform: translateY(-35%); }
+      .lobby-bar .lobby-header .left-head .ion, .lobby-bar .lobby-header .left-head .ionicons,
+      .lobby-bar .lobby-header .left-head .ion-alert:before,
+      .lobby-bar .lobby-header .left-head .ion-alert-circled:before,
+      .lobby-bar .lobby-header .left-head .ion-android-add:before,
+      .lobby-bar .lobby-header .left-head .ion-android-add-circle:before,
+      .lobby-bar .lobby-header .left-head .ion-android-alarm-clock:before,
+      .lobby-bar .lobby-header .left-head .ion-android-alert:before,
+      .lobby-bar .lobby-header .left-head .ion-android-apps:before,
+      .lobby-bar .lobby-header .left-head .ion-android-archive:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-back:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-down:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-dropdown:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-dropdown-circle:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-dropleft:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-dropleft-circle:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-dropright:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-dropright-circle:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-dropup:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-dropup-circle:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-forward:before,
+      .lobby-bar .lobby-header .left-head .ion-android-arrow-up:before,
+      .lobby-bar .lobby-header .left-head .ion-android-attach:before,
+      .lobby-bar .lobby-header .left-head .ion-android-bar:before,
+      .lobby-bar .lobby-header .left-head .ion-android-bicycle:before,
+      .lobby-bar .lobby-header .left-head .ion-android-boat:before,
+      .lobby-bar .lobby-header .left-head .ion-android-bookmark:before,
+      .lobby-bar .lobby-header .left-head .ion-android-bulb:before,
+      .lobby-bar .lobby-header .left-head .ion-android-bus:before,
+      .lobby-bar .lobby-header .left-head .ion-android-calendar:before,
+      .lobby-bar .lobby-header .left-head .ion-android-call:before,
+      .lobby-bar .lobby-header .left-head .ion-android-camera:before,
+      .lobby-bar .lobby-header .left-head .ion-android-cancel:before,
+      .lobby-bar .lobby-header .left-head .ion-android-car:before,
+      .lobby-bar .lobby-header .left-head .ion-android-cart:before,
+      .lobby-bar .lobby-header .left-head .ion-android-chat:before,
+      .lobby-bar .lobby-header .left-head .ion-android-checkbox:before,
+      .lobby-bar .lobby-header .left-head .ion-android-checkbox-blank:before,
+      .lobby-bar .lobby-header .left-head .ion-android-checkbox-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-android-checkbox-outline-blank:before,
+      .lobby-bar .lobby-header .left-head .ion-android-checkmark-circle:before,
+      .lobby-bar .lobby-header .left-head .ion-android-clipboard:before,
+      .lobby-bar .lobby-header .left-head .ion-android-close:before,
+      .lobby-bar .lobby-header .left-head .ion-android-cloud:before,
+      .lobby-bar .lobby-header .left-head .ion-android-cloud-circle:before,
+      .lobby-bar .lobby-header .left-head .ion-android-cloud-done:before,
+      .lobby-bar .lobby-header .left-head .ion-android-cloud-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-android-color-palette:before,
+      .lobby-bar .lobby-header .left-head .ion-android-compass:before,
+      .lobby-bar .lobby-header .left-head .ion-android-contact:before,
+      .lobby-bar .lobby-header .left-head .ion-android-contacts:before,
+      .lobby-bar .lobby-header .left-head .ion-android-contract:before,
+      .lobby-bar .lobby-header .left-head .ion-android-create:before,
+      .lobby-bar .lobby-header .left-head .ion-android-delete:before,
+      .lobby-bar .lobby-header .left-head .ion-android-desktop:before,
+      .lobby-bar .lobby-header .left-head .ion-android-document:before,
+      .lobby-bar .lobby-header .left-head .ion-android-done:before,
+      .lobby-bar .lobby-header .left-head .ion-android-done-all:before,
+      .lobby-bar .lobby-header .left-head .ion-android-download:before,
+      .lobby-bar .lobby-header .left-head .ion-android-drafts:before,
+      .lobby-bar .lobby-header .left-head .ion-android-exit:before,
+      .lobby-bar .lobby-header .left-head .ion-android-expand:before,
+      .lobby-bar .lobby-header .left-head .ion-android-favorite:before,
+      .lobby-bar .lobby-header .left-head .ion-android-favorite-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-android-film:before,
+      .lobby-bar .lobby-header .left-head .ion-android-folder:before,
+      .lobby-bar .lobby-header .left-head .ion-android-folder-open:before,
+      .lobby-bar .lobby-header .left-head .ion-android-funnel:before,
+      .lobby-bar .lobby-header .left-head .ion-android-globe:before,
+      .lobby-bar .lobby-header .left-head .ion-android-hand:before,
+      .lobby-bar .lobby-header .left-head .ion-android-hangout:before,
+      .lobby-bar .lobby-header .left-head .ion-android-happy:before,
+      .lobby-bar .lobby-header .left-head .ion-android-home:before,
+      .lobby-bar .lobby-header .left-head .ion-android-image:before,
+      .lobby-bar .lobby-header .left-head .ion-android-laptop:before,
+      .lobby-bar .lobby-header .left-head .ion-android-list:before,
+      .lobby-bar .lobby-header .left-head .ion-android-locate:before,
+      .lobby-bar .lobby-header .left-head .ion-android-lock:before,
+      .lobby-bar .lobby-header .left-head .ion-android-mail:before,
+      .lobby-bar .lobby-header .left-head .ion-android-map:before,
+      .lobby-bar .lobby-header .left-head .ion-android-menu:before,
+      .lobby-bar .lobby-header .left-head .ion-android-microphone:before,
+      .lobby-bar .lobby-header .left-head .ion-android-microphone-off:before,
+      .lobby-bar .lobby-header .left-head .ion-android-more-horizontal:before,
+      .lobby-bar .lobby-header .left-head .ion-android-more-vertical:before,
+      .lobby-bar .lobby-header .left-head .ion-android-navigate:before,
+      .lobby-bar .lobby-header .left-head .ion-android-notifications:before,
+      .lobby-bar .lobby-header .left-head .ion-android-notifications-none:before,
+      .lobby-bar .lobby-header .left-head .ion-android-notifications-off:before,
+      .lobby-bar .lobby-header .left-head .ion-android-open:before,
+      .lobby-bar .lobby-header .left-head .ion-android-options:before,
+      .lobby-bar .lobby-header .left-head .ion-android-people:before,
+      .lobby-bar .lobby-header .left-head .ion-android-person:before,
+      .lobby-bar .lobby-header .left-head .ion-android-person-add:before,
+      .lobby-bar .lobby-header .left-head .ion-android-phone-landscape:before,
+      .lobby-bar .lobby-header .left-head .ion-android-phone-portrait:before,
+      .lobby-bar .lobby-header .left-head .ion-android-pin:before,
+      .lobby-bar .lobby-header .left-head .ion-android-plane:before,
+      .lobby-bar .lobby-header .left-head .ion-android-playstore:before,
+      .lobby-bar .lobby-header .left-head .ion-android-print:before,
+      .lobby-bar .lobby-header .left-head .ion-android-radio-button-off:before,
+      .lobby-bar .lobby-header .left-head .ion-android-radio-button-on:before,
+      .lobby-bar .lobby-header .left-head .ion-android-refresh:before,
+      .lobby-bar .lobby-header .left-head .ion-android-remove:before,
+      .lobby-bar .lobby-header .left-head .ion-android-remove-circle:before,
+      .lobby-bar .lobby-header .left-head .ion-android-restaurant:before,
+      .lobby-bar .lobby-header .left-head .ion-android-sad:before,
+      .lobby-bar .lobby-header .left-head .ion-android-search:before,
+      .lobby-bar .lobby-header .left-head .ion-android-send:before,
+      .lobby-bar .lobby-header .left-head .ion-android-settings:before,
+      .lobby-bar .lobby-header .left-head .ion-android-share:before,
+      .lobby-bar .lobby-header .left-head .ion-android-share-alt:before,
+      .lobby-bar .lobby-header .left-head .ion-android-star:before,
+      .lobby-bar .lobby-header .left-head .ion-android-star-half:before,
+      .lobby-bar .lobby-header .left-head .ion-android-star-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-android-stopwatch:before,
+      .lobby-bar .lobby-header .left-head .ion-android-subway:before,
+      .lobby-bar .lobby-header .left-head .ion-android-sunny:before,
+      .lobby-bar .lobby-header .left-head .ion-android-sync:before,
+      .lobby-bar .lobby-header .left-head .ion-android-textsms:before,
+      .lobby-bar .lobby-header .left-head .ion-android-time:before,
+      .lobby-bar .lobby-header .left-head .ion-android-train:before,
+      .lobby-bar .lobby-header .left-head .ion-android-unlock:before,
+      .lobby-bar .lobby-header .left-head .ion-android-upload:before,
+      .lobby-bar .lobby-header .left-head .ion-android-volume-down:before,
+      .lobby-bar .lobby-header .left-head .ion-android-volume-mute:before,
+      .lobby-bar .lobby-header .left-head .ion-android-volume-off:before,
+      .lobby-bar .lobby-header .left-head .ion-android-volume-up:before,
+      .lobby-bar .lobby-header .left-head .ion-android-walk:before,
+      .lobby-bar .lobby-header .left-head .ion-android-warning:before,
+      .lobby-bar .lobby-header .left-head .ion-android-watch:before,
+      .lobby-bar .lobby-header .left-head .ion-android-wifi:before,
+      .lobby-bar .lobby-header .left-head .ion-aperture:before,
+      .lobby-bar .lobby-header .left-head .ion-archive:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-down-a:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-down-b:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-down-c:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-expand:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-graph-down-left:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-graph-down-right:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-graph-up-left:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-graph-up-right:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-left-a:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-left-b:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-left-c:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-move:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-resize:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-return-left:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-return-right:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-right-a:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-right-b:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-right-c:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-shrink:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-swap:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-up-a:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-up-b:before,
+      .lobby-bar .lobby-header .left-head .ion-arrow-up-c:before,
+      .lobby-bar .lobby-header .left-head .ion-asterisk:before,
+      .lobby-bar .lobby-header .left-head .ion-at:before,
+      .lobby-bar .lobby-header .left-head .ion-backspace:before,
+      .lobby-bar .lobby-header .left-head .ion-backspace-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-bag:before,
+      .lobby-bar .lobby-header .left-head .ion-battery-charging:before,
+      .lobby-bar .lobby-header .left-head .ion-battery-empty:before,
+      .lobby-bar .lobby-header .left-head .ion-battery-full:before,
+      .lobby-bar .lobby-header .left-head .ion-battery-half:before,
+      .lobby-bar .lobby-header .left-head .ion-battery-low:before,
+      .lobby-bar .lobby-header .left-head .ion-beaker:before,
+      .lobby-bar .lobby-header .left-head .ion-beer:before,
+      .lobby-bar .lobby-header .left-head .ion-bluetooth:before,
+      .lobby-bar .lobby-header .left-head .ion-bonfire:before,
+      .lobby-bar .lobby-header .left-head .ion-bookmark:before,
+      .lobby-bar .lobby-header .left-head .ion-bowtie:before,
+      .lobby-bar .lobby-header .left-head .ion-briefcase:before,
+      .lobby-bar .lobby-header .left-head .ion-bug:before,
+      .lobby-bar .lobby-header .left-head .ion-calculator:before,
+      .lobby-bar .lobby-header .left-head .ion-calendar:before,
+      .lobby-bar .lobby-header .left-head .ion-camera:before,
+      .lobby-bar .lobby-header .left-head .ion-card:before,
+      .lobby-bar .lobby-header .left-head .ion-cash:before,
+      .lobby-bar .lobby-header .left-head .ion-chatbox:before,
+      .lobby-bar .lobby-header .left-head .ion-chatbox-working:before,
+      .lobby-bar .lobby-header .left-head .ion-chatboxes:before,
+      .lobby-bar .lobby-header .left-head .ion-chatbubble:before,
+      .lobby-bar .lobby-header .left-head .ion-chatbubble-working:before,
+      .lobby-bar .lobby-header .left-head .ion-chatbubbles:before,
+      .lobby-bar .lobby-header .left-head .ion-checkmark:before,
+      .lobby-bar .lobby-header .left-head .ion-checkmark-circled:before,
+      .lobby-bar .lobby-header .left-head .ion-checkmark-round:before,
+      .lobby-bar .lobby-header .left-head .ion-chevron-down:before,
+      .lobby-bar .lobby-header .left-head .ion-chevron-left:before,
+      .lobby-bar .lobby-header .left-head .ion-chevron-right:before,
+      .lobby-bar .lobby-header .left-head .ion-chevron-up:before,
+      .lobby-bar .lobby-header .left-head .ion-clipboard:before,
+      .lobby-bar .lobby-header .left-head .ion-clock:before,
+      .lobby-bar .lobby-header .left-head .ion-close:before,
+      .lobby-bar .lobby-header .left-head .ion-close-circled:before,
+      .lobby-bar .lobby-header .left-head .ion-close-round:before,
+      .lobby-bar .lobby-header .left-head .ion-closed-captioning:before,
+      .lobby-bar .lobby-header .left-head .ion-cloud:before,
+      .lobby-bar .lobby-header .left-head .ion-code:before,
+      .lobby-bar .lobby-header .left-head .ion-code-download:before,
+      .lobby-bar .lobby-header .left-head .ion-code-working:before,
+      .lobby-bar .lobby-header .left-head .ion-coffee:before,
+      .lobby-bar .lobby-header .left-head .ion-compass:before,
+      .lobby-bar .lobby-header .left-head .ion-compose:before,
+      .lobby-bar .lobby-header .left-head .ion-connection-bars:before,
+      .lobby-bar .lobby-header .left-head .ion-contrast:before,
+      .lobby-bar .lobby-header .left-head .ion-crop:before,
+      .lobby-bar .lobby-header .left-head .ion-cube:before,
+      .lobby-bar .lobby-header .left-head .ion-disc:before,
+      .lobby-bar .lobby-header .left-head .ion-document:before,
+      .lobby-bar .lobby-header .left-head .ion-document-text:before,
+      .lobby-bar .lobby-header .left-head .ion-drag:before,
+      .lobby-bar .lobby-header .left-head .ion-earth:before,
+      .lobby-bar .lobby-header .left-head .ion-easel:before,
+      .lobby-bar .lobby-header .left-head .ion-edit:before,
+      .lobby-bar .lobby-header .left-head .ion-egg:before,
+      .lobby-bar .lobby-header .left-head .ion-eject:before,
+      .lobby-bar .lobby-header .left-head .ion-email:before,
+      .lobby-bar .lobby-header .left-head .ion-email-unread:before,
+      .lobby-bar .lobby-header .left-head .ion-erlenmeyer-flask:before,
+      .lobby-bar .lobby-header .left-head .ion-erlenmeyer-flask-bubbles:before,
+      .lobby-bar .lobby-header .left-head .ion-eye:before,
+      .lobby-bar .lobby-header .left-head .ion-eye-disabled:before,
+      .lobby-bar .lobby-header .left-head .ion-female:before,
+      .lobby-bar .lobby-header .left-head .ion-filing:before,
+      .lobby-bar .lobby-header .left-head .ion-film-marker:before,
+      .lobby-bar .lobby-header .left-head .ion-fireball:before,
+      .lobby-bar .lobby-header .left-head .ion-flag:before,
+      .lobby-bar .lobby-header .left-head .ion-flame:before,
+      .lobby-bar .lobby-header .left-head .ion-flash:before,
+      .lobby-bar .lobby-header .left-head .ion-flash-off:before,
+      .lobby-bar .lobby-header .left-head .ion-folder:before,
+      .lobby-bar .lobby-header .left-head .ion-fork:before,
+      .lobby-bar .lobby-header .left-head .ion-fork-repo:before,
+      .lobby-bar .lobby-header .left-head .ion-forward:before,
+      .lobby-bar .lobby-header .left-head .ion-funnel:before,
+      .lobby-bar .lobby-header .left-head .ion-gear-a:before,
+      .lobby-bar .lobby-header .left-head .ion-gear-b:before,
+      .lobby-bar .lobby-header .left-head .ion-grid:before,
+      .lobby-bar .lobby-header .left-head .ion-hammer:before,
+      .lobby-bar .lobby-header .left-head .ion-happy:before,
+      .lobby-bar .lobby-header .left-head .ion-happy-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-headphone:before,
+      .lobby-bar .lobby-header .left-head .ion-heart:before,
+      .lobby-bar .lobby-header .left-head .ion-heart-broken:before,
+      .lobby-bar .lobby-header .left-head .ion-help:before,
+      .lobby-bar .lobby-header .left-head .ion-help-buoy:before,
+      .lobby-bar .lobby-header .left-head .ion-help-circled:before,
+      .lobby-bar .lobby-header .left-head .ion-home:before,
+      .lobby-bar .lobby-header .left-head .ion-icecream:before,
+      .lobby-bar .lobby-header .left-head .ion-image:before,
+      .lobby-bar .lobby-header .left-head .ion-images:before,
+      .lobby-bar .lobby-header .left-head .ion-information:before,
+      .lobby-bar .lobby-header .left-head .ion-information-circled:before,
+      .lobby-bar .lobby-header .left-head .ion-ionic:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-alarm:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-alarm-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-albums:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-albums-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-americanfootball:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-americanfootball-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-analytics:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-analytics-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-back:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-down:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-forward:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-left:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-right:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-thin-down:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-thin-left:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-thin-right:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-thin-up:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-arrow-up:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-at:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-at-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-barcode:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-barcode-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-baseball:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-baseball-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-basketball:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-basketball-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-bell:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-bell-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-body:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-body-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-bolt:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-bolt-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-book:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-book-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-bookmarks:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-bookmarks-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-box:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-box-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-briefcase:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-briefcase-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-browsers:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-browsers-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-calculator:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-calculator-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-calendar:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-calendar-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-camera:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-camera-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cart:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cart-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-chatboxes:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-chatboxes-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-chatbubble:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-chatbubble-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-checkmark:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-checkmark-empty:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-checkmark-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-circle-filled:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-circle-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-clock:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-clock-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-close:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-close-empty:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-close-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloud:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloud-download:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloud-download-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloud-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloud-upload:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloud-upload-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloudy:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloudy-night:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloudy-night-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cloudy-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cog:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-cog-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-color-filter:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-color-filter-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-color-wand:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-color-wand-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-compose:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-compose-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-contact:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-contact-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-copy:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-copy-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-crop:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-crop-strong:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-download:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-download-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-drag:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-email:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-email-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-eye:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-eye-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-fastforward:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-fastforward-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-filing:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-filing-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-film:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-film-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-flag:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-flag-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-flame:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-flame-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-flask:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-flask-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-flower:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-flower-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-folder:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-folder-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-football:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-football-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-game-controller-a:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-game-controller-a-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-game-controller-b:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-game-controller-b-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-gear:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-gear-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-glasses:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-glasses-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-grid-view:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-grid-view-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-heart:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-heart-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-help:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-help-empty:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-help-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-home:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-home-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-infinite:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-infinite-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-information:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-information-empty:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-information-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-ionic-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-keypad:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-keypad-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-lightbulb:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-lightbulb-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-list:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-list-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-location:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-location-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-locked:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-locked-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-loop:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-loop-strong:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-medical:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-medical-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-medkit:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-medkit-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-mic:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-mic-off:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-mic-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-minus:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-minus-empty:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-minus-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-monitor:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-monitor-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-moon:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-moon-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-more:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-more-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-musical-note:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-musical-notes:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-navigate:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-navigate-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-nutrition:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-nutrition-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-paper:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-paper-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-paperplane:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-paperplane-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-partlysunny:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-partlysunny-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pause:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pause-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-paw:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-paw-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-people:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-people-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-person:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-person-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-personadd:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-personadd-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-photos:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-photos-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pie:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pie-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pint:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pint-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-play:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-play-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-plus:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-plus-empty:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-plus-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pricetag:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pricetag-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pricetags:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pricetags-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-printer:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-printer-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pulse:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-pulse-strong:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-rainy:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-rainy-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-recording:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-recording-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-redo:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-redo-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-refresh:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-refresh-empty:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-refresh-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-reload:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-reverse-camera:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-reverse-camera-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-rewind:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-rewind-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-rose:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-rose-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-search:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-search-strong:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-settings:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-settings-strong:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-shuffle:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-shuffle-strong:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-skipbackward:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-skipbackward-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-skipforward:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-skipforward-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-snowy:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-speedometer:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-speedometer-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-star:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-star-half:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-star-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-stopwatch:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-stopwatch-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-sunny:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-sunny-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-telephone:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-telephone-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-tennisball:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-tennisball-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-thunderstorm:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-thunderstorm-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-time:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-time-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-timer:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-timer-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-toggle:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-toggle-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-trash:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-trash-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-undo:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-undo-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-unlocked:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-unlocked-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-upload:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-upload-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-videocam:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-videocam-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-volume-high:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-volume-low:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-wineglass:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-wineglass-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-world:before,
+      .lobby-bar .lobby-header .left-head .ion-ios-world-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-ipad:before,
+      .lobby-bar .lobby-header .left-head .ion-iphone:before,
+      .lobby-bar .lobby-header .left-head .ion-ipod:before,
+      .lobby-bar .lobby-header .left-head .ion-jet:before,
+      .lobby-bar .lobby-header .left-head .ion-key:before,
+      .lobby-bar .lobby-header .left-head .ion-knife:before,
+      .lobby-bar .lobby-header .left-head .ion-laptop:before,
+      .lobby-bar .lobby-header .left-head .ion-leaf:before,
+      .lobby-bar .lobby-header .left-head .ion-levels:before,
+      .lobby-bar .lobby-header .left-head .ion-lightbulb:before,
+      .lobby-bar .lobby-header .left-head .ion-link:before,
+      .lobby-bar .lobby-header .left-head .ion-load-a:before,
+      .lobby-bar .lobby-header .left-head .ion-load-b:before,
+      .lobby-bar .lobby-header .left-head .ion-load-c:before,
+      .lobby-bar .lobby-header .left-head .ion-load-d:before,
+      .lobby-bar .lobby-header .left-head .ion-location:before,
+      .lobby-bar .lobby-header .left-head .ion-lock-combination:before,
+      .lobby-bar .lobby-header .left-head .ion-locked:before,
+      .lobby-bar .lobby-header .left-head .ion-log-in:before,
+      .lobby-bar .lobby-header .left-head .ion-log-out:before,
+      .lobby-bar .lobby-header .left-head .ion-loop:before,
+      .lobby-bar .lobby-header .left-head .ion-magnet:before,
+      .lobby-bar .lobby-header .left-head .ion-male:before,
+      .lobby-bar .lobby-header .left-head .ion-man:before,
+      .lobby-bar .lobby-header .left-head .ion-map:before,
+      .lobby-bar .lobby-header .left-head .ion-medkit:before,
+      .lobby-bar .lobby-header .left-head .ion-merge:before,
+      .lobby-bar .lobby-header .left-head .ion-mic-a:before,
+      .lobby-bar .lobby-header .left-head .ion-mic-b:before,
+      .lobby-bar .lobby-header .left-head .ion-mic-c:before,
+      .lobby-bar .lobby-header .left-head .ion-minus:before,
+      .lobby-bar .lobby-header .left-head .ion-minus-circled:before,
+      .lobby-bar .lobby-header .left-head .ion-minus-round:before,
+      .lobby-bar .lobby-header .left-head .ion-model-s:before,
+      .lobby-bar .lobby-header .left-head .ion-monitor:before,
+      .lobby-bar .lobby-header .left-head .ion-more:before,
+      .lobby-bar .lobby-header .left-head .ion-mouse:before,
+      .lobby-bar .lobby-header .left-head .ion-music-note:before,
+      .lobby-bar .lobby-header .left-head .ion-navicon:before,
+      .lobby-bar .lobby-header .left-head .ion-navicon-round:before,
+      .lobby-bar .lobby-header .left-head .ion-navigate:before,
+      .lobby-bar .lobby-header .left-head .ion-network:before,
+      .lobby-bar .lobby-header .left-head .ion-no-smoking:before,
+      .lobby-bar .lobby-header .left-head .ion-nuclear:before,
+      .lobby-bar .lobby-header .left-head .ion-outlet:before,
+      .lobby-bar .lobby-header .left-head .ion-paintbrush:before,
+      .lobby-bar .lobby-header .left-head .ion-paintbucket:before,
+      .lobby-bar .lobby-header .left-head .ion-paper-airplane:before,
+      .lobby-bar .lobby-header .left-head .ion-paperclip:before,
+      .lobby-bar .lobby-header .left-head .ion-pause:before,
+      .lobby-bar .lobby-header .left-head .ion-person:before,
+      .lobby-bar .lobby-header .left-head .ion-person-add:before,
+      .lobby-bar .lobby-header .left-head .ion-person-stalker:before,
+      .lobby-bar .lobby-header .left-head .ion-pie-graph:before,
+      .lobby-bar .lobby-header .left-head .ion-pin:before,
+      .lobby-bar .lobby-header .left-head .ion-pinpoint:before,
+      .lobby-bar .lobby-header .left-head .ion-pizza:before,
+      .lobby-bar .lobby-header .left-head .ion-plane:before,
+      .lobby-bar .lobby-header .left-head .ion-planet:before,
+      .lobby-bar .lobby-header .left-head .ion-play:before,
+      .lobby-bar .lobby-header .left-head .ion-playstation:before,
+      .lobby-bar .lobby-header .left-head .ion-plus:before,
+      .lobby-bar .lobby-header .left-head .ion-plus-circled:before,
+      .lobby-bar .lobby-header .left-head .ion-plus-round:before,
+      .lobby-bar .lobby-header .left-head .ion-podium:before,
+      .lobby-bar .lobby-header .left-head .ion-pound:before,
+      .lobby-bar .lobby-header .left-head .ion-power:before,
+      .lobby-bar .lobby-header .left-head .ion-pricetag:before,
+      .lobby-bar .lobby-header .left-head .ion-pricetags:before,
+      .lobby-bar .lobby-header .left-head .ion-printer:before,
+      .lobby-bar .lobby-header .left-head .ion-pull-request:before,
+      .lobby-bar .lobby-header .left-head .ion-qr-scanner:before,
+      .lobby-bar .lobby-header .left-head .ion-quote:before,
+      .lobby-bar .lobby-header .left-head .ion-radio-waves:before,
+      .lobby-bar .lobby-header .left-head .ion-record:before,
+      .lobby-bar .lobby-header .left-head .ion-refresh:before,
+      .lobby-bar .lobby-header .left-head .ion-reply:before,
+      .lobby-bar .lobby-header .left-head .ion-reply-all:before,
+      .lobby-bar .lobby-header .left-head .ion-ribbon-a:before,
+      .lobby-bar .lobby-header .left-head .ion-ribbon-b:before,
+      .lobby-bar .lobby-header .left-head .ion-sad:before,
+      .lobby-bar .lobby-header .left-head .ion-sad-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-scissors:before,
+      .lobby-bar .lobby-header .left-head .ion-search:before,
+      .lobby-bar .lobby-header .left-head .ion-settings:before,
+      .lobby-bar .lobby-header .left-head .ion-share:before,
+      .lobby-bar .lobby-header .left-head .ion-shuffle:before,
+      .lobby-bar .lobby-header .left-head .ion-skip-backward:before,
+      .lobby-bar .lobby-header .left-head .ion-skip-forward:before,
+      .lobby-bar .lobby-header .left-head .ion-social-android:before,
+      .lobby-bar .lobby-header .left-head .ion-social-android-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-angular:before,
+      .lobby-bar .lobby-header .left-head .ion-social-angular-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-apple:before,
+      .lobby-bar .lobby-header .left-head .ion-social-apple-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-bitcoin:before,
+      .lobby-bar .lobby-header .left-head .ion-social-bitcoin-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-buffer:before,
+      .lobby-bar .lobby-header .left-head .ion-social-buffer-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-chrome:before,
+      .lobby-bar .lobby-header .left-head .ion-social-chrome-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-codepen:before,
+      .lobby-bar .lobby-header .left-head .ion-social-codepen-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-css3:before,
+      .lobby-bar .lobby-header .left-head .ion-social-css3-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-designernews:before,
+      .lobby-bar .lobby-header .left-head .ion-social-designernews-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-dribbble:before,
+      .lobby-bar .lobby-header .left-head .ion-social-dribbble-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-dropbox:before,
+      .lobby-bar .lobby-header .left-head .ion-social-dropbox-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-euro:before,
+      .lobby-bar .lobby-header .left-head .ion-social-euro-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-facebook:before,
+      .lobby-bar .lobby-header .left-head .ion-social-facebook-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-foursquare:before,
+      .lobby-bar .lobby-header .left-head .ion-social-foursquare-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-freebsd-devil:before,
+      .lobby-bar .lobby-header .left-head .ion-social-github:before,
+      .lobby-bar .lobby-header .left-head .ion-social-github-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-google:before,
+      .lobby-bar .lobby-header .left-head .ion-social-google-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-googleplus:before,
+      .lobby-bar .lobby-header .left-head .ion-social-googleplus-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-hackernews:before,
+      .lobby-bar .lobby-header .left-head .ion-social-hackernews-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-html5:before,
+      .lobby-bar .lobby-header .left-head .ion-social-html5-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-instagram:before,
+      .lobby-bar .lobby-header .left-head .ion-social-instagram-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-javascript:before,
+      .lobby-bar .lobby-header .left-head .ion-social-javascript-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-linkedin:before,
+      .lobby-bar .lobby-header .left-head .ion-social-linkedin-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-markdown:before,
+      .lobby-bar .lobby-header .left-head .ion-social-nodejs:before,
+      .lobby-bar .lobby-header .left-head .ion-social-octocat:before,
+      .lobby-bar .lobby-header .left-head .ion-social-pinterest:before,
+      .lobby-bar .lobby-header .left-head .ion-social-pinterest-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-python:before,
+      .lobby-bar .lobby-header .left-head .ion-social-reddit:before,
+      .lobby-bar .lobby-header .left-head .ion-social-reddit-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-rss:before,
+      .lobby-bar .lobby-header .left-head .ion-social-rss-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-sass:before,
+      .lobby-bar .lobby-header .left-head .ion-social-skype:before,
+      .lobby-bar .lobby-header .left-head .ion-social-skype-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-snapchat:before,
+      .lobby-bar .lobby-header .left-head .ion-social-snapchat-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-tumblr:before,
+      .lobby-bar .lobby-header .left-head .ion-social-tumblr-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-tux:before,
+      .lobby-bar .lobby-header .left-head .ion-social-twitch:before,
+      .lobby-bar .lobby-header .left-head .ion-social-twitch-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-twitter:before,
+      .lobby-bar .lobby-header .left-head .ion-social-twitter-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-usd:before,
+      .lobby-bar .lobby-header .left-head .ion-social-usd-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-vimeo:before,
+      .lobby-bar .lobby-header .left-head .ion-social-vimeo-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-whatsapp:before,
+      .lobby-bar .lobby-header .left-head .ion-social-whatsapp-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-windows:before,
+      .lobby-bar .lobby-header .left-head .ion-social-windows-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-wordpress:before,
+      .lobby-bar .lobby-header .left-head .ion-social-wordpress-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-yahoo:before,
+      .lobby-bar .lobby-header .left-head .ion-social-yahoo-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-yen:before,
+      .lobby-bar .lobby-header .left-head .ion-social-yen-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-social-youtube:before,
+      .lobby-bar .lobby-header .left-head .ion-social-youtube-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-soup-can:before,
+      .lobby-bar .lobby-header .left-head .ion-soup-can-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-speakerphone:before,
+      .lobby-bar .lobby-header .left-head .ion-speedometer:before,
+      .lobby-bar .lobby-header .left-head .ion-spoon:before,
+      .lobby-bar .lobby-header .left-head .ion-star:before,
+      .lobby-bar .lobby-header .left-head .ion-stats-bars:before,
+      .lobby-bar .lobby-header .left-head .ion-steam:before,
+      .lobby-bar .lobby-header .left-head .ion-stop:before,
+      .lobby-bar .lobby-header .left-head .ion-thermometer:before,
+      .lobby-bar .lobby-header .left-head .ion-thumbsdown:before,
+      .lobby-bar .lobby-header .left-head .ion-thumbsup:before,
+      .lobby-bar .lobby-header .left-head .ion-toggle:before,
+      .lobby-bar .lobby-header .left-head .ion-toggle-filled:before,
+      .lobby-bar .lobby-header .left-head .ion-transgender:before,
+      .lobby-bar .lobby-header .left-head .ion-trash-a:before,
+      .lobby-bar .lobby-header .left-head .ion-trash-b:before,
+      .lobby-bar .lobby-header .left-head .ion-trophy:before,
+      .lobby-bar .lobby-header .left-head .ion-tshirt:before,
+      .lobby-bar .lobby-header .left-head .ion-tshirt-outline:before,
+      .lobby-bar .lobby-header .left-head .ion-umbrella:before,
+      .lobby-bar .lobby-header .left-head .ion-university:before,
+      .lobby-bar .lobby-header .left-head .ion-unlocked:before,
+      .lobby-bar .lobby-header .left-head .ion-upload:before,
+      .lobby-bar .lobby-header .left-head .ion-usb:before,
+      .lobby-bar .lobby-header .left-head .ion-videocamera:before,
+      .lobby-bar .lobby-header .left-head .ion-volume-high:before,
+      .lobby-bar .lobby-header .left-head .ion-volume-low:before,
+      .lobby-bar .lobby-header .left-head .ion-volume-medium:before,
+      .lobby-bar .lobby-header .left-head .ion-volume-mute:before,
+      .lobby-bar .lobby-header .left-head .ion-wand:before,
+      .lobby-bar .lobby-header .left-head .ion-waterdrop:before,
+      .lobby-bar .lobby-header .left-head .ion-wifi:before,
+      .lobby-bar .lobby-header .left-head .ion-wineglass:before,
+      .lobby-bar .lobby-header .left-head .ion-woman:before,
+      .lobby-bar .lobby-header .left-head .ion-wrench:before,
+      .lobby-bar .lobby-header .left-head .ion-xbox:before {
+        background: #e93e66; }
+      .lobby-bar .lobby-header .left-head .ion-plus::before {
+        color: #fff;
+        font-weight: 700;
+        line-height: 27px;
+        margin: 2px 0; }
+    .lobby-bar .lobby-header .right-icons {
+      position: absolute;
+      right: inherit;
+      padding-right: 10px; }
+      .lobby-bar .lobby-header .right-icons .button {
+        margin-left: 5px; }
+      .lobby-bar .lobby-header .right-icons .button-icon {
+        background: #0c7b7b; }
+      .lobby-bar .lobby-header .right-icons .button-icon::before {
+        color: #fff; }
+      .lobby-bar .lobby-header .right-icons .ribbon-badge {
+        position: absolute;
+        top: -10px;
+        right: 58px;
+        font-size: 12px;
+        padding: 2px;
+        width: 19px;
+        height: 19px;
+        background-color: #e93e66;
+        color: #fff; }
+      .lobby-bar .lobby-header .right-icons .menu {
+        position: relative;
+        width: auto;
+        background-color: transparent; }
+
+.tables-content {
+  transform: translateY(39%);
+  max-width: 275px;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.24), #0c7b7b, rgba(0, 86, 88, 0.18));
+  border-radius: 20px; }
+  .tables-content .table-type h3 {
+    margin-bottom: 25px;
+    font-weight: 700; }
+  .tables-content .table-type .virtual {
+    color: #e93e66; }
+  .tables-content .table-type .live {
+    color: #dda100; }
+  .tables-content .tables {
+    max-width: 220px; }
+
+.live-players {
+  position: relative;
+  top: 34%;
+  transform: translate(18%, -50%); }
+
+.lobby-footer {
+  background-color: transparent;
+  background-image: none;
+  padding: 0px; }
+  .lobby-footer .refer-btn {
+    border-radius: 0px;
+    color: #fff;
+    padding: 5px 15px;
+    font-weight: 700;
+    font-size: 15px !important; }
+  .lobby-footer .users-online {
+    position: absolute;
+    right: inherit;
+    text-align: center;
+    bottom: inherit;
+    transform: translate(-13%, -30%); }
+    .lobby-footer .users-online .ion-person-stalker {
+      font-size: 25px; }
+    .lobby-footer .users-online .player-num {
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff; }
+
+.pinkbg {
+  background: #e93e66; }
+
+.lobby-bg {
+  background-color: #005658;
+  background-image: radial-gradient(#0c7b7b, #005658, #004040); }
+  .lobby-bg .menu {
+    top: 10px;
+    background-color: #005658; }
+    .lobby-bg .menu .main-menu .item {
+      background-color: #005658;
+      border-width: 0px;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+      border-bottom-color: rgba(221, 221, 221, 0.54);
+      color: #fff; }
+    .lobby-bg .menu .main-menu i {
+      margin-right: 5px;
+      font-size: 18px;
+      line-height: 22px; }
+    .lobby-bg .menu .lobby-profile > img:first-child {
+      max-width: 70px;
+      max-height: 70px; }
+    .lobby-bg .menu .lobby-profile {
+      padding-left: 90px; }
+      .lobby-bg .menu .lobby-profile .wallet-balance {
+        margin-top: 4px;
+        display: -webkit-box; }
+        .lobby-bg .menu .lobby-profile .wallet-balance img {
+          max-width: 25px; }
+        .lobby-bg .menu .lobby-profile .wallet-balance .amount {
+          padding-left: 10px;
+          color: #fff;
+          position: relative;
+          top: 2px; }
+      .lobby-bg .menu .lobby-profile .player-name {
+        font-size: 20px;
+        color: #fff;
+        margin: 4px 0 0 0; }
+      .lobby-bg .menu .lobby-profile .player-number {
+        color: #e93e66; }
+
+.menu-open .menu-content.lobby-bg {
+  background-color: rgba(0, 0, 0, 0.77);
+  background-image: none;
+  opacity: 0.75; }
+
+.menu-open .lobby-footer {
+  visibility: hidden; }
+
+.fw600 {
+  font-weight: 600 !important; }
+
 .custom-table.top-pad {
   padding-top: 40px;
   position: relative;
@@ -10319,30 +11211,42 @@ body {
   margin-right: 5px; }
 
 .table {
-  background: #000;
+  background: url("../img/in-play-bg.jpg");
   width: 100vw;
   height: 100vh;
-  position: relative; }
+  position: relative;
+  background-size: cover;
+  background-position: center center; }
   .table .table_field {
     position: absolute;
-    bottom: calc(0px + 5.8em);
+    bottom: calc(0px + 1.4em);
     width: 100%;
     left: 0;
     text-align: center; }
     .table .table_field .bg_table {
       position: relative;
       width: 90%; }
+    .table .table_field .top-frame-border {
+      position: absolute;
+      border: 0.6em solid rgba(0, 0, 0, 0.92);
+      top: -21%;
+      left: 30.8%;
+      width: 38vw;
+      box-shadow: -3px 2px 3px #40415c;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
+      z-index: 8; }
     .table .table_field .video_frame {
       position: absolute;
       width: 30vw;
       height: 32vh;
       background: #ddd;
-      border: 1.1em solid #70646a;
-      box-shadow: 0px 2px 3px #624344;
+      border: 0.7em solid #000;
+      box-shadow: -3px 4px 3px #40415c;
       border-radius: 10px;
       top: -5%;
       left: 50%;
-      z-index: 7;
+      z-index: 9;
       transform: translate(-50%, -35%);
       overflow: hidden; }
       .table .table_field .video_frame iframe {
@@ -10465,11 +11369,13 @@ body {
       .table .table_field .plyr.no_player .you {
         display: none !important; }
       .table .table_field .plyr.sit_here.player4, .table .table_field .plyr.sit_here.player5, .table .table_field .plyr.sit_here.player6, .table .table_field .plyr.no_player.player4, .table .table_field .plyr.no_player.player5, .table .table_field .plyr.no_player.player6 {
-        bottom: -3%; }
-      .table .table_field .plyr.sit_here.player7, .table .table_field .plyr.sit_here.player8, .table .table_field .plyr.no_player.player7, .table .table_field .plyr.no_player.player8 {
+        bottom: 16%; }
+      .table .table_field .plyr.sit_here.player7, .table .table_field .plyr.no_player.player7 {
+        left: 8%; }
+      .table .table_field .plyr.sit_here.player8, .table .table_field .plyr.no_player.player8 {
         left: 5%; }
       .table .table_field .plyr.sit_here.player3, .table .table_field .plyr.no_player.player3 {
-        right: 5%; }
+        right: 10%; }
       .table .table_field .plyr .width-7vw {
         width: 7vw;
         margin: 0 auto; }
@@ -10517,14 +11423,26 @@ body {
           .table .bottom .main_card .cards card:nth-child(4) {
             margin-left: -20%; }
     .table .bottom .player_turn_button {
-      padding: 5px;
-      margin: 1%;
+      display: flex;
+      padding: 5px 5px 3px 15px;
       width: 100%;
-      flex: 0.7;
+      flex: 0.8;
       text-align: center;
-      border: 1px solid #7851a2; }
+      background: rgba(0, 0, 0, 0.5); }
+      .table .bottom .player_turn_button .fold {
+        background: #dda100; }
+      .table .bottom .player_turn_button .call {
+        background: #00c000; }
+      .table .bottom .player_turn_button .raise {
+        background: #e93e66; }
+      .table .bottom .player_turn_button .name-amount p {
+        font-size: 16px;
+        margin: 0 0 3px;
+        font-weight: 600; }
       .table .bottom .player_turn_button button {
         min-width: 24%;
+        margin-left: 10px;
+        border-radius: 10px;
         background: #575757;
         background: -moz-linear-gradient(top, #575757 0%, #212121 50%, #1f1f1f 51%, #242424 71%, #141414 100%);
         background: -webkit-gradient(left top, left bottom, color-stop(0%, #575757), color-stop(50%, #212121), color-stop(51%, #1f1f1f), color-stop(71%, #242424), color-stop(100%, #141414));
@@ -10532,15 +11450,15 @@ body {
         background: -o-linear-gradient(top, #575757 0%, #212121 50%, #1f1f1f 51%, #242424 71%, #141414 100%);
         background: -ms-linear-gradient(top, #575757 0%, #212121 50%, #1f1f1f 51%, #242424 71%, #141414 100%);
         background: linear-gradient(to bottom, #575757 0%, #212121 50%, #1f1f1f 51%, #242424 71%, #141414 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#575757', endColorstr='#141414', GradientType=0);
-        border: 3px solid rgba(0, 0, 0, 0.54);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#575757', endColorstr='#141414', GradientType=0);
+        border: 0px;
         font-size: 1.5em;
         height: 2em;
         font-weight: bold; }
         .table .bottom .player_turn_button button .btn_name {
           font-size: 0.8em;
           vertical-align: middle;
-          color: #cece3f; }
+          color: #fff; }
         .table .bottom .player_turn_button button .light {
           margin: 2% 1%;
           height: 85%;
@@ -10557,7 +11475,7 @@ body {
           background: -o-linear-gradient(top, #f5d9d2 0%, #f07d6e 50%, #f27666 51%, #f02f17 71%, #e73827 100%);
           background: -ms-linear-gradient(top, #f5d9d2 0%, #f07d6e 50%, #f27666 51%, #f02f17 71%, #e73827 100%);
           background: linear-gradient(to bottom, #f5d9d2 0%, #f07d6e 50%, #f27666 51%, #f02f17 71%, #e73827 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5d9d2', endColorstr='#e73827', GradientType=0);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5d9d2', endColorstr='#e73827', GradientType=0);
           -webkit-box-shadow: 0px 4px 18px 1px #fa7373;
           -moz-box-shadow: 0px 4px 18px 1px #fa7373;
           box-shadow: 0px 4px 18px 1px #fa7373; }
@@ -10571,16 +11489,12 @@ body {
           background: -o-linear-gradient(top, #f0f0f0 0%, #7ff06e 70%, #68f07c 51%, #18f026 71%, #27e643 100%);
           background: -ms-linear-gradient(top, #f0f0f0 0%, #7ff06e 70%, #68f07c 51%, #18f026 71%, #27e643 100%);
           background: linear-gradient(to bottom, #f0f0f0 0%, #7ff06e 70%, #68f07c 51%, #18f026 71%, #27e643 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#27e643', GradientType=0);
+          filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f0f0', endColorstr='#27e643', GradientType=0);
           -webkit-box-shadow: 0px 4px 18px 1px #76faa4;
           -moz-box-shadow: 0px 4px 18px 1px #76faa4;
           box-shadow: 0px 4px 18px 1px #76faa4; }
         .table .bottom .player_turn_button button.call.activated .light, .table .bottom .player_turn_button button.raise.activated .light, .table .bottom .player_turn_button button.allin.activated .light {
           background: #54e47f; }
-        .table .bottom .player_turn_button button:disabled .btn_name {
-          color: grey;
-          text-shadow: 0px 0px 25px black;
-          -webkit-text-stroke: 0.2px #000000; }
         .table .bottom .player_turn_button button:disabled .light {
           background: #6b6565;
           -webkit-box-shadow: none;
@@ -10594,38 +11508,38 @@ body {
           -webkit-text-stroke: 0.2px #000000; }
     .table .bottom .tip-lobby .button {
       min-height: 20px;
-      font-size: 1.2em;
-      color: #81b781;
       letter-spacing: 0.5px;
-      text-shadow: 0px 1px 2px #419941; }
+      padding: 25px;
+      font-size: 18px;
+      left: -5px; }
   .table .player1 {
-    right: 16%;
-    top: -6%; }
+    right: 19%;
+    top: -2%; }
   .table .player2 {
-    right: 5%;
-    top: 21%; }
+    right: 8%;
+    top: 19%; }
   .table .player3 {
-    right: 6%;
-    top: 60%; }
+    right: 10%;
+    top: 52%; }
   .table .player4 {
     right: 26%;
     bottom: 3%; }
   .table .player5 {
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-40%);
     bottom: 3%; }
   .table .player6 {
     left: 26%;
     bottom: 3%; }
   .table .player7 {
     left: 6%;
-    top: 60%; }
+    top: 54%; }
   .table .player8 {
     top: 21%;
     left: 5%; }
   .table .player9 {
     left: 16%;
-    top: -6%; }
+    top: -3%; }
 
 .option_menu .menu_cont {
   width: 30%;
@@ -10643,7 +11557,7 @@ body {
       padding-right: 10%; }
   .option_menu .menu_cont .menu_list .item {
     background: transparent;
-    color: white;
+    color: #fff;
     border: none;
     font-size: 1em;
     border-image: linear-gradient(to right, rgba(254, 255, 255, 0) 5%, rgba(255, 255, 255, 0.671) 50%, rgba(160, 217, 239, 0) 95%);
@@ -10656,7 +11570,7 @@ body {
       font-size: 1.2em; }
     .option_menu .menu_cont .menu_list .item .item-content {
       background: transparent;
-      color: white;
+      color: #fff;
       padding: 0px; }
 
 .new_game_timer {
@@ -10692,7 +11606,7 @@ body {
   top: 32%;
   transform: translateX(-50%);
   text-align: left;
-  color: white;
+  color: #fff;
   z-index: 6 !important; }
   .total_played_coin .coin {
     width: 1em;
@@ -10971,7 +11885,7 @@ body {
 .bootAnimate {
   position: absolute;
   z-index: 6;
-  color: white;
+  color: #fff;
   opacity: 0;
   white-space: nowrap;
   animation-duration: 1s;
@@ -11067,7 +11981,7 @@ body {
 
 .tip_animate {
   position: absolute;
-  color: white;
+  color: #fff;
   white-space: nowrap;
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
@@ -11079,55 +11993,55 @@ body {
     vertical-align: middle;
     margin-right: 10%; }
   .tip_animate.p9 {
-    top: 10% !important;
-    right: 80% !important; }
+    top: 3% !important;
+    right: 79% !important; }
   .tip_animate.anime-p9 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p8 {
-    top: 40% !important;
+    top: 27% !important;
     right: 90% !important; }
   .tip_animate.anime-p8 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p7 {
-    top: 70% !important;
-    right: 86% !important; }
+    top: 60% !important;
+    right: 87% !important; }
   .tip_animate.anime-p7 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p6 {
-    bottom: -8% !important;
+    bottom: 22% !important;
     left: unset !important;
-    right: 70% !important; }
+    right: 69% !important; }
   .tip_animate.anime-p6 {
     animation: tipmovefrombottom 4s forwards; }
   .tip_animate.p5 {
-    bottom: -8% !important;
+    bottom: 21% !important;
     left: unset !important;
-    right: 50% !important; }
+    right: 47.5% !important; }
   .tip_animate.anime-p5 {
     animation: tipmovefrombottom 4s forwards; }
   .tip_animate.p4 {
-    bottom: -8% !important;
+    bottom: 22% !important;
     left: unset !important;
-    right: 28% !important; }
+    right: 27% !important; }
   .tip_animate.anime-p4 {
     animation: tipmovefrombottom 4s forwards; }
   .tip_animate.p3 {
-    top: 70% !important;
+    top: 58% !important;
     left: unset !important;
-    right: 5% !important; }
+    right: 11% !important; }
   .tip_animate.anime-p3 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p2 {
-    top: 40% !important;
+    top: 25% !important;
     left: unset !important;
-    right: 5% !important; }
+    right: 9% !important; }
   .tip_animate.anime-p2 {
     animation: tipmovefromright 4s forwards; }
   .tip_animate.p1 {
-    top: 13% !important;
+    top: 4% !important;
     left: unset !important;
-    right: 15% !important;
-    z-index: 0; }
+    right: 20% !important;
+    z-index: 3; }
   .tip_animate.anime-p1 {
     animation: tipmovefromright 4s forwards; }
 
@@ -11405,9 +12319,8 @@ body {
   margin-bottom: 10%;
   text-align: center;
   vertical-align: middle;
-  box-shadow: 0px 0px 2px 1px #553e70;
   transform: translateY(10%);
-  background: #321e4a;
+  background: rgba(0, 0, 0, 0.5);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -11421,7 +12334,7 @@ body {
   min-height: 5vh;
   background-color: transparent;
   background-size: 100% 100%;
-  color: white;
+  color: #fff;
   padding: 2%; }
 
 @keyframes tipmovefrombottom {
@@ -11643,29 +12556,38 @@ community {
   margin-top: 0px !important;
   margin-bottom: 0px !important; }
 
-.platform-ios .login .login_block {
-  width: 65%; }
+.no-scroll .scroll {
+  height: auto; }
 
 .login {
-  background: linear-gradient(to top, #000000, black);
+  background-image: linear-gradient(rgba(46, 89, 92, 0.82), rgba(46, 89, 92, 0.97)), url("../img/coin-stack1.jpg");
+  background-position: center center;
   background-size: cover; }
   .login .logo {
     width: 100%;
     text-align: center;
-    margin-top: 0px; }
+    margin-top: 25%; }
     .login .logo img {
       width: 100%; }
+    .login .logo .logoText {
+      font-size: 45px;
+      font-weight: 700;
+      color: #e93e66; }
+      .login .logo .logoText .smallText {
+        position: relative;
+        font-size: 20px;
+        right: -43px; }
   .login .login_block {
     padding: 7%;
     width: 75%;
     text-align: center;
     margin: 0 auto;
-    margin-top: -15%;
     padding-bottom: 0; }
     .login .login_block input {
       height: 8vh;
       width: 100%;
-      border-radius: 6px; }
+      border-radius: 6px;
+      padding: 5px; }
     .login .login_block .login_button_submit {
       width: 100%;
       margin: 0 auto;
@@ -11682,22 +12604,19 @@ community {
         margin-bottom: 10%;
         text-align: center;
         vertical-align: middle;
-        color: #e1c975;
+        color: #fff;
         width: 100%;
         transform: translateY(10%);
-        background-image: url("../img/login/bgblue.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center center;
         font-weight: bold;
         font-weight: bold;
-        font-size: 1.7em;
-        border: 0px; }
+        font-size: 2.1em;
+        border: 0px;
+        background-color: #e93e66; }
     .login .login_block .login_button {
       height: 5em;
       border-radius: 5px;
       margin: 0 auto;
-      margin: 6% 0;
+      margin: 10% 0;
       padding: 0;
       margin-top: 0px;
       position: relative; }
@@ -11711,22 +12630,24 @@ community {
         top: 50%;
         transform: translateY(-50%);
         z-index: 1; }
-      .login .login_block .login_button input, .login .login_block .login_button select {
+      .login .login_block .login_button input,
+      .login .login_block .login_button select {
         padding: 0px 0px;
         height: 100%;
         font-weight: bold;
-        font-size: 1.7em;
-        color: #000; }
+        font-size: 2em;
+        color: #fff;
+        background-color: rgba(35, 35, 35, 0.62); }
       .login .login_block .login_button input::placeholder {
-        color: #000; }
+        color: #fff; }
     .login .login_block .valid {
       color: red;
       margin-top: 0%;
       line-height: 2;
-      font-size: 1em;
+      font-size: 1.3em;
       position: absolute;
       margin-bottom: 0% !important;
-      margin-top: -4% !important; }
+      margin-top: -6% !important; }
     .login .login_block .invailduser {
       width: 100%; }
 
@@ -11738,9 +12659,6 @@ input[type="date"]:valid::before {
   content: "" !important; }
 
 /*--------------------------signup-------------------*/
-.signup .login_block {
-  margin-top: -35%; }
-
 .signup .bg-yellow {
   border: 10px solid transparent;
   border-image: url(../img/login/bgyellow.png) 58;
@@ -11762,16 +12680,23 @@ input[type="date"]:valid::before {
 .signup .mar-t {
   margin-top: -23%; }
 
+.optional-field {
+  font-size: 10px;
+  padding-left: 5px;
+  position: relative;
+  /* top: 50%; */
+  transform: translateY(20%); }
+
 .custom-model {
-  top: 10%;
+  top: 15%;
   right: 10%;
   bottom: 10%;
   left: 10%;
   min-height: 5vh;
   width: 80%;
-  background-color: #3d236c;
+  background-color: #005658;
   background-size: 100% 100%;
-  color: white;
+  color: #fff;
   padding: 0% 2% 2% 2%; }
   .custom-model ion-content {
     padding: 2%; }
@@ -11795,7 +12720,7 @@ input[type="date"]:valid::before {
       background: url("../img/model/input_bg.png");
       background-size: 100% 100%;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      color: white;
+      color: #fff;
       padding: 2px 3%;
       height: 1.8em;
       margin: 0px 1%; }
@@ -11803,12 +12728,12 @@ input[type="date"]:valid::before {
         font-family: 'Cinzel-Regular';
         font-size: 1em;
         background-color: #3f474f;
-        color: white;
+        color: #fff;
         padding: 2px 3%; }
     .statement-model .top_field input {
       display: inline-block;
       padding: 2%;
-      color: white;
+      color: #fff;
       font-family: 'Cinzel-Regular';
       font-size: 1em;
       background: url("../img/model/input_bg.png");
@@ -11949,7 +12874,7 @@ input[type="date"]:valid::before {
   .table_info_modal button {
     background: linear-gradient(to bottom, rgba(152, 56, 83, 0.48) 0%, #983853 100%);
     background-size: 100% 100%;
-    color: white;
+    color: #fff;
     padding: 5px 25px;
     border: 0px; }
   .table_info_modal .ok {
@@ -11979,7 +12904,7 @@ input[type="date"]:valid::before {
   margin-bottom: 0px; }
 
 .active .modal-backdrop-bg {
-  background: rgba(0, 0, 0, 0.2); }
+  background: black; }
 
 .custom-table .item {
   background: transparent;
@@ -12026,15 +12951,11 @@ ion-item.item {
 .custom_button {
   line-height: 0.5;
   min-height: 30px;
-  margin-bottom: 10%;
   border-radius: 5px;
   text-align: center;
   vertical-align: middle;
-  color: #ffbf2f;
-  background-image: url(../img/login/bgblue.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+  color: #fff;
+  background: #e93e66;
   font-weight: bold;
   font-weight: bold;
   font-size: 1em;
@@ -12083,7 +13004,7 @@ ion-item.item {
         font-weight: bold;
         font-weight: bold;
         font-size: 1em;
-        color: white;
+        color: #fff;
         background: transparent; }
         .change_password-model .field form .login_button input::-webkit-input-placeholder {
           /* WebKit, Blink, Edge */
@@ -12141,7 +13062,8 @@ ion-item.item {
 
 span.valid {
   display: block;
-  margin-top: -8px; }
+  margin-top: -8px;
+  font-size: 2em; }
 
 .private_table .private_data {
   font-size: 2em;
@@ -12161,6 +13083,9 @@ span.valid {
     bottom: 40%;
     height: auto;
     min-height: 78%; }
+  .room_summary .cancel {
+    top: -40px;
+    right: -30px; }
   .room_summary .ok {
     position: absolute;
     bottom: 0;
@@ -12181,8 +13106,7 @@ span.valid {
 .side-show {
   height: 35%; }
   .side-show ion-content {
-    padding: 3%;
-    box-shadow: inset 0px 0px 19px 8px #25104a; }
+    padding: 3%; }
   .side-show .row {
     margin-top: 5%; }
 
@@ -12203,7 +13127,7 @@ span.valid {
   background: #3f316b; }
 
 .text-scroll p {
-  font-size: 11px;
+  font-size: 12px;
   text-align: justify;
   line-height: 20px; }
 
@@ -12232,7 +13156,7 @@ span.valid {
 .faq-modal {
   background-color: transparent;
   background-size: 100% 100%;
-  color: white; }
+  color: #fff; }
   .faq-modal .scroll-content {
     top: 15%;
     left: 2.5%;
@@ -12272,18 +13196,20 @@ span.valid {
 
 .otp .account {
   font-size: 2em;
-  line-height: 1;
+  line-height: 1.5;
   margin-bottom: 0px;
   font-weight: 600;
-  padding: 0px 14%;
-  text-align: center; }
+  padding: 0px 2%;
+  text-align: center;
+  margin-bottom: 20px;
+  letter-spacing: 1px; }
 
 .otp .login_button {
   margin: 3% 24%; }
 
 .otp .custom_button {
-  margin-top: 14%;
-  padding: 3% 10%;
+  margin-top: 10%;
+  padding: 2% 10%;
   font-size: 2em; }
 
 .otp .incorrect-otp {
@@ -12295,33 +13221,23 @@ span.valid {
   letter-spacing: 0.5px; }
 
 .otp .resend-otp {
-  padding: 2% 4%;
-  font-size: 1.5em;
-  float: right;
+  padding: 4%;
+  font-size: 1.8em;
   color: #f0e994;
   text-decoration: underline;
-  letter-spacing: 0.5px; }
+  letter-spacing: 1px; }
 
 .otp .heading {
   font-size: 3em;
   padding-bottom: 5%;
-  padding-top: 5%;
-  padding-left: 10%; }
+  padding-top: 5%; }
 
 .side-otp {
-  height: 37%; }
+  height: 45%; }
 
 .platform-ios .otp-modal {
-  top: 5%;
-  min-height: 85vh; }
-
-.otp-modal {
-  top: 15%;
-  right: 11%;
-  bottom: 10%;
-  left: 12%;
-  min-height: 5vh;
-  width: 75%; }
+  top: 10%;
+  min-height: 50vh; }
 
 .confirm-otp {
   height: 30%; }
@@ -12356,7 +13272,7 @@ span.valid {
     font-weight: 600;
     font-size: 1.2em; }
   .game_summary .auto-rebuy {
-    color: white;
+    color: #fff;
     font-size: 1em; }
   .game_summary .item {
     border-color: transparent;
@@ -12396,11 +13312,13 @@ span.valid {
     margin-top: 4%; }
 
 .cross-btn {
-  width: 20px;
   float: right;
   position: absolute;
-  right: 10px;
-  z-index: 2; }
+  right: -10px;
+  z-index: 2;
+  top: -14px;
+  color: #fff;
+  font-size: 22px; }
 
 .profile_summary {
   height: 60%;
@@ -12592,6 +13510,180 @@ span.valid {
 .loader {
   letter-spacing: 2px; }
 
+.profile-header .title-white {
+  text-align: center !important;
+  color: #fff; }
+
+.change-pswd {
+  margin-top: 5px;
+  float: right;
+  padding: 10px;
+  font-size: 15px; }
+  .change-pswd a {
+    color: #dda100;
+    text-decoration: none; }
+
+.profile-tabs .tab-item {
+  padding: 1px;
+  background: #e93e66;
+  margin: 0 auto;
+  border-radius: 50px;
+  opacity: 0.85; }
+  .profile-tabs .tab-item a {
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600; }
+
+.profile-detail {
+  margin: 5px 10px;
+  background: #0e6a6b;
+  padding-bottom: 10px; }
+  .profile-detail .profile-detail-list .input-label {
+    color: #5bfdff;
+    padding: 4px 6px 6px 3px; }
+  .profile-detail .profile-detail-list .item {
+    border: 0px; }
+  .profile-detail .profile-detail-list .item-input {
+    padding: 5px 16px; }
+    .profile-detail .profile-detail-list .item-input select {
+      background: rgba(35, 35, 35, 0.62); }
+  .profile-detail .profile-detail-list .padd-lr {
+    padding: 3% 5% !important; }
+  .profile-detail .profile-detail-list .padd-right {
+    padding-right: 20px; }
+  .profile-detail .profile-detail-list .gender {
+    display: flex;
+    padding: 3px 18px 10px 18px; }
+  .profile-detail .profile-detail-list .select-padd-lr {
+    padding: 2% 5% !important; }
+  .profile-detail .button-submit {
+    margin: 10px auto;
+    text-align: center; }
+    .profile-detail .button-submit button {
+      background: #e93e66;
+      color: #fff; }
+  .profile-detail .item-captcha {
+    margin: 16px 60px; }
+    .profile-detail .item-captcha input {
+      width: 65%;
+      margin: auto;
+      text-align: center; }
+
+/*Custom radio start**/
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 28px;
+  line-height: 1.15;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #5bfdff; }
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0; }
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: rgba(35, 35, 35, 0.62);
+  border-radius: 50%;
+  border: 1px solid #e93e66; }
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc; }
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #5bfdff; }
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none; }
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block; }
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 4px;
+  left: 4px;
+  height: 8px;
+  width: 8px;
+  background-color: rgba(35, 35, 35, 0.82);
+  border-radius: 50%; }
+
+/***custom radio end**/
+.account-profile .profile-img {
+  height: 125px;
+  width: 125px;
+  border-radius: 100%;
+  border: 2px solid #fff;
+  margin-top: 4em; }
+
+.account-profile .profile-name {
+  font-size: 22px;
+  margin-top: 10px;
+  font-weight: 600; }
+
+.account-bal {
+  padding: 5px 25px;
+  background: #e93e66;
+  width: 100%;
+  margin-top: 15px;
+  margin: 15px auto;
+  text-align: -webkit-center; }
+  .account-bal .ac-bal {
+    display: -webkit-inline-box;
+    text-align: initial; }
+  .account-bal .poker-coin-logo {
+    max-width: 45px;
+    max-height: 45px;
+    vertical-align: -webkit-baseline-middle; }
+  .account-bal .amount {
+    font-size: 22px;
+    font-weight: 600;
+    position: relative;
+    top: 15px;
+    padding-left: 20px; }
+
+.add-withdraw {
+  margin-bottom: 10em; }
+  .add-withdraw .btn-account {
+    width: 95%;
+    color: #fff;
+    font-weight: 700;
+    font-size: 17px; }
+  .add-withdraw .btn-add {
+    background: #00c000; }
+  .add-withdraw .btn-withdraw {
+    background: #dda100; }
+
+.account-list .item {
+  border-style: hidden hidden solid hidden;
+  border-width: 0px 0px 1px 0px;
+  background: transparent;
+  padding: 16px 35px;
+  color: #fff;
+  border-color: rgba(221, 221, 221, 0.43); }
+
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .play_now {
     width: 90%;
@@ -12606,7 +13698,8 @@ span.valid {
       top: -7%; }
   .table .table_field .plyr {
     width: 7vw; }
-  .login .login_block .login_button input, .login .login_block .login_button select {
+  .login .login_block .login_button input,
+  .login .login_block .login_button select {
     padding: 0px 0px; }
   .table .player5 {
     bottom: 1%; }
@@ -12630,7 +13723,8 @@ span.valid {
       top: -7%; }
   .table .table_field .plyr {
     width: 7vw; }
-  .login .login_block .login_button input, .login .login_block .login_button select {
+  .login .login_block .login_button input,
+  .login .login_block .login_button select {
     padding: 0px 0px; }
   .table .player5 {
     bottom: 1%; }
@@ -12680,4 +13774,18 @@ span.valid {
     background: linear-gradient(to bottom, #871c14 0%, #F44336 100%); }
 
 .color-white {
+  color: #fff !important; }
+
+.input-select input,
+.input-select select {
+  padding: 0px 0px;
+  font-weight: bold;
+  font-size: 2em;
+  color: #fff;
+  background-color: rgba(35, 35, 35, 0.62); }
+
+.ion-arrow-left-c::before {
   color: #fff; }
+
+.bor-bot {
+  border-bottom: 1px solid #e93e66 !important; }

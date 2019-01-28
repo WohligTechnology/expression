@@ -47,6 +47,12 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
         callback(data);
       })
     },
+    resendOtp: function (data, callback) {
+      return $http.post(url + "User/resendOtp", data).then(function (data) {
+        data = data.data;
+        callback(data);
+      })
+    },
     signUp: function (data, callback) {
       console.log(data, "signup");
       return $http.post(url + "User/signUp", data).then(function (data) {

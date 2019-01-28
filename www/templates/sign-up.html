@@ -19,31 +19,23 @@
         <div class="login_button row">
           <input class="col padd-lr" type="text" ng-model="data.email" name="email" placeholder="Email Id" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
             required />
-          <!-- <input class="col padd-lr" type="email" name="email" placeholder="Email Id" ng-model="data.email" required /> -->
         </div>
-        <div class="valid">
-          <span ng-show="signup.email.$touched && ! signup.email.$dirty">Email Id is required</span>
-          <span ng-if="signup.email.$dirty && signup.email.$error.pattern">Please Enter
-            Valid Email</span>
-        </div>
-        <!-- <div class="valid" ng-show="signup.email.$dirty && signup.email.$error.pattern">Please Enter
-          Valid Email</div> -->
+        <div class="valid" ng-if="signup.email.$touched && signup.email.$invalid">Please Enter Valid Email</div>
         <div class="login_button row">
-          <input class="col padd-lr" type="tel" name="mobile" placeholder="Mobile No" ng-model="data.mobile" maxlength="10"
+          <input class="col padd-lr" type="text" only-digits name="mobile" placeholder="Mobile No" ng-model="data.mobile" maxlength="10"
             minlength="10" required />
         </div>
         <div class="valid" ng-if="signup.mobile.$touched && signup.mobile.$invalid">
           Please Enter Valid Mobile Number
         </div>
         <div class="login_button row">
-          <input class="col padd-lr" type="password" name="password" placeholder="Password" ng-model="data.password"
-            required />
+          <input class="col padd-lr" type="password" name="password" placeholder="Password" ng-model="data.password" required />
         </div>
         <div class="valid" ng-if="signup.password.$touched && signup.password.$invalid">
           Please Enter Valid Password
         </div>
 
-        <div class="login_button row">
+        <div class="login_button row" ng-if="data.password && data.password != ''">
           <input class="col padd-lr" type="password" name="confirmPassword" placeholder="Confirm Password" ng-model="data.confirmPassword"
             ng-change="matchPasswords(data)" required />
         </div>
@@ -51,20 +43,26 @@
           Please enter Password
         </div>
         <div class="valid" ng-if="notMatching">
-          Passwords does not match
+          Password do not match
         </div>
 
         <!-- <div class="login_button row">
               <input class="col padd-lr" type="number" name="password" placeholder="Mobile No" required>
             </div> -->
         <div class="login_button row">
-          <input class="col padd-lr" type="text" name="dob" placeholder="DOB" ng-model="data.dob" pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
-            required />
+          <!--<input class="col padd-lr" type="text" name="dob" placeholder="DOB" ng-model="data.dob" ng-change="checkAge(data.dob)" pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
+            required />-->
+          <input class="col padd-lr" type="text" name="dob" placeholder="DOB" ng-click="openDatePicker()" ng-model="data.dob" required
+          />
         </div>
         <div class="valid">
-          <span ng-show="signup.dob.$touched && !signup.dob.$dirty">Date of Birth is required</span>
-          <span ng-if="signup.dob.$dirty && signup.dob.$error.pattern">Please Enter Valid Date of Birth</span>
+          <span ng-if="signup.dob.$invalid && signup.dob.$touched">Please Enter Valid Date of Birth </span>
+          <span ng-if="ageError">
+            (Age should be more than 21)</span>
         </div>
+        <!--<div class="valid" ng-if="ageError">
+          Age should be more than 21
+        </div>-->
 
         <!-- <div class="login_button row">
           <input class="col padd-lr" type="text" name="country" ng-model="data.country" placeholder="Country" ng-init="data.country='India'"
@@ -75,7 +73,7 @@
         </div> -->
 
         <div class="login_button row">
-          <select ng-model="data.state" class="col" ng-options="x for x in state" placeholder="Select State.." name="state">
+          <select ng-model="data.state" class="col" ng-options="x for x in state" placeholder="Select State.." name="state" required>
             <option value="" disabled hidden selected>State</option>
           </select>
           <!-- <input class="col padd-lr" type="text" name="State" ng-model="data.state" placeholder="*State" required> -->
@@ -92,22 +90,20 @@
         </div> -->
 
         <div class="login_button row">
-          <input class="col padd-lr" type="text" maxlength="7" name="ReferredBy" placeholder="Enter Referral Code if any .. "
+          <input class="col padd-lr" type="text" minlength="7" maxlength="7" name="ReferredBy" placeholder="Enter Referral Code if any .. "
             ng-model="data.referredBy" />
-          <!-- <span class="optional-field">Optional</span> -->
-        </div>
-        <div class="valid" ng-if="signup.ReferredBy.$touched && signup.ReferredBy.$invalid">
-          Please Enter Valid Referral Code
         </div>
         <div class="sign_up_status" ng-if="signUpStatus">
           {{ signUpStatus }}
         </div>
         <div class="sign_up_error" ng-if="signUpError">
-          *Email Id or Mobile is registrated
+          *Email Id or Mobile is already registered.
+        </div>
+        <div class="sign_up_error" ng-if="referredErr">
+          Referred Code is invalid.
         </div>
         <div class="login_button_submit row">
-          <button class="button bg-blue" type="submit" ng-disabled="signup.$invalid" ng-click="signUp(data,signup)"
-            promise-btn="signUpPromise">
+          <button class="button bg-blue" type="submit" ng-disabled="signup.$invalid" ng-click="signUp(data,signup)" promise-btn="signUpPromise">
             Sign Up
           </button>
         </div>
