@@ -1,0 +1,93 @@
+.table-lists {
+  .profile-detail {
+    margin-top: 0px;
+  }
+
+  .create-table {
+    // float: right;
+    padding: 6px;
+    background: inherit;
+    // margin-bottom: 10px;
+
+    .button-create {
+      background: $pink-bg;
+      color: $white;
+      font-weight: 600;
+    }
+  }
+
+  .table-type {
+    background: $header-bg;
+    font-size: 13px;
+    opacity: 1;
+
+    a {
+      color: $white;
+    }
+
+    .selected {
+      font-weight: 700;
+      border-bottom: 0.2em solid $button-yellow;
+      opacity: 1;
+
+      a {
+        color: $button-yellow;
+      }
+    }
+  }
+
+  .filter-tablelist {
+    .item {
+      background: transparent;
+      border: none;
+
+      .item-input-wrapper {
+        border-radius: 0px;
+        background: $input-bg;
+
+        input {
+          color: $white;
+          width: 100%;
+        }
+      }
+    }
+
+    .placeholder-icon {
+      color: white;
+      font-size: 22px;
+      padding: 3px 6px;
+      height: 29px;
+      background: $pink-bg;
+    }
+
+    .filter-btn {
+      background: $pink-bg;
+      color: $white;
+      border-radius: 0px;
+    }
+  }
+
+  .tableslist {
+    table {
+      width: 100%;
+      // text-align: center;
+      font-size: 15px;
+
+      th {
+        font-weight: 700;
+        font-size: 13px;
+        color: $header-bg;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 5px 8px;
+      }
+
+      tr {
+        border-bottom: 1px solid rgba(239, 238, 238, 0.15);
+      }
+    }
+  }
+}

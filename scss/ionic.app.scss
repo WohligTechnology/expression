@@ -309,6 +309,7 @@ body {
 @import "addamount";
 @import "profile";
 @import "account";
+@import "tablelist";
 
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation:landscape) {
   .play_now {
@@ -468,4 +469,16 @@ body {
 
 .bor-bot {
   border-bottom: 1px solid $pink-bg !important;
+}
+
+/**Singup DOB Calendar popup*/
+.ionic_datepicker_popup .calendar_grid {
+  // height: 215px;
+  font-size: 12px;
+  color: $app-background;
+}
+
+/**top of content after header**/
+.has-header {
+  top: 65px !important;
 }

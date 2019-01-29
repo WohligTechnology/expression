@@ -1,0 +1,62 @@
+<ion-view class="lobby">
+  <ion-header-bar class="lobby-bar">
+    <div class="profile-header header-title">
+      <div class="bar bar-header lobby-header">
+        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <h1 class="title title-white">{{heading}} Poker</h1>
+      </div>
+    </div>
+  </ion-header-bar>
+  <ion-content class="table-lists">
+    <div class="profile-detail">
+      <div class="create-table">
+        <div class="create-btn item-note">
+          <button class="button button-small button-create">Create Private Table</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="filter-tablelist">
+        <div class="list">
+          <div class="item item-input-inset">
+            <label class="item-input-wrapper">
+              <input type="text" placeholder="Search Table Name">
+            </label>
+            <i class="icon ion-search placeholder-icon"></i>
+            <button class="button button-small icon filter-btn ion-funnel">
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="table-type">
+        <div class="row text-center">
+          <div class="col-20 tab-item text-center" ng-class="{'selected': selectedTab=='All'}"><a ng-click="tableType('All')">All</a>
+          </div>
+          <div class="col-25 tab-item text-center" ng-class="{'selected': selectedTab=='HoldEm'}"><a ng-click="tableType('HoldEm')">Hold'Em</a></div>
+          <div class="col-20 tab-item text-center" ng-class="{'selected': selectedTab=='Omaha'}"><a ng-click="tableType('Omaha')">Omaha</a></div>
+          <div class="col-35 tab-item text-center" ng-class="{'selected': selectedTab=='Private'}"><a ng-click="tableType('Private')">My
+              Private Table</a></div>
+        </div>
+      </div>
+
+      <div class="tableslist">
+        <!-- <ion-scroll direction="y" scrollbar-y="true" style="width:100%; height:100%"> -->
+        <table>
+          <tr>
+            <th>Table</th>
+            <th>Rates</th>
+            <th>Players</th>
+            <th>Buy-In</th>
+          </tr>
+          <tr ng-repeat="tableData in tableLists" ng-click="selectedTable(tableData)">
+            <td>{{tableData.name}}<br>
+              <small>{{tableData.type}}</small></td>
+            <td>{{tableData.minRate}}/{{tableData.maxRate}}</td>
+            <td>{{tableData.inPlayers}}/{{tableData.maxPlayers}}</td>
+            <td>{{tableData.buyInMin}}/{{tableData.buyInMax}}</td>
+          </tr>
+        </table>
+        <!-- </ion-scroll> -->
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

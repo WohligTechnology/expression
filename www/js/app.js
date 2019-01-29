@@ -163,6 +163,12 @@ var myApp = angular
         cache: false,
         controller: "TransferStatementCtrl"
       })
+      .state("table-list", {
+        url: "/table-list/:type",
+        templateUrl: "templates/tables-list.html",
+        cache: false,
+        controller: "TablesListCtrl"
+      })
       .state("table", {
         url: "/table/:id",
         cache: false,
