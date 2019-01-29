@@ -50,7 +50,8 @@ myApp.controller("SignUpCtrl", function ($scope, Service, $state, $ionicPlatform
   $scope.signUpError = false;
   $scope.referredErr = false;
   $scope.signUp = function (data, signup) {
-    console.log("sif");
+    console.log("sif", data);
+    data.dob = new Date(data.dob);
     $scope.signUpPromise = Service.signUp(data, function (data) {
       console.log("sign up data", data);
       if (data.value) {
