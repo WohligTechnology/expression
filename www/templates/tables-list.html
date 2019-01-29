@@ -11,7 +11,7 @@
     <div class="profile-detail">
       <div class="create-table">
         <div class="create-btn item-note">
-          <button class="button button-small button-create">Create Private Table</button>
+          <button class="button button-small button-create" ng-click="createTable()">Create Private Table</button>
         </div>
         <div class="clearfix"></div>
       </div>
@@ -49,10 +49,15 @@
           </tr>
           <tr ng-repeat="tableData in tableLists" ng-click="selectedTable(tableData)">
             <td>{{tableData.name}}<br>
-              <small>{{tableData.type}}</small></td>
+              <small class="tabletime">{{dateTime}}</small></td>
             <td>{{tableData.minRate}}/{{tableData.maxRate}}</td>
             <td>{{tableData.inPlayers}}/{{tableData.maxPlayers}}</td>
-            <td>{{tableData.buyInMin}}/{{tableData.buyInMax}}</td>
+            <td>{{tableData.buyInMin}}/{{tableData.buyInMax}}
+              <br>
+              <small class="tabletype" ng-class="{'type-omaha': tableData.type=='Omaha' && tableData.accessType=='Public','type-private': tableData.accessType=='Private','type-holdem': tableData.type=='Holdem' && tableData.accessType=='Public'}">{{tableData.accessType
+                == 'Private' ? "Private" : "" }} {{tableData.type}}
+              </small>
+            </td>
           </tr>
         </table>
         <!-- </ion-scroll> -->

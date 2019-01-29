@@ -1,4 +1,4 @@
-myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHistory, $stateParams) {
+myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHistory, $stateParams, $ionicModal) {
   $ionicPlatform.ready(function () {
     if (ionic.Platform.isAndroid()) {
       screen.orientation.lock('portrait');
@@ -7,21 +7,11 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
   if (!_.isEmpty($stateParams)) {
     $scope.heading = $stateParams.type;
   }
-
-  $scope.selectedTab = 'All';
-  $scope.tableType = function (tableType) {
-    $scope.selectedTab = tableType;
-  }
-
-  $scope.goBackToPage = function () {
-    console.log("Go Back Called")
-    $ionicHistory.goBack();
-  };
-
-  $scope.tableLists = {
+  $scope.listOfTables = {
     tableData: {
       'id': "1",
       'name': "Sizzling sixes",
+      'accessType': "Public",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -33,7 +23,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData1: {
       'id': "2",
       'name': "Sizzling sixes",
-      'type': "Virtual",
+      'accessType': "Public",
+      'type': "Omaha",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -44,7 +35,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData2: {
       'id': "3",
       'name': "Sizzling sixes",
-      'type': "Private Holdem",
+      'accessType': "Public",
+      'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -55,6 +47,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData3: {
       'id': "4",
       'name': "Sizzling sixes",
+      'accessType': "Private",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -66,6 +59,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData4: {
       'id': "5",
       'name': "Sizzling sixes",
+      'accessType': "Public",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -77,7 +71,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData5: {
       'id': "6",
       'name': "Sizzling sixes",
-      'type': "Virtual",
+      'accessType': "Private",
+      'type': "Omaha",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -88,7 +83,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData6: {
       'id': "7",
       'name': "Sizzling sixes",
-      'type': "Private Holdem",
+      'accessType': "Public",
+      'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -99,6 +95,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData7: {
       'id': "8",
       'name': "Sizzling sixes",
+      'accessType': "Public",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -110,6 +107,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData8: {
       'id': "9",
       'name': "Sizzling sixes",
+      'accessType': "Private",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -121,7 +119,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData9: {
       'id': "10",
       'name': "Sizzling sixes",
-      'type': "Virtual",
+      'accessType': "Private",
+      'type': "Omaha",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -132,7 +131,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData10: {
       'id': "11",
       'name': "Sizzling sixes",
-      'type': "Private Holdem",
+      'accessType': "Public",
+      'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -143,6 +143,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData11: {
       'id': "12",
       'name': "Sizzling sixes",
+      'accessType': "Public",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -154,6 +155,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData12: {
       'id': "13",
       'name': "Sizzling sixes",
+      'accessType': "Private",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -165,7 +167,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData13: {
       'id': "14",
       'name': "Sizzling sixes",
-      'type': "Virtual",
+      'accessType': "Public",
+      'type': "Omaha",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -176,7 +179,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData14: {
       'id': "15",
       'name': "Sizzling sixes",
-      'type': "Private Holdem",
+      'accessType': "Private",
+      'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -187,6 +191,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData15: {
       'id': "16",
       'name': "Sizzling sixes",
+      'accessType': "Public",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -198,6 +203,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData16: {
       'id': "17",
       'name': "Sizzling sixes",
+      'accessType': "Private",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -209,7 +215,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData17: {
       'id': "18",
       'name': "Sizzling sixes",
-      'type': "Virtual",
+      'accessType': "Private",
+      'type': "Omaha",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -220,7 +227,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData18: {
       'id': "19",
       'name': "Sizzling sixes",
-      'type': "Private Holdem",
+      'accessType': "Public",
+      'type': "Omaha",
       'minRate': "80",
       'maxRate': "200",
       'inPlayers': "8",
@@ -231,6 +239,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
     tableData19: {
       'id': "20",
       'name': "Sizzling sixes",
+      'accessType': "Public",
       'type': "Holdem",
       'minRate': "80",
       'maxRate': "200",
@@ -240,8 +249,67 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
       'buyInMax': "400"
     },
   }
+  $scope.tableLists = _.cloneDeep($scope.listOfTables);
+  $scope.selectedTab = 'All';
 
+  /**To select Table type as per tabs */
+  $scope.tableType = function (tableType) {
+    $scope.selectedTab = tableType;
+    console.log("$scope.selectedTab", $scope.selectedTab);
+
+    switch ($scope.selectedTab) {
+      case "All":
+        $scope.tempData = _.cloneDeep($scope.listOfTables);
+        $scope.tableLists = $scope.tempData;
+        break;
+      case "HoldEm":
+        $scope.tempData = _.cloneDeep($scope.listOfTables);
+        $scope.tableLists = _.pickBy($scope.tempData, function (data) {
+          return data.type == 'Holdem'
+        });
+        break;
+      case "Omaha":
+        $scope.tempData = _.cloneDeep($scope.listOfTables);
+        $scope.tableLists = _.pickBy($scope.tempData, function (data) {
+          return data.type == 'Omaha'
+        });
+        break;
+      case "Private":
+        $scope.tempData = _.cloneDeep($scope.listOfTables);
+        $scope.tableLists = _.pickBy($scope.tempData, function (data) {
+          return data.accessType == 'Private'
+        });
+        break;
+      default:
+        $scope.tempData = _.cloneDeep($scope.listOfTables);
+        $scope.tableLists = $scope.tempData;
+        break;
+    }
+  }
+  /**Select table End */
+  $scope.goBackToPage = function () {
+    console.log("Go Back Called")
+    $ionicHistory.goBack();
+  };
+
+  /**Selected Table */
   $scope.selectedTable = function (table) {
     console.log("Table selected", table)
   }
+
+  $scope.dateTime = moment().format("Do MMM'YY HH:mm:ss");
+
+  /**Create Private Table Modal */
+  $ionicModal.fromTemplateUrl('templates/modal/create-private-table.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.modal = modal;
+  });
+  $scope.createTable = function () {
+    $scope.modal.show();
+  };
+  $scope.closePrivateTable = function () {
+    $scope.modal.hide();
+  };
 })

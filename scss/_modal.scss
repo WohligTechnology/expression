@@ -375,7 +375,7 @@
 }
 
 .active .modal-backdrop-bg {
-  background: rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, 0.81);
 }
 
 //table Scss
@@ -591,6 +591,59 @@ span.valid {
     text-align: center;
     margin: 20px;
     line-height: 1.5;
+  }
+
+  .createPrivateTable {
+    padding: 2% 7%;
+
+    input {
+      width: 100%;
+    }
+
+    .table-type {
+      display: flex;
+    }
+
+    .container {
+      line-height: 1.5;
+      padding-left: 35px;
+      padding-right: 20px;
+      color: $white;
+
+      .checkmark {
+        height: 25px;
+        width: 25px;
+        border: 0.15em solid #e93e66;
+        // background-color: $pink-bg;
+      }
+
+      input:checked~.checkmark {
+        background-color: $pink-bg;
+      }
+
+      .checkmark:after {
+        height: 0px;
+        width: 0px;
+
+      }
+    }
+
+    .button-create {
+      background: $pink-bg;
+      color: $white;
+      font-weight: 600;
+      padding: 0px 10px;
+      min-height: 30px;
+    }
+
+    .mar-bot {
+      margin-bottom: 15px;
+    }
+
+    .cross-btn {
+      right: -15px;
+      color: $pink-bg;
+    }
   }
 }
 

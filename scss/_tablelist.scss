@@ -91,4 +91,31 @@
       }
     }
   }
+
+  .tabletime {
+    background: $app-background;
+    font-size: 70%;
+    border-radius: 4px;
+    padding: 3px 5px;
+  }
+
+  .tabletype {
+    font-size: 10px;
+    padding: 3px 5px;
+    border-radius: 4px;
+    font-weight: 600;
+  }
+
+  .type-omaha {
+    background: $profile-label;
+    color: $profile-bg;
+  }
+
+  .type-private {
+    background: $button-yellow;
+  }
+
+  .type-holdem {
+    background: $pink-bg;
+  }
 }
