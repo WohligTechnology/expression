@@ -12904,7 +12904,7 @@ input[type="date"]:valid::before {
   margin-bottom: 0px; }
 
 .active .modal-backdrop-bg {
-  background: black; }
+  background: rgba(0, 0, 0, 0.81); }
 
 .custom-table .item {
   background: transparent;
@@ -13070,6 +13070,38 @@ span.valid {
   text-align: center;
   margin: 20px;
   line-height: 1.5; }
+
+.private_table .createPrivateTable {
+  padding: 2% 7%; }
+  .private_table .createPrivateTable input {
+    width: 100%; }
+  .private_table .createPrivateTable .table-type {
+    display: flex; }
+  .private_table .createPrivateTable .container {
+    line-height: 1.5;
+    padding-left: 35px;
+    padding-right: 20px;
+    color: #fff; }
+    .private_table .createPrivateTable .container .checkmark {
+      height: 25px;
+      width: 25px;
+      border: 0.15em solid #e93e66; }
+    .private_table .createPrivateTable .container input:checked ~ .checkmark {
+      background-color: #e93e66; }
+    .private_table .createPrivateTable .container .checkmark:after {
+      height: 0px;
+      width: 0px; }
+  .private_table .createPrivateTable .button-create {
+    background: #e93e66;
+    color: #fff;
+    font-weight: 600;
+    padding: 0px 10px;
+    min-height: 30px; }
+  .private_table .createPrivateTable .mar-bot {
+    margin-bottom: 15px; }
+  .private_table .createPrivateTable .cross-btn {
+    right: -15px;
+    color: #e93e66; }
 
 .room_summary {
   height: 50%;
@@ -13515,9 +13547,8 @@ span.valid {
   color: #fff; }
 
 .change-pswd {
-  margin-top: 5px;
   float: right;
-  padding: 10px;
+  padding: 0 10px 10px;
   font-size: 15px; }
   .change-pswd a {
     color: #dda100;
@@ -13684,6 +13715,89 @@ span.valid {
   color: #fff;
   border-color: rgba(221, 221, 221, 0.43); }
 
+.table-lists .profile-detail {
+  margin-top: 0px; }
+
+.table-lists .create-table {
+  padding: 6px;
+  background: inherit; }
+  .table-lists .create-table .button-create {
+    background: #e93e66;
+    color: #fff;
+    font-weight: 600; }
+
+.table-lists .table-type {
+  background: #004040;
+  font-size: 13px;
+  opacity: 1; }
+  .table-lists .table-type a {
+    color: #fff; }
+  .table-lists .table-type .selected {
+    font-weight: 700;
+    border-bottom: 0.2em solid #dda100;
+    opacity: 1; }
+    .table-lists .table-type .selected a {
+      color: #dda100; }
+
+.table-lists .filter-tablelist .item {
+  background: transparent;
+  border: none;
+  padding-top: 5px; }
+  .table-lists .filter-tablelist .item .item-input-wrapper {
+    border-radius: 0px;
+    background: rgba(35, 35, 35, 0.62); }
+    .table-lists .filter-tablelist .item .item-input-wrapper input {
+      color: #fff;
+      width: 100%; }
+
+.table-lists .filter-tablelist .placeholder-icon {
+  color: white;
+  font-size: 22px;
+  padding: 3px 6px;
+  height: 29px;
+  background: #e93e66; }
+
+.table-lists .filter-tablelist .filter-btn {
+  background: #e93e66;
+  color: #fff;
+  border-radius: 0px; }
+
+.table-lists .tableslist table {
+  width: 100%;
+  font-size: 15px; }
+  .table-lists .tableslist table th {
+    font-weight: 700;
+    font-size: 13px;
+    color: #004040; }
+  .table-lists .tableslist table th,
+  .table-lists .tableslist table td {
+    text-align: left;
+    padding: 5px 8px; }
+  .table-lists .tableslist table tr {
+    border-bottom: 1px solid rgba(239, 238, 238, 0.15); }
+
+.table-lists .tabletime {
+  background: #005658;
+  font-size: 70%;
+  border-radius: 4px;
+  padding: 3px 5px; }
+
+.table-lists .tabletype {
+  font-size: 10px;
+  padding: 3px 5px;
+  border-radius: 4px;
+  font-weight: 600; }
+
+.table-lists .type-omaha {
+  background: #5bfdff;
+  color: #0e6a6b; }
+
+.table-lists .type-private {
+  background: #dda100; }
+
+.table-lists .type-holdem {
+  background: #e93e66; }
+
 @media screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
   .play_now {
     width: 90%;
@@ -13789,3 +13903,15 @@ span.valid {
 
 .bor-bot {
   border-bottom: 1px solid #e93e66 !important; }
+
+/**Singup DOB Calendar popup*/
+.ionic_datepicker_popup .calendar_grid {
+  font-size: 12px;
+  color: #005658; }
+
+/**top of content after header**/
+.has-header {
+  top: 65px !important; }
+
+.padd-lr {
+  padding: 3% 5% !important; }
