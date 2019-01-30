@@ -2,11 +2,13 @@
   .login_block {
     width: 76%;
   }
+
   .login_block .login_button_submit button {
     margin-top: 12%;
     margin-bottom: 5%;
     width: 70%;
   }
+
   p {
     font-size: 10px;
     line-height: 15px;
@@ -24,6 +26,7 @@
 
 .transaction-history {
   margin: 4% 6%;
+
   .item {
     background-color: #221934;
     font-size: 1.3em;
@@ -32,6 +35,7 @@
     color: $light;
     border: none;
   }
+
   .table-heading {
     display: block; // padding-left: 18px;
     background-color: #ddcb77;
@@ -41,6 +45,7 @@
     padding: 10px 0px;
     margin: 0px;
   }
+
   .transaction-row {
     font-size: 1.1em;
   }
@@ -53,4 +58,43 @@
 
 .loader {
   letter-spacing: 2px;
+}
+
+.add-withdraw {
+
+  .amt-label {
+    margin: 7% 0 3% 0;
+    text-align: center;
+
+    label {
+      font-size: 17px;
+    }
+  }
+
+  input,
+  button {
+    width: 80%;
+  }
+
+  .add-withdraw-btn {
+    button {
+      font-weight: 700;
+    }
+  }
+
+  .withdrawl-note {
+    margin: 0 auto;
+    width: 81%;
+    padding-top: 4px;
+    // line-height: 1.6;
+
+    span {
+      font-size: 10px;
+    }
+  }
+
+}
+
+.mar-auto {
+  margin: 0 auto !important;
 }

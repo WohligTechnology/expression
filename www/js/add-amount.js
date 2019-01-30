@@ -1,4 +1,4 @@
-myApp.controller("AddAmountCtrl", function ($scope, Service, $state, $ionicPlatform, $ionicModal, $timeout) {
+myApp.controller("AddAmountCtrl", function ($scope, Service, $state, $ionicPlatform, $ionicModal, $timeout, $ionicHistory) {
   $ionicPlatform.ready(function () {
     screen.orientation.lock('portrait');
   })
@@ -42,5 +42,10 @@ myApp.controller("AddAmountCtrl", function ($scope, Service, $state, $ionicPlatf
     } else {}
   };
   $scope.loadMore();
+
+  $scope.goBackToPage = function () {
+    console.log("Go Back Called")
+    $ionicHistory.goBack();
+  };
 
 })

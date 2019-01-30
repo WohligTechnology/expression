@@ -1,0 +1,60 @@
+<ion-modal-view class="filterModal custom-model">
+  <ion-content>
+    <button class="button button-icon ion-close cross-btn cancel" ng-click="closeFilterTableModal();"></button>
+    <div class="heading mar-bot">Filter By</div>
+
+    <div class="input-select">
+      <div class="rel mar-bot">
+        <input class="padd-lr color-white bor-bot" type="text" placeholder="Table Name" name="tableName" ng-model="filterData.tableName"
+          required>
+      </div>
+      <div class="rel mar-bot">
+        <div class="table-type modal-cont ">
+          <label class="container padd-right">Hold'Em
+            <input type="radio" name="radio" ng-value="true" ng-model="filterData.holdem" ng-click="filterData.omaha=false">
+            <span class="checkmark"></span>
+          </label>
+          <label class="container padd-right">Omaha
+            <input type="radio" name="radio" ng-value="true" ng-model="filterData.omaha" ng-click="filterData.holdem=false">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
+
+      <div class="row ">
+        <div class="col-50 padding-right">
+          <div class="rel mar-bot">
+            <input class="padd-lr color-white bor-bot " type="number" placeholder="Small Blind" name="smallBlind"
+              ng-model="filterData.smallBlind" required>
+          </div>
+        </div>
+
+        <div class="col-50 padding-left">
+          <div class="rel mar-bot">
+            <input class="padd-lr color-white bor-bot " type="number" placeholder="Big Blind" name="bigBlind" ng-model="filterData.bigBlind"
+              required>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mar-bot">
+        <div class="col-50 padding-right">
+          <div class="rel mar-bot">
+            <input class="padd-lr color-white bor-bot" type="number" placeholder="Min Buy In" name="minBuyIn" ng-model="filterData.minBuyIn"
+              required>
+          </div>
+        </div>
+        <div class="col-50 padding-left">
+          <div class="rel mar-bot">
+            <input class="padd-lr color-white bor-bot" type="number" placeholder="Max Buy In" name="maxBuyIn" ng-model="filterData.maxBuyIn"
+              required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="filter-btn mar-bot">
+      <button class="button button-filter" ng-click="resetFilter()">Reset</button>
+      <button class="button button-filter" ng-click="applyFilter(filterData)">Apply</button>
+    </div>
+  </ion-content>
+</ion-modal-view>

@@ -1,12 +1,12 @@
-<ion-modal-view class="custom-model statement-model">
+<!-- <ion-modal-view class="custom-model statement-model">
 
   <ion-content>
     <div class="close" ng-click="closeTransferStatement()">
       <i class="icon ion-close text_glow"></i>
     </div>
     <div class="heading">Transfer statement</div>
-    <div class="top_field">
-      <!-- Date within
+    <div class="top_field"> -->
+<!-- Date within
       <select>
         <option selected>1 Day</option>
         <option>2 Day</option>
@@ -14,9 +14,9 @@
       </select>
       of
       <input type="text" ng-model="month"> -->
-    </div>
+<!-- </div> -->
 
-    <!-- <div class="statement_content ">
+<!-- <div class="statement_content ">
       <table>
         <tr>
           <th>Date</th>
@@ -38,7 +38,7 @@
       </table>
     </div> -->
 
-
+<!-- 
     <div class="custom-table" ng-if="transferStatementData">
       <ion-list>
         <ion-item class="item">
@@ -82,26 +82,60 @@
         </ion-item>
       </ion-list>
     </div>
-    <!-- no Data found -->
-    <div class="loader bold" ng-if="noDataFound" ng-bind-html="displayMessage.main">
-    </div>
-    <!-- loader -->
-    <div class="loader" ng-if="!transferStatementData">
-      Loading ..
-    </div>
-    <ion-infinite-scroll on-infinite="loadMore()" icon="ion-loading-c"></ion-infinite-scroll>
-  </ion-content>
-</ion-modal-view>
+     no Data found -->
+<!-- <div class="loader bold" ng-if="noDataFound" ng-bind-html="displayMessage.main">
+</div>
+<div class="loader" ng-if="!transferStatementData">
+  Loading ..
+</div>
+<ion-infinite-scroll on-infinite="loadMore()" icon="ion-loading-c"></ion-infinite-scroll>
+</ion-content>
+</ion-modal-view>  -->
 
 <ion-view class="lobby">
   <ion-header-bar class="lobby-bar">
     <div class="profile-header header-title">
       <div class="bar bar-header lobby-header">
         <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
-        <h1 class="title title-white">Transaction statement</h1>
+        <h1 class="title title-white">Transfer Statement</h1>
       </div>
     </div>
   </ion-header-bar>
-  <ion-content>
+  <ion-content class="table-lists">
+    <div class="profile-detail">
+      <div class="table-type">
+        <div class="row text-center">
+          <div class="col-50 tab-item text-center" ng-class="{'selected': selectedTab=='Add'}" ng-click="transferType('Add')"><a>Add
+              Money</a>
+          </div>
+          <div class="col-50 tab-item text-center" ng-class="{'selected': selectedTab=='Withdraw'}" ng-click="transferType('Withdraw')"><a>Withdraw
+              Money</a></div>
+        </div>
+      </div>
+      <div class="tableslist transfer-stmt">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Cr/Db</th>
+              <th>Balance</th>
+              <th>Info</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="transaction in allTransactions">
+              <td>{{currDate}}</td>
+              <td>{{transaction.amount}}</td>
+              <td>{{transaction.transactionType}}</td>
+              <td>{{transaction.balance}}</td>
+              <td class="transfer-info">
+                <i class="ion-information-circled"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </ion-content>
 </ion-view>

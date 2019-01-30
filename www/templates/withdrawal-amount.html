@@ -1,4 +1,4 @@
-<div class="login signup add-amount">
+<!-- <div class="login signup add-amount">
   <div class="tip-lobby back-lobby">
     <div class="tip-dealer_submit row">
       <button class="button" type="submit" ui-sref="lobby">Back to lobby</button>
@@ -11,7 +11,8 @@
     <form name="signup">
       <div class="login_button row">
         <i class="icon ">&#x20b9;</i>
-        <input class="col bg-yellow padd-lr" type="text" name="amount" ng-model="table.coins" placeholder="0000" required>
+        <input class="col bg-yellow padd-lr" type="text" name="amount" ng-model="table.coins" placeholder="0000"
+          required>
       </div>
       <div class="login_button_submit row">
         <button class="button" type='submit' ng-click="withdrawCoins(table.coins);" promise-btn="withdrawPromise">PROCEED</button>
@@ -60,11 +61,36 @@
         </ion-item>
       </ion-list>
     </div>
-
-    <!-- loader -->
     <div class="loader text-center" ng-if="!withdrawDetails">
       Loading ..
     </div>
     <ion-infinite-scroll on-infinite="loadMore()" icon="ion-loading-c"></ion-infinite-scroll>
   </ion-content>
-</div>
+</div> -->
+
+<ion-view class="lobby">
+  <ion-header-bar class="lobby-bar">
+    <div class="profile-header header-title">
+      <div class="bar bar-header lobby-header">
+        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <h1 class="title title-white">Withdraw Money</h1>
+      </div>
+    </div>
+  </ion-header-bar>
+  <ion-content class="add-withdraw padd-lr">
+    <div class="input-select mar-bot padding-bottom">
+      <div class="rel amt-label">
+        <label for="amount">Withdraw Money</label>
+      </div>
+      <input class="padd-lr bor-bot" type="number" name="amount" ng-model="withdrawAmount" placeholder="₹ 1000">
+    </div>
+
+    <div class="add-withdraw-btn mar-auto text-center padding-bottom">
+      <button class="button add-with-button pinkbg color-white" ng-click="modalotp()">Request</button>
+    </div>
+    <div class="withdrawl-note">
+      <span class="withdraw-text">*Minimum amount for withdrawl should be ₹ 1,000</span><br />
+      <span class="withdraw-text">*Withdrawal process will be done on Tuesdays & Fridays only</span>
+    </div>
+  </ion-content>
+</ion-view>

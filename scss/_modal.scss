@@ -602,33 +602,28 @@ span.valid {
 
     .table-type {
       display: flex;
+
+      .item-radio .radio-icon {
+        color: red;
+      }
+
+      .item-radio input~.radio-icon {
+        visibility: visible !important;
+      }
+
+      .item-radio>.radio-icon:before {
+        content: "\f3a6" !important;
+        /*deselected - Ionic class = ion-android-radio-button-off */
+      }
+
+      .item-radio>input[type=radio]:checked~.radio-icon:before {
+        content: "\f3a7" !important;
+        /*selected Ionic class = ion-android-radio-button-on */
+      }
+
     }
 
-    .container {
-      line-height: 1.5;
-      padding-left: 35px;
-      padding-right: 20px;
-      color: $white;
-
-      .checkmark {
-        height: 25px;
-        width: 25px;
-        border: 0.15em solid #e93e66;
-        // background-color: $pink-bg;
-      }
-
-      input:checked~.checkmark {
-        background-color: $pink-bg;
-      }
-
-      .checkmark:after {
-        height: 0px;
-        width: 0px;
-
-      }
-    }
-
-    .button-create {
+    .button-create-modal {
       background: $pink-bg;
       color: $white;
       font-weight: 600;
@@ -636,15 +631,18 @@ span.valid {
       min-height: 30px;
     }
 
-    .mar-bot {
-      margin-bottom: 15px;
-    }
+
 
     .cross-btn {
-      right: -15px;
+      right: -24px;
+      top: -12px;
       color: $pink-bg;
     }
   }
+}
+
+.mar-bot {
+  margin-bottom: 15px;
 }
 
 .room_summary {
@@ -1064,3 +1062,76 @@ span.valid {
   }
 
 }
+
+/**custom radio button*/
+.modal-cont {
+  .container {
+    line-height: 1.5;
+    padding-left: 35px;
+    padding-right: 20px;
+    color: $white;
+    display: inline-block;
+
+    .checkmark {
+      height: 25px;
+      width: 25px;
+      border: 0.15em solid #e93e66;
+      // background-color: $pink-bg;
+    }
+
+    input:checked~.checkmark {
+      background-color: $pink-bg;
+    }
+
+    .checkmark:after {
+      height: 0px;
+      width: 0px;
+
+    }
+  }
+}
+
+/**custom radio End**/
+
+/**Filter Modal**/
+.filterModal {
+  top: 50%;
+  right: 0%;
+  bottom: 0%;
+  left: 0%;
+  min-height: 5vh;
+  width: 100%;
+  background-color: #005658;
+  background-size: 100% 100%;
+  color: #fff;
+  padding: 0% 2% 2% 2%;
+  // font-size: 2em;
+
+  .heading {
+    margin: 1% 2%;
+    text-align: left;
+    padding: 0 0 10px 0;
+  }
+
+  .cross-btn {
+    right: -5px;
+    color: $pink-bg;
+    top: -15px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  .filter-btn {
+    text-align: center;
+
+    .button-filter {
+      background: $pink-bg;
+      color: $white;
+      margin: 0 15px;
+    }
+  }
+}
+
+/**Filter Modal End**/

@@ -22,14 +22,15 @@
         </div>
         <div class="valid" ng-if="signup.email.$touched && signup.email.$invalid">Please Enter Valid Email</div>
         <div class="login_button row">
-          <input class="col padd-lr" type="text" only-digits name="mobile" placeholder="Mobile No" ng-model="data.mobile" maxlength="10"
-            minlength="10" required />
+          <input class="col padd-lr" type="text" only-digits name="mobile" placeholder="Mobile No" ng-model="data.mobile"
+            maxlength="10" minlength="10" required />
         </div>
         <div class="valid" ng-if="signup.mobile.$touched && signup.mobile.$invalid">
           Please Enter Valid Mobile Number
         </div>
         <div class="login_button row">
-          <input class="col padd-lr" type="password" name="password" placeholder="Password" ng-model="data.password" required />
+          <input class="col padd-lr" type="password" name="password" placeholder="Password" ng-model="data.password"
+            required />
         </div>
         <div class="valid" ng-if="signup.password.$touched && signup.password.$invalid">
           Please Enter Valid Password
@@ -52,8 +53,8 @@
         <div class="login_button row">
           <!--<input class="col padd-lr" type="text" name="dob" placeholder="DOB" ng-model="data.dob" ng-change="checkAge(data.dob)" pattern="^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"
             required />-->
-          <input class="col padd-lr" type="text" name="dob" placeholder="DOB" ng-click="openDatePicker()" ng-model="data.dob" required
-          />
+          <input class="col padd-lr" type="text" name="dob" placeholder="DOB" ng-click="openDatePicker()" ng-model="data.dob"
+            required />
         </div>
         <div class="valid">
           <span ng-if="signup.dob.$invalid && signup.dob.$touched">Please Enter Valid Date of Birth </span>
@@ -73,7 +74,8 @@
         </div> -->
 
         <div class="login_button row">
-          <select ng-model="data.state" class="col" ng-options="x for x in state" placeholder="Select State.." name="state" required>
+          <select ng-model="data.state" class="col" ng-options="x for x in state" placeholder="Select State.." name="state"
+            required>
             <option value="" disabled hidden selected>State</option>
           </select>
           <!-- <input class="col padd-lr" type="text" name="State" ng-model="data.state" placeholder="*State" required> -->
@@ -96,14 +98,15 @@
         <div class="sign_up_status" ng-if="signUpStatus">
           {{ signUpStatus }}
         </div>
-        <div class="sign_up_error" ng-if="signUpError">
+        <!-- <div class="sign_up_error" ng-if="signUpError">
           *Email Id or Mobile is already registered.
-        </div>
+        </div> -->
         <div class="sign_up_error" ng-if="referredErr">
           Referred Code is invalid.
         </div>
         <div class="login_button_submit row">
-          <button class="button bg-blue" type="submit" ng-disabled="signup.$invalid" ng-click="signUp(data,signup)" promise-btn="signUpPromise">
+          <button class="button bg-blue" type="submit" ng-disabled="signup.$invalid" ng-click="signUp(data,signup)"
+            promise-btn="signUpPromise">
             Sign Up
           </button>
         </div>

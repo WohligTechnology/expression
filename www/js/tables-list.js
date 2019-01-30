@@ -255,8 +255,6 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
   /**To select Table type as per tabs */
   $scope.tableType = function (tableType) {
     $scope.selectedTab = tableType;
-    console.log("$scope.selectedTab", $scope.selectedTab);
-
     switch ($scope.selectedTab) {
       case "All":
         $scope.tempData = _.cloneDeep($scope.listOfTables);
@@ -312,4 +310,36 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
   $scope.closePrivateTable = function () {
     $scope.modal.hide();
   };
+
+  /**Create Table */
+  $scope.notMatching = false;
+  $scope.matchPasswords = function (data) {
+    if (!_.isEqual(data.password, data.confirmPassword)) {
+      $scope.notMatching = true;
+    } else {
+      $scope.notMatching = false;
+    }
+  }
+
+  $scope.createPrivateTable = function (tableData) {
+    console.log("tableData", tableData);
+  }
+
+  /**Filter Table modal */
+  $ionicModal.fromTemplateUrl('templates/modal/filter-table.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.filterModal = modal;
+  });
+  $scope.openFilterTableModal = function () {
+    $scope.filterModal.show();
+  };
+  $scope.closeFilterTableModal = function () {
+    $scope.filterModal.hide();
+  };
+
+  $scope.applyFilter = function (filters) {
+    console.log("filter Data", filters);
+  }
 })

@@ -40,4 +40,19 @@ myApp.controller("WithdrawalCtrl", function ($scope, Service, $state, $ionicPlat
     } else {}
   };
   $scope.loadMore();
+
+  /************otp modal****** */
+  $ionicModal.fromTemplateUrl('templates/modal/otp.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (otpModal) {
+    $scope.hideText = true;
+    $scope.otpModal = otpModal;
+  });
+  $scope.modalotp = function () {
+    $scope.otpModal.show();
+  };
+  $scope.closeModalOtp = function () {
+    $scope.otpModal.hide();
+  };
 })
