@@ -1,0 +1,64 @@
+<ion-view class="lobby">
+  <ion-header-bar class="lobby-bar">
+    <div class="profile-header header-title">
+      <div class="bar bar-header lobby-header">
+        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <h1 class="title title-white">Account Statement</h1>
+      </div>
+    </div>
+  </ion-header-bar>
+  <ion-content class="table-lists">
+    <div class="pl-net-profit padding-bottom padding-right">
+      Net Profit:
+      <span class="net-amt">10245.00</span>
+    </div>
+    <div class="clearfix"></div>
+    <div class="profile-detail">
+      <div class="table-type">
+        <div class="pl-statement-filter input-select">
+          <select name="fromDate">
+            <option value="">From Date</option>
+            <option value="1">10/01/19</option>
+            <option value="2">11/01/19</option>
+            <option value="3">12/01/19</option>
+          </select>
+          <span>To</span>
+          <select name="toDate">
+            <option value="">To Date</option>
+            <option value="2">11/01/19</option>
+            <option value="3">12/01/19</option>
+            <option value="4">13/01/19</option>
+          </select>
+        </div>
+      </div>
+      <div class="tableslist pl-statement">
+        <!-- <ion-scroll direction="y" scrollbar-y="true" style="width:100%; height:100%"> -->
+        <table>
+          <tr>
+            <th>Date</th>
+            <th>Table Name</th>
+            <th>W/L</th>
+            <th>Bet Amt</th>
+            <th>Amount</th>
+          </tr>
+          <tr ng-repeat="statementInfo in accountStatements">
+            <td>{{statementInfo.date}}</td>
+            <td>{{statementInfo.tableName}}
+              <br>
+              <span ng-if="statementInfo.tableType=='holdem'" class="holdem">Texas Hold'Em</span>
+              <span ng-if="statementInfo.tableType=='omaha'" class="omaha">Omaha</span>
+            </td>
+            <td>{{statementInfo.game}}</td>
+            <td>{{statementInfo.betAmount}}</td>
+            <td>
+              <span>Amt: {{statementInfo.gameAmt}}</span><br>
+              <span ng-if="statementInfo.game=='Win'">Comm: {{(statementInfo.commissionRate/100) *
+                statementInfo.gameAmt}}</span>
+            </td>
+          </tr>
+        </table>
+        <!-- </ion-scroll> -->
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

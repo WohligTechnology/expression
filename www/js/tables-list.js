@@ -249,7 +249,7 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
       'buyInMax': "400"
     },
   }
-  $scope.tableLists = _.cloneDeep($scope.listOfTables);
+  //   $scope.tableLists = _.cloneDeep($scope.listOfTables);
   $scope.selectedTab = 'All';
 
   /**To select Table type as per tabs */
@@ -284,6 +284,8 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
         break;
     }
   }
+
+  $scope.tableType('All');
   /**Select table End */
   $scope.goBackToPage = function () {
     console.log("Go Back Called")

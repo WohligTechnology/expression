@@ -1135,3 +1135,33 @@ span.valid {
 }
 
 /**Filter Modal End**/
+
+/**transaction-info modal**/
+.transaction-info-modal {
+  right: 7%;
+  left: 7%;
+  bottom: 18%;
+  width: 85%;
+
+  .transaction-info {
+    font-size: 14px;
+  }
+
+  .transaction-info-total {
+    border: 0px;
+    border-bottom: 0.1em dashed rgba(255, 255, 255, 0.65);
+    -webkit-margin-before: 0em;
+  }
+
+  .transaction-note {
+    width: 100%;
+
+    p {
+      font-size: 9px;
+      letter-spacing: 0.05em;
+      padding-right: 5px;
+    }
+  }
+}
+
+/**transaction-info modal end**/

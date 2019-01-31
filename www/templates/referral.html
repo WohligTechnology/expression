@@ -1,0 +1,47 @@
+<ion-view class="lobby">
+  <ion-header-bar class="lobby-bar">
+    <div class="profile-header header-title">
+      <div class="bar bar-header lobby-header">
+        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <h1 class="title title-white">Refer And Earn</h1>
+      </div>
+    </div>
+  </ion-header-bar>
+  <ion-content class="referral">
+    <div class="profile-detail padding ">
+      <div class="earn-money text-center mar-bot martop4">
+        <h4 class="color-white mar-bot">Earn Upto 5000</h4>
+        <small>Get 10% for every friend you Invite.</small>
+      </div>
+
+      <div class="referral-invites">
+        <a href="" class="button button-block button-balanced greenbg">
+          <i class="ion-help-buoy"></i>
+          <span class="">Whatsapp Invite</span>
+        </a>
+        <a href="" class="button button-block yellowbg">
+          <i class="ion-chatbox-working"></i>
+          <span class="">Text Invite</span>
+        </a>
+        <a href="" class="button button-block bluebg">
+          <i class="ion-share"></i>
+          <span class="">Social Media Invite</span>
+        </a>
+        <div class="referral-code mar-bot">
+          <p class="mb4">My Referral Code</p>
+          <input type="text" ng-model="user.referralCode" readonly>
+        </div>
+        <div class="my-earings">
+          <p class="mb4">My Earnings</p>
+          <button class="button button-block">
+            <i class="ion-share left padding-right earn"></i>
+            <span class="left">My Earnings 1000</span>
+            <i class="ion-chevron-right right"></i>
+          </button>
+        </div>
+      </div>
+
+
+    </div>
+  </ion-content>
+</ion-view>

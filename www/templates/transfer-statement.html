@@ -120,17 +120,17 @@
               <th>Amount</th>
               <th>Cr/Db</th>
               <th>Balance</th>
-              <th>Info</th>
+              <th ng-if="selectedTab=='Withdraw'">Info</th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="transaction in allTransactions">
               <td>{{currDate}}</td>
               <td>{{transaction.amount}}</td>
-              <td>{{transaction.transactionType}}</td>
+              <td class="transfer-info">{{transaction.transactionType}}</td>
               <td>{{transaction.balance}}</td>
-              <td class="transfer-info">
-                <i class="ion-information-circled"></i>
+              <td class="transfer-info" ng-if="selectedTab=='Withdraw'">
+                <i class="ion-information-circled" ng-click="getTransactionInfo(transaction)"></i>
               </td>
             </tr>
           </tbody>

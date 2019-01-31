@@ -139,6 +139,12 @@ var myApp = angular
         cache: false,
         controller: "ProfileCtrl"
       })
+      .state("plstatement", {
+        url: "/plstatement",
+        templateUrl: "templates/plstatement.html",
+        cache: false,
+        controller: "PandLstatementCtrl"
+      })
       .state("account", {
         url: "/account",
         templateUrl: "templates/account.html",
@@ -162,6 +168,12 @@ var myApp = angular
         templateUrl: "templates/transfer-statement.html",
         cache: false,
         controller: "TransferStatementCtrl"
+      })
+      .state("referral", {
+        url: "/referral",
+        templateUrl: "templates/referral.html",
+        cache: false,
+        controller: "ReferralCtrl"
       })
       .state("table-list", {
         url: "/table-list/:type",

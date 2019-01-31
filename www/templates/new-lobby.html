@@ -29,7 +29,7 @@
               <p class="amount fw600">8,76,543</p>
             </div>
           </a>
-          <ion-list>
+          <ion-list class="nav-list">
             <ion-item menu-close ng-click="goToShop()">
               <i class=" ion-chatboxes "></i>FAQs
             </ion-item>
@@ -46,7 +46,7 @@
             <ion-item menu-close ng-click="logout();">
               <i class="ion-power"></i>Logout
             </ion-item>
-            <ion-item menu-close ng-click="logout();">
+            <ion-item menu-close ng-click="openPrivacyPolicyModal();">
               <i class="ion-ios7-information"></i>Privacy Policy
             </ion-item>
             <ion-item menu-close ng-click="termsAndCondition();">
@@ -87,7 +87,7 @@
   <!-- <ion-footer-bar> -->
   <div class="bar bar-footer lobby-footer">
     <!-- <div class="title">Footer</div> -->
-    <button class="button button-icon pinkbg refer-btn">Refer Friends</button>
+    <button class="button button-icon pinkbg refer-btn" ui-sref="referral">Refer Friends</button>
     <div class="users-online">
       <!-- <i class="ion ion-ios7-person"></i> -->
       <ion-icon class="icon ion-person-stalker" name="ion-person-stalker"></ion-icon>

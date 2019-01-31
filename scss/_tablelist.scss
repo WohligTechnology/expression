@@ -118,6 +118,62 @@
   .type-holdem {
     background: $pink-bg;
   }
+
+  /**pl-statement */
+  .pl-net-profit {
+    float: right;
+    font-size: 15px;
+
+    .net-amt {
+      color: $pink-bg;
+      font-weight: 700;
+    }
+  }
+
+  .pl-statement-filter {
+    padding: 10px 5px;
+    text-align: center;
+
+    span {
+      padding: 0 10px;
+      position: relative;
+      top: -1px;
+      font-weight: 600;
+    }
+
+    select {
+      width: 42%;
+      // color: $pink-bg;
+      font-weight: normal;
+      font-size: 15px;
+      padding: 5px 10px !important;
+    }
+  }
+
+  .pl-statement {
+    table {
+      font-size: 12px;
+
+      th {
+        text-align: center;
+      }
+
+      td {
+        text-align: center;
+        padding: 5px;
+      }
+    }
+
+    .holdem {
+      color: $pink-bg;
+      font-weight: 600;
+    }
+
+    .omaha {
+      color: $button-yellow;
+      font-weight: 600;
+    }
+  }
 }
 
 .transfer-info {

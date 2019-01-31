@@ -1,5 +1,6 @@
 myApp.controller('NewLobbyCtrl', function (
   $scope,
+  $state,
   $window,
   $ionicPlatform,
   $ionicSideMenuDelegate,
@@ -31,13 +32,32 @@ myApp.controller('NewLobbyCtrl', function (
     scope: $scope,
     animation: 'slide-in-up'
   }).then(function (modal) {
-    $scope.modal = modal;
+    $scope.termsModal = modal;
   });
   $scope.termsAndCondition = function () {
-    $scope.modal.show();
+    $scope.termsModal.show();
   };
   $scope.closeTermsModal = function () {
-    $scope.modal.hide();
+    $scope.termsModal.hide();
+  };
+
+
+  $ionicModal.fromTemplateUrl('templates/modal/privacy-policy.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.privacyModal = modal;
+  });
+  $scope.openPrivacyPolicyModal = function () {
+    $scope.privacyModal.show();
+  };
+  $scope.closePrivacyPolicyModal = function () {
+    $scope.privacyModal.hide();
+  };
+
+  $scope.logout = function () {
+    $.jStorage.flush();
+    $state.go("login");
   };
 
 })

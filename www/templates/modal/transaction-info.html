@@ -1,0 +1,123 @@
+<ion-modal-view class="custom-model transaction-info-modal">
+  <ion-content class="createPrivateTable">
+    <button class="button button-icon ion-close-circled cross-btn cancel" ng-click="closeTransactionInfoModal();"></button>
+    <div class="heading mar-bot">Transaction Info</div>
+    <div class="transaction-info">
+      <div class="row mar-bot">
+        <div class="col-50">
+          <span class="left">
+            Date of Transaction:
+          </span>
+        </div>
+        <div class="col-50">
+          <span class="right">
+            {{transactionDate}}
+          </span>
+        </div>
+      </div>
+      <div class="row mar-bot">
+        <div class="col-50">
+          <span class="left">
+            Ref Id:
+          </span>
+        </div>
+        <div class="col-50">
+          <span class="right">
+            120154545
+          </span>
+        </div>
+      </div>
+      <div class="row mar-bot">
+        <div class="col-50">
+          <span class="left">
+            Transaction Id
+          </span>
+        </div>
+        <div class="col-50">
+          <span class="right">
+            TSDB{{transactionInfo.id}}
+          </span>
+        </div>
+      </div>
+      <div class="row mar-bot">
+        <div class="col-50">
+          <span class="left">
+            Transaction Type
+          </span>
+        </div>
+        <div class="col-50">
+          <span class="right">
+            Withdrawal
+          </span>
+        </div>
+      </div>
+      <div class="row mar-bot">
+        <div class="col-50">
+          <span class="left">
+            Status
+          </span>
+        </div>
+        <div class="col-50">
+          <span class="right">
+            Done
+          </span>
+        </div>
+      </div>
+      <div class="row mar-bot">
+        <div class="col-50">
+          <span class="left">
+            Mode of Transaction
+          </span>
+        </div>
+        <div class="col-50">
+          <span class="right">
+            RTGS
+          </span>
+        </div>
+      </div>
+      <div class="row mar-bot">
+        <div class="col-50">
+          <span class="left">
+            Transaction Amount
+          </span>
+        </div>
+        <div class="col-50">
+          <span class="right">
+            {{transactionInfo.amount}}
+          </span>
+        </div>
+      </div>
+      <div class="row mar-bot" ng-if="transactionInfo.amount>=10000">
+        <div class="col-50">
+          <span class="left">
+            TDS (30%) / Tax
+          </span>
+        </div>
+        <div class="col-50">
+          <span class="right">
+            - {{0.3*transactionInfo.amount}}
+          </span>
+        </div>
+      </div>
+      <hr class="transaction-info-total">
+      <div class="row mar-bot">
+        <div class="col-50">
+          <span class="left">
+            Total
+          </span>
+        </div>
+        <div class="col-50">
+          <span class="right" ng-if="transactionInfo.amount<10000">
+            {{transactionInfo.amount}}
+          </span>
+          <span class="right" ng-if="transactionInfo.amount>=10000">
+            {{transactionInfo.amount - 0.3*transactionInfo.amount}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="transaction-note">
+      <p class="right">30% TDS will be deducted on withdrawal of ₹10,000 and above</p>
+    </div>
+  </ion-content>
+</ion-modal-view>

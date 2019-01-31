@@ -589,6 +589,12 @@
         font-size: 18px;
         line-height: 22px;
       }
+
+      .nav-list {
+        .list:last-child {
+          margin-bottom: 25px;
+        }
+      }
     }
 
     .lobby-profile>img:first-child {
