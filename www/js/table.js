@@ -778,34 +778,34 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   // // });
 
 
-  // $ionicModal.fromTemplateUrl('templates/modal/remove-player.html', {
-  //   scope: $scope,
-  //   animation: 'slide-in-up'
-  // }).then(function (modal) {
-  //   $scope.gameRemovePlayerModal = modal;
-  // });
+  $ionicModal.fromTemplateUrl('templates/modal/remove-player.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+  }).then(function (modal) {
+    $scope.gameRemovePlayerModal = modal;
+  });
 
-  // $scope.openRemovePlayerModal = function (autoBuy) {
-  //   $scope.gameRemovePlayerModal.show();
-  // };
-  // $scope.closeRemovePlayerModal = function () {
-  //   $scope.gameRemovePlayerModal.hide();
-  // };
+  $scope.openRemovePlayerModal = function (autoBuy) {
+    $scope.gameRemovePlayerModal.show();
+  };
+  $scope.closeRemovePlayerModal = function () {
+    $scope.gameRemovePlayerModal.hide();
+  };
 
 
 
-  // //remove player function
-  // $scope.removePlayers = function () {
-  //   $scope.ShowLoader = true;
-  //   Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
-  //     if (data) {
-  //       $scope.ShowLoader = false;
-  //       $scope.closeGameModal();
-  //       $scope.closeRemovePlayerModal();
-  //       $state.go('lobby');
-  //     }
-  //   });
-  // };
+  //remove player function
+  $scope.removePlayers = function () {
+    $scope.ShowLoader = true;
+    Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
+      if (data) {
+        $scope.ShowLoader = false;
+        // $scope.closeGameModal();
+        $scope.closeRemovePlayerModal();
+        $state.go('lobby');
+      }
+    });
+  };
 
 
   // newGameSocketFunction = function (data) {
@@ -884,4 +884,20 @@ myApp.controller('TableCtrl', function ($scope, $ionicModal, $ionicPlatform, $st
   }
 
   $scope.closeAll();
+
+  /**To open chat box */
+
+  $ionicModal.fromTemplateUrl('templates/modal/message.html', {
+    scope: $scope,
+    animation: 'slide-in-right'
+  }).then(function (modal) {
+    $scope.openChatModal = modal;
+  });
+
+  $scope.openChatBox = function () {
+    $scope.openChatModal.show();
+  }
+  $scope.closeChatBox = function () {
+    $scope.openChatModal.hide();
+  }
 });

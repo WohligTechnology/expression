@@ -1,24 +1,28 @@
 <div class="table" ng-click="closeAll()">
   <div class="tip-lobby back-lobby">
     <div class="tip-dealer_submit row">
+      <!-- <button class="button mr-5" type='submit' ng-click="newGame()">NewGame</button> -->
 
-      <button class="button mr-5" type='submit' ng-click="newGame()">NewGame</button>
-
-      <button class="button" type="submit" ng-click="openRemovePlayerModal();">
+      <button class="button back-to-lob" type="submit" ng-click="openRemovePlayerModal();">
         Back to lobby
       </button>
     </div>
   </div>
-  <div class="tip-lobby tip-dealer">
+  <div class="tip-lobby tip-dealer right0">
     <div class="tip-dealer_submit row">
-      <button class="button mr-5" type="submit" ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">
+
+      <button class="button mr-5 back-to-lob mar-right z10;" type="submit" ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">
         Serving
       </button>
 
       <!-- <button class="button mr-5" type='submit' ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serving</button> -->
 
-      <button class="button" type="submit" ng-click="makeTipFunction(100);" ng-disabled="sitHere || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 100)">
+      <button class="button back-to-lob mar-right" type="submit" ng-click="makeTipFunction(100);" ng-disabled="sitHere || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 100)">
         Tip Dealer
+      </button>
+
+      <button class="button back-to-lob" ng-click="">
+        Info
       </button>
     </div>
   </div>
@@ -106,10 +110,17 @@
   <div class="bottom">
     <div class="tip-lobby history">
       <div class="tip-dealer_submit row">
-        <button class="button history" type="submit" ng-click="$event.stopPropagation();openLeftMenu();getHistory()">
-          <!-- <i class="icon ion-refresh"></i> -->
-          History
-        </button>
+        <div class="col-10">
+          <button class="button btn-chat" type="submit" ng-click="$event.stopPropagation();openChatBox()">
+            <i class="ion-chatbubbles"></i>
+          </button>
+        </div>
+        <div class="col-80">
+          <button class="button btn-history" type="submit" ng-click="$event.stopPropagation();openLeftMenu();getHistory()">
+            <!-- <i class="icon ion-refresh"></i> -->
+            History
+          </button>
+        </div>
       </div>
     </div>
     <div class="main_card">
