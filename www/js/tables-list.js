@@ -1,4 +1,4 @@
-myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHistory, $stateParams, $ionicModal) {
+myApp.controller("TablesListCtrl", function ($scope, $state, $ionicPlatform, $ionicHistory, $stateParams, $ionicModal) {
   $ionicPlatform.ready(function () {
     if (ionic.Platform.isAndroid()) {
       screen.orientation.lock('portrait');
@@ -294,7 +294,10 @@ myApp.controller("TablesListCtrl", function ($scope, $ionicPlatform, $ionicHisto
 
   /**Selected Table */
   $scope.selectedTable = function (table) {
-    console.log("Table selected", table)
+    console.log("Table selected", table);
+    $state.go("table", {
+      id: table.id
+    })
   }
 
   $scope.dateTime = moment().format("Do MMM'YY HH:mm:ss");

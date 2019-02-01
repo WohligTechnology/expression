@@ -1,18 +1,23 @@
-.signup{
-    .sign_up_error{
-        color: red;
-        font-size: 2em;
-    }
-    .sign_up_status{
-        font-size: 2em;
-    }
+.signup {
+  .sign_up_error {
+    color: red;
+    font-size: 2em;
+  }
+
+  .sign_up_status {
+    font-size: 2em;
+  }
 }
 
-.valid{
-    color: red;
-    margin-top: 0%;
-    line-height: 2;
-    font-size: 1em;
-    margin-bottom: 0% !important;
-    margin-top: -2% !important;
+.valid {
+  color: red;
+  margin-top: 0%;
+  line-height: 2;
+  font-size: 1em;
+  margin-bottom: 0% !important;
+  margin-top: -2% !important;
+}
+
+pre {
+  font-size: 16px;
 }
