@@ -3,6 +3,25 @@
     margin-top: 0px;
   }
 
+  .table-details {
+    // font-size: 15px;
+    display: inline-flex;
+    padding: 0 10px 10px 0px;
+    position: absolute;
+    top: 12px;
+
+    i {
+      font-size: 20px;
+    }
+
+    span {
+      font-size: 15px;
+      position: relative;
+      bottom: 2px;
+      left: 3px;
+    }
+  }
+
   .create-table {
     // float: right;
     padding: 6px;

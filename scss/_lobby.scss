@@ -496,8 +496,9 @@
 }
 
 .tables-content {
-  transform: translateY(30%);
-  max-width: 275px;
+  transform: translateY(20%);
+  // max-width: 275px;
+  max-width: 235px;
   margin: 0 auto;
   // background: linear-gradient(to bottom, $button-bg, $app-background);
   background: $lobby-table;
@@ -510,11 +511,15 @@
     }
 
     .virtual {
-      color: $pink-bg;
+      // color: $pink-bg;
+      color: $white;
+      text-shadow: 3px -2px 1px #0b2634;
     }
 
     .live {
-      color: $button-yellow;
+      // color: $button-yellow;
+      color: $white;
+      text-shadow: 3px -2px 1px #0b2634;
     }
   }
 
@@ -567,7 +572,8 @@
 
 .lobby-bg {
   background-color: $app-background;
-  background-image: radial-gradient($button-bg, $app-background, $header-bg);
+  // background-image: radial-gradient($button-bg, $app-background, $header-bg);
+  background-image: radial-gradient($app-background, $header-bg);
 
   .menu {
     top: 10px;
@@ -640,6 +646,11 @@
     background-color: rgba(0, 0, 0, 0.77);
     background-image: none;
     opacity: 0.75;
+  }
+
+  .tables-content {
+    background: #012223;
+    opacity: .55;
   }
 
   .lobby-footer {

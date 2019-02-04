@@ -300,7 +300,7 @@ myApp.controller("TablesListCtrl", function ($scope, $state, $ionicPlatform, $io
     })
   }
 
-  $scope.dateTime = moment().format("Do MMM'YY HH:mm:ss");
+  $scope.dateTime = moment().format("DD/MM/YY HH:mm");
 
   /**Create Private Table Modal */
   $ionicModal.fromTemplateUrl('templates/modal/create-private-table.html', {

@@ -78,17 +78,21 @@
       }
 
       .width-14vh {
-        width: 14vh;
+        width: 16vh;
       }
 
       .you {
         position: absolute;
-        background: #642aa2;
-        top: 0%;
+        // background: #642aa2;
+        background: $pink-bg;
+        // top: 0%;
+        top: -3%;
         border-radius: 100px;
-        padding: 5%;
+        // padding: 5%;
+        padding: 3%;
         font-weight: bold;
-        left: -10%;
+        // left: -10%;
+        right: -5%;
         line-height: 2em;
         font-size: 1em;
       }
@@ -123,8 +127,10 @@
 
       .player_pic {
         // border: 1px solid;
-        width: 14vh;
-        height: 14vh;
+        // width: 15vh;
+        // height: 15vh;
+        width: 16vh;
+        height: 16vh;
 
         .pic {
           width: 100%;
@@ -137,12 +143,15 @@
       .player_badge {
         position: absolute;
         top: 0;
-        right: -30%;
+        // right: -30%;
+        left: -26%;
         width: 65%;
-        text-align: right;
+        // text-align: right;
+        text-align: left;
         background: red;
         border-radius: 15px;
-        top: 20%;
+        // top: 20%;
+        top: 13%;
         z-index: -1;
 
         &.left-dealer {
@@ -150,22 +159,27 @@
         }
 
         div {
-          padding-right: 10%;
-          font-size: 1em;
+          // padding-right: 10%;
+          padding-left: 15%;
+          padding-top: 5%;
+          font-size: 1.2em;
           font-weight: bold;
-          line-height: 1.7em;
+          line-height: 1.45em;
         }
 
         &.dealer {
-          background: #56c2fd;
+          // background: #56c2fd;
+          background: #248f6f;
         }
 
         &.smallblind {
-          background: #6ed34e;
+          // background: #6ed34e;
+          background: #e19f18;
         }
 
         &.bigblind {
-          background: #ef1f2b;
+          // background: #ef1f2b;
+          background: $pink-bg;
         }
       }
 
@@ -190,8 +204,13 @@
           padding: 3% 10%;
           font-size: 1em;
           border-radius: 10%; // border: 1px solid rgba(142, 141, 141, 0.91);
-          top: 0;
-          left: 0;
+          // top: 0;
+          // left: 0;
+          top: -53px;
+          left: 13px;
+          // width: 100%;
+          // margin: 0 auto;
+          // text-align: center;
           transform: translate(0, -100%);
 
           &.call {
@@ -368,7 +387,7 @@
       button {
         min-width: 24%; // background: rgba(127, 127, 127, 0.471);
         margin-left: 10px;
-        border-radius: 10px;
+        border-radius: 5px;
         @include gradient_grey;
         // border: 3px solid rgba(0, 0, 0, 0.54);
         border: 0px;
@@ -468,8 +487,8 @@
   }
 
   .player2 {
-    right: 8%;
-    top: 19%;
+    right: 6%;
+    top: 20%;
   }
 
   .player3 {
@@ -479,32 +498,35 @@
 
   .player4 {
     right: 26%;
-    bottom: 3%;
+    // bottom: 3%;
+    bottom: 20%;
   }
 
   .player5 {
     left: 50%;
     transform: translateX(-40%);
-    bottom: 3%;
+    // bottom: 3%;
+    bottom: 20%;
   }
 
   .player6 {
     left: 26%;
-    bottom: 3%;
+    // bottom: 3%;
+    bottom: 20%;
   }
 
   .player7 {
-    left: 6%;
+    left: 9%;
     top: 54%;
   }
 
   .player8 {
-    top: 21%;
-    left: 5%;
+    top: 22%;
+    left: 3%;
   }
 
   .player9 {
-    left: 16%;
+    left: 17%;
     top: -3%;
   }
 }
@@ -1283,7 +1305,7 @@
 }
 
 .none {
-  width: 8vh;
+  width: 9vh;
   position: absolute;
   transition: all ease 800ms;
 }
@@ -1312,15 +1334,19 @@
 }
 
 .tcard1 {
-  left: -62%;
-  bottom: 0%;
+  // left: -62%;
+  // bottom: 0%;
+  left: 62%;
+  top: 35%;
 
   .card-one {
-    transform: translate(0%, 0%) rotate(-12deg);
+    // transform: translate(0%, 0%) rotate(-12deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 
   .card-two {
-    transform: translate(0%, 0%) rotate(7deg);
+    // transform: translate(0%, 0%) rotate(7deg);
+    transform: translate(5%, 0%) rotate(0deg);
   }
 
   .card-three {
@@ -1342,15 +1368,19 @@
 }
 
 .tcard2 {
-  left: -84%;
-  top: 58%;
+  // left: -84%;
+  // top: 58%;
+  left: 62%;
+  top: 35%;
 
   .card-one {
-    transform: translate(0%, 0%) rotate(-12deg);
+    // transform: translate(0%, 0%) rotate(-12deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 
   .card-two {
-    transform: translate(0%, 0%) rotate(7deg);
+    // transform: translate(0%, 0%) rotate(7deg);
+    transform: translate(5%, 0%) rotate(0deg);
   }
 
   .card-three {
@@ -1372,19 +1402,23 @@
 }
 
 .tcard3 {
-  left: -86%;
-  top: 7%;
+  // left: -86%;
+  // top: 7%;
+  left: 62%;
+  top: 35%;
 
   &.Omaha {
     left: -100%;
   }
 
   .card-one {
-    transform: translate(0%, 0%) rotate(-12deg);
+    // transform: translate(0%, 0%) rotate(-12deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 
   .card-two {
-    transform: translate(0%, 0%) rotate(7deg);
+    // transform: translate(0%, 0%) rotate(7deg);
+    transform: translate(5%, 0%) rotate(0deg);
   }
 
   .card-three {
@@ -1406,19 +1440,23 @@
 }
 
 .tcard4 {
-  left: -85%;
-  top: -20%;
+  // left: -85%;
+  // top: -20%;
+  left: 62%;
+  top: 35%;
 
   &.Omaha {
     left: -100%;
   }
 
   .card-one {
-    transform: translate(0%, 0%) rotate(-12deg);
+    // transform: translate(0%, 0%) rotate(-12deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 
   .card-two {
-    transform: translate(0%, 0%) rotate(7deg);
+    // transform: translate(0%, 0%) rotate(7deg);
+    transform: translate(5%, 0%) rotate(0deg);
   }
 
   .card-three {
@@ -1440,8 +1478,10 @@
 }
 
 .tcard5 {
-  left: -78%;
-  top: -12%;
+  // left: -78%;
+  // top: -12%;
+  left: 62%;
+  top: 35%;
 
   &.Omaha {
     left: -100%;
@@ -1449,11 +1489,13 @@
   }
 
   .card-one {
-    transform: translate(0%, 0%) rotate(-12deg);
+    // transform: translate(0%, 0%) rotate(-12deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 
   .card-two {
-    transform: translate(0%, 0%) rotate(7deg);
+    // transform: translate(0%, 0%) rotate(7deg);
+    transform: translate(5%, 0%) rotate(0deg);
   }
 
   .card-three {
@@ -1475,8 +1517,10 @@
 }
 
 .tcard6 {
-  left: -84%;
-  top: -15%;
+  // left: -84%;
+  // top: -15%;
+  left: 62%;
+  top: 35%;
 
   &.Omaha {
     left: -100%;
@@ -1484,11 +1528,13 @@
   }
 
   .card-one {
-    transform: translate(0%, 0%) rotate(-12deg);
+    // transform: translate(0%, 0%) rotate(-12deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 
   .card-two {
-    transform: translate(0%, 0%) rotate(7deg);
+    // transform: translate(0%, 0%) rotate(7deg);
+    transform: translate(5%, 0%) rotate(0deg);
   }
 
   .card-three {
@@ -1510,19 +1556,23 @@
 }
 
 .tcard7 {
-  right: 0px;
-  top: 58%;
+  // right: 0px;
+  // top: 58%;
+  top: 35%;
+  left: 62%;
 
   &.Omaha {
     top: -35%;
   }
 
   .card-one {
-    transform: translate(0%, 0%) rotate(-12deg);
+    // transform: translate(0%, 0%) rotate(-12deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 
   .card-two {
-    transform: translate(0%, 0%) rotate(7deg);
+    // transform: translate(0%, 0%) rotate(7deg);
+    transform: translate(5%, 0%) rotate(0deg);
   }
 
   .card-three {
@@ -1544,15 +1594,19 @@
 }
 
 .tcard8 {
-  left: 100%;
-  top: 58%;
+  // left: 100%;
+  // top: 58%;
+  left: 62%;
+  top: 35%;
 
   .card-one {
-    transform: translate(0%, 0%) rotate(-12deg);
+    // transform: translate(0%, 0%) rotate(-12deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 
   .card-two {
-    transform: translate(0%, 0%) rotate(7deg);
+    // transform: translate(0%, 0%) rotate(7deg);
+    transform: translate(5%, 0%) rotate(0deg);
   }
 
   .card-three {
@@ -1574,15 +1628,19 @@
 }
 
 .tcard9 {
-  bottom: -5%;
-  right: 0%;
+  // bottom: -5%;
+  // right: 0%;
+  top: 35%;
+  left: 62%;
 
   .card-one {
-    transform: translate(0%, 0%) rotate(-12deg);
+    // transform: translate(0%, 0%) rotate(-12deg);
+    transform: translate(0%, 0%) rotate(0deg);
   }
 
   .card-two {
-    transform: translate(0%, 0%) rotate(7deg);
+    // transform: translate(0%, 0%) rotate(7deg);
+    transform: translate(5%, 0%) rotate(0deg);
   }
 
   .card-three {
@@ -1692,20 +1750,26 @@
     }
 
     .btn-history {
-      padding: 17px 10px !important;
+      padding: 17px 17px !important;
       font-size: 16px !important;
-      left: 60px !important;
+      left: 45px !important;
       margin-bottom: 0px;
       bottom: -1px;
     }
 
     .btn-chat {
-      padding: 9px !important;
-      bottom: -5px !important;
+      padding: 11px !important;
+      bottom: -7px !important;
 
       i {
         font-size: 23px;
       }
+    }
+
+    .bor-rad {
+      box-shadow: 0px 0px 5px #40415c;
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
     }
 
     .back-to-lob {
@@ -1968,4 +2032,9 @@ community {
   100% {
     opacity: 0;
   }
+}
+
+.preTag {
+  font-size: 2.5em;
+
 }
