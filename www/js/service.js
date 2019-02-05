@@ -1,32 +1,38 @@
-myApp = angular.module('starter.service', []);
-var url = adminUUU + '/api/';
+myApp = angular.module("starter.service", []);
+var url = adminUUU + "/api/";
 // var imgurl = url + "upload/";
 // var imgpath = imgurl + "readFile";
 var maxRow = 10;
-myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $timeout, $state) {
+myApp.factory("Service", function(
+  $http,
+  $ionicLoading,
+  $ionicActionSheet,
+  $timeout,
+  $state
+) {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  io.socket.on('connect', function (socket) {
+  io.socket.on("connect", function(socket) {
     socketId = io.socket._raw.id;
     $.jStorage.set("socketId", io.socket._raw.id);
-    obj.connectSocket(function () {});
+    obj.connectSocket(function() {});
   });
 
   var obj = {
-    all: function () {
+    all: function() {
       return chats;
     },
-    getNavigation: function () {
+    getNavigation: function() {
       return chats;
     },
-    remove: function (chat) {
+    remove: function(chat) {
       chats.splice(chats.indexOf(chat), 1);
     },
-    removeAccessToken: function (data, callback) {
+    removeAccessToken: function(data, callback) {
       $.jStorage.flush();
     },
-    get: function (chatId) {
+    get: function(chatId) {
       for (var i = 0; i < chats.length; i++) {
         if (chats[i].id === parseInt(chatId)) {
           return chats[i];
@@ -35,127 +41,143 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       return null;
     },
 
-    playerLogin: function (data, callback) {
-      return $http.post(url + "User/login", data).then(function (data) {
+    playerLogin: function(data, callback) {
+      return $http.post(url + "User/login", data).then(function(data) {
         data = data.data;
         callback(data);
-      })
+      });
     },
-    verifyOtp: function (data, callback) {
-      return $http.post(url + "User/verifyOtp", data).then(function (data) {
+    verifyOtp: function(data, callback) {
+      return $http.post(url + "User/verifyOtp", data).then(function(data) {
         data = data.data;
         callback(data);
-      })
+      });
     },
-    resendOtp: function (data, callback) {
-      return $http.post(url + "User/resendOtp", data).then(function (data) {
+    resendOtp: function(data, callback) {
+      return $http.post(url + "User/resendOtp", data).then(function(data) {
         data = data.data;
         callback(data);
-      })
+      });
     },
-    signUp: function (data, callback) {
+    signUp: function(data, callback) {
       console.log(data, "signup");
-      return $http.post(url + "User/signUp", data).then(function (data) {
+      return $http.post(url + "User/signUp", data).then(function(data) {
         data = data.data;
         callback(data);
-      })
+      });
     },
-    getProfile: function (callback) {
+    getProfile: function(callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        $http.post(url + 'User/profile', {
-          accessToken: accessToken
-        }).then(function (data) {
-          callback(data);
-        });
+        $http
+          .post(url + "User/profile", {
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            callback(data);
+          });
       } else {
         $state.go("login");
       }
     },
-    buyCoins: function (coins, callback) {
+    buyCoins: function(coins, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Transaction/buyCoins', {
-          coins: coins,
-          accessToken: accessToken
-        }).then(function (data) {
-          callback(data);
-        });
+        return $http
+          .post(url + "Transaction/buyCoins", {
+            coins: coins,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
-    withdrawCoins: function (coins, callback) {
+    withdrawCoins: function(coins, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Transaction/withdrawCoins', {
-          coins: coins,
-          accessToken: accessToken
-        }).then(function (data) {
-          console.log(data);
-          callback(data);
-        });
+        return $http
+          .post(url + "Transaction/withdrawCoins", {
+            coins: coins,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            console.log(data);
+            callback(data);
+          });
       }
     },
-    getAllTable: function (data, callback) {
-      return $http.post(url + "Table/getAllTable", data).then(function (data) {
-        data = data.data;
-        callback(data);
-      })
+    getTableDetails: function(data, callback) {
+      return $http
+        .post(url + "Table/getTableDetails", data)
+        .then(function(data) {
+          data = data.data;
+          callback(data);
+        });
     },
 
-    getAccessToTable: function (data, callback) {
+    getAccessToTable: function(data, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Table/getAccessToTable', {
-          tableId: data.tableId,
-          password: data.password
-        }).then(function (data) {
-          callback(data);
-        });
+        return $http
+          .post(url + "Table/getAccessToTable", {
+            tableId: data.tableId,
+            password: data.password
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
 
-    getOneTableDetails: function (id, callback) {
-      return $http.post(url + 'Player/getAllDetails', {
-        tableId: id
-      }).then(function (data) {
-        callback(data);
-      });
+    getOneTableDetails: function(id, callback) {
+      return $http
+        .post(url + "Player/getAllDetails", {
+          tableId: id
+        })
+        .then(function(data) {
+          callback(data);
+        });
     },
-    savePlayerToTable: function (dataPlayer, callback) {
+    savePlayerToTable: function(dataPlayer, callback) {
       console.log("dataPlayer", dataPlayer);
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        $http.post(url + 'Table/addUserToTable', {
-          playerNo: dataPlayer.playerNo,
-          tableId: dataPlayer.tableId,
-          amount: dataPlayer.amount,
-          autoRebuy: dataPlayer.autoRebuy,
-          payBigBlind: dataPlayer.payBigBlind,
-          socketId: socketId,
-          accessToken: accessToken
-        }).then(function (data) {
-          callback(data);
-        });
+        $http
+          .post(url + "Table/addUserToTable", {
+            playerNo: dataPlayer.playerNo,
+            tableId: dataPlayer.tableId,
+            amount: dataPlayer.amount,
+            autoRebuy: dataPlayer.autoRebuy,
+            payBigBlind: dataPlayer.payBigBlind,
+            socketId: socketId,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
-    getHistory: function (tableId, callback) {
+    getHistory: function(tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        $http.post(url + 'Table/tableHistory', {
-          tableId: tableId,
-          accessToken: accessToken
-        }).then(function (data) {
-          callback(data);
-        });
+        $http
+          .post(url + "Table/tableHistory", {
+            tableId: tableId,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
-    connectSocket: function (callback) {
+    connectSocket: function(callback) {
       var accessToken = $.jStorage.get("accessToken");
       var tableId = $.jStorage.get("tableId");
-      if (!_.isEmpty(accessToken) && (tableId)) {
+      if (!_.isEmpty(accessToken) && tableId) {
         callApi();
       } else {
-        $timeout(function () {
+        $timeout(function() {
           callApi();
         }, 2000);
       }
@@ -163,174 +185,204 @@ myApp.factory('Service', function ($http, $ionicLoading, $ionicActionSheet, $tim
       function callApi() {
         var accessToken = $.jStorage.get("accessToken");
         if (!_.isEmpty(accessToken)) {
-          $http.post(url + 'Player/updateSocket', {
-            accessToken: accessToken,
-            socketId: socketId
-          }).then(function (data) {
-            callback(data);
-          });
+          $http
+            .post(url + "Player/updateSocket", {
+              accessToken: accessToken,
+              socketId: socketId
+            })
+            .then(function(data) {
+              callback(data);
+            });
         }
-      };
+      }
     },
 
-    getReFillBuyIn: function (data, callback) {
+    getReFillBuyIn: function(data, callback) {
       console.log("autobuyin", data);
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Player/reFillBuyIn', {
-          accessToken: accessToken,
-          tableId: data.tableId,
-          amount: data.amount
-        }).then(function (data) {
-          callback(data);
-        });
+        return $http
+          .post(url + "Player/reFillBuyIn", {
+            accessToken: accessToken,
+            tableId: data.tableId,
+            amount: data.amount
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
 
-    getVoucher: function (data, callback) {
+    getVoucher: function(data, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Transaction/useVoucher', {
-          accessToken: accessToken,
-          voucherCode: data.code
-        }).then(function (data) {
-          callback(data);
-        });
+        return $http
+          .post(url + "Transaction/useVoucher", {
+            accessToken: accessToken,
+            voucherCode: data.code
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
 
-    raise: function (tableId, raiseAmount, callback) {
+    raise: function(tableId, raiseAmount, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Player/raise', {
-          tableId: tableId,
-          accessToken: accessToken,
-          amount: raiseAmount
-        }).then(function (data) {
-          callback(data);
-        });
+        return $http
+          .post(url + "Player/raise", {
+            tableId: tableId,
+            accessToken: accessToken,
+            amount: raiseAmount
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
 
-    fold: function (tableId, callback) {
+    fold: function(tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Player/fold', {
-          tableId: tableId,
-          accessToken: accessToken
-        }).then(function (data) {
-          callback(data);
-        });
+        return $http
+          .post(url + "Player/fold", {
+            tableId: tableId,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
-    allIn: function (tableId, callback) {
+    allIn: function(tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Player/allIn', {
-          tableId: tableId,
-          accessToken: accessToken
-        }).then(function (data) {
-          callback(data);
-        });
+        return $http
+          .post(url + "Player/allIn", {
+            tableId: tableId,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
-    check: function (tableId, callback) {
+    check: function(tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Player/check', {
-          tableId: tableId,
-          accessToken: accessToken
-        }).then(function (data) {
-          callback(data);
-        });
+        return $http
+          .post(url + "Player/check", {
+            tableId: tableId,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
-    call: function (tableId, callback) {
+    call: function(tableId, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Player/call', {
-          tableId: tableId,
-          accessToken: accessToken
-        }).then(function (data) {
-          callback(data);
-        });
+        return $http
+          .post(url + "Player/call", {
+            tableId: tableId,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            callback(data);
+          });
       }
     },
-    randomCard: function (tableId) {
+    randomCard: function(tableId) {
       var cardValue = cards[_.random(0, cards.length - 3)].name;
-      $http.post(url + 'Player/serve', {
-        tableId: tableId,
-        card: cardValue
-      }).then(function (data) {
-        console.log(data.data);
-      });
-    },
-    removePlayer: function (tableId, playerNo, callback) {
-      var accessToken = $.jStorage.get("accessToken");
-      if (!_.isEmpty(accessToken)) {
-        $http.post(url + 'Table/removePlayer', {
+      $http
+        .post(url + "Player/serve", {
           tableId: tableId,
-          playerNo: playerNo,
-          accessToken: accessToken
-        }).then(function (data) {
+          card: cardValue
+        })
+        .then(function(data) {
           console.log(data.data);
+        });
+    },
+    removePlayer: function(tableId, playerNo, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        $http
+          .post(url + "Table/removePlayer", {
+            tableId: tableId,
+            playerNo: playerNo,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            console.log(data.data);
+            callback(data);
+          });
+      }
+    },
+    newGame: function(tableId, callback) {
+      var isDealer = "true";
+      $http
+        .post(url + "Player/newGame", {
+          tableId: tableId,
+          isDealer: isDealer
+        })
+        .then(function(data) {
           callback(data);
         });
-      }
     },
-    newGame: function (tableId, callback) {
-      var isDealer = "true"
-      $http.post(url + 'Player/newGame', {
-        tableId: tableId,
-        isDealer: isDealer
-      }).then(function (data) {
-        callback(data);
-      });
-    },
-    getTransaction: function (pageNo, callback) {
+    getTransaction: function(pageNo, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Transaction/getPaymentDetails', {
-          "page": pageNo,
-          "accessToken": accessToken
-        }).then(function (data) {
-          if (data.data) {
-            var totalCount = data.data.data.total;
-            data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
+        return $http
+          .post(url + "Transaction/getPaymentDetails", {
+            page: pageNo,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            if (data.data) {
+              var totalCount = data.data.data.total;
+              data.data.data.options.maxPage = _.ceil(
+                data.data.data.total / data.data.data.options.count
+              );
+              callback(data);
+            }
+          });
+      }
+    },
+    getTableTransaction: function(pageNo, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http
+          .post(url + "Transaction/getProfitLossDetails", {
+            page: pageNo,
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            if (data.data) {
+              var totalCount = data.data.data.total;
+              data.data.data.options.maxPage = _.ceil(
+                data.data.data.total / data.data.data.options.count
+              );
+              callback(data);
+            }
+          });
+      }
+    },
+    makeTip: function(amount, tableId, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http
+          .post(url + "Transaction/makeTip", {
+            tableId: tableId,
+            amount: amount,
+            accessToken: accessToken
+          })
+          .then(function(data) {
             callback(data);
-          }
-
-        });
+          });
       }
-    },
-    getTableTransaction: function (pageNo, callback) {
-      var accessToken = $.jStorage.get("accessToken");
-      if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Transaction/getProfitLossDetails', {
-          "page": pageNo,
-          "accessToken": accessToken
-        }).then(function (data) {
-          if (data.data) {
-            var totalCount = data.data.data.total;
-            data.data.data.options.maxPage = _.ceil(data.data.data.total / data.data.data.options.count);
-            callback(data);
-          }
-
-        });
-      }
-    },
-    makeTip: function (amount, tableId, callback) {
-      var accessToken = $.jStorage.get("accessToken");
-      if (!_.isEmpty(accessToken)) {
-        return $http.post(url + 'Transaction/makeTip', {
-          "tableId": tableId,
-          "amount": amount,
-          "accessToken": accessToken
-        }).then(function (data) {
-          callback(data);
-        });
-      }
-    },
+    }
   };
   return obj;
 });

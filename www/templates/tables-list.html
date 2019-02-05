@@ -3,7 +3,7 @@
     <div class="profile-header header-title">
       <div class="bar bar-header lobby-header">
         <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
-        <h1 class="title title-white">{{heading}} Poker</h1>
+        <h1 class="title title-white">{{heading}} Poker Tables</h1>
       </div>
     </div>
   </ion-header-bar>
@@ -13,11 +13,11 @@
         <div class="table-details left">
           <div class="user-count">
             <i class="ion-person-stalker"></i>
-            <span>323 Players</span>
+            <span>{{playersCount}} Players</span>
           </div>
           <div class="table-count padding-left">
             <i class="ion-toggle-filled"></i>
-            <span>45 Tables</span>
+            <span>{{tableCount}} Tables</span>
           </div>
         </div>
         <div class="create-btn item-note">
@@ -29,9 +29,9 @@
         <div class="list">
           <div class="item item-input-inset">
             <label class="item-input-wrapper">
-              <input type="text" placeholder="Search Table Name">
+              <input type="text" placeholder="Search Table Name" ng-model="search">
             </label>
-            <i class="icon ion-search placeholder-icon"></i>
+            <i class="icon ion-search placeholder-icon" ng-click="searchByName(search)"></i>
             <button class="button button-small icon filter-btn ion-funnel" ng-click="openFilterTableModal()">
             </button>
             <button class="button button-small icon filter-btn " ng-click="resetFilter()">Reset
@@ -51,7 +51,7 @@
         </div>
       </div>
 
-      <div class="tableslist">
+      <div class="tableslist" ng-if="tableLists.length>0">
         <!-- <ion-scroll direction="y" scrollbar-y="true" style="width:100%; height:100%"> -->
         <table>
           <tr>
@@ -62,18 +62,22 @@
           </tr>
           <tr ng-repeat="tableData in tableLists" ng-click="selectedTable(tableData)">
             <td>{{tableData.name}}<br>
-              <small class="tabletime">{{dateTime}}</small></td>
-            <td>{{tableData.minRate}}/{{tableData.maxRate}}</td>
-            <td>{{tableData.inPlayers}}/{{tableData.maxPlayers}}</td>
-            <td>{{tableData.buyInMin}}/{{tableData.buyInMax}}
+              <small class="tabletime">{{tableData.createdAt|date:"dd/MM/yy HH:mm"}}</small></td>
+            <td>{{tableData.smallBlind}}/{{tableData.bigBlind}}</td>
+            <td>{{tableData.playerCount}}/{{maxPlayers}}</td>
+            <td>{{tableData.minimumBuyin}}/{{tableData.maximumBuyin}}
               <br>
-              <small class="tabletype" ng-class="{'type-omaha': tableData.type=='Omaha' && tableData.accessType=='Public','type-private': tableData.accessType=='Private','type-holdem': tableData.type=='Holdem' && tableData.accessType=='Public'}">{{tableData.accessType
-                == 'Private' ? "Private" : "" }} {{tableData.type}}
+              <small class="tabletype" ng-class="{'type-omaha': tableData.gameType=='Omaha' && tableData.type=='Public','type-private': tableData.type=='Private','type-holdem': tableData.gameType!='Omaha' && tableData.type=='Public'}">{{tableData.type
+                == 'Private' ? "Private" : "" }} {{tableData.gameType}}
               </small>
             </td>
           </tr>
         </table>
         <!-- </ion-scroll> -->
+      </div>
+      <div class="text-center">
+        <h4 ng-if="tableLists.length==0">No Data Found</h4>
+        <h4 ng-if="tableLists.length==undefined">Loading...</h4>
       </div>
     </div>
   </ion-content>
