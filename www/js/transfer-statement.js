@@ -23,54 +23,63 @@ myApp.controller('TransferStatementCtrl', function (
       'amount': "1000",
       'transactionType': "cr",
       'balance': "10000",
+      'status': "pending"
     },
     transaction1: {
       'id': "102",
       'amount': "5000",
       'transactionType': "db",
       'balance': "5000",
+      'status': "pending"
     },
     transaction2: {
       'id': "103",
       'amount': "10000",
       'transactionType': "cr",
       'balance': "15000",
+      'status': "completed"
     },
     transaction3: {
       'id': "104",
       'amount': "10000",
       'transactionType': "db",
       'balance': "5000",
+      'status': "completed"
     },
     transaction4: {
       'id': "105",
       'amount': "10000",
       'transactionType': "cr",
       'balance': "100000",
+      'status': "pending"
     },
     transaction5: {
       'id': "106",
       'amount': "10000",
       'transactionType': "cr",
       'balance': "100000",
+      'status': "completed"
     },
     transaction6: {
       'id': "107",
       'amount': "10000",
       'transactionType': "db",
       'balance': "100000",
+      'status': "completed"
     },
     transaction7: {
       'id': "108",
       'amount': "10000",
       'transactionType': "cr",
       'balance': "100000",
+      'status': "pending"
     },
     transaction8: {
       'id': "109",
       'amount': "10000",
       'transactionType': "cr",
       'balance': "100000",
+      'status': "completed"
     }
   }
 

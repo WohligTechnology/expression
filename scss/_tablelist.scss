@@ -202,3 +202,23 @@
     color: $pink-bg;
   }
 }
+
+.transfer-status-head {
+  font-size: 10px;
+  color: $header-bg;
+  margin-bottom: 0px;
+
+  .transfer-status {
+    margin-left: 2%;
+    padding: 2% 6%;
+    color: $white;
+  }
+
+  .pending {
+    background: $pink-bg;
+  }
+
+  .completed {
+    background: $button-green;
+  }
+}

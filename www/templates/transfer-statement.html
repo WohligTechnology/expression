@@ -125,7 +125,10 @@
           </thead>
           <tbody>
             <tr ng-repeat="transaction in allTransactions">
-              <td>{{currDate}}</td>
+              <td>{{currDate}}
+                <br />
+                <p class="transfer-status-head">Status <span class="transfer-status" ng-class="{'pending': transaction.status=='pending','completed': transaction.status=='completed'}">{{transaction.status}}</span></p>
+              </td>
               <td>{{transaction.amount}}</td>
               <td class="transfer-info">{{transaction.transactionType}}</td>
               <td>{{transaction.balance}}</td>

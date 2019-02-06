@@ -8,7 +8,7 @@ myApp.controller("PandLstatementCtrl", function ($scope, $state, $ionicHistory) 
     console.log("Go Back Called")
     $ionicHistory.goBack();
   };
-
+  $scope.time = moment().format('HH:mm');
   $scope.accountStatements = {
     statementInfo: {
       date: '13/01/2019',

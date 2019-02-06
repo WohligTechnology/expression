@@ -42,7 +42,9 @@
             <th>Amount</th>
           </tr>
           <tr ng-repeat="statementInfo in accountStatements">
-            <td>{{statementInfo.date}}</td>
+            <td>{{statementInfo.date}}
+              <br />{{time}}
+            </td>
             <td>{{statementInfo.tableName}}
               <br>
               <span ng-if="statementInfo.tableType=='holdem'" class="holdem">Texas Hold'Em</span>

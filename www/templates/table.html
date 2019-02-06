@@ -134,23 +134,31 @@
       </div>
     </div>
     <div class="player_turn_button">
+      <!-- For logged In user Player -->
+      <div class="name-amount">
+        <p class="name">Nayan Mhatre</p>
+        <p class="amount">₹1,12,000</p>
+      </div>
+      <!-- Player name End -->
       <button class="fold" ng-click="fold();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft"
         promise-btn="foldPromise">
         <!-- <span class="light"></span>  -->
         <span class="btn_name"> FOLD </span>
       </button>
+      <!--
       <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
         promise-btn="callPromise">
-        <!-- <span class="light"></span> -->
-        <span class="btn_name"> Call </span>
-        <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
-      </button>
+         commented -->
+      <!-- <span class="light"></span> -->
+      <!--<span class="btn_name"> Call </span> commented-->
+      <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
+      <!--</button>
       <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
-        promise-btn="callPromise">
-        <!-- <span class="light"></span> -->
-        <span class="btn_name"> Call </span>
-        <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
-      </button>
+        promise-btn="callPromise"> commented-->
+      <!-- <span class="light"></span> -->
+      <!-- <span class="btn_name"> Call </span> commented -->
+      <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
+      <!-- </button> commented -->
 
       <!-- ng-if="isChecked" -->
       <button class="call" ng-click="check();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
