@@ -1,12 +1,12 @@
-myApp.controller('NewLobbyCtrl', function (
+myApp.controller("NewLobbyCtrl", function(
   $scope,
   $state,
   $window,
   $ionicPlatform,
   $ionicSideMenuDelegate,
-  $ionicModal
+  $ionicModal,
+  Service
 ) {
-
   //   $ionicPlatform.ready(function () {
 
   //     screen.orientation.lock("landscape");
@@ -19,45 +19,60 @@ myApp.controller('NewLobbyCtrl', function (
   //       window.plugins.NativeAudio.stop('button');
   //     }
   //   })
-  $ionicPlatform.registerBackButtonAction(function (event) {
+  $ionicPlatform.registerBackButtonAction(function(event) {
     event.preventDefault();
   }, 100);
   //end of ionic cordova
-  $scope.toggleRightSideMenu = function () {
+  $scope.toggleRightSideMenu = function() {
     $ionicSideMenuDelegate.toggleRight();
   };
 
-
-  $ionicModal.fromTemplateUrl('templates/modal/terms-and-condition.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.termsModal = modal;
-  });
-  $scope.termsAndCondition = function () {
+  $ionicModal
+    .fromTemplateUrl("templates/modal/terms-and-condition.html", {
+      scope: $scope,
+      animation: "slide-in-up"
+    })
+    .then(function(modal) {
+      $scope.termsModal = modal;
+    });
+  $scope.termsAndCondition = function() {
     $scope.termsModal.show();
   };
-  $scope.closeTermsModal = function () {
+  $scope.closeTermsModal = function() {
     $scope.termsModal.hide();
   };
 
-
-  $ionicModal.fromTemplateUrl('templates/modal/privacy-policy.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function (modal) {
-    $scope.privacyModal = modal;
-  });
-  $scope.openPrivacyPolicyModal = function () {
+  $ionicModal
+    .fromTemplateUrl("templates/modal/privacy-policy.html", {
+      scope: $scope,
+      animation: "slide-in-up"
+    })
+    .then(function(modal) {
+      $scope.privacyModal = modal;
+    });
+  $scope.openPrivacyPolicyModal = function() {
     $scope.privacyModal.show();
   };
-  $scope.closePrivacyPolicyModal = function () {
+  $scope.closePrivacyPolicyModal = function() {
     $scope.privacyModal.hide();
   };
 
-  $scope.logout = function () {
+  $scope.logout = function() {
     $.jStorage.flush();
     $state.go("login");
   };
 
-})
+  $scope.accessToken = $.jStorage.get("accessToken");
+
+  //playerData
+  $scope.playerDataFunction = function() {
+    Service.getProfile(function(data) {
+      console.log(data);
+      $scope.playerData = data.data.data;
+      $scope.playerDataId = data.data.data._id;
+      $scope._id = $.jStorage.set("_id", $scope.playerDataId);
+    });
+  };
+
+  $scope.playerDataFunction();
+});

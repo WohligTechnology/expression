@@ -3,7 +3,7 @@
     <div class="bar bar-header lobby-header">
       <div class="left-head">
         <img src="img/lobby/poker-coin-logo.png" alt="" class="poker-coin-logo">
-        <p class="amount">8,76,543</p>
+        <p class="amount"> {{playerData.balance|number:0}}</p>
         <button class="plus-icon ion icon ion-plus pinkbg" ui-sref="account"></button>
       </div>
       <div class="right-icons">
@@ -22,11 +22,11 @@
         <ion-content class="main-menu">
           <a class="item item-thumbnail-left lobby-profile" ui-sref="profile" menu-close>
             <img src="img/player_pic.png" />
-            <h3 class="player-name fw600">Ganesh Avahad</h3>
-            <small class="fw600">Player Id: <span class="player-number">1234567890</span></small>
+            <h3 class="player-name fw600"> {{playerData.name}}</h3>
+            <small class="fw600">Referral Code: <span class="player-number"> {{playerData.referralCode}}</span></small>
             <div class="wallet-balance">
               <img src="img/lobby/poker-coin-logo.png" alt="" class="poker-coin-logo">
-              <p class="amount fw600">8,76,543</p>
+              <p class="amount fw600"> {{playerData.balance|number:0}}</p>
             </div>
           </a>
           <ion-list class="nav-list">
@@ -40,8 +40,7 @@
               <i class=" ion-ios7-help"></i>Vibration
             </ion-item>
             <ion-item menu-close ng-click="recentlyAdded();">
-              <i class="ion-volume-high"></i>
-              Sound
+              <i class="ion-volume-high"></i> Sound
             </ion-item>
             <ion-item menu-close ng-click="logout();">
               <i class="ion-power"></i>Logout
@@ -73,10 +72,10 @@
               </div>
               <img src="img/table/table-blue.png" alt="" class="tables">
             </div>
-            <!-- <div class="live-players">
+            <!--<div class="live-players">
               <ion-icon class="icon ion-person-stalker" name="ion-person-stalker"></ion-icon>
               <span class="player-num">320 Players</span>
-            </div> -->
+            </div>-->
           </div>
         </div>
         </div>
@@ -88,11 +87,11 @@
   <div class="bar bar-footer lobby-footer">
     <!-- <div class="title">Footer</div> -->
     <button class="button button-icon pinkbg refer-btn" ui-sref="referral">Refer Friends</button>
-    <div class="users-online">
-      <!-- <i class="ion ion-ios7-person"></i> -->
-      <!-- <ion-icon class="icon ion-person-stalker" name="ion-person-stalker"></ion-icon>
-      <span class="player-num">320 Players</span> -->
-    </div>
+    <!--<div class="users-online">
+         <i class="ion ion-ios7-person"></i> 
+        <ion-icon class="icon ion-person-stalker" name="ion-person-stalker"></ion-icon>
+        <span class="player-num">320 Players</span>
+      </div>-->
   </div>
   <!-- </ion-footer-bar> -->
 </ion-view>
