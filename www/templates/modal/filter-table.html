@@ -5,50 +5,62 @@
     <form>
       <div class="input-select">
         <div class="rel mar-bot">
-          <div class="table-type modal-cont ">
-            <label class="container padd-right">Public
-            <input type="radio" name="radio1" ng-value="true" ng-model="filterData.public" ng-click="filterData.private=false">
-            <span class="checkmark"></span>
-          </label>
-            <label class="container padd-right">Private
-            <input type="radio" name="radio1" ng-value="true" ng-model="filterData.private" ng-click="filterData.public=false">
-            <span class="checkmark"></span>
-          </label>
+          <div class="table-type modal-cont row">
+            <div class="col-20">
+              <label class="container padd-right">Public
+                <input type="radio" name="radio1" ng-value="true" ng-model="filterData.public" ng-click="filterData.private=false">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="col-20">
+              <label class="container padd-right">Private
+                <input type="radio" name="radio1" ng-value="true" ng-model="filterData.private" ng-click="filterData.public=false">
+                <span class="checkmark"></span>
+              </label>
+            </div>
           </div>
         </div>
         <div class="rel mar-bot">
-          <div class="table-type modal-cont ">
-            <label class="container padd-right">Hold'Em
-            <input type="radio" name="radio2" ng-value="true" ng-model="filterData.holdem" ng-click="filterData.omaha=false">
-            <span class="checkmark"></span>
-          </label>
-            <label class="container padd-right">Omaha
-            <input type="radio" name="radio2" ng-value="true" ng-model="filterData.omaha" ng-click="filterData.holdem=false">
-            <span class="checkmark"></span>
-          </label>
+          <div class="table-type modal-cont row">
+            <div class="col-20">
+              <label class="container padd-right">Hold'Em
+                <input type="radio" name="radio2" ng-value="true" ng-model="filterData.holdem" ng-click="filterData.omaha=false">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="col-20">
+              <label class="container padd-right">Omaha
+                <input type="radio" name="radio2" ng-value="true" ng-model="filterData.omaha" ng-click="filterData.holdem=false">
+                <span class="checkmark"></span>
+              </label>
+            </div>
           </div>
         </div>
         <div class="row ">
           <div class="col-50 padding-right">
             <div class="rel mar-bot">
-              <input class="padd-lr color-white bor-bot " type="number" placeholder="Small Blind" name="smallBlind" ng-model="filterData.smallBlind">
+              <input class="padd-lr color-white bor-bot " type="number" placeholder="Small Blind" name="smallBlind"
+                ng-model="filterData.smallBlind">
             </div>
           </div>
           <div class="col-50 padding-left">
             <div class="rel mar-bot">
-              <input class="padd-lr color-white bor-bot " type="number" placeholder="Big Blind" name="bigBlind" ng-model="filterData.bigBlind">
+              <input class="padd-lr color-white bor-bot " type="number" placeholder="Big Blind" name="bigBlind"
+                ng-model="filterData.bigBlind">
             </div>
           </div>
         </div>
-        <div class="row mar-bot">
+        <div class="row ">
           <div class="col-50 padding-right">
             <div class="rel mar-bot">
-              <input class="padd-lr color-white bor-bot" type="number" placeholder="Min. Buy In" name="minimymBuyin" ng-model="filterData.minimumBuyin">
+              <input class="padd-lr color-white bor-bot" type="number" placeholder="Min. Buy In" name="minimymBuyin"
+                ng-model="filterData.minimumBuyin">
             </div>
           </div>
           <div class="col-50 padding-left">
             <div class="rel mar-bot">
-              <input class="padd-lr color-white bor-bot" type="number" placeholder="Max. Buy In" name="maximumBuyin" ng-model="filterData.maximumBuyin">
+              <input class="padd-lr color-white bor-bot" type="number" placeholder="Max. Buy In" name="maximumBuyin"
+                ng-model="filterData.maximumBuyin">
             </div>
           </div>
         </div>

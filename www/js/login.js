@@ -1,4 +1,4 @@
-myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform, $ionicModal, $timeout) {
+myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform, $ionicModal, $timeout, $window) {
   $ionicPlatform.ready(function () {
     if (ionic.Platform.isAndroid()) {
       screen.orientation.lock('portrait');
@@ -55,7 +55,9 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
     });
   };
 
-  $scope.VerifyOtp = function (data) {
+  $scope.VerifyOtp = function (data1) {
+    var data = {};
+    data.otp = _.toString(data1.digit1) + _.toString(data1.digit2) + _.toString(data1.digit3) + _.toString(data1.digit4);
     $scope.regenerateOtp = false;
     $scope.invalidOTP = false;
     $scope.expiredOTP = false;
@@ -129,4 +131,44 @@ myApp.controller("LoginCtrl", function ($scope, Service, $state, $ionicPlatform,
   $scope.closeConfirmModal = function () {
     $scope.confirmotpModal.hide();
   };
+
+  /**OTP on backspapce change */
+  $scope.formName = {};
+  // $scope.checkChange = function (value) {
+  //   switch (value) {
+  //     case 4:
+  //       if ($scope.formName.digit4 == undefined) {
+  //         var element = $window.document.getElementById('part3');
+  //         if (element)
+  //           element.focus();
+  //       }
+  //       break;
+
+  //     case 3:
+  //       if ($scope.formName.digit3 == undefined) {
+  //         var element = $window.document.getElementById('part2');
+  //         if (element)
+  //           element.focus();
+  //       }
+  //       break;
+
+  //     case 2:
+  //       if ($scope.formName.digit2 == undefined) {
+  //         var element = $window.document.getElementById('part1');
+  //         if (element)
+  //           element.focus();
+  //       }
+  //       break;
+
+  //     case 1:
+  //       if ($scope.formName.digit1 == undefined) {
+  //         var element = $window.document.getElementById('part1');
+  //         if (element)
+  //           element.focus();
+  //       }
+  //       break;
+  //     default:
+  //       console.log("invalid choice");
+  //   }
+  // }
 });

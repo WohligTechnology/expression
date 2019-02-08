@@ -1,4 +1,4 @@
-myApp.controller("TablesListCtrl", function(
+myApp.controller("TablesListCtrl", function (
   $scope,
   $state,
   $ionicPlatform,
@@ -8,27 +8,29 @@ myApp.controller("TablesListCtrl", function(
   Service
 ) {
   $scope.maxPlayers = 9;
-  $scope.tableLists = undefined;
+  $scope.tableLists = [];
   $scope.resetValues = false;
   $scope.filterData = {};
   $scope.param = {
     pokerType: $stateParams.type
   };
 
-  $ionicPlatform.ready(function() {
+  $ionicPlatform.ready(function () {
     if (ionic.Platform.isAndroid()) {
-      screen.orientation.lock("portrait");
-    } else {
-    }
+      screen.orientation.lock("landscape");
+    } else {}
   });
 
   if (!_.isEmpty($stateParams)) {
     $scope.heading = $stateParams.type;
   }
 
-  $scope.searchByName = function(name) {
+  $scope.searchByName = function (name) {
     if (!_.isEmpty(name)) {
-      $scope.param.name = { $regex: name, $options: "i" };
+      $scope.param.name = {
+        $regex: name,
+        $options: "i"
+      };
       $scope.tableLists = undefined;
       $scope.tableType("All");
     } else {
@@ -50,20 +52,20 @@ myApp.controller("TablesListCtrl", function(
       scope: $scope,
       animation: "slide-in-up"
     })
-    .then(function(modal) {
+    .then(function (modal) {
       $scope.filterModal = modal;
     });
-  $scope.openFilterTableModal = function() {
+  $scope.openFilterTableModal = function () {
     $scope.filterModal.show();
   };
-  $scope.closeFilterTableModal = function(data) {
+  $scope.closeFilterTableModal = function (data) {
     if (data !== "apply") {
       $scope.filterData = {};
     }
     $scope.filterModal.hide();
   };
 
-  $scope.applyFilter = function(filters) {
+  $scope.applyFilter = function (filters) {
     console.log("filter Data", filters);
     if (filters.private) {
       $scope.param.type = "Private";
@@ -118,7 +120,7 @@ myApp.controller("TablesListCtrl", function(
     $scope.closeFilterTableModal("apply");
   };
 
-  $scope.resetFilter = function() {
+  $scope.resetFilter = function () {
     $scope.filterData = {};
     if ($scope.param.name) {
       $scope.tempStore = $scope.param.name;
@@ -137,30 +139,46 @@ myApp.controller("TablesListCtrl", function(
     $scope.tableType("All");
   };
 
-  $scope.clearFilter = function() {
+  $scope.clearFilter = function () {
     $scope.filterData = {};
   };
 
-  $scope.getTableDetails = function(params) {
+  $scope.getTableDetails = function (params) {
+    $scope.listLoaded = false;
     console.log("params", params);
     var constraints = {};
     constraints = params;
-    Service.getTableDetails(constraints, function(data) {
-      console.log(data);
-      $scope.tableLists = data.data.results;
-      $scope.tableCount = data.data.liveTable;
-      $scope.playersCount = data.data.activePlayers;
-    });
+    if (!$scope.tableListLoading) {
+      $scope.params.page = $scope.params.page + 1;
+      $scope.tableListLoading = true;
+      Service.getTableDetails(constraints, function (data) {
+        $scope.tableListLoading = false;
+        console.log("Tablelist Data", data);
+        if (data.value) {
+          if (_.isEmpty(data.data.results)) {
+            $scope.listLoaded = true;
+          } else {
+            $scope.tableLists = _.concat($scope.tableLists, data.data.results);
+            $scope.tableCount = data.data.liveTable;
+            $scope.playersCount = data.data.activePlayers;
+          }
+          $scope.$broadcast("scroll.infiniteScrollComplete");
+        }
+      });
+    }
   };
   $scope.selectedTab = "All";
-
   /**To select Table type as per tabs */
-  $scope.tableType = function(tableType) {
+  $scope.tableType = function (tableType) {
     $scope.selectedTab = tableType;
     var holdem = {};
     var omaha = {};
     var private = {};
-    $scope.params = { pokerType: $stateParams.type };
+    $scope.tableLists = [];
+    $scope.params = {
+      pokerType: $stateParams.type
+    };
+    $scope.params.page = 0;
     console.log($scope.param);
     if ($scope.param.name) {
       $scope.params.name = $scope.param.name;
@@ -217,14 +235,18 @@ myApp.controller("TablesListCtrl", function(
     }
   };
   $scope.tableType("All");
+  $scope.onInfinite = function () {
+    console.log("onInfinite called", $scope.params);
+    $scope.getTableDetails($scope.params);
+  };
   /**Select table End */
-  $scope.goBackToPage = function() {
+  $scope.goBackToPage = function () {
     console.log("Go Back Called");
     $ionicHistory.goBack();
   };
 
   /**Selected Table */
-  $scope.selectedTable = function(table) {
+  $scope.selectedTable = function (table) {
     console.log("Table selected", table);
     $state.go("table", {
       id: table.id
@@ -239,19 +261,19 @@ myApp.controller("TablesListCtrl", function(
       scope: $scope,
       animation: "slide-in-up"
     })
-    .then(function(modal) {
+    .then(function (modal) {
       $scope.modal = modal;
     });
-  $scope.createTable = function() {
+  $scope.createTable = function () {
     $scope.modal.show();
   };
-  $scope.closePrivateTable = function() {
+  $scope.closePrivateTable = function () {
     $scope.modal.hide();
   };
 
   /**Create Table */
   $scope.notMatching = false;
-  $scope.matchPasswords = function(data) {
+  $scope.matchPasswords = function (data) {
     if (!_.isEqual(data.password, data.confirmPassword)) {
       $scope.notMatching = true;
     } else {
@@ -259,7 +281,7 @@ myApp.controller("TablesListCtrl", function(
     }
   };
 
-  $scope.createPrivateTable = function(tableData) {
+  $scope.createPrivateTable = function (tableData) {
     console.log("tableData", tableData);
   };
 });

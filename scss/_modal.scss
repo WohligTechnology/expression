@@ -581,8 +581,8 @@ ion-item.item {
 
 span.valid {
   display: block;
-  margin-top: -8px;
-  font-size: 2em;
+  margin-top: 0.2% !important;
+  font-size: 1em;
 }
 
 .private_table {
@@ -598,6 +598,7 @@ span.valid {
 
     input {
       width: 100%;
+      font-size: 1em;
     }
 
     .table-type {
@@ -834,6 +835,16 @@ span.valid {
     margin-top: 0%;
   }
 
+  .otp-input-boxes {
+    display: flex;
+
+    input {
+      width: 20%;
+      margin-right: 10px;
+      text-align: center;
+    }
+  }
+
   .account {
     font-size: 2em;
     line-height: 1.5;
@@ -846,7 +857,7 @@ span.valid {
   }
 
   .login_button {
-    margin: 3% 24%;
+    margin: 3% 15%;
   }
 
   .custom_button {
@@ -878,6 +889,11 @@ span.valid {
     padding-bottom: 5%;
     padding-top: 5%;
     // padding-left: 10%;
+  }
+
+  .cross-btn {
+    top: -10px;
+    right: -5px;
   }
 }
 
@@ -1095,7 +1111,7 @@ span.valid {
 
 /**Filter Modal**/
 .filterModal {
-  top: 50%;
+  top: 25%;
   right: 0%;
   bottom: 0%;
   left: 0%;
@@ -1108,7 +1124,7 @@ span.valid {
   // font-size: 2em;
 
   .heading {
-    margin: 1% 2%;
+    margin: 1%;
     text-align: left;
     padding: 0 0 10px 0;
   }
@@ -1121,6 +1137,7 @@ span.valid {
 
   input {
     width: 100%;
+    font-size: 1em !important;
   }
 
   .filter-btn {

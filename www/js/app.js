@@ -139,6 +139,12 @@ var myApp = angular
         cache: false,
         controller: "ProfileCtrl"
       })
+      .state("forgot-password", {
+        url: "/forgot-password",
+        templateUrl: "templates/forgot-password.html",
+        cache: false,
+        controller: "ForgotPasswordCtrl"
+      })
       .state("plstatement", {
         url: "/plstatement",
         templateUrl: "templates/plstatement.html",

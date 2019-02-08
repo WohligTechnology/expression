@@ -15,11 +15,100 @@ myApp.directive('card', function () {
           //   width: $scope.width + "px",
           //   height: $scope.height + "px"
           // };
-          $scope.cardFile = "img/cards/" + _.toUpper($scope.card) + ".svg";
+          // $scope.cardFile = "img/cards/" + _.toUpper($scope.card) + ".svg";
+          $scope.cardFile = "img/cards/CARDCLOSE.png"
         }
         calc();
         $scope.$watch("card", function () {
           calc();
+        });
+      }
+    };
+  })
+  .directive("onlyDigits", function ($window) {
+    return {
+      require: "ngModel",
+      restrict: "A",
+      link: function ($scope, element, attr, ctrl) {
+        var digits;
+
+        function inputValue(val) {
+          if (val != undefined) {
+            var otherVal = val + "";
+            if (attr.type == "text") {
+              digits = otherVal.replace(/[^0-9\-\.\\]/g, "");
+            } else {
+              digits = otherVal.replace(/[^0-9\-\.\\]/g, "");
+            }
+
+            if (digits !== val) {
+              ctrl.$setViewValue(digits);
+              ctrl.$render();
+            }
+            return parseInt(digits, 10);
+          }
+          return undefined;
+        }
+        ctrl.$parsers.push(inputValue);
+        $scope.checkChange = function (value) {
+          // console.log($scope.$parent.formName);
+          switch (value) {
+            case 4:
+              if ($scope.$parent.formName.digit4 == undefined) {
+                var element = $window.document.getElementById('part3');
+                if (element)
+                  element.focus();
+              }
+              break;
+
+            case 3:
+              if ($scope.$parent.formName.digit3 == undefined) {
+                var element = $window.document.getElementById('part2');
+                if (element)
+                  element.focus();
+              }
+              break;
+
+            case 2:
+              if ($scope.$parent.formName.digit2 == undefined) {
+                var element = $window.document.getElementById('part1');
+                if (element)
+                  element.focus();
+              }
+              break;
+
+            case 1:
+              if ($scope.$parent.formName.digit1 == undefined) {
+                var element = $window.document.getElementById('part1');
+                if (element)
+                  element.focus();
+              }
+              break;
+            default:
+              console.log("invalid choice");
+          }
+        }
+      }
+    };
+  })
+  .directive("moveNextOnMaxlength", function () {
+    return {
+      restrict: "A",
+      link: function ($scope, element) {
+        element.on("input", function (e) {
+          if (element.val().length == element.attr("maxlength")) {
+            var $nextElement = element.next();
+            if ($nextElement.length) {
+              $nextElement[0].focus();
+            }
+          }
+        });
+        $(":input").keyup(function (e) {
+          if ($(this).val() == "" && e.which == 8) {
+            $(this)
+              .prev("input")
+              .focus();
+          }
         });
       }
     };

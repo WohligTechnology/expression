@@ -50,22 +50,21 @@
               Private Table</a></div>
         </div>
       </div>
-
       <div class="tableslist" ng-if="tableLists.length>0">
         <!-- <ion-scroll direction="y" scrollbar-y="true" style="width:100%; height:100%"> -->
-        <table>
-          <tr>
-            <th>Table</th>
-            <th>Rates</th>
-            <th>Players</th>
-            <th>Buy-In</th>
+        <table class="list">
+          <tr class="row item">
+            <th class="col-30">Table</th>
+            <th class="col-25">Rates</th>
+            <th class="col-15 text-center">Players</th>
+            <th class="col-30">Buy-In</th>
           </tr>
-          <tr ng-repeat="tableData in tableLists" ng-click="selectedTable(tableData)">
-            <td>{{tableData.name}}<br>
+          <tr class="row item" ng-repeat="tableData in tableLists" ng-click="selectedTable(tableData)">
+            <td class="col-30">{{tableData.name}}<br>
               <small class="tabletime">{{tableData.createdAt|date:"dd/MM/yy HH:mm"}}</small></td>
-            <td>{{tableData.smallBlind}}/{{tableData.bigBlind}}</td>
-            <td>{{tableData.playerCount}}/{{maxPlayers}}</td>
-            <td>{{tableData.minimumBuyin}}/{{tableData.maximumBuyin}}
+            <td class="col-25">{{tableData.smallBlind}}/{{tableData.bigBlind}}</td>
+            <td class="col-15 text-center">{{tableData.playerCount}}/{{maxPlayers}}</td>
+            <td class="col-30">{{tableData.minimumBuyin}}/{{tableData.maximumBuyin}}
               <br>
               <small class="tabletype" ng-class="{'type-omaha': tableData.gameType=='Omaha' && tableData.type=='Public','type-private': tableData.type=='Private','type-holdem': tableData.gameType!='Omaha' && tableData.type=='Public'}">{{tableData.type
                 == 'Private' ? "Private" : "" }} {{tableData.gameType}}
@@ -75,6 +74,7 @@
         </table>
         <!-- </ion-scroll> -->
       </div>
+      <ion-infinite-scroll ng-if="!listLoaded" on-infinite="onInfinite()" distance="4%" icon="ion-load-a"></ion-infinite-scroll>
       <div class="text-center">
         <h4 ng-if="tableLists.length==0">No Data Found</h4>
         <h4 ng-if="tableLists.length==undefined">Loading...</h4>

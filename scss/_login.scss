@@ -60,8 +60,20 @@
     input {
       height: 8vh;
       width: 100%;
-      border-radius: 6px; // background: url('../img/login/bgyellow.png');
+      // border-radius: 6px; // background: url('../img/login/bgyellow.png');
       padding: 5px;
+    }
+
+    .forgot-pswd {
+      padding: 5px;
+      text-align: left;
+      font-size: 12px;
+      margin-bottom: 20px;
+      font-weight: 700;
+
+      a {
+        color: $white;
+      }
     }
 
     .login_button_submit {
@@ -75,6 +87,14 @@
 
       .col-20 {
         padding: 0px;
+      }
+
+      .martop0 {
+        margin-top: 0px !important;
+      }
+
+      .marbot0 {
+        margin-bottom: 1% !important;
       }
 
       button {
@@ -96,6 +116,7 @@
         font-size: 2.1em;
         border: 0px;
         background-color: $pink-bg;
+        border-radius: 0px;
       }
     }
 
@@ -143,10 +164,11 @@
       color: red;
       margin-top: 0%;
       line-height: 2;
-      font-size: 1.3em;
+      font-size: 1.55em;
       position: absolute;
       margin-bottom: 0% !important;
       margin-top: -6% !important;
+      letter-spacing: 0.05em;
     }
 
     .invailduser {
@@ -208,4 +230,27 @@ input[type="date"]:valid::before {
 
 .sign_up {
   background-image: radial-gradient($profile-bg, $app-background, $header-bg);
+}
+
+/**Forgot Password*/
+.wid80 {
+  width: 80%;
+  margin: 0 auto;
+
+  .input-label {
+    width: 100% !important;
+    font-size: 15px;
+  }
+
+  input {
+    text-align: center;
+  }
+
+  .valid {
+    font-size: 0.8em;
+  }
+}
+
+.marbot {
+  margin-bottom: 12px;
 }

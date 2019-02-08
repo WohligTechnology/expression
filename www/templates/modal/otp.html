@@ -1,5 +1,5 @@
 <ion-modal-view class="custom-model otp-modal side-otp shadow-yellow ">
-  <ion-content class="otp">
+  <ion-content class="otp" scroll="false">
     <div>
       <!-- <img src="img/close-button.png" class="cross-btn mar-tr" ng-click="closeModalOtp();"> -->
       <button class="button button-icon ion-close-circled cross-btn" ng-click="closeModalOtp();"></button>
@@ -14,11 +14,26 @@
             <p class="account" ng-if="hideText">Please Enter the Verification code sent to your registered Mobile
               number</p>
           </div>
-          <div class="login_button input-select">
-            <input class="col padd-lr text-center" type="password" name="otp" maxlength="4" ng-model="data.otp"
-              placeholder="****" required>
-            <span class="valid" ng-show="otpFrom.otp.$touched && otpFrom.otp.$invalid">* otp is required.</span>
+          <div class="login_button otp-input-boxes input-select ">
+            <!-- <input class="col padd-lr text-center" type="password" name="otp" maxlength="1" ng-model="data.otp1"
+              placeholder="*" required>
+            <input class="col padd-lr text-center" type="password" name="otp" maxlength="1" ng-model="data.otp2"
+              placeholder="*" required>
+            <input class="col padd-lr text-center" type="password" name="otp" maxlength="1" ng-model="data.otp3"
+              placeholder="*" required>
+            <input class="col padd-lr text-center" type="password" name="otp" maxlength="1" ng-model="data.otp4"
+              placeholder="*" required> -->
+
+            <input type="text" class="otp-input1" id="part1" ng-change="checkChange(1)" autofocus ng-model="formName.digit1"
+              maxlength="1" move-next-on-maxlength only-digits required>
+            <input type="text" class="otp-input1" id="part2" ng-change="checkChange(2)" ng-model="formName.digit2"
+              maxlength="1" move-next-on-maxlength only-digits required>
+            <input type="text" class="otp-input1" id="part3" ng-change="checkChange(3)" ng-model="formName.digit3"
+              maxlength="1" move-next-on-maxlength only-digits required>
+            <input type="text" class="otp-input1" id="part4" ng-change="checkChange(4)" ng-model="formName.digit4"
+              maxlength="1" only-digits required>
           </div>
+          <span class="valid" ng-show="otpFrom.otp.$touched && otpFrom.otp.$invalid">* otp is required.</span>
           <div>
             <!-- <a class="incorrect-otp">Incorrect OTP</a> -->
             <a class="resend-otp" ng-click="resendOtp()">Resend OTP</a>
@@ -28,7 +43,7 @@
             generate OTP.</div>
           <div class="valid" ng-if="regenerateOtp"> OTP is Resend.</div>
           <div class="side_show_btn">
-            <button class="custom_button" ng-disabled="otpFrom.$invalid" ng-click="VerifyOtp(data)">OK</button>
+            <button class="custom_button" ng-disabled="otpFrom.$invalid" ng-click="VerifyOtp(formName)">OK</button>
           </div>
         </form>
       </div>

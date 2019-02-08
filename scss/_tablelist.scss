@@ -1,4 +1,6 @@
 .table-lists {
+  font-size: 15px;
+
   .profile-detail {
     margin-top: 0px;
   }
@@ -92,6 +94,7 @@
       width: 100%;
       // text-align: center;
       font-size: 15px;
+      overflow-x: scroll;
 
       th {
         font-weight: 700;
@@ -103,10 +106,18 @@
       td {
         text-align: left;
         padding: 5px 8px;
+        font-size: 14px;
       }
 
       tr {
         border-bottom: 1px solid rgba(239, 238, 238, 0.15);
+      }
+
+      .item {
+        background: transparent;
+        border: 0px solid;
+        color: $white;
+        padding: 3px;
       }
     }
   }
