@@ -40,6 +40,15 @@
   background: $profile-bg;
   padding-bottom: 10px;
 
+  .change-password {
+    font-size: 14px;
+
+    .change-pswd-errors {
+      margin: 1px 10px;
+      padding: 0px 10px;
+    }
+  }
+
   .profile-detail-list {
     .input-label {
       color: $profile-label;

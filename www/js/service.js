@@ -63,23 +63,29 @@ myApp.factory("Service", function (
       return $http.post(url + "User/forgetPassword", data).then(function (data) {
         data = data.data;
         callback(data);
-      })
+      });
     },
     verifyOtpForForgetPassword: function (data, callback) {
       return $http.post(url + "User/verifyOtpForForgetPassword", data).then(function (data) {
         data = data.data;
         callback(data);
-      })
+      });
     },
     setForgetPassword: function (data, callback) {
       return $http.post(url + "User/setForgetPassword", data).then(function (data) {
         data = data.data;
         callback(data);
-      })
+      });
     },
     signUp: function (data, callback) {
-      console.log(data, "signup");
+      // console.log(data, "signup");
       return $http.post(url + "User/signUp", data).then(function (data) {
+        data = data.data;
+        callback(data);
+      });
+    },
+    changePassword: function (data, callback) {
+      return $http.post(url + "User/changePassword", data).then(function (data) {
         data = data.data;
         callback(data);
       });
