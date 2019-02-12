@@ -141,35 +141,33 @@
         <!-- <span class="light"></span>  -->
         <span class="btn_name"> FOLD </span>
         </button>
-        <!--
-      <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
-        promise-btn="callPromise">
-         commented -->
-        <!-- <span class="light"></span> -->
-        <!--<span class="btn_name"> Call </span> commented-->
-        <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
-        <!--</button>
-      <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
-        promise-btn="callPromise"> commented-->
-        <!-- <span class="light"></span> -->
-        <!-- <span class="btn_name"> Call </span> commented -->
-        <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
-        <!-- </button> commented -->
-
-        <!-- ng-if="isChecked" -->
-        <button class="call" ng-click="check();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
-          promise-btn="checkPromise">
-          <!-- <span class="light"></span> -->
-          <span class="btn_name"> Check </span>
+        <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
+          promise-btn="callPromise">
+          <!-- <span class="light"></span>  -->
+          <span class="btn_name"> Call </span>
+          <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
           </button>
-          <button class="raise" ng-click="modalrange();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) && !isRaised">
+          <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
+            promise-btn="callPromise">
+            <!-- <span class="light"></span> -->
+            <span class="btn_name"> Call </span>
+            <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
+            </button>
+
+            <!-- ng-if="isChecked" -->
+            <button class="call" ng-click="check();" ng-if="isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
+              promise-btn="checkPromise">
+              <!-- <span class="light"></span> -->
+              <span class="btn_name"> Check </span>
+              </button>
+              <button class="raise" ng-click="modalrange();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) && !isRaised">
         <!-- <span class="light"></span> -->
         <span class="btn_name"> Raise / All In </span>
       </button>
-          <!-- <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft ||(activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 0)"
-        promise-btn="allInPromise">
-        <span class="light"></span> <span class="btn_name"> All In </span>
-      </button> -->
+              <!-- <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft ||(activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 0)"
+                promise-btn="allInPromise">
+                <span class="light"></span> <span class="btn_name"> All In </span>
+                </button> -->
     </div>
   </div>
   <!-- left menu (option) -->
