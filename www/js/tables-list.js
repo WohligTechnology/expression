@@ -5,7 +5,8 @@ myApp.controller("TablesListCtrl", function(
   $ionicHistory,
   $stateParams,
   $ionicModal,
-  Service
+  Service,
+  $window
 ) {
   $scope.maxPlayers = 9;
   $scope.tableLists = [];
@@ -261,8 +262,8 @@ myApp.controller("TablesListCtrl", function(
   };
   /**Select table End */
   $scope.goBackToPage = function() {
-    console.log("Go Back Called");
-    $ionicHistory.goBack();
+    console.log("Go Back Called", $window.history);
+    $window.history.back();
   };
 
   /**Selected Table */
