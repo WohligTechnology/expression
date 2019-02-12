@@ -85,11 +85,11 @@
       <div class="rel amt-label">
         <label for="amount">Deposit Money</label>
       </div>
-      <input class="padd-lr bor-bot" type="number" name="amount" ng-model="addAmount" placeholder="₹ 1000">
+      <input class="padd-lr bor-bot" type="number" name="amount" ng-model="table.coins" placeholder="₹ 1000">
     </div>
 
     <div class="add-withdraw-btn mar-auto text-center">
-      <button class="button add-with-button pinkbg color-white">Add</button>
+      <button class="button add-with-button pinkbg color-white" ng-click="buyCoins(table.coins)">Add</button>
     </div>
   </ion-content>
 </ion-view>

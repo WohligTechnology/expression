@@ -270,7 +270,7 @@ myApp.controller("TablesListCtrl", function(
   $scope.selectedTable = function(table) {
     console.log("Table selected", table);
     $state.go("table", {
-      id: table.id
+      id: table._id
     });
   };
 

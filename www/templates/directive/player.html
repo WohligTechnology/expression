@@ -1,6 +1,6 @@
 <div class="main-player">
   <!-- 'posPlay5': player.user._id == activePlayer.user._id -->
-  <div class="plyr player{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere || player.tableLeft,}">
+  <div class="plyr player{{pos}}" ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere || player.tableLeft}">
     <!-- before Player Sitting -->
     <div class="rel width-6vw" ng-if="sitHere && !player">
       <div class="player_pic"><img src="img/sithere.png" class="pic" /></div>
@@ -11,6 +11,9 @@
         <div>D</div>
       </div>
     </div>
+    <!--<div class="rel" ng-if="!player && !sitHere">
+      <div class="player_pic"><img src="img/sithere.png" class="pic" /></div>
+    </div>-->
     <div class="rel " ng-if="!player && !sitHere">
       <div class="player_pic sitHereBorder">
         <!-- <img src="img/sithere.png" class="pic" /> -->
@@ -40,12 +43,10 @@
       <div class="winner-pot-name raised-amount" ng-if="smallBlindAmt && player.isSmallBlind && !player.winner">
         Small Blind: {{ smallBlindAmt | number: 0 }}
       </div>
-      <div ng-if="player.winnerDetails.length == 1 && !player.fold" ng-repeat="winnerDetail in player.winnerDetails"
-        class="winner-pot-name">
+      <div ng-if="player.winnerDetails.length == 1 && !player.fold" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name">
         <div>{{ winnerDetail.potMainName }} : {{ winnerDetail.potName }}</div>
       </div>
-      <div ng-if="player.winnerDetails.length > 1 && !player.fold" ng-repeat="winnerDetail in player.winnerDetails"
-        class="winner-pot-name opac opac{{$index+1}}">
+      <div ng-if="player.winnerDetails.length > 1 && !player.fold" ng-repeat="winnerDetail in player.winnerDetails" class="winner-pot-name opac opac{{$index+1}}">
         <div>{{ winnerDetail.potMainName }} : {{ winnerDetail.potName }}</div>
       </div>
       <div class="winner" ng-if="player.winnerDetails.length>0">
@@ -54,26 +55,26 @@
       </div>
       <div class="tcard tcard{{pos}}" ng-if="!player.isFold">
         <card card="DONE" ng-style="style " class="card-one none card-rotate-right " ng-if="(player.cards.length==1 ||
-        player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
-        </card>
-        <card card="DONE" ng-style="style " class="card-two none card-rotate " ng-if="(player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
-        </card>
-        <card card="DONE" ng-style="style " class="card-three none card-rotate " ng-if="(player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
-        </card>
-        <card card="DONE" ng-style="style " class="card-four none card-rotate " ng-if="(player.cards.length==4) && !player.isWinner ">
-        </card>
+player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
+          </card>
+          <card card="DONE" ng-style="style " class="card-two none card-rotate " ng-if="(player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
+          </card>
+          <card card="DONE" ng-style="style " class="card-three none card-rotate " ng-if="(player.cards.length==3|| player.cards.length==4) && !player.isWinner ">
+          </card>
+          <card card="DONE" ng-style="style " class="card-four none card-rotate " ng-if="(player.cards.length==4) && !player.isWinner ">
+          </card>
       </div>
 
       <div class="tcard winnercard tcard{{pos}} " ng-if="(!player.isFold && player.isWinner && remainingPlayerCount> 1)">
         <card card="{{player.cards[0]}}" class="none card-rotate-right" ng-style="style" ng-if="(player.cards.length==1 ||
-                          player.cards.length==2 || player.cards.length==3|| player.cards.length==4)">
-        </card>
-        <card card="{{player.cards[1]}}" class="none card-rotate" ng-style="style" ng-if="(player.cards.length==2 || player.cards.length==3|| player.cards.length==4)">
-        </card>
-        <card card="{{player.cards[2]}}" class="none card-rotate card-three" ng-style="style" ng-if="( player.cards.length==3|| player.cards.length==4)">
-        </card>
-        <card card="{{player.cards[3]}}" class="none card-rotate card-four" ng-style="style" ng-if="(player.cards.length==4)">
-        </card>
+        player.cards.length==2 || player.cards.length==3|| player.cards.length==4)">
+          </card>
+          <card card="{{player.cards[1]}}" class="none card-rotate" ng-style="style" ng-if="(player.cards.length==2 || player.cards.length==3|| player.cards.length==4)">
+          </card>
+          <card card="{{player.cards[2]}}" class="none card-rotate card-three" ng-style="style" ng-if="( player.cards.length==3|| player.cards.length==4)">
+          </card>
+          <card card="{{player.cards[3]}}" class="none card-rotate card-four" ng-style="style" ng-if="(player.cards.length==4)">
+          </card>
       </div>
       <div class="you" ng-if="player.user._id == activePlayer.user._id">You</div>
       <div class="player_pic">
@@ -120,9 +121,9 @@
         <div class="turn_status waiting" ng-if="!player.isActive && !player.winnerDetails">
           Waiting
         </div>
-        <div class="name">Player Name</div>
+        <div class="name">{{ player.user.name }}</div>
         <div class="amt" ng-if="player.buyInAmt-player.totalAmount <= 0">0</div>
-        <div class="amt" ng-if="player.buyInAmt-player.totalAmount > 0">10000
+        <div class="amt" ng-if="player.buyInAmt-player.totalAmount > 0">
           {{ player.buyInAmt - player.totalAmount | number }}
         </div>
       </div>

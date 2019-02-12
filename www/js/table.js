@@ -140,6 +140,7 @@ myApp.controller("TableCtrl", function(
 
   // Socket Update function with REST API
   $scope.updatePlayers = function() {
+    console.log("list", $scope.players);
     $scope.chaalAmt = {};
     if (!_.isEmpty($scope.tableId)) {
       Service.getOneTableDetails($scope.tableId, function(data) {
@@ -149,10 +150,15 @@ myApp.controller("TableCtrl", function(
         $scope.table = data.data.data.table;
         $scope.gameType = $scope.table.gameType;
         $scope.currentRoundAmt = $scope.table.currentRoundAmt;
-        $scope.tableYoutube =
-          "https://www.youtube.com/embed/" +
-          $scope.table.youTubeUrl +
-          "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&playsinline=1&autoplay=1&cc_load_policy=1&controls=0&;disablekb=1&;modestbranding=1&;fs=1&;rel=0&;autohide=1";
+        if ($scope.table.pokerType == "Virtual") {
+          $scope.showVideo = false;
+        } else {
+          $scope.showVideo = true;
+          $scope.tableYoutube =
+            "https://www.youtube.com/embed/" +
+            $scope.table.youTubeUrl +
+            "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&playsinline=1&autoplay=1&cc_load_policy=1&controls=0&;disablekb=1&;modestbranding=1&;fs=1&;rel=0&;autohide=1";
+        }
         $scope.pots = data.data.data.pots;
         $scope.hasTurn = data.data.data.hasTurn;
         $scope.isCheck = data.data.data.isCheck;
@@ -178,7 +184,7 @@ myApp.controller("TableCtrl", function(
           $scope.potAmount = data.data.data.pot[0].totalAmount;
         }
         reArragePlayers(data.data.data.players);
-        // console.log($scope.players);
+        console.log($scope.players);
         $scope.iAmThere($scope.players);
         $scope.activePlayer = _.filter($scope.players, function(player) {
           if (player && player.user._id == $scope._id) {
@@ -565,6 +571,7 @@ myApp.controller("TableCtrl", function(
   //sit Here Function
   //player sitting
   $scope.sitHereFunction = function(sliderData, data) {
+    console.log("data auto", $scope.activePlayer, sliderData, data);
     if (!_.isEmpty($scope.activePlayer[0])) {
       if (!$scope.activePlayer[0].tableLeft) {
         if (!$scope.sitHere) {
@@ -572,7 +579,6 @@ myApp.controller("TableCtrl", function(
         }
       }
     }
-    // console.log("data auto", data);
     $scope.ShowLoader = true;
     $scope.dataPlayer = {};
     $scope.dataPlayer.playerNo = $scope.sitNo;
@@ -744,7 +750,7 @@ myApp.controller("TableCtrl", function(
   io.socket.on("showWinner", showWinnerFunction);
 
   seatSelectionFunction = function(data) {
-    // console.log("seatSelectionFunction", data);
+    console.log("seatSelectionFunction", data);
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
     $scope.gameType = $scope.table.gameType;
@@ -782,7 +788,7 @@ myApp.controller("TableCtrl", function(
   io.socket.on("seatSelection" + $scope.tableId, seatSelectionFunction);
 
   removePlayerFunction = function(data) {
-    // console.log("removePlayerFunction", data);
+    console.log("removePlayerFunction", data);
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
     $scope.gameType = $scope.table.gameType;
