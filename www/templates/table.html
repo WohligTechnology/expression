@@ -144,13 +144,13 @@
         <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
           promise-btn="callPromise">
           <!-- <span class="light"></span>  -->
-          <span class="btn_name"> Call </span>
+          <span class="btn_name"> CALL </span>
           <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
           </button>
           <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
             promise-btn="callPromise">
             <!-- <span class="light"></span> -->
-            <span class="btn_name"> Call </span>
+            <span class="btn_name"> CALL </span>
             <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
             </button>
 
@@ -158,11 +158,11 @@
             <button class="call" ng-click="check();" ng-if="isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
               promise-btn="checkPromise">
               <!-- <span class="light"></span> -->
-              <span class="btn_name"> Check </span>
+              <span class="btn_name"> CHECK </span>
               </button>
               <button class="raise" ng-click="modalrange();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) && !isRaised">
         <!-- <span class="light"></span> -->
-        <span class="btn_name"> Raise / All In </span>
+        <span class="btn_name"> RAISE / ALL IN </span>
       </button>
               <!-- <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft ||(activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 0)"
                 promise-btn="allInPromise">
