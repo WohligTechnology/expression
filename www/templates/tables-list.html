@@ -74,11 +74,11 @@
         </table>
         <!-- </ion-scroll> -->
       </div>
-      <ion-infinite-scroll ng-if="!listLoaded" on-infinite="onInfinite()" distance="4%" icon="ion-load-a"></ion-infinite-scroll>
       <div class="text-center">
         <h4 ng-if="tableLists.length==0">No Data Found</h4>
         <h4 ng-if="tableLists.length==undefined">Loading...</h4>
       </div>
+      <ion-infinite-scroll ng-if="!listLoaded" on-infinite="onInfinite()" distance="2%" icon="ion-load-a"></ion-infinite-scroll>
     </div>
   </ion-content>
 </ion-view>
