@@ -14,6 +14,7 @@ myApp.factory("Service", function(
 
   // Some fake testing data
   io.socket.on("connect", function(socket) {
+    console.log(io.socket._raw.id);
     socketId = io.socket._raw.id;
     $.jStorage.set("socketId", io.socket._raw.id);
     obj.connectSocket(function() {});
