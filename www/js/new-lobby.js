@@ -19,6 +19,14 @@ myApp.controller("NewLobbyCtrl", function(
   //       window.plugins.NativeAudio.stop('button');
   //     }
   //   })
+
+  $ionicPlatform.ready(function() {
+    if (ionic.Platform.isAndroid()) {
+      screen.orientation.lock("landscape");
+    } else {
+    }
+  });
+
   $ionicPlatform.registerBackButtonAction(function(event) {
     event.preventDefault();
   }, 100);
