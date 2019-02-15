@@ -10,7 +10,7 @@
     <div class="cont" ng-if="message.error">
       <div ng-bind-html="message.content"></div>
     </div>
-    <div class="side_show_btn">
+    <div class="side_show_btn" ng-if="chatActive">
       <div class="input-select">
         <input type="text" class="padd-lr" placeholder="Type Message" ng-model="chat.msg">
       </div>

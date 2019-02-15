@@ -5,7 +5,7 @@ var removePlayerFunction;
 var seatSelectionFunction;
 var myTableNo = 0;
 
-myApp.controller("TableCtrl", function(
+myApp.controller("TableCtrl", function (
   $scope,
   $ionicModal,
   $ionicPlatform,
@@ -43,19 +43,19 @@ myApp.controller("TableCtrl", function(
   if ($.jStorage.get("socketId")) {
     $scope.ShowLoader = false;
   } else {
-    $timeout(function() {
+    $timeout(function () {
       $scope.ShowLoader = false;
     }, 5000);
   }
 
   $scope._id = $.jStorage.get("_id");
-  $scope.playerDataFunction = function() {
-    Service.getProfile(function(data) {
+  $scope.playerDataFunction = function () {
+    Service.getProfile(function (data) {
       if (data && data.data && data.data.data) {
         $scope.playerData = data.data.data;
         $scope.playerDataId = data.data.data._id;
       } else {
-        $timeout(function() {
+        $timeout(function () {
           $state.go("login");
         }, 3000);
       }
@@ -70,17 +70,17 @@ myApp.controller("TableCtrl", function(
       scope: $scope,
       animation: "slide-in-up"
     })
-    .then(function(modal) {
+    .then(function (modal) {
       $scope.messageModal = modal;
     });
 
-  $scope.showMessageModal = function() {
+  $scope.showMessageModal = function () {
     $scope.messageModal.show();
-    $timeout(function() {
+    $timeout(function () {
       $scope.closeMessageModal();
     }, 3000);
   };
-  $scope.closeMessageModal = function() {
+  $scope.closeMessageModal = function () {
     $scope.messageModal.hide();
   };
 
@@ -99,23 +99,28 @@ myApp.controller("TableCtrl", function(
   $scope.tableMessage = "";
   $scope.runVibratorFlag = true;
   $scope.updateSocketVar = 0;
-  $scope.changeTableMessage = function(message) {
+  $scope.changeTableMessage = function (message) {
     $scope.tableMessageShow = true;
     $scope.tableMessage = message;
     $scope.$apply();
-    $timeout(function() {
+    $timeout(function () {
       $scope.tableMessageShow = false;
     }, 5000);
   };
 
   function reArragePlayers(playersData) {
-    var diff = myTableNo - 1;
-    // console.log("playersData rearrange", playersData);
-    var players = _.times(9, function(n) {
-      var playerReturn = _.find(playersData, function(singlePlayer) {
+    console.log("playersData", playersData);
+    var diff = 9 - myTableNo;
+    var players = _.times(9, function (n) {
+      var playerReturn = _.find(playersData, function (singlePlayer) {
         if (singlePlayer) {
-          var checkNo = singlePlayer.playerNo;
-          if (n + 1 == checkNo) {
+          var checkNo = (singlePlayer.playerNo + diff);
+          if (checkNo > 9) {
+            checkNo = checkNo - 9;
+            // console.log("checkNocheckNocheckNo", checkNo);
+          }
+          if ((n + 1) == checkNo) {
+            console.log("checkNocheckNocheckNo", checkNo);
             return singlePlayer;
           } else {
             return null;
@@ -124,13 +129,14 @@ myApp.controller("TableCtrl", function(
       });
       return _.cloneDeep(playerReturn);
     });
+    console.log("playerReturn//////////////", players);
     $scope.players = players;
-    console.log("rearr", $scope.players);
+    console.log("reArragePlayers", $scope.players);
   }
 
   //sound initialize
-  $scope.destroyAudio = function() {
-    $ionicPlatform.ready(function() {
+  $scope.destroyAudio = function () {
+    $ionicPlatform.ready(function () {
       if (window.cordova) {
         // running on device/emulator
         window.plugins.NativeAudio.stop("turn");
@@ -139,13 +145,12 @@ myApp.controller("TableCtrl", function(
   };
 
   // Socket Update function with REST API
-  $scope.updatePlayers = function() {
-    console.log("list", $scope.players);
+  $scope.updatePlayers = function () {
     $scope.chaalAmt = {};
     if (!_.isEmpty($scope.tableId)) {
-      Service.getOneTableDetails($scope.tableId, function(data) {
+      Service.getOneTableDetails($scope.tableId, function (data) {
         // check whether dealer is selected or not
-        console.log("update socket", data);
+        // console.log("update socket", data);
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
         $scope.gameType = $scope.table.gameType;
@@ -184,14 +189,14 @@ myApp.controller("TableCtrl", function(
           $scope.potAmount = data.data.data.pot[0].totalAmount;
         }
         reArragePlayers(data.data.data.players);
-        console.log($scope.players);
+        // console.log($scope.players);
         $scope.iAmThere($scope.players);
-        $scope.activePlayer = _.filter($scope.players, function(player) {
+        $scope.activePlayer = _.filter($scope.players, function (player) {
           if (player && player.user._id == $scope._id) {
             return true;
           }
         });
-        $scope.isAllInPlayers = _.filter($scope.players, function(player) {
+        $scope.isAllInPlayers = _.filter($scope.players, function (player) {
           if (
             (player && player.isAllIn) ||
             (player && player.isAllIn == false)
@@ -211,7 +216,7 @@ myApp.controller("TableCtrl", function(
         }
         // console.log("$scope.activePlayerNo", $scope.activePlayerNo);
         $scope.sideShowDataFrom = 0;
-        $scope.remainingActivePlayers = _.filter($scope.players, function(
+        $scope.remainingActivePlayers = _.filter($scope.players, function (
           player
         ) {
           if (
@@ -222,7 +227,7 @@ myApp.controller("TableCtrl", function(
           }
         }).length;
 
-        $scope.remainingPlayerCount = _.filter($scope.players, function(
+        $scope.remainingPlayerCount = _.filter($scope.players, function (
           player
         ) {
           if (player && player.isActive && !player.isFold) {
@@ -239,7 +244,7 @@ myApp.controller("TableCtrl", function(
           $scope.showMessageModal();
         }
 
-        $scope.remainingPlayerCount = _.filter($scope.players, function(
+        $scope.remainingPlayerCount = _.filter($scope.players, function (
           player
         ) {
           if (player && player.isActive && !player.isFold) {
@@ -249,7 +254,7 @@ myApp.controller("TableCtrl", function(
 
         $scope.remainingActiveTableLeftPlayers = _.filter(
           $scope.players,
-          function(player) {
+          function (player) {
             if (player && player.isActive && !player.tableLeft) {
               return true;
             }
@@ -284,7 +289,7 @@ myApp.controller("TableCtrl", function(
   // console.log($scope.minimumBuyin);
 
   // Update Socket Player
-  updateSocketFunction = function(data, dontDigest) {
+  updateSocketFunction = function (data, dontDigest) {
     console.log("updateSocketFunction", data);
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
@@ -319,19 +324,17 @@ myApp.controller("TableCtrl", function(
     if ($scope.communityCards[0].serve) {
       $scope.chaalAmt = {};
     }
-    $scope.activePlayer = _.filter($scope.players, function(player) {
+    $scope.activePlayer = _.filter($scope.players, function (player) {
       // console.log("activeplayer257", player);
-      if (_.isEmpty(player)) {
-      } else {
+      if (_.isEmpty(player)) {} else {
         if (player.isTurn && $.jStorage.get("socketId") == player.socketId) {
-          $ionicPlatform.ready(function() {
+          $ionicPlatform.ready(function () {
             if (window.cordova) {
               window.plugins.NativeAudio.play("turn");
               navigator.vibrate(500);
             }
           });
-        } else {
-        }
+        } else {}
       }
       if (player && player.user._id == $scope._id) {
         return true;
@@ -342,7 +345,7 @@ myApp.controller("TableCtrl", function(
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
     }
 
-    $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function(
+    $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function (
       player
     ) {
       if (player && player.isActive && !player.tableLeft) {
@@ -350,25 +353,25 @@ myApp.controller("TableCtrl", function(
       }
     }).length;
 
-    $scope.remainingActivePlayers = _.filter($scope.players, function(player) {
+    $scope.remainingActivePlayers = _.filter($scope.players, function (player) {
       if ((player && player.isActive) || (player && player.isActive == false)) {
         return true;
       }
     }).length;
 
-    $scope.remainingPlayerCount = _.filter($scope.players, function(player) {
+    $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold) {
         return true;
       }
     }).length;
 
-    $scope.isAllInPlayers = _.filter($scope.players, function(player) {
+    $scope.isAllInPlayers = _.filter($scope.players, function (player) {
       if ((player && player.isAllIn) || (player && player.isAllIn == false)) {
         return true;
       }
     }).length;
 
-    $scope.remainingPlayerCount = _.filter($scope.players, function(player) {
+    $scope.remainingPlayerCount = _.filter($scope.players, function (player) {
       if (player && player.isActive && !player.isFold) {
         return true;
       }
@@ -379,7 +382,7 @@ myApp.controller("TableCtrl", function(
       $scope.TipPlayerNo = $scope.extra.playerNo;
 
       //to reset tip and plyr no
-      $timeout(function() {
+      $timeout(function () {
         $scope.tipAmount = -1;
         $scope.TipPlayerNo = -1;
       }, 2000);
@@ -390,7 +393,7 @@ myApp.controller("TableCtrl", function(
       $scope.TipPlayerNo = $scope.extra.playerNo;
 
       //to reset raise and plyr no
-      $timeout(function() {
+      $timeout(function () {
         $scope.tipAmount = -1;
         $scope.TipPlayerNo = -1;
       }, 2000);
@@ -402,7 +405,7 @@ myApp.controller("TableCtrl", function(
       $scope.TipPlayerNo = $scope.extra.playerNo;
 
       //to reset raise and plyr no
-      $timeout(function() {
+      $timeout(function () {
         $scope.tipAmount = -1;
         $scope.TipPlayerNo = -1;
       }, 2000);
@@ -423,7 +426,7 @@ myApp.controller("TableCtrl", function(
       $scope.TipPlayerNo = $scope.extra.playerNo;
 
       //to reset call and plyr no
-      $timeout(function() {
+      $timeout(function () {
         $scope.tipAmount = -1;
         $scope.TipPlayerNo = -1;
       }, 2000);
@@ -467,10 +470,10 @@ myApp.controller("TableCtrl", function(
   }
 
   //Sitting There
-  $scope.iAmThere = function(data) {
+  $scope.iAmThere = function (data) {
     $scope.isThere = false;
     // console.log(data);
-    _.forEach(data, function(value) {
+    _.forEach(data, function (value) {
       if (value && value.user._id == $scope._id) {
         $scope.isThere = true;
         myTableNo = value.playerNo;
@@ -489,12 +492,13 @@ myApp.controller("TableCtrl", function(
       scope: $scope,
       animation: "slide-in-up"
     })
-    .then(function(modal) {
+    .then(function (modal) {
       $scope.gameModal = modal;
       // $scope.gameModal.show();
     });
 
-  $scope.modalgame = function(sitNum) {
+  $scope.modalgame = function (sitNum) {
+    $scope.chatActive = false;
     if (!_.isEmpty($scope.activePlayer)) {
       if (!$scope.activePlayer[0].tableLeft) {
         if (!$scope.sitHere) {
@@ -514,17 +518,17 @@ myApp.controller("TableCtrl", function(
     $scope.gameModal.show();
     $scope.sitNo = sitNum;
   };
-  $scope.autoBuygame = function(autoBuy) {
+  $scope.autoBuygame = function (autoBuy) {
     if ($scope.playerData.balance < $scope.slider.options.ceil) {
       $scope.slider.options.ceil = $scope.playerData.balance;
     }
     $scope.autoBuy = autoBuy;
     $scope.gameModal.show();
   };
-  $scope.closeGameModal = function() {
+  $scope.closeGameModal = function () {
     $scope.gameModal.hide();
   };
-  $scope.reBuyFunction = function(data) {
+  $scope.reBuyFunction = function (data) {
     // console.log(data);
     $scope.dataPlayer = {};
     $scope.dataPlayer.tableId = $scope.tableId;
@@ -532,8 +536,7 @@ myApp.controller("TableCtrl", function(
     if ($scope.dataPlayer.amount < $scope.minimumBuyin) {
       $scope.message = {
         heading: "Insufficent Balance",
-        content:
-          "Min Buy In for this table is " +
+        content: "Min Buy In for this table is " +
           $scope.minimumBuyin +
           "<br/> Try Again!"
       };
@@ -542,8 +545,7 @@ myApp.controller("TableCtrl", function(
     if ($scope.dataPlayer.amount > $scope.slider.options.ceil) {
       $scope.message = {
         heading: "You are exceded max balance",
-        content:
-          "Min Buy In for this table is " +
+        content: "Min Buy In for this table is " +
           $scope.slider.options.ceil +
           "<br/> Try Again!"
       };
@@ -557,7 +559,7 @@ myApp.controller("TableCtrl", function(
         $scope.dataPlayer.amount >= $scope.minimumBuyin &&
         $scope.dataPlayer.amount <= $scope.slider.options.ceil
       ) {
-        Service.getReFillBuyIn($scope.dataPlayer, function(data) {
+        Service.getReFillBuyIn($scope.dataPlayer, function (data) {
           // console.log(data);
         });
       }
@@ -570,7 +572,7 @@ myApp.controller("TableCtrl", function(
   };
   //sit Here Function
   //player sitting
-  $scope.sitHereFunction = function(sliderData, data) {
+  $scope.sitHereFunction = function (sliderData, data) {
     console.log("data auto", $scope.activePlayer, sliderData, data);
     if (!_.isEmpty($scope.activePlayer[0])) {
       if (!$scope.activePlayer[0].tableLeft) {
@@ -586,7 +588,7 @@ myApp.controller("TableCtrl", function(
     $scope.dataPlayer.amount = sliderData.value;
     $scope.dataPlayer.autoRebuy = data.isAutoBuy;
     $scope.dataPlayer.payBigBlind = data.payBigBlind;
-    $timeout(function() {
+    $timeout(function () {
       if ($scope.ShowLoader) {
         $scope.ShowLoader = false;
         $scope.updatePlayers();
@@ -595,8 +597,7 @@ myApp.controller("TableCtrl", function(
     if ($scope.dataPlayer.amount >= $scope.playerData.balance) {
       $scope.message = {
         heading: "Insufficent Balance",
-        content:
-          "Min Buy In for this table is " +
+        content: "Min Buy In for this table is " +
           $scope.minimumBuyin +
           "<br/> Try Again!"
       };
@@ -611,7 +612,7 @@ myApp.controller("TableCtrl", function(
           $scope.dataPlayer.amount <= $scope.slider.options.ceil
         ) {
           // console.log("inside save Player");
-          Service.savePlayerToTable($scope.dataPlayer, function(data) {
+          Service.savePlayerToTable($scope.dataPlayer, function (data) {
             $scope.ShowLoader = false;
             if (data.data.value) {
               $scope.sitHere = false;
@@ -640,8 +641,7 @@ myApp.controller("TableCtrl", function(
           // console.log("inside not save Player");
           $scope.message = {
             heading: "Insufficent Balance",
-            content:
-              "Min Buy In for this table is " +
+            content: "Min Buy In for this table is " +
               $scope.minimumBuyin +
               "<br/> Try Again!"
           };
@@ -650,8 +650,7 @@ myApp.controller("TableCtrl", function(
           // console.log("inside not save Player");
           $scope.message = {
             heading: "You are exceded max balance",
-            content:
-              "Min Buy In for this table is " +
+            content: "Min Buy In for this table is " +
               $scope.slider.options.ceil +
               "<br/> Try Again!"
           };
@@ -661,50 +660,50 @@ myApp.controller("TableCtrl", function(
     }
   };
 
-  $scope.openPlayerDetails = function() {
+  $scope.openPlayerDetails = function () {
     if (!$scope.sitHere) {
       $scope.playerDetails.show();
     }
   };
   //Tip Dealer
-  $scope.makeTipFunction = function(amount) {
-    Service.makeTip(amount, $scope.tableId, function(data) {});
+  $scope.makeTipFunction = function (amount) {
+    Service.makeTip(amount, $scope.tableId, function (data) {});
   };
 
   //Game History
-  $scope.getHistory = function() {
-    Service.getHistory($scope.tableId, function(data) {
+  $scope.getHistory = function () {
+    Service.getHistory($scope.tableId, function (data) {
       $scope.showHistory = data.data.data;
       // console.log("getMeHistory", $scope.showHistory);
     });
   };
   // Turn Actions
-  $scope.allIn = function() {
-    $scope.allInPromise = Service.allIn($scope.tableId, function(data) {});
+  $scope.allIn = function () {
+    $scope.allInPromise = Service.allIn($scope.tableId, function (data) {});
   };
-  $scope.fold = function() {
-    $scope.foldPromise = Service.fold($scope.tableId, function(data) {});
+  $scope.fold = function () {
+    $scope.foldPromise = Service.fold($scope.tableId, function (data) {});
   };
-  $scope.raise = function(raiseAmount) {
-    $scope.raisePromise = Service.raise($scope.tableId, raiseAmount, function(
+  $scope.raise = function (raiseAmount) {
+    $scope.raisePromise = Service.raise($scope.tableId, raiseAmount, function (
       data
     ) {});
   };
-  $scope.move = function() {
-    $scope.movePromise = Service.move($scope.tableId, function(data) {});
+  $scope.move = function () {
+    $scope.movePromise = Service.move($scope.tableId, function (data) {});
   };
-  $scope.call = function() {
-    $scope.callPromise = Service.call($scope.tableId, function(data) {});
+  $scope.call = function () {
+    $scope.callPromise = Service.call($scope.tableId, function (data) {});
   };
 
   //check
-  $scope.check = function() {
-    $scope.checkPromise = Service.check($scope.tableId, function(data) {});
+  $scope.check = function () {
+    $scope.checkPromise = Service.check($scope.tableId, function (data) {});
   };
 
   //random card serve
-  $scope.randomCard = function() {
-    $scope.raisePromise = Service.randomCard($scope.tableId, function(data) {});
+  $scope.randomCard = function () {
+    $scope.raisePromise = Service.randomCard($scope.tableId, function (data) {});
   };
 
   //winner
@@ -713,17 +712,17 @@ myApp.controller("TableCtrl", function(
     console.log("show winner", data);
     reArragePlayers(data.data.players);
     $scope.winnerData = data.data.pots;
-    _.each($scope.players, function(player) {
+    _.each($scope.players, function (player) {
       if (player) {
         player.isTurn = false;
         player.isWinner = true;
         player.winnerDetails = [];
-        _.each(data.data.pots, function(pot, number) {
-          var winners = _.filter(pot.winner, function(potPlayer) {
+        _.each(data.data.pots, function (pot, number) {
+          var winners = _.filter(pot.winner, function (potPlayer) {
             return potPlayer.winner;
           });
           console.log("winner inside", winners);
-          var isThisPlayerWinner = _.findIndex(winners, function(winner) {
+          var isThisPlayerWinner = _.findIndex(winners, function (winner) {
             // console.log(player);
             return winner.playerId == player._id;
           });
@@ -741,7 +740,7 @@ myApp.controller("TableCtrl", function(
       $scope.$apply();
     });
     console.log("inside Winner", $scope.players);
-    $scope.activePlayer = _.filter($scope.players, function(player) {
+    $scope.activePlayer = _.filter($scope.players, function (player) {
       if (player && player.user._id == $scope._id) {
         return true;
       }
@@ -749,7 +748,7 @@ myApp.controller("TableCtrl", function(
   }
   io.socket.on("showWinner", showWinnerFunction);
 
-  seatSelectionFunction = function(data) {
+  seatSelectionFunction = function (data) {
     console.log("seatSelectionFunction", data);
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
@@ -765,7 +764,7 @@ myApp.controller("TableCtrl", function(
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
     }
-    $scope.activePlayer = _.filter($scope.players, function(player) {
+    $scope.activePlayer = _.filter($scope.players, function (player) {
       if (player && player.user._id == $scope._id) {
         return true;
       }
@@ -775,7 +774,7 @@ myApp.controller("TableCtrl", function(
         $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
       }
     }
-    $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function(
+    $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function (
       player
     ) {
       if (player && player.isActive && !player.tableLeft) {
@@ -787,7 +786,7 @@ myApp.controller("TableCtrl", function(
 
   io.socket.on("seatSelection" + $scope.tableId, seatSelectionFunction);
 
-  removePlayerFunction = function(data) {
+  removePlayerFunction = function (data) {
     console.log("removePlayerFunction", data);
     $scope.communityCards = data.data.communityCards;
     $scope.table = data.data.table;
@@ -805,13 +804,13 @@ myApp.controller("TableCtrl", function(
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
     }
-    $scope.activePlayer = _.filter($scope.players, function(player) {
+    $scope.activePlayer = _.filter($scope.players, function (player) {
       if (player && player.user._id == $scope._id) {
         return true;
       }
     });
 
-    $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function(
+    $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function (
       player
     ) {
       if (player && player.isActive && !player.tableLeft) {
@@ -836,21 +835,21 @@ myApp.controller("TableCtrl", function(
       scope: $scope,
       animation: "slide-in-up"
     })
-    .then(function(modal) {
+    .then(function (modal) {
       $scope.gameRemovePlayerModal = modal;
     });
 
-  $scope.openRemovePlayerModal = function(autoBuy) {
+  $scope.openRemovePlayerModal = function (autoBuy) {
     $scope.gameRemovePlayerModal.show();
   };
-  $scope.closeRemovePlayerModal = function() {
+  $scope.closeRemovePlayerModal = function () {
     $scope.gameRemovePlayerModal.hide();
   };
 
   //remove player function
-  $scope.removePlayers = function() {
+  $scope.removePlayers = function () {
     $scope.ShowLoader = true;
-    Service.removePlayer($scope.tableId, $scope.activePlayerNo, function(data) {
+    Service.removePlayer($scope.tableId, $scope.activePlayerNo, function (data) {
       if (data) {
         $scope.ShowLoader = false;
         $scope.closeGameModal();
@@ -860,7 +859,7 @@ myApp.controller("TableCtrl", function(
     });
   };
 
-  newGameSocketFunction = function(data) {
+  newGameSocketFunction = function (data) {
     console.log("NewGame", data);
     $scope.chaalAmt = {};
     $scope.communityCards = data.data.communityCards;
@@ -886,7 +885,7 @@ myApp.controller("TableCtrl", function(
     if ($scope.updateSocketVar == 0) {
       reArragePlayers(data.data.players);
     }
-    $scope.activePlayer = _.filter($scope.players, function(player) {
+    $scope.activePlayer = _.filter($scope.players, function (player) {
       if (player && player.user._id == $scope._id) {
         return true;
       }
@@ -911,8 +910,8 @@ myApp.controller("TableCtrl", function(
 
   io.socket.on("newGame", newGameSocketFunction);
   // New Game
-  $scope.newGame = function() {
-    Service.newGame($scope.tableId, function(data) {});
+  $scope.newGame = function () {
+    Service.newGame($scope.tableId, function (data) {});
   };
 
   $ionicModal
@@ -920,22 +919,23 @@ myApp.controller("TableCtrl", function(
       scope: $scope,
       animation: "slide-in-up"
     })
-    .then(function(rangeModal) {
+    .then(function (rangeModal) {
       $scope.rangeModal = rangeModal;
     });
-  $scope.modalrange = function() {
+  $scope.modalrange = function () {
+    console.log("started")
     $scope.rangeModal.show();
   };
-  $scope.closeRangeModal = function() {
+  $scope.closeRangeModal = function () {
     $scope.rangeModal.hide();
   };
 
   //left menu
-  $scope.openLeftMenu = function() {
+  $scope.openLeftMenu = function () {
     $scope.leftMenu = true;
   };
 
-  $scope.closeAll = function() {
+  $scope.closeAll = function () {
     $scope.rightMenu = false;
     $scope.leftMenu = false;
     $scope.activeVariation = false;
@@ -950,14 +950,21 @@ myApp.controller("TableCtrl", function(
       scope: $scope,
       animation: "slide-in-right"
     })
-    .then(function(modal) {
+    .then(function (modal) {
       $scope.openChatModal = modal;
     });
 
-  $scope.openChatBox = function() {
+  $scope.openChatBox = function () {
     $scope.openChatModal.show();
+    $scope.chatActive = true;
+    $scope.message = {
+      heading: "Chat",
+      content: "",
+      error: true
+    };
   };
-  $scope.closeChatBox = function() {
+  $scope.closeChatBox = function () {
     $scope.openChatModal.hide();
+    $scope.chatActive = false;
   };
 });

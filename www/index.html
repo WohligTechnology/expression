@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <base href="/frontendui/">
+  <!-- <base href="/frontendui/"> -->
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
   <title></title>
@@ -43,10 +43,11 @@
   <script src="lib/moment/moment.js"></script>
 
   <script>
-    var adminUUU = "https://expression.wohlig.co.in"; // Main Game Server    
-    // var adminUUU = "http://wohlig.io:1337"; // Local Game Server
+    // var adminUUU = "https://expression.wohlig.co.in"; // Main Game Server    
+    var adminUUU = "http://192.168.1.110:1338"; // Local Game Server
     io.sails.url = adminUUU;
     var socketId;
+
   </script>
 
 
@@ -56,6 +57,7 @@
     tag.src = "https://www.youtube.com/player_api";
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
   </script>
   <!-- your app's js -->
 

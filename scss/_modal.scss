@@ -588,8 +588,12 @@ span.valid {
     min-height: 78%;
   }
   .cancel {
-    top: -40px;
-    right: -30px;
+    top: -20px;
+    right: -5px;
+    max-width: 0;
+    min-width: 0;
+    min-height: 0;
+    line-height: 0;
   } // .heading {
   //   font-family: 'Cinzel-Bold'; // border-image: $border-color;
   //   border-image-slice: 2;
@@ -1066,6 +1070,8 @@ span.valid {
     border: 0px;
     font-size: 18px;
     color: #e93e66;
+    position: relative;
+    z-index: 3;
   }
   .side_show_btn {
     display: -webkit-inline-box;
