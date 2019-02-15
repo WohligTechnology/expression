@@ -11,12 +11,12 @@ myApp.directive('card', function () {
       templateUrl: 'templates/directive/card.html',
       link: function ($scope, element, attr) {
         function calc() {
-          // $scope.style = {
-          //   width: $scope.width + "px",
-          //   height: $scope.height + "px"
-          // };
-          // $scope.cardFile = "img/cards/" + _.toUpper($scope.card) + ".svg";
-          $scope.cardFile = "img/cards/CARDCLOSE.png"
+          $scope.style = {
+            width: $scope.width + "px",
+            height: $scope.height + "px"
+          };
+          $scope.cardFile = "img/cards/" + _.toUpper($scope.card) + ".svg";
+          // $scope.cardFile = "img/cards/CARDCLOSE.png";
         }
         calc();
         $scope.$watch("card", function () {
