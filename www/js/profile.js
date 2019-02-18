@@ -4,6 +4,7 @@ myApp.controller("ProfileCtrl", function(
   $ionicPlatform,
   $ionicHistory,
   Service,
+  $stateParams,
   $window
 ) {
   $ionicPlatform.ready(function() {
@@ -21,6 +22,30 @@ myApp.controller("ProfileCtrl", function(
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
     $window.history.back();
+  };
+  // $scope.profile = function() {
+
+  Service.getProfile(function(data) {
+    console.log("fdfdfdg", data);
+    $scope.playerData = data.data.data;
+    $scope.playerData.dob = moment(data.data.data.dob).format("DD/MM/YYYY");
+    $scope.playerDataId = data.data.data._id;
+    $scope._id = $.jStorage.set("_id", $scope.playerDataId);
+  });
+
+  $scope.cancel = function() {
+    $window.history.back();
+  };
+
+  $scope.saveProfile = function(playerData) {
+    console.log("sdfdfdf", playerData);
+    Service.saveUser(playerData, function(data) {
+      if (data.value === true) {
+        $window.history.back();
+      } else {
+        //do nothing
+      }
+    });
   };
 
   /**Change Password Function */
@@ -55,5 +80,38 @@ myApp.controller("ProfileCtrl", function(
         }
       }
     });
+  };
+
+  $scope.state = {
+    AP: "Andhra Pradesh",
+    AR: "Arunachal Pradesh",
+    BR: "Bihar",
+    CG: "Chhattisgarh",
+    Chandigarh: "Chandigarh",
+    DN: "Dadra and Nagar Haveli",
+    DD: "Daman and Diu",
+    DL: "Delhi",
+    GA: "Goa",
+    GJ: "Gujarat",
+    HR: "Haryana",
+    HP: "Himachal Pradesh",
+    JK: "Jammu and Kashmir",
+    JH: "Jharkhand",
+    KA: "Karnataka",
+    KL: "Kerala",
+    MP: "Madhya Pradesh",
+    MH: "Maharashtra",
+    MN: "Manipur",
+    ML: "Meghalaya",
+    MZ: "Mizoram",
+    PB: "Punjab",
+    PY: "Pondicherry",
+    RJ: "Rajasthan",
+    SK: "Sikkim",
+    TN: "Tamil Nadu",
+    TR: "Tripura",
+    UP: "Uttar Pradesh",
+    UK: "Uttarakhand",
+    WB: "West Bengal"
   };
 });

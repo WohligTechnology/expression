@@ -16,6 +16,8 @@ myApp.controller("AddAmountCtrl", function(
   //buy Coins
   $scope.buyCoins = function(data) {
     $scope.buyCoinsPromise = Service.buyCoins(data, function(data) {
+      $window.history.back();
+      $state.go("lobby");
       $scope.pageNo = 0;
       $scope.withdrawDetails = [];
       $scope.loadMore();

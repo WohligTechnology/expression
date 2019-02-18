@@ -94,6 +94,13 @@ myApp.factory("Service", function(
         callback(data);
       });
     },
+    saveUser: function(data, callback) {
+      console.log(data);
+      return $http.post(url + "User/updateUser", data).then(function(data) {
+        data = data.data;
+        callback(data);
+      });
+    },
     getProfile: function(callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {
@@ -108,6 +115,12 @@ myApp.factory("Service", function(
         $state.go("login");
       }
     },
+    getEarningPoint: function(callback) {
+      $http.post(url + "EarningPoint/earningPoint").then(function(data) {
+        callback(data);
+      });
+    },
+
     buyCoins: function(coins, callback) {
       var accessToken = $.jStorage.get("accessToken");
       if (!_.isEmpty(accessToken)) {

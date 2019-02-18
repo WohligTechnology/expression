@@ -2,20 +2,27 @@
   <ion-header-bar class="lobby-bar">
     <div class="profile-header header-title">
       <div class="bar bar-header lobby-header">
-        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <button
+          class="button button-icon icon ion-arrow-left-c"
+          ng-click="goBackToPage()"
+        ></button>
         <h1 class="title title-white">Account</h1>
       </div>
     </div>
   </ion-header-bar>
   <ion-content>
     <div class="account-profile text-center">
-      <img class="profile-img" src="img/login/bgblue.png" alt="">
-      <p class="profile-name">Ganesh Avahad</p>
+      <img class="profile-img" src="img/login/bgblue.png" alt="image" />
+      <p class="profile-name">{{ playerData.name }}</p>
     </div>
     <div class="account-bal">
       <div class="ac-bal">
-        <img src="img/lobby/poker-coin-logo.png" alt="" class="poker-coin-logo">
-        <p class="amount">8,76,543</p>
+        <img
+          src="img/lobby/poker-coin-logo.png"
+          alt=""
+          class="poker-coin-logo"
+        />
+        <p class="amount">{{ playerData.balance | number: 0 }}</p>
       </div>
     </div>
 
@@ -23,22 +30,26 @@
       <div class="add-withdraw padding-top">
         <div class="row">
           <div class="col-50 text-center">
-            <button class="button btn-account btn-add" ui-sref="addamount">Add Cash</button>
+            <button class="button btn-account btn-add" ui-sref="addamount">
+              Add Cash
+            </button>
           </div>
           <div class="col-50 text-center">
-            <button class="button btn-account btn-withdraw" ui-sref="withdrawal">Withdraw Cash</button>
+            <button
+              class="button btn-account btn-withdraw"
+              ui-sref="withdrawal"
+            >
+              Withdraw Cash
+            </button>
           </div>
         </div>
       </div>
 
       <div class="account-list">
         <ul class="list">
-          <li class="item" ui-sref="profile">My Profile
-          </li>
-          <li class="item" ui-sref="transfer-statement">My Transaction
-          </li>
-          <li class="item" ui-sref="plstatement">Account Statement
-          </li>
+          <li class="item" ui-sref="profile">My Profile</li>
+          <li class="item" ui-sref="transfer-statement">My Transaction</li>
+          <li class="item" ui-sref="plstatement">Account Statement</li>
         </ul>
       </div>
     </div>

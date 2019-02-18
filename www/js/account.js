@@ -2,7 +2,8 @@ myApp.controller("AccountCtrl", function(
   $scope,
   $ionicPlatform,
   $ionicHistory,
-  $window
+  $window,
+  Service
 ) {
   // $ionicPlatform.ready(function () {
   //   if (ionic.Platform.isAndroid()) {
@@ -13,4 +14,11 @@ myApp.controller("AccountCtrl", function(
     console.log("Go Back Called");
     $window.history.back();
   };
+
+  Service.getProfile(function(data) {
+    console.log("fdfdfdg", data);
+    $scope.playerData = data.data.data;
+    $scope.playerDataId = data.data.data._id;
+    $scope._id = $.jStorage.set("_id", $scope.playerDataId);
+  });
 });

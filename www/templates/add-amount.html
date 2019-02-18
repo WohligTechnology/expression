@@ -75,7 +75,10 @@
   <ion-header-bar class="lobby-bar">
     <div class="profile-header header-title">
       <div class="bar bar-header lobby-header">
-        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <button
+          class="button button-icon icon ion-arrow-left-c"
+          ng-click="goBackToPage()"
+        ></button>
         <h1 class="title title-white">Add Money</h1>
       </div>
     </div>
@@ -85,11 +88,22 @@
       <div class="rel amt-label">
         <label for="amount">Deposit Money</label>
       </div>
-      <input class="padd-lr bor-bot" type="number" name="amount" ng-model="table.coins" placeholder="₹ 1000">
+      <input
+        class="padd-lr bor-bot"
+        type="number"
+        name="amount"
+        ng-model="table.coins"
+        placeholder="₹ 1000"
+      />
     </div>
 
     <div class="add-withdraw-btn mar-auto text-center">
-      <button class="button add-with-button pinkbg color-white" ng-click="buyCoins(table.coins)">Add</button>
+      <button
+        class="button add-with-button pinkbg color-white"
+        ng-click="buyCoins(table.coins)"
+      >
+        Add
+      </button>
     </div>
   </ion-content>
 </ion-view>
