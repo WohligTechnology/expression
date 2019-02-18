@@ -9,28 +9,23 @@
 }
 
 .table {
-  background: url("../img/in-play-bg.jpg");
-  // background: $black;
+  background: url("../img/in-play-bg.jpg"); // background: $black;
   width: 100vw;
   height: 100vh;
   position: relative;
   background-size: cover;
   background-position: center center;
-
   .table_field {
     position: absolute; // bottom: 0;
     // bottom: calc(0px + 5.8em);
     bottom: calc(0px + 1.4em);
-    width: 100%;
-    // left: 0;
+    width: 100%; // left: 0;
     left: -6px;
     text-align: center;
-
     .bg_table {
       position: relative;
       width: 90%; // height: 85%;
     }
-
     .top-frame-border {
       position: absolute;
       border: 0.6em solid rgba(0, 0, 0, 0.92);
@@ -42,14 +37,12 @@
       border-bottom-right-radius: 5px;
       z-index: 8;
     }
-
     .video_frame {
       position: absolute;
       width: 30vw;
       height: 32vh;
       background: #ddd;
-      border: 0.5em solid $black;
-      // box-shadow: -3px 4px 3px #40415c;
+      border: 0.5em solid $black; // box-shadow: -3px 4px 3px #40415c;
       box-shadow: -4px 5px 2px -2px #40415C;
       border-radius: 10px;
       top: -5%;
@@ -57,54 +50,43 @@
       z-index: 9;
       transform: translate(-50%, -35%);
       overflow: hidden;
-
       iframe {
         width: 100% !important;
         height: 100% !important;
       }
     }
-
     .plyr {
       width: 7vw;
       position: absolute;
       z-index: 1;
       font-size: 0.7em;
-
       &.sit_here,
       &.no_player {
         width: 6vw;
       }
-
       .rel {
         position: relative;
       }
-
       .width-14vh {
         width: 16vh;
       }
-
       .you {
         position: absolute;
-        background: #642aa2;
-        // background: $pink-bg;
+        background: #642aa2; // background: $pink-bg;
         // top: 0%;
         top: -3%;
-        border-radius: 100%;
-        // padding: 5%;
+        border-radius: 100%; // padding: 5%;
         padding: 3%;
-        font-weight: bold;
-        // left: -10%;
+        font-weight: bold; // left: -10%;
         right: -5%;
         line-height: 2em;
         font-size: 1em;
       }
-
       .sitHereBorder {
         border: 2px solid $white;
         border-radius: 100%;
         background-color: rgba(0, 0, 0, 0.55);
       }
-
       .sitHereText {
         display: block;
         text-align: center;
@@ -116,17 +98,14 @@
         background: rgba(0, 0, 0, 0.65);
         border-radius: 4px;
       }
-
       .winner {
         position: absolute;
         width: 100%;
         height: 100%;
         left: 0;
-
         img {
           width: 100%;
         }
-
         .crown {
           width: 65%;
           position: absolute;
@@ -134,7 +113,6 @@
           left: 50%;
           transform: translate(-50%, -85%);
         }
-
         .belt {
           position: absolute;
           left: 0;
@@ -144,14 +122,12 @@
           transform: scale(1.5);
         }
       }
-
       .player_pic {
         // border: 1px solid;
         // width: 15vh;
         // height: 15vh;
         width: 16vh;
         height: 16vh;
-
         .pic {
           width: 100%;
           height: 100%;
@@ -159,25 +135,19 @@
           padding: 7%;
         }
       }
-
       .player_badge {
         position: absolute;
-        top: 0;
-        // right: -30%;
+        top: 0; // right: -30%;
         left: -26%;
-        width: 65%;
-        // text-align: right;
+        width: 65%; // text-align: right;
         text-align: left;
         background: red;
-        border-radius: 15px;
-        // top: 20%;
+        border-radius: 15px; // top: 20%;
         top: 14%;
         z-index: -1;
-
         &.left-dealer {
           right: -45%;
         }
-
         div {
           // padding-right: 10%;
           padding-left: 15%;
@@ -186,24 +156,20 @@
           font-weight: bold;
           line-height: 1.45em;
         }
-
         &.dealer {
           // background: #56c2fd;
           background: #248f6f;
           left: -15%;
         }
-
         &.smallblind {
           // background: #6ed34e;
           background: #e19f18;
         }
-
         &.bigblind {
           // background: #ef1f2b;
           background: $pink-bg;
         }
       }
-
       .details {
         position: absolute;
         bottom: 0;
@@ -219,59 +185,46 @@
         line-height: 1.3em;
         min-width: 100%;
         max-width: 150%;
-
         .name {
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
         }
-
         .turn_status {
           position: absolute;
           padding: 3% 10%;
-          font-size: 1em;
-          // border-radius: 10%; // border: 1px solid rgba(142, 141, 141, 0.91);
+          font-size: 1em; // border-radius: 10%; // border: 1px solid rgba(142, 141, 141, 0.91);
           // top: 0;
           // left: 0;
           top: -60px;
-          left: 13px;
-          // width: 100%;
+          left: 13px; // width: 100%;
           // margin: 0 auto;
           // text-align: center;
           transform: translate(-4%, -100%);
-
           &.call {
             background: #2e4fb4;
           }
-
           &.checked {
             background: #5c00ff;
           }
-
           &.all_in {
             background: #4ccd9d;
           }
-
           &.fold {
             background: #ff1402;
           }
-
           &.raise {
             background: #ff1402;
           }
-
           &.waiting {
             background: #2196f3;
           }
         }
-
         .amt {
           font-size: 1.1em;
         }
       }
-
       &.no_player {
-
         .tcard,
         .player_badge,
         .dealer,
@@ -281,40 +234,32 @@
           display: none !important;
         }
       }
-
       &.sit_here,
       &.no_player {
-
         &.player4,
         &.player5,
         &.player6 {
           bottom: 16%;
         }
-
         &.player5 {
           left: 50%;
         }
-
         &.player7,
           {
           left: 8%
         }
-
         &.player8 {
           left: 5%;
         }
-
         &.player3 {
           right: 10%;
         }
       }
-
       .width-7vw {
         width: 7vw;
         margin: 0 auto;
       }
     }
-
     .card_shuffle {
       // width: 40%;
       // position: absolute;
@@ -326,93 +271,78 @@
       top: 30%;
       left: 50%;
       transform: translate(-50%) perspective(200px) rotateX(45deg);
-
       .cards {
         display: flex;
         flex-direction: row; // justify-content: center;
-
         card {
           padding: 2px;
           width: 12%;
         }
       }
-
       .community-card.low-opacity {
         background: rgba(0, 0, 0, 0.3);
         display: block;
         border-radius: 5px;
         border: 1px dashed $white;
       }
-
       .community-card.low-opacity img {
         opacity: 0;
       }
     }
   }
-
   .bottom {
     position: absolute;
     bottom: 0;
     width: 100vw;
     display: flex;
     align-items: center;
-
     .main_card {
       position: relative;
       align-self: flex-end;
-      flex: 0.3;
-
+      flex: 0.5;
+      margin-bottom: -5px;
       .cards {
         display: flex;
         position: absolute;
         bottom: 0;
         right: -10px;
         width: 40%;
-
         card {
           width: 100%;
-          max-width: 65%;
-
+          max-width: 45%;
           &:nth-child(2) {
             margin-left: -20%;
           }
-
           &:nth-child(3) {
             margin-left: -20%;
           }
-
           &:nth-child(4) {
             margin-left: -20%;
           }
         }
       }
-    }
-
-    // button {
+      &.four-card {
+        flex: 0.55;
+      }
+    } // button {
     //   min-width: 15%;
     // }
     .player_turn_button {
-      display: flex;
-      padding: 5px 5px 3px 15px;
-      // margin: 1%;
+      // display: flex;
+      padding: 5px 5px 3px 10px; // margin: 1%;
       width: 100%;
       flex: 0.8;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.5);
-      // border: 1px solid #7851a2;
-
+      text-align: right;
+      background: rgba(0, 0, 0, 0.5); // border: 1px solid #7851a2;
       .fold {
         background: $button-yellow;
       }
-
       .call {
         background: $button-green;
       }
-
       .raise {
         background: $pink-bg;
       }
-
       .name-amount {
         p {
           font-size: 15px;
@@ -420,25 +350,20 @@
           font-weight: 600;
         }
       }
-
       button {
         min-width: 24%; // background: rgba(127, 127, 127, 0.471);
         margin-left: 10px;
         border-radius: 5px;
-        @include gradient_grey;
-        // border: 3px solid rgba(0, 0, 0, 0.54);
+        @include gradient_grey; // border: 3px solid rgba(0, 0, 0, 0.54);
         border: 0px;
         font-size: 1.5em; // padding: 1% 0px;
         height: 2em;
         font-weight: bold;
-
         .btn_name {
           font-size: 0.8em;
-          vertical-align: middle;
-          // color: #cece3f;
+          vertical-align: middle; // color: #cece3f;
           color: $white;
         }
-
         .light {
           margin: 2% 1%;
           height: 85%;
@@ -448,41 +373,35 @@
           float: left;
           border: 1px solid rgba(128, 128, 128, 0.68);
         }
-
         &.fold {
           .light {
             // background: red;
             @include gradient_red();
           }
-
           &.activated {
             .light {
               background: rgb(228, 84, 84);
             }
           }
         }
-
         &.call,
         &.raise,
         &.allin {
           .light {
             @include gradient_green();
           }
-
           &.activated {
             .light {
               background: rgb(84, 228, 127);
             }
           }
         }
-
         &:disabled {
           .btn_name {
             // color: grey;
             // text-shadow: 0px 0px 25px black;
             // -webkit-text-stroke: 0.2px #000000;
           }
-
           .light {
             background: #6b6565;
             -webkit-box-shadow: none;
@@ -491,7 +410,6 @@
             text-shadow: 0px 0px 25px black;
             -webkit-text-stroke: 0.2px #000000;
           }
-
           &.activated {
             .light {
               background: #6b6565;
@@ -502,66 +420,50 @@
         }
       }
     }
-
     .tip-lobby {
       .button {
-        min-height: 20px;
-        // font-size: 1.2em;
+        min-height: 20px; // font-size: 1.2em;
         // color: #81b781;
         letter-spacing: 0.5px;
         padding: 25px;
         font-size: 18px;
-        left: -5px;
-        // text-shadow: 0px 1px 2px #419941;
+        left: -5px; // text-shadow: 0px 1px 2px #419941;
       }
     }
-  }
-
-  //player position
+  } //player position
   .player1 {
     right: 19%;
     top: -2%;
   }
-
   .player2 {
     right: 6%;
     top: 20%;
   }
-
   .player3 {
     right: 10%;
     top: 52%;
   }
-
   .player4 {
-    right: 26%;
-    // bottom: 3%;
+    right: 26%; // bottom: 3%;
     bottom: 20%;
   }
-
   .player5 {
     left: 50%;
-    transform: translateX(-40%);
-    // bottom: 3%;
+    transform: translateX(-40%); // bottom: 3%;
     bottom: 20%;
   }
-
   .player6 {
-    left: 26%;
-    // bottom: 3%;
+    left: 26%; // bottom: 3%;
     bottom: 20%;
   }
-
   .player7 {
     left: 9%;
     top: 54%;
   }
-
   .player8 {
     top: 22%;
     left: 3%;
   }
-
   .player9 {
     left: 17%;
     top: -3%;
@@ -573,11 +475,10 @@
 .option_menu {
   .menu_cont {
     width: 30%;
-    background-image: url(../img/History2.png);
+    background: #0b2939;
     background-size: 100% 100%;
     height: 100%;
     transition: all 500ms;
-
     .heading {
       // background: url('../img/menu_heading.png');
       background-size: 100% 100%;
@@ -585,34 +486,26 @@
       padding: 7% 5% 0%;
       margin-left: 1px;
       margin-right: 28px;
-
       i {
         padding-right: 10%;
       }
-
       span {}
     }
-
     .menu_list {
       .item {
         background: transparent;
         color: $white;
         border: none;
         font-size: 1em;
-        border-image: linear-gradient(to right,
-          rgba(254, 255, 255, 0) 5%,
-          rgba(255, 255, 255, 0.671) 50%,
-          rgba(160, 217, 239, 0) 95%);
+        border-image: linear-gradient(to right, #243e4c 20%, #507d96 75%, #0c1c25 95%);
         border-bottom: 1px solid;
         border-image-slice: 2;
         padding: 5% 10%;
-
         i {
           padding-right: 5%;
           vertical-align: text-top;
           font-size: 1.2em;
         }
-
         .item-content {
           background: transparent;
           color: $white;
@@ -657,18 +550,16 @@
   position: absolute;
   width: auto;
   left: 50%;
-  top: 32%; // min-width: 80px;
+  top: 25%; // min-width: 80px;
   transform: translateX(-50%);
   text-align: left;
   color: $white;
   z-index: 6 !important;
-
   .coin {
     width: 1em;
     vertical-align: middle;
     margin-right: 5px;
   }
-
   span {
     background-image: url("../img/table/pot_bg.png");
     background-size: 100% 100%;
@@ -684,27 +575,21 @@
   .coin1 {
     animation: animecoin1 3s ease 0s forwards;
   }
-
   .coin2 {
     animation: animecoin1 3s ease 2s forwards;
   }
-
   .coin3 {
     animation: animecoin1 3s ease 4s forwards;
   }
-
   .coin4 {
     animation: animecoin1 3s ease 6s forwards;
   }
-
   .coin5 {
     animation: animecoin1 3s ease 8s forwards;
   }
-
   .coin6 {
     animation: animecoin1 3s ease 10s forwards;
   }
-
   .coin7 {
     animation: animecoin1 3s ease 12s forwards;
   }
@@ -714,27 +599,21 @@
   .coin1 {
     animation: animecoin2 3s ease 0s forwards;
   }
-
   .coin2 {
     animation: animecoin2 3s ease 2s forwards;
   }
-
   .coin3 {
     animation: animecoin2 3s ease 4s forwards;
   }
-
   .coin4 {
     animation: animecoin2 3s ease 6s forwards;
   }
-
   .coin5 {
     animation: animecoin2 3s ease 8s forwards;
   }
-
   .coin6 {
     animation: animecoin2 3s ease 10s forwards;
   }
-
   .coin7 {
     animation: animecoin2 3s ease 12s forwards;
   }
@@ -744,27 +623,21 @@
   .coin1 {
     animation: animecoin3 3s ease 0s forwards;
   }
-
   .coin2 {
     animation: animecoin3 3s ease 2s forwards;
   }
-
   .coin3 {
     animation: animecoin3 3s ease 4s forwards;
   }
-
   .coin4 {
     animation: animecoin3 3s ease 6s forwards;
   }
-
   .coin5 {
     animation: animecoin3 3s ease 8s forwards;
   }
-
   .coin6 {
     animation: animecoin3 3s ease 10s forwards;
   }
-
   .coin7 {
     animation: animecoin3 3s ease 12s forwards;
   }
@@ -774,27 +647,21 @@
   .coin1 {
     animation: animecoin4 3s ease 0s forwards;
   }
-
   .coin2 {
     animation: animecoin4 3s ease 2s forwards;
   }
-
   .coin3 {
     animation: animecoin4 3s ease 4s forwards;
   }
-
   .coin4 {
     animation: animecoin4 3s ease 6s forwards;
   }
-
   .coin5 {
     animation: animecoin4 3s ease 8s forwards;
   }
-
   .coin6 {
     animation: animecoin4 3s ease 10s forwards;
   }
-
   .coin7 {
     animation: animecoin4 3s ease 12s forwards;
   }
@@ -804,27 +671,21 @@
   .coin1 {
     animation: animecoin5 3s ease 0s forwards;
   }
-
   .coin2 {
     animation: animecoin5 3s ease 2s forwards;
   }
-
   .coin3 {
     animation: animecoin5 3s ease 4s forwards;
   }
-
   .coin4 {
     animation: animecoin5 3s ease 6s forwards;
   }
-
   .coin5 {
     animation: animecoin5 3s ease 8s forwards;
   }
-
   .coin6 {
     animation: animecoin5 3s ease 10s forwards;
   }
-
   .coin7 {
     animation: animecoin5 3s ease 12s forwards;
   }
@@ -834,27 +695,21 @@
   .coin1 {
     animation: animecoin6 3s ease 0s forwards;
   }
-
   .coin2 {
     animation: animecoin6 3s ease 2s forwards;
   }
-
   .coin3 {
     animation: animecoin6 3s ease 4s forwards;
   }
-
   .coin4 {
     animation: animecoin6 3s ease 6s forwards;
   }
-
   .coin5 {
     animation: animecoin6 3s ease 8s forwards;
   }
-
   .coin6 {
     animation: animecoin6 3s ease 10s forwards;
   }
-
   .coin7 {
     animation: animecoin6 3s ease 12s forwards;
   }
@@ -864,27 +719,21 @@
   .coin1 {
     animation: animecoin7 3s ease 0s forwards;
   }
-
   .coin2 {
     animation: animecoin7 3s ease 2s forwards;
   }
-
   .coin3 {
     animation: animecoin7 3s ease 4s forwards;
   }
-
   .coin4 {
     animation: animecoin7 3s ease 6s forwards;
   }
-
   .coin5 {
     animation: animecoin7 3s ease 8s forwards;
   }
-
   .coin6 {
     animation: animecoin7 3s ease 10s forwards;
   }
-
   .coin7 {
     animation: animecoin7 3s ease 12s forwards;
   }
@@ -894,27 +743,21 @@
   .coin1 {
     animation: animecoin8 3s ease 0s forwards;
   }
-
   .coin2 {
     animation: animecoin8 3s ease 2s forwards;
   }
-
   .coin3 {
     animation: animecoin8 3s ease 4s forwards;
   }
-
   .coin4 {
     animation: animecoin8 3s ease 6s forwards;
   }
-
   .coin5 {
     animation: animecoin8 3s ease 8s forwards;
   }
-
   .coin6 {
     animation: animecoin8 3s ease 10s forwards;
   }
-
   .coin7 {
     animation: animecoin8 3s ease 12s forwards;
   }
@@ -924,27 +767,21 @@
   .coin1 {
     animation: animecoin9 3s ease 0s forwards;
   }
-
   .coin2 {
     animation: animecoin9 3s ease 2s forwards;
   }
-
   .coin3 {
     animation: animecoin9 3s ease 4s forwards;
   }
-
   .coin4 {
     animation: animecoin9 3s ease 6s forwards;
   }
-
   .coin5 {
     animation: animecoin9 3s ease 8s forwards;
   }
-
   .coin6 {
     animation: animecoin9 3s ease 10s forwards;
   }
-
   .coin7 {
     animation: animecoin9 3s ease 12s forwards;
   }
@@ -954,7 +791,6 @@
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     left: 82%;
@@ -966,7 +802,6 @@
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     left: 89%;
@@ -978,7 +813,6 @@
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     left: 89%;
@@ -990,7 +824,6 @@
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     left: 72%;
@@ -1002,7 +835,6 @@
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     left: 50%;
@@ -1014,7 +846,6 @@
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     left: 30%;
@@ -1026,7 +857,6 @@
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     top: 77%;
@@ -1038,7 +868,6 @@
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     left: 7%;
@@ -1050,7 +879,6 @@
   0% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
     left: 19%;
@@ -1066,13 +894,11 @@
   white-space: nowrap;
   animation-duration: 1s;
   -webkit-animation-duration: 1s;
-
   .coin {
     width: 1em;
     vertical-align: middle;
     margin-right: 10%;
   }
-
   &.p1 {
     bottom: 35% !important;
     left: unset !important;
@@ -1081,7 +907,6 @@
     -webkit-animation-name: movefrombottom;
     transform: translateY(-100%);
   }
-
   &.p2 {
     bottom: 70% !important;
     top: unset !important;
@@ -1091,28 +916,24 @@
     -webkit-animation-name: movefrombottom;
     transform: translateY(-100%);
   }
-
   &.p3 {
     top: 10% !important;
     right: 26% !important;
     animation-name: movefromright;
     -webkit-animation-name: movefromright;
   }
-
   &.p4 {
     top: 52% !important;
     right: 10% !important;
     animation-name: movefromright;
     -webkit-animation-name: movefromright;
   }
-
   &.p5 {
     top: 85% !important;
     right: 26% !important;
     animation-name: movefromright;
     -webkit-animation-name: movefromright;
   }
-
   &.p6 {
     bottom: -8% !important;
     left: unset !important;
@@ -1126,15 +947,12 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 1;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
     right: 50%;
     bottom: 65%;
@@ -1146,15 +964,12 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 1;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
     right: 50%;
     bottom: 65%;
@@ -1166,15 +981,12 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 1;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
     right: 48%;
     top: 29%;
@@ -1186,15 +998,12 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 1;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
     right: 48%;
     top: 29%;
@@ -1211,97 +1020,78 @@
   transition: all ease 800ms;
   z-index: 6;
   opacity: 0;
-
   .coin {
     width: 1em;
     vertical-align: middle;
     margin-right: 10%;
   }
-
   &.p9 {
     top: 3% !important;
     right: 79% !important;
   }
-
   &.anime-p9 {
     animation: tipmovefromright 4s forwards;
   }
-
   &.p8 {
     top: 27% !important;
     right: 90% !important;
   }
-
   &.anime-p8 {
     animation: tipmovefromright 4s forwards;
   }
-
   &.p7 {
     top: 60% !important;
     right: 87% !important;
   }
-
   &.anime-p7 {
     animation: tipmovefromright 4s forwards;
   }
-
   &.p6 {
     bottom: 22% !important;
     left: unset !important;
     right: 69% !important;
   }
-
   &.anime-p6 {
     animation: tipmovefrombottom 4s forwards;
   }
-
   &.p5 {
     bottom: 21% !important;
     left: unset !important;
     right: 47.5% !important;
   }
-
   &.anime-p5 {
     animation: tipmovefrombottom 4s forwards;
   }
-
   &.p4 {
     bottom: 22% !important;
     left: unset !important;
     right: 27% !important;
   }
-
   &.anime-p4 {
     animation: tipmovefrombottom 4s forwards;
   }
-
   &.p3 {
     top: 58% !important;
     left: unset !important;
     right: 11% !important;
   }
-
   &.anime-p3 {
     animation: tipmovefromright 4s forwards;
   }
-
   &.p2 {
     top: 25% !important;
     left: unset !important;
     right: 9% !important;
   }
-
   &.anime-p2 {
     animation: tipmovefromright 4s forwards;
   }
-
   &.p1 {
     top: 4% !important;
     left: unset !important;
     right: 20% !important;
     z-index: 3;
   }
-
   &.anime-p1 {
     animation: tipmovefromright 4s forwards;
   }
@@ -1310,18 +1100,15 @@
 .current-round {
   .tip_animate {
     opacity: 1;
-
     &.p1 {
       top: 70% !important;
       left: unset !important;
       right: 5% !important;
     }
-
     &.p7 {
       top: 52% !important;
       right: 90% !important;
     }
-
     &.p6 {
       bottom: 25% !important;
       left: unset !important;
@@ -1335,7 +1122,6 @@
 .tcard {
   position: absolute;
   z-index: 5;
-
   img {
     width: 70%;
   }
@@ -1350,12 +1136,10 @@
 .winnercard {
   .none {
     width: 12vh;
-
     img {
       width: 60%;
     }
   }
-
   .card-rotate {
     transform: translate(-14%, -5%) rotate(1deg);
   }
@@ -1375,33 +1159,26 @@
   // bottom: 0%;
   left: 62%;
   top: 35%;
-
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
-    transform: translate(0%, 0%) rotate(0deg);
-    // transform: translate(0%, 0%) rotate(-12deg); //four cards tilted
+    transform: translate(0%, 0%) rotate(0deg); // transform: translate(0%, 0%) rotate(-12deg); //four cards tilted
   }
-
   .card-two {
     // transform: translate(0%, 0%) rotate(7deg);
-    transform: translate(1%, 0%) rotate(0deg);
-    // transform: translate(-3%, 1%) rotate(-6deg); //four cards tilted
+    transform: translate(1%, 0%) rotate(0deg); // transform: translate(-3%, 1%) rotate(-6deg); //four cards tilted
   }
-
   .card-three {
     // transform: translate(12%, 3%) rotate(15deg);
     transform: translate(25%, 0%) rotate(0deg); //four cards straight
     // transform: translate(11%, 4%) rotate(6deg); //four cards tilted
     z-index: 1;
   }
-
   .card-four {
     // transform: translate(32%, 20%) rotate(40deg);
     transform: translate(50%, 0%) rotate(0deg); //four cards straight
     // transform: translate(27%, 9%) rotate(12deg); //four cards tilted
     z-index: 1;
   }
-
   .card-one.ng-hide-remove,
   .card-two.ng-hide-remove,
   .card-three.ng-hide-remove,
@@ -1415,33 +1192,26 @@
   // top: 58%;
   left: 62%;
   top: 35%;
-
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
-    transform: translate(0%, 0%) rotate(0deg);
-    // transform: translate(0%, -6%) rotate(-20deg); //four cards tilted
+    transform: translate(0%, 0%) rotate(0deg); // transform: translate(0%, -6%) rotate(-20deg); //four cards tilted
   }
-
   .card-two {
     // transform: translate(0%, 0%) rotate(7deg);
-    transform: translate(0%, 0%) rotate(0deg);
-    // transform: translate(-3%, -6%) rotate(-10deg); //four cards tilted
+    transform: translate(0%, 0%) rotate(0deg); // transform: translate(-3%, -6%) rotate(-10deg); //four cards tilted
   }
-
   .card-three {
     // transform: translate(12%, 3%) rotate(15deg);
     transform: translate(20%, 0%) rotate(0deg); //four cards straight
     // transform: translate(11%, -2%) rotate(10deg); //four cards tilted
     z-index: 1;
   }
-
   .card-four {
     // transform: translate(32%, 20%) rotate(40deg);
     transform: translate(40%, 0%) rotate(0deg); //four cards straight
     // transform: translate(27%, 3%) rotate(20deg); //four cards tilted
     z-index: 1;
   }
-
   .card-one.ng-hide-remove,
   .card-two.ng-hide-remove,
   .card-three.ng-hide-remove,
@@ -1455,31 +1225,25 @@
   // top: 7%;
   left: 62%;
   top: 35%;
-
   &.Omaha {
     left: -100%;
   }
-
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-two {
     // transform: translate(0%, 0%) rotate(7deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-three {
     transform: translate(12%, 3%) rotate(15deg);
     z-index: 1;
   }
-
   .card-four {
     transform: translate(32%, 20%) rotate(40deg);
     z-index: 1;
   }
-
   .card-one.ng-hide-remove,
   .card-two.ng-hide-remove,
   .card-three.ng-hide-remove,
@@ -1493,31 +1257,25 @@
   // top: -20%;
   left: 62%;
   top: 35%;
-
   &.Omaha {
     left: -100%;
   }
-
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-two {
     // transform: translate(0%, 0%) rotate(7deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-three {
     transform: translate(12%, 3%) rotate(15deg);
     z-index: 1;
   }
-
   .card-four {
     transform: translate(32%, 20%) rotate(40deg);
     z-index: 1;
   }
-
   .card-one.ng-hide-remove,
   .card-two.ng-hide-remove,
   .card-three.ng-hide-remove,
@@ -1531,32 +1289,26 @@
   // top: -12%;
   left: 62%;
   top: 35%;
-
   &.Omaha {
     left: -100%;
     top: 5%;
   }
-
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-two {
     // transform: translate(0%, 0%) rotate(7deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-three {
     transform: translate(12%, 3%) rotate(15deg);
     z-index: 1;
   }
-
   .card-four {
     transform: translate(32%, 20%) rotate(40deg);
     z-index: 1;
   }
-
   .card-one.ng-hide-remove,
   .card-two.ng-hide-remove,
   .card-three.ng-hide-remove,
@@ -1570,32 +1322,26 @@
   // top: -15%;
   left: 62%;
   top: 35%;
-
   &.Omaha {
     left: -100%;
     top: -3%;
   }
-
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-two {
     // transform: translate(0%, 0%) rotate(7deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-three {
     transform: translate(12%, 3%) rotate(15deg);
     z-index: 1;
   }
-
   .card-four {
     transform: translate(32%, 20%) rotate(40deg);
     z-index: 1;
   }
-
   .card-one.ng-hide-remove,
   .card-two.ng-hide-remove,
   .card-three.ng-hide-remove,
@@ -1609,31 +1355,25 @@
   // top: 58%;
   top: 35%;
   left: 62%;
-
   &.Omaha {
     top: -35%;
   }
-
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-two {
     // transform: translate(0%, 0%) rotate(7deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-three {
     transform: translate(12%, 3%) rotate(15deg);
     z-index: 1;
   }
-
   .card-four {
     transform: translate(32%, 20%) rotate(40deg);
     z-index: 1;
   }
-
   .card-one.ng-hide-remove,
   .card-two.ng-hide-remove,
   .card-three.ng-hide-remove,
@@ -1647,27 +1387,22 @@
   // top: 58%;
   left: 62%;
   top: 35%;
-
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-two {
     // transform: translate(0%, 0%) rotate(7deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-three {
     transform: translate(12%, 3%) rotate(15deg);
     z-index: 1;
   }
-
   .card-four {
     transform: translate(32%, 20%) rotate(40deg);
     z-index: 1;
   }
-
   .card-one.ng-hide-remove,
   .card-two.ng-hide-remove,
   .card-three.ng-hide-remove,
@@ -1681,27 +1416,22 @@
   // right: 0%;
   top: 35%;
   left: 62%;
-
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-two {
     // transform: translate(0%, 0%) rotate(7deg);
     transform: translate(0%, 0%) rotate(0deg);
   }
-
   .card-three {
     transform: translate(12%, 3%) rotate(15deg);
     z-index: 1;
   }
-
   .card-four {
     transform: translate(32%, 20%) rotate(40deg);
     z-index: 1;
   }
-
   .card-one.ng-hide-remove,
   .card-two.ng-hide-remove,
   .card-three.ng-hide-remove,
@@ -1726,7 +1456,6 @@
   position: absolute;
   left: 1%;
   bottom: 2%;
-
   .icon:before {
     padding: 3px 3px 1px 0;
     line-height: 0px !important;
@@ -1736,13 +1465,9 @@
 
 .dealer-history {
   padding: 2px 9px;
-  border-image: linear-gradient(to right,
-    #463758 20%,
-    #5b4771 50%,
-    #130e19 95%);
+  border-image: linear-gradient(to right, #2e4450 20%, #246284 50%, #021119 95%);
   border-bottom: 1px solid;
   border-image-slice: 2;
-
   p {
     font-size: 0.8em;
     line-height: 14px;
@@ -1750,7 +1475,6 @@
     margin-bottom: 0px;
     padding: 6px 0px;
   }
-
   img {
     width: 100%;
   }
@@ -1779,7 +1503,6 @@
     font-weight: 600;
     min-height: 0px;
   }
-
   .tip-dealer_submit {
     .button {
       line-height: 0.5;
@@ -1787,40 +1510,36 @@
       margin-top: 6%;
       margin-bottom: 10%;
       text-align: center;
-      vertical-align: middle;
-      // box-shadow: 0px 0px 2px 1px #553e70;
-      transform: translateY(10%);
-      // background: #321e4a;
-      background: rgba(0, 0, 0, 0.5);
-      // background-image: url(../img/login/bgblue.png);
+      vertical-align: middle; // box-shadow: 0px 0px 2px 1px #553e70;
+      transform: translateY(10%); // background: #321e4a;
+      background: rgba(0, 0, 0, 0.5); // background-image: url(../img/login/bgblue.png);
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center center;
     }
-
     .btn-history {
-      padding: 17px 17px !important;
+      .button {
+        padding: 20px 17px !important;
+      }
       font-size: 16px !important;
-      left: 45px !important;
+      left: 25px !important;
       margin-bottom: 0px;
       bottom: -1px;
+      position: absolute;
     }
-
     .btn-chat {
+      position: absolute;
       padding: 11px !important;
-      bottom: -7px !important;
-
+      bottom: 0px !important;
       i {
         font-size: 23px;
       }
     }
-
     .bor-rad {
       box-shadow: 0px 0px 5px #40415c;
       border-top-right-radius: 10px;
       border-top-left-radius: 10px;
     }
-
     .back-to-lob {
       background: $pink-bg;
       top: -10px;
@@ -1834,7 +1553,7 @@
 .t-range-model {
   top: 22%;
   bottom: calc(0px + 4.5em);
-  right: 18%;
+  right: 0%;
   left: auto;
   width: 20%;
   min-height: 5vh;
@@ -1848,15 +1567,12 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 1;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
     right: 50%;
     bottom: 85%;
@@ -1868,15 +1584,12 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 1;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
     right: 50%;
     bottom: 85%;
@@ -1888,15 +1601,12 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 1;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
     right: 48%;
     top: 9%;
@@ -1908,15 +1618,12 @@
   0% {
     opacity: 1;
   }
-
   50% {
     opacity: 1;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
     right: 48%;
     top: 9%;
@@ -1949,7 +1656,6 @@ community {
   .flip-container {
     perspective: 1000px;
   }
-
   .flip-container,
   .front,
   .back {
@@ -1959,7 +1665,6 @@ community {
     left: 0;
     padding: 2%;
   }
-
   /* flip speed goes here */
   .flipper {
     transition: 0.6s;
@@ -1967,11 +1672,9 @@ community {
     position: relative;
     transform: rotateY(180deg);
   }
-
   .flipper.ng-hide-remove {
     transform: rotateY(0deg);
   }
-
   /* hide back of pane during swap */
   .front,
   .back {
@@ -1980,14 +1683,12 @@ community {
     top: 0;
     left: 0;
   }
-
   /* front pane, placed above back */
   .front {
     z-index: 2;
     /* for firefox 31 */
     transform: rotateY(0deg);
   }
-
   /* back, initially hidden pane */
   .back {
     transform: rotateY(180deg);
@@ -2005,7 +1706,6 @@ community {
   color: #f8bd0b;
   font-size: 1.1em;
   text-transform: uppercase;
-
   &.raised-amount {
     top: -30%;
     font-size: 1.4em;
@@ -2047,23 +1747,18 @@ community {
   .opac1 {
     animation: opacitylow 3s ease 0s forwards;
   }
-
   .opac2 {
     animation: opacitylow 3s ease 3s forwards;
   }
-
   .opac3 {
     animation: opacitylow 3s ease 9s forwards;
   }
-
   .opac4 {
     animation: opacitylow 3s ease 12s forwards;
   }
-
   .opac5 {
     animation: opacitylow 3s ease 15s forwards;
   }
-
   .opac6 {
     animation: opacitylow 3s ease 18s forwards;
   }
@@ -2073,11 +1768,9 @@ community {
   0% {
     opacity: 1;
   }
-
   80% {
     opacity: 1;
   }
-
   100% {
     opacity: 0;
   }
@@ -2087,65 +1780,56 @@ community {
   .plyr {
     z-index: 0 !important;
   }
-
   .posPlay5 {
     left: 44.5%;
     bottom: 8%;
-
     .you-after-sit {
       width: 20vh !important;
-
-
       .player_pic {
         width: 22vh;
         height: 22vh;
       }
-
       .details {
         background: none;
         border: 0px;
-
         .amt,
         .name {
           visibility: hidden;
         }
-
         .turn_status {
           font-size: 1.2em;
           top: -85px;
           left: 25px;
         }
       }
-
       .tcard5 {
         top: 30%;
         left: 100%;
-
         .card-two {
           transform: translate(-6%, -4%) rotate(10deg);
         }
       }
-
       .none {
         width: 15vh;
       }
-
       .you {
         top: 6%;
         right: 8%;
       }
-
       .player_badge {
         left: -15%;
-
         &.dealer {
           left: -7%;
         }
-
         div {
           padding-top: 3%;
         }
       }
     }
   }
+}
+
+button[disabled],
+html input[disabled] {
+  opacity: 0.5;
 }
