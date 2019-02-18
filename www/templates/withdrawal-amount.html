@@ -72,7 +72,10 @@
   <ion-header-bar class="lobby-bar">
     <div class="profile-header header-title">
       <div class="bar bar-header lobby-header">
-        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <button
+          class="button button-icon icon ion-arrow-left-c"
+          ng-click="goBackToPage()"
+        ></button>
         <h1 class="title title-white">Withdraw Money</h1>
       </div>
     </div>
@@ -82,15 +85,30 @@
       <div class="rel amt-label">
         <label for="amount">Withdraw Money</label>
       </div>
-      <input class="padd-lr bor-bot" type="number" name="amount" ng-model="withdrawAmount" placeholder="₹ 1000">
+      <input
+        class="padd-lr bor-bot"
+        type="number"
+        name="amount"
+        ng-model="table.coins"
+        placeholder="₹ 1000"
+      />
     </div>
 
     <div class="add-withdraw-btn mar-auto text-center padding-bottom">
-      <button class="button add-with-button pinkbg color-white" ng-click="modalotp()">Request</button>
+      <button
+        class="button add-with-button pinkbg color-white"
+        ng-click="withdrawCoins(table.coins);modalotp()"
+      >
+        Request
+      </button>
     </div>
     <div class="withdrawl-note">
-      <span class="withdraw-text">*Minimum amount for withdrawl should be ₹ 1,000</span><br />
-      <span class="withdraw-text">*Withdrawal process will be done on Tuesdays & Fridays only</span>
+      <span class="withdraw-text"
+        >*Minimum amount for withdrawl should be ₹ 1,000</span
+      ><br />
+      <span class="withdraw-text"
+        >*Withdrawal process will be done on Tuesdays & Fridays only</span
+      >
     </div>
   </ion-content>
 </ion-view>

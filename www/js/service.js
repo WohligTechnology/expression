@@ -14,7 +14,6 @@ myApp.factory("Service", function(
 
   // Some fake testing data
   io.socket.on("connect", function(socket) {
-    console.log(io.socket._raw.id);
     socketId = io.socket._raw.id;
     $.jStorage.set("socketId", io.socket._raw.id);
     obj.connectSocket(function() {});
@@ -53,6 +52,22 @@ myApp.factory("Service", function(
         data = data.data;
         callback(data);
       });
+    },
+    verifyTransactionOtp: function(data, callback) {
+      return $http
+        .post(url + "Transaction/verifyTransactionOtp", data)
+        .then(function(data) {
+          data = data.data;
+          callback(data);
+        });
+    },
+    resendTransactionOtp: function(data, callback) {
+      return $http
+        .post(url + "Transaction/resendTransactionOtp", data)
+        .then(function(data) {
+          data = data.data;
+          callback(data);
+        });
     },
     resendOtp: function(data, callback) {
       return $http.post(url + "User/resendOtp", data).then(function(data) {

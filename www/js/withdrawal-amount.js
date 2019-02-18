@@ -19,6 +19,7 @@ myApp.controller("WithdrawalCtrl", function(
   //withdraw Coins
   $scope.withdrawCoins = function(data) {
     $scope.withdrawPromise = Service.withdrawCoins(data, function(data) {
+      $.jStorage.set("transactionDetail", data.data.data.transaction);
       $scope.pageNo = 0;
       $scope.withdrawDetails = [];
       $scope.loadMore();
@@ -70,49 +71,13 @@ myApp.controller("WithdrawalCtrl", function(
     $scope.otpModal.show();
   };
 
-  // $scope.VerifyOtp = function(data1) {
-  //   var data = {};
-  //   data.otp =
-  //     _.toString(data1.digit1) +
-  //     _.toString(data1.digit2) +
-  //     _.toString(data1.digit3) +
-  //     _.toString(data1.digit4);
-  //   $scope.regenerateOtp = false;
-  //   $scope.invalidOTP = false;
-  //   $scope.expiredOTP = false;
-  //   var id = $.jStorage.get("id");
-  //   data._id = id;
-  //   Service.verifyOtp(data, function(data) {
-  //     // console.log(data.data.accessToken[0]);
-  //     if (data.value == true) {
-  //       $scope.closeModalOtp();
-  //       $state.go("lobby");
-  //     } else {
-  //       if (data.error == "OTP Expired.") {
-  //         $scope.expiredOTP = true;
-  //         $scope.invalidOTP = false;
-  //       } else {
-  //         $scope.expiredOTP = false;
-  //         $scope.invalidOTP = true;
-  //       }
-  //     }
-  //   });
-  // };
-
-  // $scope.resendOtp = function() {
-  //   $scope.regenerateOtp = false;
-  //   var id = $.jStorage.get("id");
-  //   var data = {};
-  //   data._id = id;
-  //   Service.resendOtp(data, function(data) {
-  //     if (data.value == true) {
-  //       $scope.regenerateOtp = true;
-  //     }
-  //   });
-  // };
-
   $scope.VerifyOtp = function(data1) {
+    console.log(
+      "transaction from withdraw callback:::",
+      $.jStorage.get("transactionDetail")
+    );
     var data = {};
+    data.transaction = $.jStorage.get("transactionDetail");
     data.otp =
       _.toString(data1.digit1) +
       _.toString(data1.digit2) +
@@ -123,40 +88,33 @@ myApp.controller("WithdrawalCtrl", function(
     $scope.expiredOTP = false;
     var id = $.jStorage.get("id");
     data._id = id;
-    var accessToken = $.jStorage.get("accessToken");
-    data.accessToken = accessToken;
-    Service.verifyOtp(data, function(data) {
-      if ($.jStorage.get("accessToken")) {
-        if (data.value == true) {
-          $scope.closeModalOtp();
-          $state.go("lobby");
-        } else {
-          if (data.error == "OTP Expired.") {
-            $scope.expiredOTP = true;
-            $scope.invalidOTP = false;
-          } else {
-            $scope.expiredOTP = false;
-            $scope.invalidOTP = true;
-          }
-        }
+    Service.verifyTransactionOtp(data, function(data) {
+      if (data.value == true) {
+        $scope.closeModalOtp();
+        $state.go("lobby");
       } else {
-        $state.go("login");
+        if (data.error == "OTP Expired.") {
+          $scope.expiredOTP = true;
+          $scope.invalidOTP = false;
+        } else {
+          $scope.expiredOTP = false;
+          $scope.invalidOTP = true;
+        }
       }
     });
   };
-  // $scope.resendOtp = function() {
-  //   $scope.regenerateOtp = false;
-  //   var accessToken = $.jStorage.get("accessToken");
-  //   var id = $.jStorage.get("id");
-  //   var data = {};
-  //   data._id = id;
-  //   data.accessToken = accessToken;
-  //   Service.resendOtp(data, function(data) {
-  //     if (data.value == true) {
-  //       $scope.regenerateOtp = true;
-  //     }
-  //   });
-  // };
+
+  $scope.resendOtp = function() {
+    $scope.regenerateOtp = false;
+    var id = $.jStorage.get("id");
+    var data = {};
+    data._id = id;
+    Service.resendTransactionOtp(data, function(data) {
+      if (data.value == true) {
+        $scope.regenerateOtp = true;
+      }
+    });
+  };
 
   $scope.closeModalOtp = function() {
     $scope.otpModal.hide();
