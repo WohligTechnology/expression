@@ -13,8 +13,8 @@ myApp.controller("PandLstatementCtrl", function(
   // });
 
   $scope.plStmtData = {};
-  // $scope.plStmtData.toDate = moment();
-  // $scope.plStmtData.fromDate = moment();
+  $scope.plStmtData.toDate = moment().format("DD-MM-YYYY");
+  $scope.plStmtData.fromDate = moment().format("DD-MM-YYYY");
 
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
@@ -94,13 +94,5 @@ myApp.controller("PandLstatementCtrl", function(
 
   $scope.openToDatePicker = function() {
     ionicDatePicker.openDatePicker(ipObj2);
-  };
-
-  $scope.withDateFilter = function() {
-    console.log("in withDateFilter");
-    $scope.data.page = 0;
-    $scope.data.fromDate = $scope.plStmtData.fromDate;
-    $scope.data.toDate = $scope.plStmtData.toDate;
-    $scope.getTableData();
   };
 });
