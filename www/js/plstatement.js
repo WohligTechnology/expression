@@ -3,62 +3,104 @@ myApp.controller("PandLstatementCtrl", function(
   $state,
   $ionicHistory,
   $window,
-  Service
+  Service,
+  ionicDatePicker
 ) {
   // $ionicPlatform.ready(function () {
   //   if (ionic.Platform.isAndroid()) {
   //     screen.orientation.lock('portrait');
   //   } else {}
   // });
+
+  $scope.plStmtData = {};
+  // $scope.plStmtData.toDate = moment();
+  // $scope.plStmtData.fromDate = moment();
+
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
     $window.history.back();
   };
   $scope.time = moment().format("HH:mm");
+  $scope.tableData = [];
+  $scope.data = {
+    page: 0
+  };
+  $scope.data.fromDate = $scope.data.toDate = moment();
+  $scope.getTableData = function() {
+    $scope.transactionsLoaded = false;
+    if (!$scope.tableListLoading) {
+      $scope.data.page = $scope.data.page + 1;
+      $scope.tableListLoading = true;
+      Service.getProfitLossDetails($scope.data, function(data) {
+        $scope.tableListLoading = false;
+        if (data.data.value) {
+          if (_.isEmpty(data.data.data.tableData.results)) {
+            $scope.transactionsLoaded = true;
+          } else {
+            // $scope.allTransactions = data.data.data.results;
+            $scope.netProfit = data.data.data.netProfit;
+            $scope.tableData = _.concat(
+              $scope.tableData,
+              data.data.data.tableData.results
+            );
+          }
+          $scope.$broadcast("scroll.infiniteScrollComplete");
+        }
+      });
+    }
+  };
+  $scope.getTableData();
+  $scope.onInfinite = function() {
+    console.log("onInfinite called");
+    $scope.getTableData();
+  };
+  /**Date Picker */
 
-  Service.getProfitLossDetails(function(data) {
-    console.log("fdgdfgfhgk", data);
-    $scope.statementInfo = data.data.data;
-    $scope.tableData = data.data.data.tableData.results;
-    console.log("fdgdfgfhgk", data.data.data);
-  });
+  var ipObj2 = {
+    to: new Date(),
+    callback: function(val) {
+      $scope.toDate = moment(val);
+      $scope.data.page = 0;
+      $scope.data.toDate = $scope.toDate;
+      $scope.tableData = [];
+      $scope.plStmtData.toDate = moment(val).format("DD-MM-YYYY");
+      $scope.getTableData();
+    },
+    disabledDates: [],
+    templateType: "popup" //Optional
+  };
 
-  // $scope.accountStatements = {
-  //   statementInfo: {
-  //     date: "13/01/2019",
-  //     tableName: "Table No 1",
-  //     tableType: "holdem",
-  //     game: "Win",
-  //     betAmount: "5000",
-  //     gameAmt: "15000",
-  //     commissionRate: "3"
-  //   },
-  //   statementInfo1: {
-  //     date: "15/01/2019",
-  //     tableName: "Sizzling Sixes",
-  //     tableType: "omaha",
-  //     game: "Lose",
-  //     betAmount: "10000",
-  //     gameAmt: "15000",
-  //     commissionRate: "3"
-  //   },
-  //   statementInfo2: {
-  //     date: "16/01/2019",
-  //     tableName: "Table No 12",
-  //     tableType: "holdem",
-  //     game: "Lose",
-  //     betAmount: "3000",
-  //     gameAmt: "5000",
-  //     commissionRate: "3"
-  //   },
-  //   statementInfo2: {
-  //     date: "16/01/2019",
-  //     tableName: "Table No 12",
-  //     tableType: "omaha",
-  //     game: "Win",
-  //     betAmount: "3000",
-  //     gameAmt: "10000",
-  //     commissionRate: "5"
-  //   }
-  // };
+  var ipObj1 = {
+    callback: function(val) {
+      $scope.fromDate = moment(val);
+      ipObj2.from = new Date(
+        moment(val).year(),
+        moment(val).month(),
+        moment(val).date()
+      );
+      $scope.data.page = 0;
+      $scope.data.fromDate = $scope.fromDate;
+      $scope.tableData = [];
+      $scope.plStmtData.fromDate = moment(val).format("DD-MM-YYYY");
+      $scope.getTableData();
+    },
+    disabledDates: [],
+    templateType: "popup" //Optional
+  };
+
+  $scope.openFromDatePicker = function() {
+    ionicDatePicker.openDatePicker(ipObj1);
+  };
+
+  $scope.openToDatePicker = function() {
+    ionicDatePicker.openDatePicker(ipObj2);
+  };
+
+  $scope.withDateFilter = function() {
+    console.log("in withDateFilter");
+    $scope.data.page = 0;
+    $scope.data.fromDate = $scope.plStmtData.fromDate;
+    $scope.data.toDate = $scope.plStmtData.toDate;
+    $scope.getTableData();
+  };
 });

@@ -132,13 +132,11 @@ myApp.factory("Service", function(
       }
     },
 
-    getProfitLossDetails: function(callback) {
-      var accessToken = $.jStorage.get("accessToken");
-      if (!_.isEmpty(accessToken)) {
-        $http
-          .post(url + "Transaction/getProfitLossDetails", {
-            accessToken: accessToken
-          })
+    getProfitLossDetails: function(data, callback) {
+      data.accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(data.accessToken)) {
+        return $http
+          .post(url + "Transaction/getProfitLossDetails", data)
           .then(function(data) {
             callback(data);
           });

@@ -163,15 +163,16 @@
   .pl-statement-filter {
     padding: 10px 5px;
     text-align: center;
+    display: flex;
 
     span {
       padding: 0 10px;
       position: relative;
-      top: -1px;
+      margin: auto 0;
       font-weight: 600;
     }
 
-    select {
+    input {
       width: 42%;
       // color: $pink-bg;
       font-weight: normal;
@@ -194,6 +195,9 @@
       }
     }
 
+    .game-type {
+      font-size: 12px;
+    }
     .holdem {
       color: $pink-bg;
       font-weight: 600;

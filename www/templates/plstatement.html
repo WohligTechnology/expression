@@ -13,26 +13,32 @@
   <ion-content class="table-lists">
     <div class="pl-net-profit padding-bottom padding-right">
       Net Profit:
-      <span class="net-amt">{{ statementInfo.netProfit }}</span>
+      <span class="net-amt">{{ netProfit }}</span>
     </div>
     <div class="clearfix"></div>
 
     <div class="profile-detail">
       <div class="table-type">
         <div class="pl-statement-filter input-select">
-          <select name="fromDate">
-            <option value="">From Date</option>
-            <option value="1">10/01/19</option>
-            <option value="2">11/01/19</option>
-            <option value="3">12/01/19</option>
-          </select>
+          <input
+            class="col padd-lr"
+            type="text"
+            name="dob"
+            placeholder="From Date"
+            ng-click="openFromDatePicker()"
+            ng-model="plStmtData.fromDate"
+            required
+          />
           <span>To</span>
-          <select name="toDate">
-            <option value="">To Date</option>
-            <option value="2">11/01/19</option>
-            <option value="3">12/01/19</option>
-            <option value="4">13/01/19</option>
-          </select>
+          <input
+            class="col padd-lr"
+            type="text"
+            name="dob"
+            placeholder="To Date"
+            ng-click="openToDatePicker()"
+            ng-model="plStmtData.toDate"
+            required
+          />
         </div>
       </div>
       <div class="tableslist pl-statement">
@@ -47,7 +53,7 @@
           </tr>
           <tr ng-repeat="statementInfo in tableData ">
             <td>
-              {{ statementInfo.createdAt | date: "dd-MM-yyyy" }} <br />{{
+              {{ statementInfo.createdAt | date: "dd/MM/yy" }} <br />{{
                 statementInfo.createdAt | date: "HH:mm"
               }}
             </td>
@@ -55,15 +61,19 @@
               {{ statementInfo.tableName }}
               <br />
               <span
-                ng-if="statementInfo.gameType=='Texas hold'+' em'"
-                class="holdem"
-                >Texas Hold'Em</span
+                ng-if="statementInfo.gameType=='Omaha'"
+                class="game-type omaha"
+                >{{ statementInfo.gameType }}</span
               >
-              <span ng-if="statementInfo.gameType=='omaha'" class="omaha"
-                >Omaha</span
+              <span
+                ng-if="statementInfo.gameType!='omaha'"
+                class=" game-type holdem"
+                >{{ statementInfo.gameType }}</span
               >
             </td>
-            <td>{{ statementInfo.transType }}</td>
+            <td>
+              {{ statementInfo.transType == "tableLost" ? "Lose" : "Win" }}
+            </td>
             <td>{{ statementInfo.betAmount }}</td>
             <td>
               <span>Amt: {{ statementInfo.amount }}</span
@@ -73,8 +83,17 @@
               >
             </td>
           </tr>
+          <tr ng-if="tableData==''">
+            <td colspan="5">No data Found</td>
+          </tr>
         </table>
 
+        <ion-infinite-scroll
+          ng-if="!transactionsLoaded"
+          on-infinite="onInfinite()"
+          distance="2%"
+          icon="ion-load-a"
+        ></ion-infinite-scroll>
         <!-- </ion-scroll> -->
       </div>
     </div>
