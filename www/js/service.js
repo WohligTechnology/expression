@@ -131,6 +131,26 @@ myApp.factory("Service", function(
         $state.go("login");
       }
     },
+
+    getProfitLossDetails: function(callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        $http
+          .post(url + "Transaction/getProfitLossDetails", {
+            accessToken: accessToken
+          })
+          .then(function(data) {
+            callback(data);
+          });
+      } else {
+        $state.go("login");
+      }
+    },
+    // getProfitLossDetails: function(callback) {
+    //   $http.post(url + "Transaction/getProfitLossDetails").then(function(data) {
+    //     callback(data);
+    //   });
+    // },
     getEarningPoint: function(callback) {
       $http.post(url + "EarningPoint/earningPoint").then(function(data) {
         callback(data);

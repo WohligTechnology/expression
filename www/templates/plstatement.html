@@ -2,7 +2,10 @@
   <ion-header-bar class="lobby-bar">
     <div class="profile-header header-title">
       <div class="bar bar-header lobby-header">
-        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <button
+          class="button button-icon icon ion-arrow-left-c"
+          ng-click="goBackToPage()"
+        ></button>
         <h1 class="title title-white">Account Statement</h1>
       </div>
     </div>
@@ -10,9 +13,10 @@
   <ion-content class="table-lists">
     <div class="pl-net-profit padding-bottom padding-right">
       Net Profit:
-      <span class="net-amt">10245.00</span>
+      <span class="net-amt">{{ statementInfo.netProfit }}</span>
     </div>
     <div class="clearfix"></div>
+
     <div class="profile-detail">
       <div class="table-type">
         <div class="pl-statement-filter input-select">
@@ -41,24 +45,36 @@
             <th>Bet Amt</th>
             <th>Amount</th>
           </tr>
-          <tr ng-repeat="statementInfo in accountStatements">
-            <td>{{statementInfo.date}}
-              <br />{{time}}
-            </td>
-            <td>{{statementInfo.tableName}}
-              <br>
-              <span ng-if="statementInfo.tableType=='holdem'" class="holdem">Texas Hold'Em</span>
-              <span ng-if="statementInfo.tableType=='omaha'" class="omaha">Omaha</span>
-            </td>
-            <td>{{statementInfo.game}}</td>
-            <td>{{statementInfo.betAmount}}</td>
+          <tr ng-repeat="statementInfo in tableData ">
             <td>
-              <span>Amt: {{statementInfo.gameAmt}}</span><br>
-              <span ng-if="statementInfo.game=='Win'">Comm: {{(statementInfo.commissionRate/100) *
-                statementInfo.gameAmt}}</span>
+              {{ statementInfo.createdAt | date: "dd-MM-yyyy" }} <br />{{
+                statementInfo.createdAt | date: "HH:mm"
+              }}
+            </td>
+            <td>
+              {{ statementInfo.tableName }}
+              <br />
+              <span
+                ng-if="statementInfo.gameType=='Texas hold'+' em'"
+                class="holdem"
+                >Texas Hold'Em</span
+              >
+              <span ng-if="statementInfo.gameType=='omaha'" class="omaha"
+                >Omaha</span
+              >
+            </td>
+            <td>{{ statementInfo.transType }}</td>
+            <td>{{ statementInfo.betAmount }}</td>
+            <td>
+              <span>Amt: {{ statementInfo.amount }}</span
+              ><br />
+              <span ng-if="statementInfo.transType=='tableWon'"
+                >Comm: {{ statementInfo.commissionAmount }}</span
+              >
             </td>
           </tr>
         </table>
+
         <!-- </ion-scroll> -->
       </div>
     </div>
