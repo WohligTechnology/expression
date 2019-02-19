@@ -4,7 +4,8 @@ myApp.controller("TransferStatementCtrl", function(
   $ionicPlatform,
   $ionicSideMenuDelegate,
   $window,
-  $ionicModal
+  $ionicModal,
+  Service
 ) {
   $scope.goBackToPage = function() {
     console.log("Go Back ", $window.history);
@@ -20,71 +21,30 @@ myApp.controller("TransferStatementCtrl", function(
   }, 100);
   //end of ionic cordova
 
-  $scope.currDate = moment().format("DD/MM/YYYY");
-
-  $scope.allTransactionsData = {
-    transaction: {
-      id: "101",
-      amount: "1000",
-      transactionType: "cr",
-      balance: "10000",
-      status: "pending"
-    },
-    transaction1: {
-      id: "102",
-      amount: "5000",
-      transactionType: "db",
-      balance: "5000",
-      status: "pending"
-    },
-    transaction2: {
-      id: "103",
-      amount: "10000",
-      transactionType: "cr",
-      balance: "15000",
-      status: "completed"
-    },
-    transaction3: {
-      id: "104",
-      amount: "10000",
-      transactionType: "db",
-      balance: "5000",
-      status: "completed"
-    },
-    transaction4: {
-      id: "105",
-      amount: "10000",
-      transactionType: "cr",
-      balance: "100000",
-      status: "pending"
-    },
-    transaction5: {
-      id: "106",
-      amount: "10000",
-      transactionType: "cr",
-      balance: "100000",
-      status: "completed"
-    },
-    transaction6: {
-      id: "107",
-      amount: "10000",
-      transactionType: "db",
-      balance: "100000",
-      status: "completed"
-    },
-    transaction7: {
-      id: "108",
-      amount: "10000",
-      transactionType: "cr",
-      balance: "100000",
-      status: "pending"
-    },
-    transaction8: {
-      id: "109",
-      amount: "10000",
-      transactionType: "cr",
-      balance: "100000",
-      status: "completed"
+  /**api call for getting table data as per transaction type */
+  $scope.allTransactions = [];
+  $scope.getTransferStatement = function(data) {
+    $scope.transactionsLoaded = false;
+    if (!$scope.tableListLoading) {
+      data.pageno = data.pageno + 1;
+      $scope.tableListLoading = true;
+      Service.getTransferStatementDetails(data.transType, data.pageno, function(
+        data
+      ) {
+        $scope.tableListLoading = false;
+        if (data.data.value) {
+          if (_.isEmpty(data.data.data.results)) {
+            $scope.transactionsLoaded = true;
+          } else {
+            // $scope.allTransactions = data.data.data.results;
+            $scope.allTransactions = _.concat(
+              $scope.allTransactions,
+              data.data.data.results
+            );
+          }
+          $scope.$broadcast("scroll.infiniteScrollComplete");
+        }
+      });
     }
   };
 
@@ -95,16 +55,18 @@ myApp.controller("TransferStatementCtrl", function(
     $scope.selectedTab = type;
     switch ($scope.selectedTab) {
       case "Add":
-        var temp = _.cloneDeep($scope.allTransactionsData);
-        $scope.allTransactions = _.pickBy(temp, function(m) {
-          return m.transactionType == "cr";
-        });
+        $scope.allTransactions = [];
+        $scope.transactionData = {};
+        $scope.transactionData.transType = "diposit";
+        $scope.transactionData.pageno = 0;
+        $scope.getTransferStatement($scope.transactionData);
         break;
       case "Withdraw":
-        var temp = _.cloneDeep($scope.allTransactionsData);
-        $scope.allTransactions = _.pickBy(temp, function(m) {
-          return m.transactionType == "db";
-        });
+        $scope.allTransactions = [];
+        $scope.transactionData = {};
+        $scope.transactionData.transType = "withdraw";
+        $scope.transactionData.pageno = 0;
+        $scope.getTransferStatement($scope.transactionData);
         break;
       default:
         break;
@@ -112,6 +74,11 @@ myApp.controller("TransferStatementCtrl", function(
   };
   $scope.transferType("Add");
   /**get table data end */
+
+  $scope.onInfinite = function() {
+    console.log("onInfinite called");
+    $scope.getTransferStatement($scope.transactionData);
+  };
 
   /**For each transaction info */
 
@@ -126,7 +93,8 @@ myApp.controller("TransferStatementCtrl", function(
 
   $scope.getTransactionInfo = function(transaction) {
     $scope.transactionInfo = transaction;
-    $scope.transactionDate = moment().format("DD/MM/YYYY hh:mm ss");
+    console.log("modal transaction", $scope.transactionInfo);
+    // $scope.transactionDate = moment().format("DD/MM/YYYY hh:mm ss");
     $scope.transactionModal.show();
   };
   $scope.closeTransactionInfoModal = function() {

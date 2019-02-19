@@ -211,12 +211,28 @@
 
   i {
     color: $pink-bg;
+    font-size: 18px;
   }
 }
+.transfer-stmt {
+  table {
+    overflow-x: scroll;
+    th {
+      text-align: center !important;
+    }
 
+    tbody {
+      td {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+    }
+  }
+}
 .transfer-status-head {
   font-size: 10px;
-  color: $header-bg;
+  color: $header-bg !important;
   margin-bottom: 0px;
 
   .transfer-status {
