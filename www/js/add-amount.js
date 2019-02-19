@@ -6,7 +6,8 @@ myApp.controller("AddAmountCtrl", function(
   $ionicModal,
   $timeout,
   $ionicHistory,
-  $window
+  $window,
+  $ionicPopup
 ) {
   $ionicPlatform.ready(function() {
     screen.orientation.lock("portrait");
@@ -15,9 +16,20 @@ myApp.controller("AddAmountCtrl", function(
   $scope.withdrawDetails = [];
   //buy Coins
   $scope.buyCoins = function(data) {
+    console.log("data buyCoins", data);
+    var coinsAdded = data;
     $scope.buyCoinsPromise = Service.buyCoins(data, function(data) {
-      $window.history.back();
-      $state.go("lobby");
+      // $window.history.back();
+      var alertPopup = $ionicPopup.show({
+        title: "",
+        template: coinsAdded + " coins added Successfully",
+        cssClass: "add-withdraw-coins"
+      });
+      $timeout(function() {
+        alertPopup.close();
+        $state.go("account");
+      }, 800);
+
       $scope.pageNo = 0;
       $scope.withdrawDetails = [];
       $scope.loadMore();

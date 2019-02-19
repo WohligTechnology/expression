@@ -446,6 +446,20 @@ myApp.factory("Service", function(
             callback(data);
           });
       }
+    },
+    getTransferStatementDetails: function(transType, pageno, callback) {
+      var accessToken = $.jStorage.get("accessToken");
+      if (!_.isEmpty(accessToken)) {
+        return $http
+          .post(url + "Transaction/transferStatement", {
+            accessToken: accessToken,
+            transType: transType,
+            page: pageno
+          })
+          .then(function(data) {
+            callback(data);
+          });
+      }
     }
   };
   return obj;

@@ -96,7 +96,10 @@
   <ion-header-bar class="lobby-bar">
     <div class="profile-header header-title">
       <div class="bar bar-header lobby-header">
-        <button class="button button-icon icon ion-arrow-left-c" ng-click="goBackToPage()"></button>
+        <button
+          class="button button-icon icon ion-arrow-left-c"
+          ng-click="goBackToPage()"
+        ></button>
         <h1 class="title title-white">Transfer Statement</h1>
       </div>
     </div>
@@ -105,40 +108,89 @@
     <div class="profile-detail">
       <div class="table-type">
         <div class="row text-center">
-          <div class="col-50 tab-item text-center" ng-class="{'selected': selectedTab=='Add'}" ng-click="transferType('Add')"><a>Add
-              Money</a>
+          <div
+            class="col-50 tab-item text-center"
+            ng-class="{'selected': selectedTab=='Add'}"
+            ng-click="transferType('Add')"
+          >
+            <a>Add Money</a>
           </div>
-          <div class="col-50 tab-item text-center" ng-class="{'selected': selectedTab=='Withdraw'}" ng-click="transferType('Withdraw')"><a>Withdraw
-              Money</a></div>
+          <div
+            class="col-50 tab-item text-center"
+            ng-class="{'selected': selectedTab=='Withdraw'}"
+            ng-click="transferType('Withdraw')"
+          >
+            <a>Withdraw Money</a>
+          </div>
         </div>
       </div>
       <div class="tableslist transfer-stmt">
-        <table>
+        <table class="list">
           <thead>
-            <tr>
-              <th>Date</th>
-              <th>Amount</th>
-              <th>Cr/Db</th>
-              <th>Balance</th>
-              <th ng-if="selectedTab=='Withdraw'">Info</th>
+            <tr class="row item">
+              <th
+                class=""
+                ng-class="{'col-30': selectedTab=='Withdraw','col-40': selectedTab=='Add'}"
+              >
+                Date
+              </th>
+              <th class="col-20">Amount</th>
+              <th class="col-15">Cr/Db</th>
+              <th
+                class=""
+                ng-class="{'col-20': selectedTab=='Withdraw','col-25': selectedTab=='Add'}"
+              >
+                Balance
+              </th>
+              <th class="col-15" ng-if="selectedTab=='Withdraw'">Info</th>
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="transaction in allTransactions">
-              <td>{{currDate}}
+            <tr class="row item" ng-repeat="transaction in allTransactions">
+              <td
+                class="transfer-info"
+                ng-class="{'col-30': selectedTab=='Withdraw','col-40': selectedTab=='Add'}"
+              >
+                {{ transaction.createdAt | date: "dd-MM-yyyy HH:mm" }}
                 <br />
-                <p class="transfer-status-head">Status <span class="transfer-status" ng-class="{'pending': transaction.status=='pending','completed': transaction.status=='completed'}">{{transaction.status}}</span></p>
+                <p
+                  class="transfer-status-head"
+                  ng-if="selectedTab == 'Withdraw'"
+                >
+                  Status
+                  <span
+                    class="transfer-status"
+                    ng-class="{'pending': transaction.status=='pending','completed': transaction.status=='Completed' || transaction.status=='Sent' }"
+                    >{{ transaction.status }}</span
+                  >
+                </p>
               </td>
-              <td>{{transaction.amount}}</td>
-              <td class="transfer-info">{{transaction.transactionType}}</td>
-              <td>{{transaction.balance}}</td>
-              <td class="transfer-info" ng-if="selectedTab=='Withdraw'">
-                <i class="ion-information-circled" ng-click="getTransactionInfo(transaction)"></i>
+              <td class="col-20 transfer-info">{{ transaction.amount }}</td>
+              <td class="col-15 transfer-info">
+                {{ selectedTab == "Withdraw" ? "db" : "cr" }}
+              </td>
+              <td
+                class="transfer-info"
+                ng-class="{'col-20': selectedTab=='Withdraw','col-25': selectedTab=='Add'}"
+              >
+                {{ transaction.balance }}
+              </td>
+              <td class="transfer-info col-15" ng-if="selectedTab=='Withdraw'">
+                <i
+                  class="ion-information-circled"
+                  ng-click="getTransactionInfo(transaction)"
+                ></i>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
+      <ion-infinite-scroll
+        ng-if="!transactionsLoaded"
+        on-infinite="onInfinite()"
+        distance="2%"
+        icon="ion-load-a"
+      ></ion-infinite-scroll>
     </div>
   </ion-content>
 </ion-view>
