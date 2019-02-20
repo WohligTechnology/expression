@@ -74,13 +74,12 @@
             <td>
               {{ statementInfo.transType == "tableLost" ? "Lose" : "Win" }}
             </td>
-            <td>{{ statementInfo.betAmount }}</td>
+            <td>{{ statementInfo.betAmount || 0 }}</td>
+
             <td>
               <span>Amt: {{ statementInfo.amount }}</span
               ><br />
-              <span ng-if="statementInfo.transType=='tableWon'"
-                >Comm: {{ statementInfo.commissionAmount }}</span
-              >
+              <span>Comm: {{ statementInfo.commissionAmount || 0 }}</span>
             </td>
           </tr>
           <tr ng-if="tableData==''">
@@ -99,3 +98,4 @@
     </div>
   </ion-content>
 </ion-view>
+<!-- <span ng-if="statementInfo.transType=='tableLost'">Comm: --</span> -->
