@@ -13,8 +13,7 @@ myApp.controller("TransferStatementCtrl", function(
   };
 
   $ionicPlatform.ready(function() {
-    screen.orientation.lock("landscape");
-    console.log("Orientation is " + screen.orientation.type);
+    screen.orientation.lock("potrait");
   });
   $ionicPlatform.registerBackButtonAction(function(event) {
     event.preventDefault();

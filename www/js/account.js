@@ -10,6 +10,9 @@ myApp.controller("AccountCtrl", function(
   //     screen.orientation.lock('portrait');
   //   } else {}
   // });
+  $ionicPlatform.ready(function() {
+    screen.orientation.lock("portrait");
+  });
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
     $window.history.back();
