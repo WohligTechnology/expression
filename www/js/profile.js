@@ -26,7 +26,7 @@ myApp.controller("ProfileCtrl", function(
   // $scope.profile = function() {
 
   Service.getProfile(function(data) {
-    console.log("fdfdfdg", data);
+    console.log("get Profile", data);
     $scope.playerData = data.data.data;
     $scope.playerData.dob = moment(data.data.data.dob).format("DD/MM/YYYY");
     $scope.playerDataId = data.data.data._id;

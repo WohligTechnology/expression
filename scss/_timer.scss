@@ -1,9 +1,9 @@
 .pie_loader {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 14vh;
-  height: 14vh;
+  top: 0px;
+  left: 0px;
+  width: 16vh;
+  height: 16vh;
   z-index: -1;
 }
 
@@ -80,7 +80,7 @@
   }
 }
 
-@include timer('.wrapper', 25, 14vh, #ffe500, '5px solid #ffe500');
+@include timer(".wrapper", 25, 16vh, #ffe500, "5px solid #ffe500");
 .custom-loader {
   margin: 10px auto;
   border: 10px solid #f3f3f3;

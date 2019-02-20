@@ -23,6 +23,13 @@ myApp.controller("NewLobbyCtrl", function(
   $ionicPlatform.ready(function() {
     if (ionic.Platform.isAndroid()) {
       screen.orientation.lock("landscape");
+      if (window.cordova) {
+        window.plugins.NativeAudio.stop("timer");
+        window.plugins.NativeAudio.stop("coin");
+        window.plugins.NativeAudio.stop("winner");
+        window.plugins.NativeAudio.stop("shuffle");
+        window.plugins.NativeAudio.stop("button");
+      }
     } else {
     }
   });
@@ -63,6 +70,27 @@ myApp.controller("NewLobbyCtrl", function(
   };
   $scope.closePrivacyPolicyModal = function() {
     $scope.privacyModal.hide();
+  };
+
+  $ionicModal
+    .fromTemplateUrl("templates/modal/faq.html", {
+      scope: $scope,
+      animation: "slide-in-up"
+    })
+    .then(function(modal) {
+      $scope.faqModal = modal;
+    });
+  $scope.openFaqModal = function() {
+    $scope.faqModal.show();
+  };
+  $scope.closeFaqModal = function() {
+    $scope.faqModal.hide();
+  };
+
+  $scope.changetab = "question";
+  $scope.changeTab = function(tab) {
+    console.log("tab name", tab);
+    $scope.changetab = tab;
   };
 
   $scope.logout = function() {

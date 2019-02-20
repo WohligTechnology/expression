@@ -29,11 +29,11 @@
               <p class="amount fw600"> {{playerData.balance|number:0}}</p>
             </div>
           </a>
-          <ion-list class="nav-list">
-            <ion-item menu-close ng-click="goToShop()">
+          <ion-list class="nav-list lobby-nav">
+            <ion-item menu-close ng-click="openFaqModal()">
               <i class=" ion-chatboxes "></i>FAQs
             </ion-item>
-            <ion-item menu-close ng-click="goToCategories()">
+            <ion-item menu-close ui-sref="change-password">
               <i class="ion-refresh"></i>Reset Password
             </ion-item>
             <ion-item menu-close ng-click="viewNotification()">

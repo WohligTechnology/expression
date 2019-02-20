@@ -13,7 +13,8 @@ var myApp = angular
     "angularPromiseButtons",
     "rzModule",
     "ngAnimate",
-    "ionic-datepicker"
+    "ionic-datepicker",
+    "ngCordova"
   ])
 
   .run(function($ionicPlatform, $state, $timeout) {

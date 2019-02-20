@@ -26,15 +26,19 @@
       </div>
 
       <div class="referral-invites">
-        <a href="" class="button button-block button-balanced greenbg">
+        <a
+          href=""
+          class="button button-block button-balanced greenbg"
+          ng-click="shareOnWhatsapp()"
+        >
           <i class="ion-help-buoy"></i>
           <span class="">Whatsapp Invite</span>
         </a>
-        <a href="" class="button button-block yellowbg">
+        <a href="" class="button button-block yellowbg" ng-click="shareOnSms()">
           <i class="ion-chatbox-working"></i>
           <span class="">Text Invite</span>
         </a>
-        <a href="" class="button button-block bluebg">
+        <a href="" class="button button-block bluebg" ng-click="socialShare()">
           <i class="ion-share"></i>
           <span class="">Social Media Invite</span>
         </a>

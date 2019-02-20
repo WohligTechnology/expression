@@ -1,25 +1,45 @@
-<ion-modal-view class="room_summary room_summary-potrate small-model faq-modal bg-color">
+<ion-modal-view
+  class="custom-model room_summary room_summary-potrate small-model faq-modal bg-color "
+>
   <ion-header>
-    <ion-navbar>
-      <ion-title class="faq-tab" ng-class="{'changecolor':changetab== 'question'}" ng-click="changeTab('question')">
-        <span>Question</span>
-      </ion-title>
-    </ion-navbar>
+    <!-- <ion-navbar> -->
+    <ion-title
+      class="faq-tab"
+      ng-class="{'changecolor':changetab== 'question'}"
+      ng-click="changeTab('question')"
+    >
+      <span>Question</span>
+    </ion-title>
+    <!-- </ion-navbar> -->
     <ion-toolbar>
-      <ion-title class="faq-tab" ng-class="{'changecolor':changetab== 'pokerpay'}" ng-click="changeTab('pokerpay')">
+      <ion-title
+        class="faq-tab"
+        ng-class="{'changecolor':changetab== 'pokerpay'}"
+        ng-click="changeTab('pokerpay')"
+      >
         <span> Play</span>
       </ion-title>
     </ion-toolbar>
 
     <ion-toolbar>
-      <ion-title class="faq-tab" ng-class="{'changecolor':changetab== 'support'}" ng-click="changeTab('support')">
+      <ion-title
+        class="faq-tab"
+        ng-class="{'changecolor':changetab== 'support'}"
+        ng-click="changeTab('support')"
+      >
         <span>Support</span>
       </ion-title>
     </ion-toolbar>
     <ion-toolbar>
-
-      <img src="img/close-button.png" class="cross-btn mar-tr" ng-click="closeFaqModal();">
-
+      <!-- <img
+        src="img/close-button.png"
+        class="cross-btn mar-tr"
+        ng-click="closeFaqModal();"
+      /> -->
+      <button
+        class="button button-icon ion-close-circled faq-cross-btn cross-btn cancel"
+        ng-click="closeFaqModal();"
+      ></button>
     </ion-toolbar>
   </ion-header>
   <ion-content>
@@ -28,11 +48,14 @@
       <p>
         A. Please read our terms and services.
       </p>
-      <label>Q. I would to play under different names. can I have more than one poker? </label>
+      <label
+        >Q. I would to play under different names. can I have more than one
+        poker?
+      </label>
       <p>
-        A. No Each player is only allowed one account. It is not permitted to close your account & open another one.
-        Once you create
-        account, your userID cannot be changed, so please choose carefully.
+        A. No Each player is only allowed one account. It is not permitted to
+        close your account & open another one. Once you create account, your
+        userID cannot be changed, so please choose carefully.
       </p>
       <label>Q. What are the terms of services?</label>
       <p>
@@ -65,7 +88,7 @@
     </div>
     <div class="text-scroll" ng-if="changetab == 'support'">
       <div class="faq-play-support">
-        <h5> Contact to below Email Id:</h5>
+        <h5>Contact to below Email Id:</h5>
         <div>
           <a href="mailto:demo@gmail.com">demo@gmail.com</a>
         </div>
