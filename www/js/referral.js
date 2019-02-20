@@ -4,7 +4,8 @@ myApp.controller("ReferralCtrl", function(
   $ionicHistory,
   $window,
   Service,
-  $cordovaSocialSharing
+  $cordovaSocialSharing,
+  $ionicPlatform
 ) {
   $scope.user = {};
   $scope.user.referralCode = "a52asc100";
