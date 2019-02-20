@@ -4,8 +4,14 @@ myApp.controller("ReferralCtrl", function(
   $ionicHistory,
   $window,
   Service,
-  $cordovaSocialSharing
+  $cordovaSocialSharing,
+  $ionicPlatform,
+  $ionicPlatform
 ) {
+  $ionicPlatform.ready(function() {
+    screen.orientation.lock("portrait");
+  });
+  screen.orientation.lock("portrait");
   $scope.user = {};
   $scope.user.referralCode = "a52asc100";
 

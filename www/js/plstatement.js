@@ -4,14 +4,16 @@ myApp.controller("PandLstatementCtrl", function(
   $ionicHistory,
   $window,
   Service,
-  ionicDatePicker
+  ionicDatePicker,
+  $ionicPlatform
 ) {
-  // $ionicPlatform.ready(function () {
-  //   if (ionic.Platform.isAndroid()) {
-  //     screen.orientation.lock('portrait');
-  //   } else {}
-  // });
-
+  $ionicPlatform.ready(function() {
+    if (ionic.Platform.isAndroid()) {
+      screen.orientation.lock("portrait");
+    } else {
+    }
+  });
+  screen.orientation.lock("portrait");
   $scope.plStmtData = {};
   $scope.plStmtData.toDate = moment().format("DD-MM-YYYY");
   $scope.plStmtData.fromDate = moment().format("DD-MM-YYYY");
