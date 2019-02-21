@@ -74,7 +74,7 @@ myApp.controller("ReferralCtrl", function(
   $scope.shareOnSms = function() {
     $ionicPlatform.ready(function() {
       $cordovaSocialSharing
-        .shareViaSMS($scope.message, "", "", $scope.link)
+        .shareViaSMS($scope.message + " " + $scope.link, "")
         .then(
           function(result) {
             // Success!
