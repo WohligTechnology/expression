@@ -12,6 +12,7 @@ myApp.controller("TablesListCtrl", function(
   $scope.tableLists = [];
   $scope.resetValues = false;
   $scope.filterData = {};
+  $scope.searchData = {};
   $scope.param = {
     pokerType: $stateParams.type
   };
@@ -125,6 +126,12 @@ myApp.controller("TablesListCtrl", function(
   $scope.resetFilter = function() {
     $scope.filterData = {};
     if ($scope.param.name) {
+      delete $scope.param.name;
+      // delete $scope.searchData;
+      $scope.searchData = {};
+      console.log("$scope.search", $scope.searchData);
+    }
+    if ($scope.param.name) {
       $scope.tempStore = $scope.param.name;
     }
     if ($scope.tempStore) {
@@ -155,10 +162,12 @@ myApp.controller("TablesListCtrl", function(
       $scope.tableListLoading = true;
       Service.getTableDetails(constraints, function(data) {
         $scope.tableListLoading = false;
-        console.log("Tablelist Data", data);
         if (data.value) {
           if (_.isEmpty(data.data.results)) {
             $scope.listLoaded = true;
+            if (_.isEmpty($scope.tableLists)) {
+              $scope.tableLists = [];
+            }
           } else {
             if ($scope.tableLists == undefined) {
               $scope.tableLists = data.data.results;

@@ -16,7 +16,9 @@ myApp.controller("PandLstatementCtrl", function(
   screen.orientation.lock("portrait");
   $scope.plStmtData = {};
   $scope.plStmtData.toDate = moment().format("DD-MM-YYYY");
-  $scope.plStmtData.fromDate = moment().format("DD-MM-YYYY");
+  $scope.plStmtData.fromDate = moment()
+    .subtract(1, "day")
+    .format("DD-MM-YYYY");
 
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
@@ -28,7 +30,8 @@ myApp.controller("PandLstatementCtrl", function(
     page: 0
   };
   var currentDate = new Date();
-  $scope.data.fromDate = $scope.data.toDate = moment(currentDate).subtract(1);
+  $scope.data.fromDate = moment(currentDate).subtract(1, "day");
+  $scope.data.toDate = moment();
   $scope.getTableData = function() {
     $scope.transactionsLoaded = false;
     if (!$scope.tableListLoading) {
