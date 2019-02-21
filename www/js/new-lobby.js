@@ -5,7 +5,8 @@ myApp.controller("NewLobbyCtrl", function(
   $ionicPlatform,
   $ionicSideMenuDelegate,
   $ionicModal,
-  Service
+  Service,
+  $cordovaVibration
 ) {
   //   $ionicPlatform.ready(function () {
 
@@ -23,13 +24,13 @@ myApp.controller("NewLobbyCtrl", function(
   $ionicPlatform.ready(function() {
     if (ionic.Platform.isAndroid()) {
       screen.orientation.lock("landscape");
-      if (window.cordova) {
-        window.plugins.NativeAudio.stop("timer");
-        window.plugins.NativeAudio.stop("coin");
-        window.plugins.NativeAudio.stop("winner");
-        window.plugins.NativeAudio.stop("shuffle");
-        window.plugins.NativeAudio.stop("button");
-      }
+      // if (window.cordova) {
+      //   window.plugins.NativeAudio.stop("timer");
+      //   window.plugins.NativeAudio.stop("coin");
+      //   window.plugins.NativeAudio.stop("winner");
+      //   window.plugins.NativeAudio.stop("shuffle");
+      //   window.plugins.NativeAudio.stop("button");
+      // }
     } else {
     }
   });
@@ -111,4 +112,10 @@ myApp.controller("NewLobbyCtrl", function(
   };
 
   $scope.playerDataFunction();
+
+  $scope.callVibrateFunction = function() {
+    $ionicPlatform.ready(function() {
+      $cordovaVibration.vibrate(500);
+    });
+  };
 });

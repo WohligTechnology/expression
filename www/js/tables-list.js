@@ -275,12 +275,33 @@ myApp.controller("TablesListCtrl", function(
     $window.history.back();
   };
 
+  /**to open private table ask for password */
+  $ionicModal
+    .fromTemplateUrl("templates/modal/private-table-login.html", {
+      scope: $scope,
+      animation: "slide-in-up"
+    })
+    .then(function(modal) {
+      $scope.privateTableLogin = modal;
+    });
+  $scope.openPrivateTableLogin = function() {
+    $scope.privateTableLogin.show();
+  };
+  $scope.closePrivateTableLogin = function() {
+    $scope.privateTableLogin.hide();
+  };
+
   /**Selected Table */
   $scope.selectedTable = function(table) {
     console.log("Table selected", table);
-    $state.go("table", {
-      id: table._id
-    });
+    if (table.type == "Private") {
+      console.log("Private table open modal for password");
+      $scope.openPrivateTableLogin();
+    } else {
+      $state.go("table", {
+        id: table._id
+      });
+    }
   };
 
   $scope.dateTime = moment().format("DD/MM/YY HH:mm");

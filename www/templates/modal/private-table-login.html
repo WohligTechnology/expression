@@ -1,24 +1,53 @@
-<ion-modal-view class="custom-model statement-model change_password-model form-update private_table priate_table_login">
+<ion-modal-view
+  class="custom-model statement-model change_password-model form-update private_table private_table_login"
+>
   <ion-content>
-    <div class="close" ng-click="closePrivateLogInModal()">
-      <i class="icon ion-close text_glow"></i>
-    </div>
+    <!-- <div class="close" ng-click="closePrivateTableLogin()">
+      <i class="icon ion-close-circled"></i>
+    </div> -->
+    <button
+      class="button button-icon ion-close-circled cross-btn cancel"
+      ng-click="closePrivateTableLogin();"
+    ></button>
     <div class="heading">Private Table Log In</div>
     <div class="field ">
-      <div> Enter Your Password for Private Table
-        <b> {{privateDataForModal.name}} </b>
+      <div class="mar-bot">
+        Enter Your Password for Private Table
+        <b> {{ privateDataForModal.name }} </b>
       </div>
       <form name="createTable">
-        <div class="rel">
-          <div class="login_button">
-            <input type="text" name="tablePassword" ng-model="data.password" placeholder="Table Password*" required>
+        <div class="rel mar-bot">
+          <div class="input-select">
+            <input
+              type="text"
+              class="padd-lr color-white bor-bot"
+              name="tablePassword"
+              ng-model="data.password"
+              placeholder="Table Password*"
+              required
+            />
           </div>
-          <span class="valid" ng-show="createTable.tablePassword.$touched && createTable.tablePassword.$invalid">* Table Password is required.</span>
-          <span class="valid" ng-if="errorInPrivateLogIn && !(createTable.tablePassword.$touched && createTable.tablePassword.$invalid)">* Incorrect Table Password</span>
+          <span
+            class="valid"
+            ng-show="createTable.tablePassword.$touched && createTable.tablePassword.$invalid"
+            >* Table Password is required.</span
+          >
+          <span
+            class="valid"
+            ng-if="errorInPrivateLogIn && !(createTable.tablePassword.$touched && createTable.tablePassword.$invalid)"
+            >* Incorrect Table Password</span
+          >
         </div>
 
-        <button type="submit" class="custom_button" ng-click="goToPrivateTable(privateDataForModal._id,data.password)" promise-btn="createPrivateTablePromise"
-          ng-disabled="createTable.$invalid">Log In</button>
+        <button
+          type="submit"
+          class="custom_button"
+          ng-click="goToPrivateTable(privateDataForModal._id,data.password)"
+          promise-btn="createPrivateTablePromise"
+          ng-disabled="createTable.$invalid"
+        >
+          Log In
+        </button>
       </form>
     </div>
   </ion-content>

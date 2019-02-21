@@ -1178,3 +1178,18 @@ span.valid {
   right: 5px !important;
   top: -10px !important;
 }
+
+.private_table_login {
+  width: 60%;
+  left: 20%;
+  font-size: 14px !important;
+
+  .cross-btn {
+    right: 3px;
+    top: -13px;
+  }
+
+  input {
+    font-size: 12px !important;
+  }
+}
