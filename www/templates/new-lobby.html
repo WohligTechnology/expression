@@ -7,10 +7,10 @@
         <button class="plus-icon ion icon ion-plus pinkbg" ui-sref="account"></button>
       </div>
       <div class="right-icons">
-        <button class="button button-icon ion icon ion-gear-b "></button>
-        <button class="button button-icon ion icon ion-ribbon-b"></button>
+        <!-- <button class="button button-icon ion icon ion-gear-b "></button>
+        <button class="button button-icon ion icon ion-ribbon-b"></button> -->
         <button class="button button-icon ion icon ion-navicon-round" ng-click="toggleRightSideMenu()"></button>
-        <span class="ribbon-badge badge">10</span>
+        <!-- <span class="ribbon-badge badge">10</span> -->
       </div>
     </div>
   </ion-header-bar>
@@ -30,26 +30,26 @@
             </div>
           </a>
           <ion-list class="nav-list lobby-nav">
-            <ion-item menu-close ng-click="openFaqModal()">
-              <i class=" ion-chatboxes "></i>FAQs
-            </ion-item>
             <ion-item menu-close ui-sref="change-password">
               <i class="ion-refresh"></i>Reset Password
             </ion-item>
             <ion-item menu-close ng-click="callVibrateFunction()">
-              <i class=" ion-ios7-help"></i>Vibration
+                <i class=" ion-ios7-help"></i>Vibration
             </ion-item>
             <ion-item menu-close ng-click="recentlyAdded();">
-              <i class="ion-volume-high"></i> Sound
+                <i class="ion-volume-high"></i> Sound
             </ion-item>
-            <ion-item menu-close ng-click="logout();">
-              <i class="ion-power"></i>Logout
+            <ion-item menu-close ng-click="openFaqModal()">
+              <i class=" ion-chatboxes "></i>FAQs
             </ion-item>
             <ion-item menu-close ng-click="openPrivacyPolicyModal();">
               <i class="ion-ios7-information"></i>Privacy Policy
             </ion-item>
             <ion-item menu-close ng-click="termsAndCondition();">
               <i class="ion-android-note"></i>Terms & Conditions
+            </ion-item>
+            <ion-item menu-close ng-click="logout();">
+              <i class="ion-power"></i>Logout
             </ion-item>
           </ion-list>
           <!-- </ion-content> -->

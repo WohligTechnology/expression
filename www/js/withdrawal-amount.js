@@ -17,12 +17,23 @@ myApp.controller("WithdrawalCtrl", function(
   $scope.withdrawDetails = [];
 
   //withdraw Coins
+  $scope.err = "";
+  $scope.showWithdrawError = false;
   $scope.withdrawCoins = function(data) {
     $scope.withdrawPromise = Service.withdrawCoins(data, function(data) {
-      $.jStorage.set("transactionDetail", data.data.data.transaction);
-      $scope.pageNo = 0;
-      $scope.withdrawDetails = [];
-      $scope.loadMore();
+      console.log("withdraw coins function return data::", data.data.value);
+      if (data.data.value) {
+        $.jStorage.set("transactionDetail", data.data.data.transaction);
+        $scope.err = "";
+        $scope.showWithdrawError = false;
+        $scope.modalotp();
+        $scope.pageNo = 0;
+        $scope.withdrawDetails = [];
+        $scope.loadMore();
+      } else {
+        $scope.err = data.data.error;
+        $scope.showWithdrawError = true;
+      }
     });
     $scope.table = "";
   };
@@ -91,7 +102,8 @@ myApp.controller("WithdrawalCtrl", function(
     Service.verifyTransactionOtp(data, function(data) {
       if (data.value == true) {
         $scope.closeModalOtp();
-        $state.go("lobby");
+        // $state.go("lobby");
+        $state.go("account");
       } else {
         if (data.error == "OTP Expired.") {
           $scope.expiredOTP = true;

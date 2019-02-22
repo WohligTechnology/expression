@@ -6,9 +6,11 @@ myApp.controller("TablesListCtrl", function(
   $stateParams,
   $ionicModal,
   Service,
-  $window
+  $window,
+  $cordovaClipboard
 ) {
   $scope.maxPlayers = 9;
+  $scope.createTableData = {};
   $scope.tableLists = [];
   $scope.resetValues = false;
   $scope.filterData = {};
@@ -322,17 +324,69 @@ myApp.controller("TablesListCtrl", function(
     $scope.modal.hide();
   };
 
-  /**Create Table */
-  $scope.notMatching = false;
-  $scope.matchPasswords = function(data) {
-    if (!_.isEqual(data.password, data.confirmPassword)) {
-      $scope.notMatching = true;
-    } else {
-      $scope.notMatching = false;
+  /**Create Table Small and Big blind amounts */
+  $scope.compareAmounts = function(smallBlind, bigBlind) {
+    $scope.createTableData.bigBlind = 2 * smallBlind;
+  };
+
+  $scope.compareBuyin = function(minimumBuyin, maximumBuyin) {
+    if (minimumBuyin < maximumBuyin && minimumBuyin != 0) {
+      $scope.buyInError = false;
+    } else if (minimumBuyin != undefined) {
+      $scope.buyInError = true;
     }
+
+    if (maximumBuyin > minimumBuyin && maximumBuyin != 0) {
+      $scope.buyInErrorMax = false;
+    } else if (maximumBuyin != undefined) {
+      $scope.buyInErrorMax = true;
+    }
+  };
+
+  /**to open private table ask for password */
+  $ionicModal
+    .fromTemplateUrl("templates/modal/private-table-code.html", {
+      scope: $scope,
+      animation: "slide-in-up"
+    })
+    .then(function(modal) {
+      $scope.privateTableInfo = modal;
+    });
+  $scope.openPrivateTableInfo = function(tableData) {
+    $scope.privateTableData = tableData;
+    $scope.privateTableData.code = "1234";
+    $scope.privateTableInfo.show();
+  };
+  $scope.closePrivateTableInfo = function() {
+    $scope.privateTableInfo.hide();
   };
 
   $scope.createPrivateTable = function(tableData) {
     console.log("tableData", tableData);
+    $scope.closePrivateTable();
+    $scope.openPrivateTableInfo(tableData);
+  };
+
+  /**To copy code of private table */
+  $scope.copyCode = function(code) {
+    $ionicPlatform.ready(function() {
+      $cordovaClipboard.copy(code).then(
+        function() {
+          // success
+        },
+        function() {
+          // error
+        }
+      );
+
+      $cordovaClipboard.paste().then(
+        function(result) {
+          // success, use result
+        },
+        function() {
+          // error
+        }
+      );
+    });
   };
 });

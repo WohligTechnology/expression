@@ -1,0 +1,45 @@
+<ion-modal-view
+  class="custom-model statement-model change_password-model form-update private_table private_table_login"
+>
+  <ion-content>
+    <!-- <div class="close" ng-click="closePrivateTableLogin()">
+      <i class="icon ion-close-circled"></i>
+    </div> -->
+    <button
+      class="button button-icon ion-close-circled cross-btn cancel"
+      ng-click="closePrivateTableInfo();"
+    ></button>
+    <div class="heading">Private Table Created !</div>
+    <div class="field ">
+      <div class="mar-bot">
+        Your Password for Private Table
+        <b> {{ privateTableData.tableName }} </b> is
+        <span class="">{{ privateTableData.code }}</span>
+        Please Share this password to your friends !!
+      </div>
+      <div class="marbot">
+        <div class="referral-invites">
+          <a
+            href=""
+            class="button button-block button-balanced greenbg"
+            ng-click="shareOnWhatsapp()"
+          >
+            <i class="ion-help-buoy"></i>
+            <span class="">Invite to Table</span>
+          </a>
+          <a
+            href=""
+            class="button button-block bluebg"
+            ng-click="socialShare()"
+          >
+            <i class="ion-share"></i>
+            <span class="">Invite to Table</span>
+          </a>
+        </div>
+      </div>
+      <div class="padding-top right copy-code">
+        <a ng-click="copyCode(privateTableData.code)">Click to copy password</a>
+      </div>
+    </div>
+  </ion-content>
+</ion-modal-view>

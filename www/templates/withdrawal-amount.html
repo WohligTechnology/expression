@@ -93,11 +93,15 @@
         placeholder="₹ 1000"
       />
     </div>
-
+    <span
+      class="valid text-center withdraw-error padding-bottom"
+      ng-show="showWithdrawError"
+      >{{ err }}</span
+    >
     <div class="add-withdraw-btn mar-auto text-center padding-bottom">
       <button
         class="button add-with-button pinkbg color-white"
-        ng-click="withdrawCoins(table.coins);modalotp()"
+        ng-click="withdrawCoins(table.coins);"
       >
         Request
       </button>

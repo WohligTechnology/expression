@@ -1,4 +1,6 @@
-<ion-modal-view class="custom-model statement-model change_password-model form-update private_table">
+<ion-modal-view
+  class="custom-model statement-model change_password-model form-update private_table"
+>
   <!-- <ion-content>
     <div class="close" ng-click="closePrivateTable()">
       <i class="icon ion-close text_glow"></i>
@@ -60,31 +62,60 @@
     </div>
   </ion-content> -->
   <ion-content class="createPrivateTable">
-    <button class="button button-icon ion-close-circled cross-btn cancel" ng-click="closePrivateTable();"></button>
+    <button
+      class="button button-icon ion-close-circled cross-btn cancel"
+      ng-click="closePrivateTable();"
+    ></button>
     <div class="heading mar-bot">Create Private Table</div>
     <form name="createTable">
       <div class="input-select">
         <div class="rel mar-bot">
-          <input class="padd-lr color-white bor-bot" type="text" placeholder="Table Name" name="tableName" ng-model="createTableData.tableName"
-            required>
-          <span class="valid" ng-show="createTable.tableName.$touched && createTable.tableName.$invalid">
+          <input
+            class="padd-lr color-white bor-bot"
+            type="text"
+            placeholder="Table Name"
+            name="tableName"
+            ng-model="createTableData.tableName"
+            required
+          />
+          <span
+            class="valid"
+            ng-show="createTable.tableName.$touched && createTable.tableName.$invalid"
+          >
             *Table Name is required
           </span>
         </div>
         <div class="rel mar-bot">
           <div class="table-type modal-cont">
-            <label class="container padd-right">Hold'Em
-              <input type="radio" name="radio" ng-value="true" ng-model="createTableData.holdem" ng-click="createTableData.omaha=false">
+            <label class="container padd-right"
+              >Hold'Em
+              <input
+                type="radio"
+                name="radio"
+                ng-value="true"
+                ng-model="createTableData.holdem"
+                ng-click="createTableData.omaha=false"
+              />
               <span class="checkmark"></span>
             </label>
-            <label class="container padd-right">Omaha
-              <input type="radio" name="radio" ng-value="true" ng-model="createTableData.omaha" ng-click="createTableData.holdem=false">
+            <label class="container padd-right"
+              >Omaha
+              <input
+                type="radio"
+                name="radio"
+                ng-value="true"
+                ng-model="createTableData.omaha"
+                ng-click="createTableData.holdem=false"
+              />
               <span class="checkmark"></span>
             </label>
             <!-- <ion-radio>Hold'Em</ion-radio>
             <ion-radio>Omaha</ion-radio> -->
           </div>
-          <span class="valid" ng-show="createTable.radio.$touched && createTable.radio.$invalid">
+          <span
+            class="valid"
+            ng-show="createTable.radio.$touched && createTable.radio.$invalid"
+          >
             *Table Type is required
           </span>
         </div>
@@ -92,9 +123,19 @@
         <div class="row">
           <div class="col-50 padding-right">
             <div class="rel mar-bot">
-              <input class="padd-lr color-white bor-bot " type="number" placeholder="Small Blind" name="smallBlind"
-                ng-model="createTableData.smallBlind" required>
-              <span class="valid" ng-show="createTable.smallBlind.$touched && createTable.smallBlind.$invalid">
+              <input
+                class="padd-lr color-white bor-bot "
+                type="number"
+                placeholder="Small Blind"
+                name="smallBlind"
+                ng-model="createTableData.smallBlind"
+                ng-change="compareAmounts(createTableData.smallBlind,createTableData.bigBlind)"
+                required
+              />
+              <span
+                class="valid"
+                ng-show="createTable.smallBlind.$touched && createTable.smallBlind.$invalid"
+              >
                 *Small Blind value is required
               </span>
             </div>
@@ -102,9 +143,19 @@
 
           <div class="col-50 padding-left">
             <div class="rel mar-bot">
-              <input class="padd-lr color-white bor-bot " type="number" placeholder="Big Blind" name="bigBlind"
-                ng-model="createTableData.bigBlind" required>
-              <span class="valid" ng-show="createTable.bigBlind.$touched && createTable.bigBlind.$invalid">
+              <input
+                class="padd-lr color-white bor-bot "
+                type="number"
+                placeholder="Big Blind"
+                name="bigBlind"
+                ng-model="createTableData.bigBlind"
+                ng-change="compareAmounts(createTableData.smallBlind,createTableData.bigBlind)"
+                required
+              />
+              <span
+                class="valid"
+                ng-show="createTable.bigBlind.$touched && createTable.bigBlind.$invalid"
+              >
                 *Big Blind value is required
               </span>
             </div>
@@ -114,45 +165,58 @@
         <div class="row">
           <div class="col-50 padding-right">
             <div class="rel mar-bot">
-              <input class="padd-lr color-white bor-bot" type="number" placeholder="Min Buy In" name="minBuyIn"
-                ng-model="createTableData.minBuyIn" required>
-              <span class="valid" ng-show="createTable.minBuyIn.$touched && createTable.minBuyIn.$invalid">
+              <input
+                class="padd-lr color-white bor-bot"
+                type="number"
+                placeholder="Min Buy In"
+                name="minBuyIn"
+                ng-model="createTableData.minBuyIn"
+                ng-change="compareBuyin(createTableData.minBuyIn,createTableData.maxBuyIn)"
+                required
+              />
+              <span
+                class="valid"
+                ng-show="createTable.minBuyIn.$touched && createTable.minBuyIn.$invalid"
+              >
                 *Min Buy In value is required
               </span>
+              <span class="valid" ng-show="buyInError"
+                >*Minimum BuyIn should be smaller then Maximum BuyIn</span
+              >
             </div>
           </div>
           <div class="col-50 padding-left">
             <div class="rel mar-bot">
-              <input class="padd-lr color-white bor-bot" type="number" placeholder="Max Buy In" name="maxBuyIn"
-                ng-model="createTableData.maxBuyIn" required>
-              <span class="valid" ng-show="createTable.maxBuyIn.$touched && createTable.maxBuyIn.$invalid">
+              <input
+                class="padd-lr color-white bor-bot"
+                type="number"
+                placeholder="Max Buy In"
+                name="maxBuyIn"
+                ng-model="createTableData.maxBuyIn"
+                ng-change="compareBuyin(createTableData.minBuyIn,createTableData.maxBuyIn)"
+                required
+              />
+              <span
+                class="valid"
+                ng-show="createTable.maxBuyIn.$touched && createTable.maxBuyIn.$invalid"
+              >
                 *Max Buy In value is required
               </span>
+              <span class="valid" ng-show="buyInErrorMax"
+                >*Maximum BuyIn should be greater than Minimum BuyIn</span
+              >
             </div>
           </div>
         </div>
-        <div class="rel mar-bot">
-          <input class="padd-lr color-white bor-bot" type="password" placeholder="Password" name="password" ng-model="createTableData.password"
-            ng-change="matchPasswords(createTableData)" required>
-          <span class="valid" ng-show="createTable.password.$touched && createTable.password.$invalid">
-            *Please enter Password
-          </span>
-        </div>
-        <div class="rel mar-bot">
-          <input class="padd-lr color-white bor-bot" type="password" placeholder="Confirm Password" name="confirmPassword"
-            ng-model="createTableData.confirmPassword" ng-change="matchPasswords(createTableData)" required>
-          <span class="valid" ng-show="createTable.confirmPassword.$touched && createTable.confirmPassword.$invalid">
-            *Confirm Password is required
-          </span>
-          <span class="valid" ng-if="notMatching && createTableData.confirmPassword">
-            Password do not match
-          </span>
-        </div>
-
       </div>
       <div class="create-table-btn text-center">
-        <button class="button button-create-modal" ng-disabled="createTable.$invalid" ng-click="createPrivateTable(createTableData)">Create
-          Table</button>
+        <button
+          class="button button-create-modal"
+          ng-disabled="createTable.$invalid"
+          ng-click="createPrivateTable(createTableData)"
+        >
+          Create Table
+        </button>
       </div>
     </form>
   </ion-content>
