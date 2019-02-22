@@ -1,7 +1,7 @@
 <div class="table" ng-click="closeAll()">
   <div class="tip-lobby back-lobby">
     <div class="tip-dealer_submit row">
-      <!-- <button class="button mr-5" type='submit' ng-click="newGame()">NewGame</button> -->
+      <!--<button class="button mr-5" type='submit' ng-click="newGame()">NewGame</button>-->
 
       <button class="button back-to-lob" type="submit" ng-click="openRemovePlayerModal();">
         Back to lobby
@@ -10,12 +10,11 @@
   </div>
   <div class="tip-lobby tip-dealer right0">
     <div class="tip-dealer_submit row">
-
-      <button class="button mr-5 back-to-lob mar-right z10; hide" type="submit" ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">
+      <!--<button class="button mr-5" type="submit" ng-click="randomCard();" ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">
         Serving
-      </button>
+      </button>-->
 
-      <!-- <button class="button mr-5" type='submit' ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serving</button> -->
+      <!--<button class="button mr-5" type='submit' ng-show="table.status == 'beforeStart' ||  communityCards[0].serve">Serving</button>-->
 
       <button class="button back-to-lob mar-right" type="submit" ng-click="makeTipFunction(100);" ng-disabled="sitHere || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 100)">
         Tip Dealer
@@ -37,7 +36,6 @@
       <!--<iframe id="ytplayer" youtube src="{{tableYoutube | trustUrl}}" frameborder="0" allowfullscreen="true" allownetworking="internal"
         playsinline="1" allowInlineMediaPlayback="true"></iframe>-->
     </div>
-    <!-- <img src="img/table.png" alt="table" class="bg_table" /> -->
     <img src="img/table/table-blue.png" alt="table" class="bg_table" />
     <pot-amount ng-pots="pots" ng-player="players"> </pot-amount>
     <tip-amount ng-amount="tipAmount" ng-player-no="TipPlayerNo" ng-player="players">
@@ -57,49 +55,49 @@
     <players ng-pos="1" ng-click="modalgame(1)" ng-player="players[0]" ng-extra="extra" ng-game-type="gameType" ng-remaining-player="remainingPlayerCount"
       ng-sit-here="sitHere" ng-all-in="isAllInPlayers" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation"
       ng-winner-player="showWinnerPlayer" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
-    </players>
+      </players>
 
-    <players ng-pos="2" ng-click="modalgame(2)" ng-player="players[1]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
-      ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
-    </players>
+      <players ng-pos="2" ng-click="modalgame(2)" ng-player="players[1]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
+        ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
+        ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
+        </players>
 
-    <players ng-pos="3" ng-click="modalgame(3)" ng-player="players[2]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
-      ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
-    </players>
+        <players ng-pos="3" ng-click="modalgame(3)" ng-player="players[2]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
+          ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
+          ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
+          </players>
 
-    <players ng-pos="4" ng-click="modalgame(4)" ng-player="players[3]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
-      ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
-    </players>
+          <players ng-pos="4" ng-click="modalgame(4)" ng-player="players[3]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
+            ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
+            ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
+            </players>
 
-    <players ng-pos="5" ng-click="modalgame(5)" ng-player="players[4]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
-      ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
-    </players>
+            <players ng-pos="5" ng-click="modalgame(5)" ng-player="players[4]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
+              ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation"
+              ng-winner-player="showWinnerPlayer" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
+              </players>
 
-    <players ng-pos="6" ng-click="modalgame(6)" ng-player="players[5]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
-      ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
-    </players>
-    <players ng-pos="7" ng-click="modalgame(7)" ng-player="players[6]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
-      ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
-    </players>
-    <players ng-pos="8" ng-click="modalgame(8)" ng-player="players[7]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
-      ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
-    </players>
-    <players ng-pos="9" ng-click="modalgame(9)" ng-player="players[8]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
-      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation" ng-winner-player="showWinnerPlayer"
-      ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
-    </players>
+              <players ng-pos="6" ng-click="modalgame(6)" ng-player="players[5]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
+                ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation"
+                ng-winner-player="showWinnerPlayer" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
+                </players>
+                <players ng-pos="7" ng-click="modalgame(7)" ng-player="players[6]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
+                  ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation"
+                  ng-winner-player="showWinnerPlayer" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
+                  </players>
+                  <players ng-pos="8" ng-click="modalgame(8)" ng-player="players[7]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
+                    ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation"
+                    ng-winner-player="showWinnerPlayer" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
+                    </players>
+                    <players ng-pos="9" ng-click="modalgame(9)" ng-player="players[8]" ng-game-type="gameType" ng-all-in="isAllInPlayers" ng-remaining-player="remainingPlayerCount"
+                      ng-sit-here="sitHere" ng-active-player="activePlayer[0]" ng-win="winnerMainPot" ng-animation="startAnimation"
+                      ng-winner-player="showWinnerPlayer" ng-big-blind="bigBlindAmt" ng-small-blind="smallBlindAmt" ng-chal-amount="chaalAmt">
+                      </players>
 
-    <!-- close of table field -->
-    <div class="p6 bootAnimate" ng-if="(activePlayer[0].isChaal==true && !activePlayer[0].isFold && remainingPlayerCount>1)  || (playersactivePlayer && startCoinAnime && remainingPlayerCount>1)">
-      <img src="img/coin.svg" class="coin" />{{ chaalAmt }}
-    </div>
+                      <!-- close of table field -->
+                      <div class="p6 bootAnimate" ng-if="(activePlayer[0].isChaal==true && !activePlayer[0].isFold && remainingPlayerCount>1)  || (playersactivePlayer && startCoinAnime && remainingPlayerCount>1)">
+                        <img src="img/coin.svg" class="coin" />{{ chaalAmt }}
+                      </div>
   </div>
 
   <!-- bottom block -->
@@ -121,9 +119,7 @@
     </div>
     <div class="main_card" ng-class="{'four-card':activePlayer[0].cards.length>2}">
       <div class="cards">
-        <!-- <card card="2c"></card>
-        <card card="2c"></card>
-        <card card="2c"></card>
+        <!-- <card card="2c"></card> <card card="2c"></card> <card card="2c"></card>
         <card card="2c"></card> -->
         <card card="{{activePlayer[0].cards[0]}}" ng-if="!activePlayer[0].isFold && activePlayer[0].cards[0]"></card>
         <card card="{{activePlayer[0].cards[1]}}" ng-if="!activePlayer[0].isFold && activePlayer[0].cards[1]"></card>
@@ -138,41 +134,37 @@
         <p class="amount ">₹1,12,000</p>
       </div>-->
       <!-- Player name End -->
-      <button class="fold " ng-click="fold(); " ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft "
-        promise-btn="foldPromise ">
-        <!-- <span class="light "></span>  -->
-        <span class="btn_name "> FOLD </span>
+      <button class="fold" ng-click="fold();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft"
+        promise-btn="foldPromise">
+        <!--<span class="light"></span>-->
+        <span class="btn_name"> FOLD </span>
+        </button>
+        <button class="call" ng-click="call();" ng-if="!isCalled && !isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
+          promise-btn="callPromise">
+          <!--<span class="light"></span>-->
+          <span class="btn_name"> Call </span>
+          <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
+          </button>
+          <button class="call" ng-click="call();" ng-if="isCalled" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
+            promise-btn="callPromise">
+            <!--<span class="light"></span>-->
+            <span class="btn_name"> Call </span>
+            <!-- <span class="btn_name"> Call {{ callAmount | number }} </span> -->
+            </button>
+            <button class="call" ng-click="check();" ng-if="isChecked" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
+              promise-btn="checkPromise">
+              <!--<span class="light"></span> -->
+              <span class="btn_name"> Check </span>
+              </button>
+              <button class="raise" ng-click="modalrange();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) && !isRaised">
+        <!--<span class="light"></span> -->
+        <span class="btn_name"> Raise </span>
       </button>
-      <button class="call " ng-click="call(); " ng-if="!isCalled && !isChecked " ng-disabled="!activePlayer[0].isTurn ||
-      activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) "
-        promise-btn="callPromise ">
-        <!-- <span class="light "></span>  -->
-        <span class="btn_name "> CALL </span>
-        <!-- <span class="btn_name "> Call {{ callAmount | number }} </span> -->
-      </button>
-      <button class="call " ng-click="call(); " ng-if="isCalled " ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold
-      || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) " promise-btn="callPromise ">
-        <!-- <span class="light "></span> -->
-        <span class="btn_name "> CALL </span>
-        <!-- <span class="btn_name "> Call {{ callAmount | number }} </span> -->
-      </button>
-
-      <!-- ng-if="isChecked " -->
-      <button class="call " ng-click="check(); " ng-if="isChecked " ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold
-      || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) " promise-btn="checkPromise ">
-        <!-- <span class="light "></span> -->
-        <span class="btn_name "> CHECK </span>
-      </button>
-      <button class="raise " ng-click="modalrange(); " ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold ||
-      activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) && !isRaised ">
-        <!-- <span class="light "></span> -->
-        <span class="btn_name "> RAISE / ALL IN </span>
-      </button>
-      <!-- <button class="allin " ng-click="allIn(); " ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold ||
-      activePlayer[0].tableLeft ||(activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 0) "
-                promise-btn="allInPromise ">
-                <span class="light "></span> <span class="btn_name "> All In </span>
-                </button> -->
+              <button class="allin" ng-click="allIn();" ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft ||(activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 0)"
+                promise-btn="allInPromise">
+                <!--<span class="light"></span> -->
+                <span class="btn_name"> All In </span>
+                </button>
     </div>
   </div>
   <!-- left menu (option) -->
@@ -180,9 +172,9 @@
   <left-menu></left-menu>
 
   <!-- spiner -->
-  <!-- <div class="loader table_loader "> -->
-  <div class="loader table_loader " ng-if="ShowLoader ">
-    <div class="center ">
+  <!-- <div class="loader table_loader"> -->
+  <div class="loader table_loader" ng-if="ShowLoader">
+    <div class="center">
       <div>Loading...</div>
       <custom-loader></custom-loader>
     </div>
