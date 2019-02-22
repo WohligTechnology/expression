@@ -330,8 +330,9 @@
       // display: flex;
       padding: 5px 5px 3px 10px; // margin: 1%;
       width: 100%;
-      flex: 0.8;
-      text-align: right;
+      flex: 0.65;
+      // text-align: right;
+      display: flex;
       background: rgba(0, 0, 0, 0.5); // border: 1px solid #7851a2;
       .fold {
         background: $button-yellow;
@@ -350,8 +351,9 @@
         }
       }
       button {
-        min-width: 24%; // background: rgba(127, 127, 127, 0.471);
-        margin-left: 10px;
+        min-width: 23%; // background: rgba(127, 127, 127, 0.471);
+        // margin-left: 8px;
+        margin: auto;
         border-radius: 5px;
         @include gradient_grey; // border: 3px solid rgba(0, 0, 0, 0.54);
         border: 0px;
