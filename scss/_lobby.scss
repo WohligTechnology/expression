@@ -600,12 +600,6 @@
         color: $white;
       }
 
-      i {
-        margin-right: 5px;
-        font-size: 18px;
-        line-height: 22px;
-      }
-
       .nav-list {
         .list:last-child {
           margin-bottom: 25px;
@@ -615,6 +609,12 @@
         .item-radio .item-content {
           background: transparent;
           padding: 0px;
+        }
+
+        img {
+          margin: 0 5px;
+          font-size: 18px;
+          line-height: 22px;
         }
       }
     }

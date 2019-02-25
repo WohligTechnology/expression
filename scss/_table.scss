@@ -267,9 +267,10 @@
       // transform: translate(-50%);
       width: 40%;
       position: absolute;
-      top: 30%;
+      top: 35%;
       left: 50%;
-      transform: translate(-50%) perspective(200px) rotateX(45deg);
+      height: 2%;
+      transform: translate(-50%) perspective(400px) rotateX(45deg);
       .cards {
         display: flex;
         flex-direction: row; // justify-content: center;
@@ -335,13 +336,19 @@
       display: flex;
       background: rgba(0, 0, 0, 0.5); // border: 1px solid #7851a2;
       .fold {
-        background: $button-yellow;
+        // background: $button-yellow;
+        background: $pink-bg;
       }
       .call {
-        background: $button-green;
+        // background: $button-green;
+        background: $button-yellow;
       }
       .raise {
-        background: $pink-bg;
+        // background: $pink-bg;
+        background: $button-green;
+      }
+      .allin {
+        background: $purple-bg;
       }
       .name-amount {
         p {

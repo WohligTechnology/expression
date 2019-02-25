@@ -2,7 +2,7 @@
   <ion-header-bar class="lobby-bar">
     <div class="bar bar-header lobby-header">
       <div class="left-head">
-        <img src="img/lobby/poker-coin-logo.png" alt="" class="poker-coin-logo">
+        <img src="img/lobby/coin.svg" alt="" class="poker-coin-logo" >
         <p class="amount"> {{playerData.balance|number:0}}</p>
         <button class="plus-icon ion icon ion-plus pinkbg" ui-sref="account"></button>
       </div>
@@ -25,31 +25,38 @@
             <h3 class="player-name fw600"> {{playerData.name}}</h3>
             <small class="fw600">Referral Code: <span class="player-number"> {{playerData.referralCode}}</span></small>
             <div class="wallet-balance">
-              <img src="img/lobby/poker-coin-logo.png" alt="" class="poker-coin-logo">
+              <img src="img/lobby/coin.svg" alt="" class="poker-coin-logo" width="22">
               <p class="amount fw600"> {{playerData.balance|number:0}}</p>
             </div>
           </a>
           <ion-list class="nav-list lobby-nav">
             <ion-item menu-close ui-sref="change-password">
-              <i class="ion-refresh"></i>Reset Password
+              <!-- <i class="ion-refresh"></i> -->
+              <img src="img/lobby/reset.svg" alt="" width="15">Reset Password
             </ion-item>
             <ion-item menu-close ng-click="callVibrateFunction()">
-                <i class=" ion-ios7-help"></i>Vibration
+                <!-- <i class=" ion-ios7-help"></i> -->
+                <img src="img/lobby/vibrate.svg" alt="" height="15">Vibration
             </ion-item>
             <ion-item menu-close ng-click="recentlyAdded();">
-                <i class="ion-volume-high"></i> Sound
+                <!-- <i class="ion-volume-high"></i> -->
+                <img src="img/lobby/sound.svg" alt="" width="15"> Sound
             </ion-item>
             <ion-item menu-close ng-click="openFaqModal()">
-              <i class=" ion-chatboxes "></i>FAQs
+              <!-- <i class=" ion-chatboxes "></i> -->
+              <img src="img/lobby/faq.svg" alt="" width="15">FAQs
             </ion-item>
             <ion-item menu-close ng-click="openPrivacyPolicyModal();">
-              <i class="ion-ios7-information"></i>Privacy Policy
+              <!-- <i class="ion-ios7-information"></i> -->
+              <img src="img/lobby/privacy.svg" alt="" width="15">Privacy Policy
             </ion-item>
             <ion-item menu-close ng-click="termsAndCondition();">
-              <i class="ion-android-note"></i>Terms & Conditions
+              <!-- <i class="ion-android-note"></i> -->
+              <img src="img/lobby/terms.svg" alt="" width="12">Terms & Conditions
             </ion-item>
             <ion-item menu-close ng-click="logout();">
-              <i class="ion-power"></i>Logout
+              <img src="img/lobby/logout.svg" alt="" width="15">Logout
+              <!-- <i class="ion-power"></i>Logout -->
             </ion-item>
           </ion-list>
           <!-- </ion-content> -->
@@ -57,20 +64,20 @@
       <ion-side-menu-content class="lobby-bg">
 
         <div class="row">
-          <div class="col-50 text-center" ui-sref="table-list({type: 'Virtual'})">
-            <div class="tables-content padding">
+          <div class="col-50 text-center" >
+            <div class="tables-content padding" ui-sref="table-list({type: 'Virtual'})">
               <div class="table-type">
-                <h3 class="virtual">Virutal Poker</h3>
+                <h3 class="virtual">Virtual Poker</h3>
               </div>
-              <img src="img/table/table-blue.png" alt="" class="tables">
+              <img src="img/lobby/LobbyVirtual.png" alt="" class="tables">
             </div>
           </div>
-          <div class="col-50 text-center" ui-sref="table-list({type: 'Live'})">
-            <div class="tables-content padding">
+          <div class="col-50 text-center" >
+            <div class="tables-content padding" ui-sref="table-list({type: 'Live'})">
               <div class="table-type">
                 <h3 class="live">Live Poker</h3>
               </div>
-              <img src="img/table/table-blue.png" alt="" class="tables">
+              <img src="img/lobby/LobbyLive.png" alt="" class="tables">
             </div>
             <!--<div class="live-players">
               <ion-icon class="icon ion-person-stalker" name="ion-person-stalker"></ion-icon>

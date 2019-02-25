@@ -15,11 +15,13 @@
       <div class="create-table">
         <div class="table-details left">
           <div class="user-count">
-            <i class="ion-person-stalker"></i>
+            <!-- <i class="ion-person-stalker"></i> -->
+            <img src="img/Players.svg" alt="" width="20" />
             <span>{{ playersCount }} Players</span>
           </div>
           <div class="table-count padding-left">
-            <i class="ion-toggle-filled"></i>
+            <!-- <i class="ion-toggle-filled"></i> -->
+            <img src="img/table.svg" alt="" width="20" />
             <span>{{ tableCount }} Tables</span>
           </div>
         </div>
@@ -48,9 +50,11 @@
               ng-click="searchByName(searchData.keyword)"
             ></i>
             <button
-              class="button button-small icon filter-btn ion-funnel"
+              class="button button-small filter-btn "
               ng-click="openFilterTableModal()"
-            ></button>
+            >
+              <img src="img/filter.svg" alt="" width="18" />
+            </button>
             <button
               class="button button-small icon filter-btn "
               ng-click="resetFilter()"

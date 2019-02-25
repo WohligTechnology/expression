@@ -33,6 +33,7 @@ $header-bg: #0b3235 !default;
 $button-bg: #1f4749 !default;
 $profile-label: #5bfdff !default;
 $profile-bg: #0e6a6b !default;
+$purple-bg: #642aa2 !default;
 $border-image: linear-gradient(
   to right,
   rgba(254, 255, 255, 0) 5%,
@@ -689,3 +690,31 @@ body {
     }
   }
 }
+
+//for 19.5:9 aspect ratio
+
+// @media only screen and (min-device-width: 710px) and (max-device-width: 812px)
+@media only screen and (min-device-width: 360px) and (max-device-width: 735px) and (-webkit-min-device-pixel-ratio: 3) {
+  .table .table_field {
+    bottom: calc(0px + 0.3em);
+    width: 97.5%;
+  }
+
+  .table .table_field .video_frame {
+    top: 0%;
+  }
+}
+
+// //iphone-X
+// @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+//   .table {
+//     .table_field {
+//       width: 89% !important;
+//       bottom: calc(0px + 0.8em) !important;
+
+//       .video_frame {
+//         top: 0% !important;
+//       }
+//     }
+//   }
+// }

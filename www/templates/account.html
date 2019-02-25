@@ -12,15 +12,16 @@
   </ion-header-bar>
   <ion-content>
     <div class="account-profile text-center">
-      <img class="profile-img" src="img/login/bgblue.png" alt="image" />
+      <img class="profile-img" src="img/player_pic.png" alt="image" />
       <p class="profile-name">{{ playerData.name }}</p>
     </div>
     <div class="account-bal">
       <div class="ac-bal">
         <img
-          src="img/lobby/poker-coin-logo.png"
+          src="img/lobby/coin.svg"
           alt=""
           class="poker-coin-logo"
+          width="50"
         />
         <p class="amount">{{ playerData.balance | number: 0 }}</p>
       </div>
@@ -31,6 +32,7 @@
         <div class="row">
           <div class="col-50 text-center">
             <button class="button btn-account btn-add" ui-sref="addamount">
+              <img src="img/referral/add.svg" alt="" width="25" />
               Add Cash
             </button>
           </div>
@@ -39,6 +41,7 @@
               class="button btn-account btn-withdraw"
               ui-sref="withdrawal"
             >
+              <img src="img/referral/withdraw.svg" alt="" width="25" />
               Withdraw Cash
             </button>
           </div>

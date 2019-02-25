@@ -267,7 +267,8 @@
             type="submit"
             ng-click="$event.stopPropagation();openChatBox()"
           >
-            <i class="ion-chatbubbles"></i>
+            <!-- <i class="ion-chatbubbles"></i> -->
+            <img src="img/table/table-chat.svg" alt="" width="26" />
           </button>
         </div>
         <div class="btn-history">
@@ -315,15 +316,6 @@
       </div>-->
       <!-- Player name End -->
       <button
-        class="fold"
-        ng-click="fold();"
-        ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft"
-        promise-btn="foldPromise"
-      >
-        <!--<span class="light"></span>-->
-        <span class="btn_name"> FOLD </span>
-      </button>
-      <button
         class="call"
         ng-click="call();"
         ng-if="!isCalled && !isChecked"
@@ -355,6 +347,7 @@
         <!--<span class="light"></span> -->
         <span class="btn_name"> Check </span>
       </button>
+
       <button
         class="raise"
         ng-click="modalrange();"
@@ -362,6 +355,16 @@
       >
         <!--<span class="light"></span> -->
         <span class="btn_name"> Raise </span>
+      </button>
+
+      <button
+        class="fold"
+        ng-click="fold();"
+        ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft"
+        promise-btn="foldPromise"
+      >
+        <!--<span class="light"></span>-->
+        <span class="btn_name"> FOLD </span>
       </button>
       <button
         class="allin"

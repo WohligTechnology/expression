@@ -1,5 +1,4 @@
 .account-profile {
-
   .profile-img {
     height: 125px;
     width: 125px;
@@ -46,12 +45,16 @@
 .add-withdraw {
   margin-bottom: 5em;
 
-
   .btn-account {
     width: 95%;
     color: $white;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 14px;
+
+    img {
+      float: left;
+      margin: 7px -4px;
+    }
   }
 
   .btn-add {
@@ -98,10 +101,24 @@
         color: white;
       }
 
+      img {
+        float: left;
+        margin: 8px 5px;
+      }
+
       span {
         font-weight: 600;
         color: $white;
       }
+    }
+
+    .private-referral-code {
+      width: 100%;
+    }
+
+    .whatsapp-invite {
+      float: left;
+      margin: 8px 0px !important;
     }
 
     .mb4 {
