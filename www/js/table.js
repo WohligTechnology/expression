@@ -805,11 +805,8 @@ myApp.controller("TableCtrl", function(
       }
     });
     if (!_.isEmpty($scope.activePlayer)) {
-      reArragePlayers(data.data.data.players);
+      reArragePlayers($scope.players);
       console.log("reArragePlayers");
-    } else {
-      console.log("reArrag");
-      $scope.players = data.data.data.players;
     }
   }
   io.socket.on("showWinner", showWinnerFunction);
@@ -889,7 +886,7 @@ myApp.controller("TableCtrl", function(
       console.log("reArragePlayers");
     } else {
       console.log("reArrag");
-      $scope.players = data.data.data.players;
+      $scope.players = data.data.players;
     }
     $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function(
       player
@@ -984,10 +981,10 @@ myApp.controller("TableCtrl", function(
 
     if (!_.isEmpty($scope.activePlayer)) {
       if ($scope.updateSocketVar == 0) {
-        reArragePlayers(data.data.players);
+        reArragePlayers($scope.playersChunk);
       }
     } else {
-      $scope.players = data.data.players;
+      $scope.players = $scope.playersChunk;
     }
     if (!$scope.sitHere) {
       if (
