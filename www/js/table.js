@@ -152,6 +152,21 @@ myApp.controller("TableCtrl", function(
     });
     $scope.players = players;
     console.log("rearr", $scope.players);
+    var playerIndex = _.findIndex($scope.players, function(player) {
+      return player && player.user && player.user._id == Service.getUserId();
+    });
+    console.log(playerIndex, "PlayerNo");
+    if (playerIndex < 4) {
+      var diff = 5 + playerIndex;
+      var firstArr = _.slice($scope.players, 0, diff - 1);
+      var secondArr = _.slice($scope.players, diff, 9);
+      $scope.players = _.concat(secondArr, firstArr);
+    } else if (playerIndex > 4) {
+      var diff = playerIndex - 4;
+      var firstArr = _.slice($scope.players, 0, diff - 1);
+      var secondArr = _.slice($scope.players, diff, 9);
+      $scope.players = _.concat(secondArr, firstArr);
+    }
   }
 
   //sound initialize
@@ -208,14 +223,23 @@ myApp.controller("TableCtrl", function(
         if (data.data.data.pot) {
           $scope.potAmount = data.data.data.pot[0].totalAmount;
         }
-        reArragePlayers(data.data.data.players);
+
         // console.log($scope.players);
         $scope.iAmThere($scope.players);
+        console.log("ENTERRRR", $scope.players);
+
         $scope.activePlayer = _.filter($scope.players, function(player) {
           if (player && player.user._id == $scope._id) {
             return true;
           }
         });
+        if (!_.isEmpty($scope.activePlayer)) {
+          reArragePlayers(data.data.data.players);
+          console.log("reArragePlayers");
+        } else {
+          console.log("reArrag");
+          $scope.players = data.data.data.players;
+        }
         $scope.isAllInPlayers = _.filter($scope.players, function(player) {
           if (
             (player && player.isAllIn) ||
@@ -338,9 +362,7 @@ myApp.controller("TableCtrl", function(
     if (data.data.pots[0]) {
       $scope.potAmount = data.data.pots[0].totalAmount;
     }
-    if ($scope.updateSocketVar == 0) {
-      reArragePlayers(data.data.players);
-    }
+
     if ($scope.communityCards[0].serve) {
       $scope.chaalAmt = {};
     }
@@ -362,6 +384,13 @@ myApp.controller("TableCtrl", function(
         return true;
       }
     });
+    if (!_.isEmpty($scope.activePlayer)) {
+      if ($scope.updateSocketVar == 0) {
+        reArragePlayers(data.data.players);
+      }
+    } else {
+      $scope.players = data.data.players;
+    }
 
     if ($scope.activePlayer[0].playerNo) {
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
@@ -646,6 +675,7 @@ myApp.controller("TableCtrl", function(
               myTableNo = data.data.data.playerNo;
               $scope.activePlayerNo = data.data.data.playerNo;
               $scope.updatePlayers();
+              console.log("ENTERRRR", $scope.players);
               startSocketUpdate();
             } else {
               if (data.data.error == "Player Already Added") {
@@ -739,7 +769,7 @@ myApp.controller("TableCtrl", function(
   function showWinnerFunction(data) {
     $scope.chaalAmt = {};
     console.log("show winner", data);
-    reArragePlayers(data.data.players);
+    // reArragePlayers(data.data.players);
     $scope.winnerData = data.data.pots;
     _.each($scope.players, function(player) {
       if (player) {
@@ -774,6 +804,13 @@ myApp.controller("TableCtrl", function(
         return true;
       }
     });
+    if (!_.isEmpty($scope.activePlayer)) {
+      reArragePlayers(data.data.data.players);
+      console.log("reArragePlayers");
+    } else {
+      console.log("reArrag");
+      $scope.players = data.data.data.players;
+    }
   }
   io.socket.on("showWinner", showWinnerFunction);
 
@@ -790,14 +827,23 @@ myApp.controller("TableCtrl", function(
     $scope.isCalled = data.data.isCalled;
     $scope.isChecked = data.data.isChecked;
     $scope.isRaised = data.data.isRaised;
-    if ($scope.updateSocketVar == 0) {
-      reArragePlayers(data.data.players);
-    }
+
     $scope.activePlayer = _.filter($scope.players, function(player) {
       if (player && player.user._id == $scope._id) {
         return true;
       }
     });
+    if (!_.isEmpty($scope.activePlayer)) {
+      if ($scope.updateSocketVar == 0) {
+        console.log("seat selection", $scope.activePlayer);
+        reArragePlayers(data.data.players);
+      }
+    } else {
+      console.log("seat");
+
+      $scope.players = data.data.players;
+    }
+
     if (!$scope.sitHere) {
       if ($scope.activePlayer[0]) {
         $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
@@ -830,15 +876,21 @@ myApp.controller("TableCtrl", function(
     $scope.callAmount = data.data.callAmount;
     $scope.bigBlindAmt = "";
     $scope.smallBlindAmt = "";
-    if ($scope.updateSocketVar == 0) {
-      reArragePlayers(data.data.players);
-    }
+
     $scope.activePlayer = _.filter($scope.players, function(player) {
       if (player && player.user._id == $scope._id) {
         return true;
       }
     });
-
+    if (!_.isEmpty($scope.activePlayer)) {
+      if ($scope.updateSocketVar == 0) {
+        reArragePlayers(data.data.players);
+      }
+      console.log("reArragePlayers");
+    } else {
+      console.log("reArrag");
+      $scope.players = data.data.data.players;
+    }
     $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function(
       player
     ) {
@@ -883,7 +935,19 @@ myApp.controller("TableCtrl", function(
         $scope.ShowLoader = false;
         $scope.closeGameModal();
         $scope.closeRemovePlayerModal();
+
         $state.go("lobby");
+      }
+    });
+  };
+  $scope.removePlayersAndStay = function() {
+    $scope.ShowLoader = true;
+    Service.removePlayer($scope.tableId, $scope.activePlayerNo, function(data) {
+      if (data) {
+        $scope.ShowLoader = false;
+        $state.reload();
+        $scope.closeGameModal();
+        $scope.closeRemovePlayerModal();
       }
     });
   };
@@ -911,26 +975,38 @@ myApp.controller("TableCtrl", function(
         $scope.tableYoutube2 +
         "?enablejsapi=1&showinfo=0&origin=http%3A%2F%2Flocalhost%3A8100&widgetid=1&autoplay=1&cc_load_policy=1&controls=0&disablekb=1&modestbranding=1";
     }
-    if ($scope.updateSocketVar == 0) {
-      reArragePlayers(data.data.players);
-    }
+
     $scope.activePlayer = _.filter($scope.players, function(player) {
       if (player && player.user._id == $scope._id) {
         return true;
       }
     });
+
+    if (!_.isEmpty($scope.activePlayer)) {
+      if ($scope.updateSocketVar == 0) {
+        reArragePlayers(data.data.players);
+      }
+    } else {
+      $scope.players = data.data.players;
+    }
     if (!$scope.sitHere) {
       if (
         $scope.activePlayer[0].buyInAmt - $scope.activePlayer[0].totalAmount <
         $scope.table.bigBlind
       ) {
-        var autoBuy;
-        autoBuy = true;
-        $scope.autoBuygame(autoBuy);
-        if ($scope.activePlayer[0].buyInAmt < 0) {
-          $scope.removePlayers();
+        console.log("EnterRRRRRRRRRR INTO TAKE", $scope.table);
+        if ($scope.table.pokerType == "Virtual") {
+          $scope.removePlayersAndStay();
           $scope.closeGameModal();
-          $state.go("lobby");
+        } else {
+          var autoBuy;
+          autoBuy = true;
+          $scope.autoBuygame(autoBuy);
+          if ($scope.activePlayer[0].buyInAmt < 0) {
+            $scope.removePlayers();
+            $scope.closeGameModal();
+            $state.go("lobby");
+          }
         }
       }
     }

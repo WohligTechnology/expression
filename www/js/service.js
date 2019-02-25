@@ -20,6 +20,9 @@ myApp.factory("Service", function(
   });
 
   var obj = {
+    getUserId: function() {
+      return $.jStorage.get("_id");
+    },
     all: function() {
       return chats;
     },
