@@ -24,6 +24,7 @@
         class="button back-to-lob mar-right"
         type="submit"
         ng-click="makeTipFunction(100);"
+        ng-if="table.pokerType == 'Live'"
         ng-disabled="sitHere || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 100)"
       >
         Tip Dealer
