@@ -135,6 +135,19 @@ myApp.controller("TableCtrl", function(
   //   }
 
   function reArragePlayers(playersData) {
+    var players = _.times(9, function(n) {
+      var playerReturn = _.find(playersData, function(singlePlayer) {
+        if (singlePlayer) {
+          var checkNo = singlePlayer.playerNo;
+          if (n + 1 == checkNo) {
+            return singlePlayer;
+          } else {
+            return null;
+          }
+        }
+      });
+      return _.cloneDeep(playerReturn);
+    });
     $scope.activePlayer = _.filter(playersData, function(player) {
       if (player && player.user._id == $scope._id) {
         return true;
@@ -142,20 +155,6 @@ myApp.controller("TableCtrl", function(
     });
     if (!_.isEmpty($scope.activePlayer)) {
       var diff = myTableNo - 1;
-      // console.log("playersData rearrange", playersData);
-      var players = _.times(9, function(n) {
-        var playerReturn = _.find(playersData, function(singlePlayer) {
-          if (singlePlayer) {
-            var checkNo = singlePlayer.playerNo;
-            if (n + 1 == checkNo) {
-              return singlePlayer;
-            } else {
-              return null;
-            }
-          }
-        });
-        return _.cloneDeep(playerReturn);
-      });
       $scope.players = players;
       console.log("rearr", $scope.players);
       var playerIndex = _.findIndex($scope.players, function(player) {
@@ -174,7 +173,7 @@ myApp.controller("TableCtrl", function(
         $scope.players = _.concat(secondArr, firstArr);
       }
     } else {
-      $scope.players = playersData;
+      $scope.players = players;
       console.log("reArrag", $scope.players);
     }
   }
@@ -242,13 +241,10 @@ myApp.controller("TableCtrl", function(
             return true;
           }
         });
-        if (!_.isEmpty($scope.activePlayer)) {
-          reArragePlayers(data.data.data.players);
-          console.log("reArragePlayers");
-        } else {
-          console.log("reArrag");
-          $scope.players = data.data.data.players;
-        }
+        reArragePlayers(data.data.data.players);
+        // if (!_.isEmpty($scope.activePlayer)) {
+        //   console.log("reArragePlayers");
+        // }
         $scope.isAllInPlayers = _.filter($scope.players, function(player) {
           if (
             (player && player.isAllIn) ||
