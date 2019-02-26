@@ -135,37 +135,47 @@ myApp.controller("TableCtrl", function(
   //   }
 
   function reArragePlayers(playersData) {
-    var diff = myTableNo - 1;
-    // console.log("playersData rearrange", playersData);
-    var players = _.times(9, function(n) {
-      var playerReturn = _.find(playersData, function(singlePlayer) {
-        if (singlePlayer) {
-          var checkNo = singlePlayer.playerNo;
-          if (n + 1 == checkNo) {
-            return singlePlayer;
-          } else {
-            return null;
+    $scope.activePlayer = _.filter(playersData, function(player) {
+      if (player && player.user._id == $scope._id) {
+        return true;
+      }
+    });
+    if (!_.isEmpty($scope.activePlayer)) {
+      var diff = myTableNo - 1;
+      // console.log("playersData rearrange", playersData);
+      var players = _.times(9, function(n) {
+        var playerReturn = _.find(playersData, function(singlePlayer) {
+          if (singlePlayer) {
+            var checkNo = singlePlayer.playerNo;
+            if (n + 1 == checkNo) {
+              return singlePlayer;
+            } else {
+              return null;
+            }
           }
-        }
+        });
+        return _.cloneDeep(playerReturn);
       });
-      return _.cloneDeep(playerReturn);
-    });
-    $scope.players = players;
-    console.log("rearr", $scope.players);
-    var playerIndex = _.findIndex($scope.players, function(player) {
-      return player && player.user && player.user._id == Service.getUserId();
-    });
-    console.log(playerIndex, "PlayerNo");
-    if (playerIndex < 4) {
-      var diff = 5 + playerIndex;
-      var firstArr = _.slice($scope.players, 0, diff - 1);
-      var secondArr = _.slice($scope.players, diff, 9);
-      $scope.players = _.concat(secondArr, firstArr);
-    } else if (playerIndex > 4) {
-      var diff = playerIndex - 4;
-      var firstArr = _.slice($scope.players, 0, diff - 1);
-      var secondArr = _.slice($scope.players, diff, 9);
-      $scope.players = _.concat(secondArr, firstArr);
+      $scope.players = players;
+      console.log("rearr", $scope.players);
+      var playerIndex = _.findIndex($scope.players, function(player) {
+        return player && player.user && player.user._id == Service.getUserId();
+      });
+      console.log(playerIndex, "PlayerNo");
+      if (playerIndex < 4) {
+        var diff = 5 + playerIndex;
+        var firstArr = _.slice($scope.players, 0, diff - 1);
+        var secondArr = _.slice($scope.players, diff, 9);
+        $scope.players = _.concat(secondArr, firstArr);
+      } else if (playerIndex > 4) {
+        var diff = playerIndex - 4;
+        var firstArr = _.slice($scope.players, 0, diff - 1);
+        var secondArr = _.slice($scope.players, diff, 9);
+        $scope.players = _.concat(secondArr, firstArr);
+      }
+    } else {
+      $scope.players = playersData;
+      console.log("reArrag", $scope.players);
     }
   }
 
@@ -185,7 +195,6 @@ myApp.controller("TableCtrl", function(
     if (!_.isEmpty($scope.tableId)) {
       Service.getOneTableDetails($scope.tableId, function(data) {
         // check whether dealer is selected or not
-        console.log("update socket", data);
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
         $scope.gameType = $scope.table.gameType;
