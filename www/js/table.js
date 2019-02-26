@@ -135,8 +135,6 @@ myApp.controller("TableCtrl", function(
   //   }
 
   function reArragePlayers(playersData) {
-    var diff = myTableNo - 1;
-    // console.log("playersData rearrange", playersData);
     var players = _.times(9, function(n) {
       var playerReturn = _.find(playersData, function(singlePlayer) {
         if (singlePlayer) {
@@ -150,22 +148,33 @@ myApp.controller("TableCtrl", function(
       });
       return _.cloneDeep(playerReturn);
     });
-    $scope.players = players;
-    console.log("rearr", $scope.players);
-    var playerIndex = _.findIndex($scope.players, function(player) {
-      return player && player.user && player.user._id == Service.getUserId();
+    $scope.activePlayer = _.filter(playersData, function(player) {
+      if (player && player.user._id == $scope._id) {
+        return true;
+      }
     });
-    console.log(playerIndex, "PlayerNo");
-    if (playerIndex < 4) {
-      var diff = 5 + playerIndex;
-      var firstArr = _.slice($scope.players, 0, diff - 1);
-      var secondArr = _.slice($scope.players, diff, 9);
-      $scope.players = _.concat(secondArr, firstArr);
-    } else if (playerIndex > 4) {
-      var diff = playerIndex - 4;
-      var firstArr = _.slice($scope.players, 0, diff - 1);
-      var secondArr = _.slice($scope.players, diff, 9);
-      $scope.players = _.concat(secondArr, firstArr);
+    if (!_.isEmpty($scope.activePlayer)) {
+      var diff = myTableNo - 1;
+      $scope.players = players;
+      console.log("rearr", $scope.players);
+      var playerIndex = _.findIndex($scope.players, function(player) {
+        return player && player.user && player.user._id == Service.getUserId();
+      });
+      console.log(playerIndex, "PlayerNo");
+      if (playerIndex < 4) {
+        var diff = 5 + playerIndex;
+        var firstArr = _.slice($scope.players, 0, diff - 1);
+        var secondArr = _.slice($scope.players, diff, 9);
+        $scope.players = _.concat(secondArr, firstArr);
+      } else if (playerIndex > 4) {
+        var diff = playerIndex - 4;
+        var firstArr = _.slice($scope.players, 0, diff - 1);
+        var secondArr = _.slice($scope.players, diff, 9);
+        $scope.players = _.concat(secondArr, firstArr);
+      }
+    } else {
+      $scope.players = players;
+      console.log("reArrag", $scope.players);
     }
   }
 
@@ -185,7 +194,6 @@ myApp.controller("TableCtrl", function(
     if (!_.isEmpty($scope.tableId)) {
       Service.getOneTableDetails($scope.tableId, function(data) {
         // check whether dealer is selected or not
-        console.log("update socket", data);
         $scope.communityCards = data.data.data.communityCards;
         $scope.table = data.data.data.table;
         $scope.gameType = $scope.table.gameType;
@@ -233,13 +241,10 @@ myApp.controller("TableCtrl", function(
             return true;
           }
         });
-        if (!_.isEmpty($scope.activePlayer)) {
-          reArragePlayers(data.data.data.players);
-          console.log("reArragePlayers");
-        } else {
-          console.log("reArrag");
-          $scope.players = data.data.data.players;
-        }
+        reArragePlayers(data.data.data.players);
+        // if (!_.isEmpty($scope.activePlayer)) {
+        //   console.log("reArragePlayers");
+        // }
         $scope.isAllInPlayers = _.filter($scope.players, function(player) {
           if (
             (player && player.isAllIn) ||
