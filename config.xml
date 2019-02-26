@@ -18,7 +18,7 @@
     <preference name="FadeSplashScreenDuration" value="300" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="0" />
+    <preference name="SplashScreenDelay" value="3000" />
     <preference name="AllowInlineMediaPlayback" value="true" />
     <feature name="Insomnia">
         <param name="ios-package" value="Insomnia" />
@@ -89,7 +89,7 @@
     <allow-navigation href="https://*/*" />
     <allow-navigation href="data:*" />
     <allow-navigation href="*://*.youtube.com/*" />
-    <icon src="resources/ios/icon/icon-small@3x.png" />
+    <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <engine name="android" spec="^7.1.4" />
     <engine name="ios" spec="^4.5.5" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
