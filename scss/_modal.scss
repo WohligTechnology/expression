@@ -742,7 +742,7 @@ span.valid {
 }
 
 .shadow-yellow {
-  box-shadow: 0px 0px 3px 2px #d38a31;
+  box-shadow: 0px 0px 3px 2px $yellow-border-shadow;
 }
 
 /*-----------faq---------*/
@@ -1191,5 +1191,57 @@ span.valid {
 
   input {
     font-size: 12px !important;
+  }
+}
+
+/**tableinfo popover**/
+.table-info-popover {
+  transition: none;
+  width: 42.9vh;
+  // background-color: $app-background !important;
+  background: url("../img/table/table-chat-bg.png");
+  background-size: cover;
+  background-position: center center;
+  height: 165px;
+  font-size: 11px;
+  margin-top: 12px !important;
+  box-shadow: 0px 0px 3px 2px $yellow-border-shadow !important;
+
+  ion-content {
+    padding: 2% 3%;
+
+    table {
+      width: 100%;
+      margin: 1% -1%;
+
+      td {
+        padding: 1% 2%;
+      }
+    }
+  }
+
+  .popover-arrow {
+    position: absolute;
+    display: block;
+    top: -19px;
+    width: 30px;
+    height: 19px;
+    overflow: hidden;
+  }
+  .popover-arrow::after {
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    content: "";
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    // background-color: $app-background !important;
+    background: url("../img/table/table-chat-bg.png");
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0px 0px 3px 2px $yellow-border-shadow !important;
   }
 }

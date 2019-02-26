@@ -13,7 +13,8 @@ myApp.controller("TableCtrl", function(
   Service,
   $stateParams,
   $timeout,
-  $interval
+  $interval,
+  $ionicPopover
 ) {
   $scope.tableId = $stateParams.id;
 
@@ -1073,4 +1074,33 @@ myApp.controller("TableCtrl", function(
     $scope.openChatModal.hide();
     $scope.chatActive = false;
   };
+
+  /**table info */
+
+  $ionicPopover
+    .fromTemplateUrl("templates/modal/table_info.html", {
+      scope: $scope
+    })
+    .then(function(popover) {
+      $scope.popover = popover;
+    });
+
+  $scope.openTableInfoModal = function($event) {
+    $scope.popover.show($event);
+  };
+  $scope.closeTableInfoModal = function() {
+    $scope.popover.hide();
+  };
+  //Cleanup the popover when we're done with it!
+  $scope.$on("$destroy", function() {
+    $scope.popover.remove();
+  });
+  // Execute action on hidden popover
+  $scope.$on("popover.hidden", function() {
+    // Execute action
+  });
+  // Execute action on remove popover
+  $scope.$on("popover.removed", function() {
+    // Execute action
+  });
 });
