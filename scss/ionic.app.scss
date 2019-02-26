@@ -694,27 +694,40 @@ body {
 //for 19.5:9 aspect ratio
 
 // @media only screen and (min-device-width: 710px) and (max-device-width: 812px)
-@media only screen and (min-device-width: 360px) and (max-device-width: 735px) and (-webkit-min-device-pixel-ratio: 3) {
+// (min-device-width: 360px) and (max-device-width: 735px) and
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
   .table .table_field {
     bottom: calc(0px + 0.3em);
-    width: 97.5%;
+    width: 100%;
   }
 
   .table .table_field .video_frame {
-    top: 0%;
+    top: 1%;
   }
 }
 
-// //iphone-X
-// @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
-//   .table {
-//     .table_field {
-//       width: 89% !important;
-//       bottom: calc(0px + 0.8em) !important;
+//poco
+@media only screen and (device-width: 784px) and (device-height: 393px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .table .table_field {
+    bottom: calc(0px + 0.3em);
+    width: 100%;
+  }
 
-//       .video_frame {
-//         top: 0% !important;
-//       }
-//     }
-//   }
-// }
+  .table .table_field .video_frame {
+    top: 1%;
+  }
+}
+
+//iphone-X
+@media only screen and (device-width: 812px) and (device-height: 375px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .table {
+    .table_field {
+      width: 89% !important;
+      bottom: calc(0px + 0.8em) !important;
+
+      .video_frame {
+        top: 0% !important;
+      }
+    }
+  }
+}
