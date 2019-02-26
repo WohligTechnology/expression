@@ -1052,7 +1052,7 @@ myApp.controller("TableCtrl", function(
   /**To open chat box */
 
   $ionicModal
-    .fromTemplateUrl("templates/modal/message.html", {
+    .fromTemplateUrl("templates/modal/chat-box.html", {
       scope: $scope,
       animation: "slide-in-right"
     })

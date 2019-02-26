@@ -1,26 +1,20 @@
-<ion-modal-view class="custom-model statement-model room_summary small-model side-show chatBoxModal">
-
+<ion-modal-view
+  class="custom-model statement-model room_summary small-model side-show shadow-yellow"
+>
   <ion-content>
-    <button class="button button-icon ion-close-round chat-close right" ng-click="closeChatBox()"></button>
     <div class="heading">
-      {{message.heading}}
+      {{ message.heading }}
     </div>
-    <div class="cont" ng-if="!message.error" ng-bind-html="message.content">
-    </div>
+    <div
+      class="cont"
+      ng-if="!message.error"
+      ng-bind-html="message.content"
+    ></div>
     <div class="cont" ng-if="message.error">
       <div ng-bind-html="message.content"></div>
     </div>
-    <div class="side_show_btn" ng-if="chatActive">
-      <div class="input-select">
-        <input type="text" class="padd-lr" placeholder="Type Message" ng-model="chat.msg">
-      </div>
-      <button class="button button-icon ion-paper-airplane msg-btn"></button>
+    <div class="side_show_btn">
+      <button class="custom_button" ng-click="closeMessageModal()">Ok</button>
     </div>
-
-    <div class="chat-footer">
-
-    </div>
-
-
   </ion-content>
 </ion-modal-view>
