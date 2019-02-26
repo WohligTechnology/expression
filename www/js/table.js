@@ -232,6 +232,7 @@ myApp.controller("TableCtrl", function(
           $scope.potAmount = data.data.data.pot[0].totalAmount;
         }
 
+        reArragePlayers(data.data.data.players);
         // console.log($scope.players);
         $scope.iAmThere($scope.players);
         console.log("ENTERRRR", $scope.players);
@@ -241,7 +242,6 @@ myApp.controller("TableCtrl", function(
             return true;
           }
         });
-        reArragePlayers(data.data.data.players);
         // if (!_.isEmpty($scope.activePlayer)) {
         //   console.log("reArragePlayers");
         // }
@@ -389,13 +389,16 @@ myApp.controller("TableCtrl", function(
         return true;
       }
     });
-    if (!_.isEmpty($scope.activePlayer)) {
-      if ($scope.updateSocketVar == 0) {
-        reArragePlayers(data.data.players);
-      }
-    } else {
-      $scope.players = data.data.players;
+    if ($scope.updateSocketVar == 0) {
+      reArragePlayers(data.data.players);
     }
+    // if (!_.isEmpty($scope.activePlayer)) {
+    //   if ($scope.updateSocketVar == 0) {
+    //     reArragePlayers(data.data.players);
+    //   }
+    // } else {
+    //   $scope.players = data.data.players;
+    // }
 
     if ($scope.activePlayer[0].playerNo) {
       $scope.activePlayerNo = $scope.activePlayer[0].playerNo;
@@ -774,7 +777,7 @@ myApp.controller("TableCtrl", function(
   function showWinnerFunction(data) {
     $scope.chaalAmt = {};
     console.log("show winner", data);
-    // reArragePlayers(data.data.players);
+    reArragePlayers(data.data.players);
     $scope.winnerData = data.data.pots;
     _.each($scope.players, function(player) {
       if (player) {
@@ -809,10 +812,10 @@ myApp.controller("TableCtrl", function(
         return true;
       }
     });
-    if (!_.isEmpty($scope.activePlayer)) {
-      reArragePlayers($scope.players);
-      console.log("reArragePlayers");
-    }
+    // if (!_.isEmpty($scope.activePlayer)) {
+    //   reArragePlayers($scope.players);
+    //   console.log("reArragePlayers");
+    // }
   }
   io.socket.on("showWinner", showWinnerFunction);
 
@@ -835,16 +838,20 @@ myApp.controller("TableCtrl", function(
         return true;
       }
     });
-    if (!_.isEmpty($scope.activePlayer)) {
-      if ($scope.updateSocketVar == 0) {
-        console.log("seat selection", $scope.activePlayer);
-        reArragePlayers(data.data.players);
-      }
-    } else {
-      console.log("seat");
-
-      $scope.players = data.data.players;
+    if ($scope.updateSocketVar == 0) {
+      console.log("seat selection", $scope.activePlayer);
+      reArragePlayers(data.data.players);
     }
+    // if (!_.isEmpty($scope.activePlayer)) {
+    //   if ($scope.updateSocketVar == 0) {
+    //     console.log("seat selection", $scope.activePlayer);
+    //     reArragePlayers(data.data.players);
+    //   }
+    // } else {
+    //   console.log("seat");
+
+    //   $scope.players = data.data.players;
+    // }
 
     if (!$scope.sitHere) {
       if ($scope.activePlayer[0]) {
@@ -884,15 +891,18 @@ myApp.controller("TableCtrl", function(
         return true;
       }
     });
-    if (!_.isEmpty($scope.activePlayer)) {
-      if ($scope.updateSocketVar == 0) {
-        reArragePlayers(data.data.players);
-      }
-      console.log("reArragePlayers");
-    } else {
-      console.log("reArrag");
-      $scope.players = data.data.players;
+    if ($scope.updateSocketVar == 0) {
+      reArragePlayers(data.data.players);
     }
+    // if (!_.isEmpty($scope.activePlayer)) {
+    //   if ($scope.updateSocketVar == 0) {
+    //     reArragePlayers(data.data.players);
+    //   }
+    //   console.log("reArragePlayers");
+    // } else {
+    //   console.log("reArrag");
+    //   $scope.players = data.data.players;
+    // }
     $scope.remainingActiveTableLeftPlayers = _.filter($scope.players, function(
       player
     ) {
@@ -983,13 +993,8 @@ myApp.controller("TableCtrl", function(
         return true;
       }
     });
-
-    if (!_.isEmpty($scope.activePlayer)) {
-      if ($scope.updateSocketVar == 0) {
-        reArragePlayers($scope.playersChunk);
-      }
-    } else {
-      $scope.players = $scope.playersChunk;
+    if ($scope.updateSocketVar == 0) {
+      reArragePlayers(data.data.players);
     }
     if (!$scope.sitHere) {
       if (
