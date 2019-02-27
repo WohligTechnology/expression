@@ -1,12 +1,12 @@
-<ion-modal-view
-  class="custom-model statement-model room_summary small-model side-show chatBoxModal"
->
-  <ion-content>
+<ion-modal-view class="custom-model chatBoxModal">
+  <ion-header-bar class="chat-header">
     <button
-      class="button button-icon ion-close-round chat-close right"
+      class="button button-icon ion-close-round chat-close"
       ng-click="closeChatBox()"
-    ></button>
-    <div class="heading">
+    ></button
+  ></ion-header-bar>
+  <ion-content class="chat-box">
+    <!-- <div class="heading">
       {{ message.heading }}
     </div>
     <div
@@ -16,7 +16,24 @@
     ></div>
     <div class="cont" ng-if="message.error">
       <div ng-bind-html="message.content"></div>
+    </div> -->
+    <div class="chat-message">
+      <div
+        class=""
+        ng-class="{'message-sent': chatSender, 'message-received': chatReceiver}"
+      >
+        <span class="sender-name">Varun</span>
+        <span class="message-text">Congratulations!</span>
+        <span class="message-time">6 mins before</span>
+      </div>
+      <!-- <div class="message-received ">
+        <span class="sender-name">Karan</span>
+        <span class="message-text">Congratulations!</span>
+        <span class="message-time">6 mins before</span>
+      </div> -->
     </div>
+  </ion-content>
+  <ion-footer-bar class="chat-footer">
     <div class="side_show_btn" ng-if="chatActive">
       <div class="input-select">
         <input
@@ -28,7 +45,5 @@
       </div>
       <button class="button button-icon ion-paper-airplane msg-btn"></button>
     </div>
-
-    <div class="chat-footer"></div>
-  </ion-content>
+  </ion-footer-bar>
 </ion-modal-view>
