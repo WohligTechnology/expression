@@ -1,8 +1,7 @@
 <div class="main-player">
-  <!-- 'posPlay5': player.user._id == activePlayer.user._id -->
   <div
     class="plyr player{{ pos }}"
-    ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere || player.tableLeft}"
+    ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere || player.tableLeft, 'posPlay5': player.user._id == activePlayer.user._id && !sitHere}"
   >
     <!-- before Player Sitting -->
     <div class="rel width-6vw" ng-if="sitHere && !player">
@@ -87,7 +86,10 @@
         <!-- <img src="img/table/winner_crown.png " class="crown "> -->
         <img src="img/table/winner_belt.png " class="belt " />
       </div>
-      <div class="tcard tcard{{ pos }}" ng-if="!player.isFold">
+      <div
+        class="tcard tcard{{ pos }}"
+        ng-if="!player.isFold && (player.user._id != activePlayer.user._id)"
+      >
         <card
           card="DONE"
           ng-style="style"
@@ -153,9 +155,44 @@ player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !p
         >
         </card>
       </div>
-      <div class="you" ng-if="player.user._id == activePlayer.user._id">
-        You
+
+      <div
+        class="tcard winnercard tcard{{ pos }} "
+        ng-if="(!player.isFold && (player.user._id == activePlayer.user._id))"
+      >
+        <card
+          card="{{ player.cards[0] }}"
+          class="none card-rotate-right"
+          ng-style="style"
+          ng-if="(player.cards.length==1 ||
+      player.cards.length==2 || player.cards.length==3|| player.cards.length==4)"
+        >
+        </card>
+        <card
+          card="{{ player.cards[1] }}"
+          class="none card-rotate"
+          ng-style="style"
+          ng-if="(player.cards.length==2 || player.cards.length==3|| player.cards.length==4)"
+        >
+        </card>
+        <card
+          card="{{ player.cards[2] }}"
+          class="none card-rotate card-three"
+          ng-style="style"
+          ng-if="( player.cards.length==3|| player.cards.length==4)"
+        >
+        </card>
+        <card
+          card="{{ player.cards[3] }}"
+          class="none card-rotate card-four"
+          ng-style="style"
+          ng-if="(player.cards.length==4)"
+        >
+        </card>
       </div>
+      <!-- <div class="you" ng-if="player.user._id == activePlayer.user._id">
+        You
+      </div> -->
       <div class="player_pic">
         <div
           class="pie_loader"
