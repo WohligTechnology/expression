@@ -30,7 +30,7 @@
         Tip Dealer
       </button>
 
-      <button class="button back-to-lob" ng-click="">
+      <button class="button back-to-lob" ng-click="openTableInfoModal($event)">
         Info
       </button>
     </div>
@@ -284,13 +284,13 @@
         </div>
       </div>
     </div>
-    <div
+    <!-- <card card="2c"></card> <card card="2c"></card>
+        <card card="2c"></card> <card card="2c"></card> -->
+    <!-- <div
       class="main_card"
       ng-class="{'four-card':activePlayer[0].cards.length>2}"
     >
       <div class="cards">
-        <!-- <card card="2c"></card> <card card="2c"></card> <card card="2c"></card>
-        <card card="2c"></card> -->
         <card
           card="{{ activePlayer[0].cards[0] }}"
           ng-if="!activePlayer[0].isFold && activePlayer[0].cards[0]"
@@ -308,13 +308,13 @@
           ng-if="!activePlayer[0].isFold && activePlayer[0].cards[3]"
         ></card>
       </div>
-    </div>
+    </div> -->
     <div class="player_turn_button" ng-if="activePlayer[0]">
       <!--For logged In user Player -->
-      <!--<div class=" name-amount ">
-        <p class="name ">Nayan Mhatre</p>
-        <p class="amount ">₹1,12,000</p>
-      </div>-->
+      <div class=" name-amount ">
+        <p class="name ">{{ activePlayer[0].user.name }}</p>
+        <p class="amount ">₹ {{ activePlayer[0].buyInAmt }}</p>
+      </div>
       <!-- Player name End -->
       <button
         class="call"

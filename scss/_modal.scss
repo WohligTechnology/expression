@@ -742,7 +742,7 @@ span.valid {
 }
 
 .shadow-yellow {
-  box-shadow: 0px 0px 3px 2px #d38a31;
+  box-shadow: 0px 0px 3px 2px $yellow-border-shadow;
 }
 
 /*-----------faq---------*/
@@ -1138,38 +1138,118 @@ span.valid {
   background: url("../img/table/table-chat-bg.png");
   background-size: cover;
   background-position: center center;
-  height: 100% !important;
+  height: 101vh;
   top: -6px;
   left: 0;
-  .chat-close {
-    padding: 0;
-    margin: 0;
-    border: 0px;
-    font-size: 18px;
-    color: #e93e66;
-    position: relative;
-    z-index: 3;
+  width: 55%;
+
+  .chat-header {
+    background: transparent !important;
+
+    .chat-close {
+      padding: 0;
+      margin: 0 0 0 auto;
+      border: 0px;
+      font-size: 10px;
+      color: #e93e66;
+      position: relative;
+      z-index: 3;
+    }
+
+    .chat-close::before {
+      font-size: 18px !important;
+    }
   }
-  .side_show_btn {
-    display: -webkit-inline-box;
-    margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    bottom: -5px;
-    width: 100%;
-    .input-select {
-      width: 90%;
-      input {
-        font-size: 13px !important;
-        width: 100%;
-        margin: 0;
-        background-color: rgba(0, 0, 0, 0.6);
+
+  .chat-footer {
+    background: transparent !important;
+
+    .side_show_btn {
+      display: -webkit-inline-box;
+      margin: 10px auto;
+      text-align: center;
+      position: absolute;
+      bottom: -5px;
+      width: 100%;
+      .input-select {
+        width: 85%;
+        margin-right: 5px;
+        input {
+          font-size: 13px !important;
+          width: 100%;
+          margin: 0;
+          background-color: rgba(0, 0, 0, 0.6);
+        }
+      }
+      .msg-btn {
+        // left: -7px;
+        color: white;
+        font-weight: bold;
+        background: $pink-bg;
+      }
+
+      .msg-btn::before {
+        font-size: 18px;
       }
     }
-    .msg-btn {
-      left: -7px;
-      color: white;
-      font-weight: bold;
+  }
+  .chat-box {
+    top: 44px !important;
+    .chat-message {
+      .message-sent {
+        display: grid;
+        width: 47%;
+        margin-left: auto;
+        background: $chat-message-bg;
+        border-radius: 6px;
+        padding: 5px 8px 0 8px;
+        margin: 7px 0 7px auto;
+        line-height: 17px;
+        text-align: right;
+
+        .sender-name {
+          font-size: 10px;
+          // color: greenyellow;
+          color: $button-green;
+        }
+
+        .message-text {
+          padding-right: 5px;
+        }
+
+        .message-time {
+          text-align: left;
+          font-size: 9px;
+          color: lightgrey;
+        }
+      }
+
+      .message-received {
+        display: grid;
+        width: 47%;
+        margin-right: auto;
+        background: $chat-message-bg;
+        border-radius: 6px;
+        padding: 5px 8px 0px 8px;
+        margin: 7px auto 7px 0;
+        line-height: 17px;
+        text-align: left;
+
+        .sender-name {
+          font-size: 10px;
+          color: $yellow-border-shadow;
+        }
+
+        .message-text {
+          padding-left: 5px;
+        }
+
+        .message-time {
+          text-align: right;
+          font-size: 9px;
+          color: lightgrey;
+        }
+      }
     }
   }
 }
@@ -1193,7 +1273,57 @@ span.valid {
     font-size: 12px !important;
   }
 }
-
 .private-code {
   color: $pink-bg;
+}
+/**tableinfo popover**/
+.table-info-popover {
+  transition: none;
+  width: 43.1vh;
+  // background-color: $app-background !important;
+  background: url("../img/table/table-chat-bg.png");
+  background-size: cover;
+  background-position: center center;
+  height: 165px;
+  font-size: 11px;
+  margin-top: 12px !important;
+  box-shadow: 0px 0px 3px 2px $yellow-border-shadow !important;
+
+  ion-content {
+    padding: 2% 3%;
+
+    table {
+      width: 100%;
+      margin: 1% -1%;
+
+      td {
+        padding: 1% 2%;
+      }
+    }
+  }
+
+  .popover-arrow {
+    position: absolute;
+    display: block;
+    top: -19px;
+    width: 30px;
+    height: 19px;
+    overflow: hidden;
+  }
+  .popover-arrow::after {
+    position: absolute;
+    top: 12px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 3px;
+    content: "";
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    // background-color: $app-background !important;
+    background: url("../img/table/table-chat-bg.png");
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 0px 0px 3px 2px $yellow-border-shadow !important;
+  }
 }

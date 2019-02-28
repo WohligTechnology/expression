@@ -1,42 +1,70 @@
-<ion-modal-view class="custom-model statement-model table_info_modal small-model">
-
-  <ion-content>
+<ion-popover-view class="table-info-popover">
+  <ion-content class="text-center">
     <!-- <div class="close" ng-click="closeTableInfoModal()">
         <img src="img/close.png">
       </div> -->
-    <div class="heading">Table Info</div>
+    <!-- <div class="heading">Table Info</div> -->
     <table>
       <tr>
-        <td>
-          Boot Amount
+        <td class="text-left">
+          Table Name
         </td>
-        <td>
-          {{blindAmt}}
+        <td class="text-right">
+          {{ table.name }}
         </td>
       </tr>
       <tr>
-        <td>
-          Chal Amount
+        <td class="text-left">
+          Table Type
         </td>
-        <!--<td>
-           {{blindAmt}}-{{chalAmt}}/{{2*blindAmt}}-{{2*chalAmt}}
-          </td>-->
-
-        <td>
-          {{chalAmt}}
+        <td class="text-right">
+          {{ table.type }}
         </td>
       </tr>
-      <!-- <tr>
-        <td>
-          Max Blind
+      <tr>
+        <td class="text-left">
+          Type
         </td>
-        <td>
-          {{maxBlind}}
+        <td class="text-right">
+          {{ table.gameType }}
         </td>
-      </tr> -->
+      </tr>
+      <tr>
+        <td class="text-left">
+          Small Blind
+        </td>
+        <td class="text-right">
+          {{ table.smallBlind }}
+        </td>
+      </tr>
+      <tr>
+        <td class="text-left">
+          Big Blind
+        </td>
+        <td class="text-right">
+          {{ table.smallBlind }}
+        </td>
+      </tr>
+      <tr>
+        <td class="text-left">
+          Min Buy-in
+        </td>
+        <td class="text-right">
+          {{ table.minimumBuyin }}
+        </td>
+      </tr>
+      <tr>
+        <td class="text-left">
+          Max Buy-in
+        </td>
+        <td class="text-right">
+          {{ table.maximumBuyin }}
+        </td>
+      </tr>
     </table>
-    <div class="ok">
-      <button ng-click=closeTableInfoModal()>OK</button>
-    </div>
+
+    <!-- <div class="ok">
+      <button ng-click="closeTableInfoModal()">OK</button>
+    </div> -->
   </ion-content>
-</ion-modal-view>
+</ion-popover-view>

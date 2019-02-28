@@ -196,10 +196,12 @@
           font-size: 1em; // border-radius: 10%; // border: 1px solid rgba(142, 141, 141, 0.91);
           // top: 0;
           // left: 0;
-          top: -60px;
-          left: 13px; // width: 100%;
-          // margin: 0 auto;
-          // text-align: center;
+          // top: -60px;
+          // left: 13px;
+          //testS
+          top: -48px;
+          left: 4px;
+          //testE
           transform: translate(-4%, -100%);
           &.call {
             background: #2e4fb4;
@@ -239,7 +241,7 @@
         &.player4,
         &.player5,
         &.player6 {
-          bottom: 16%;
+          bottom: 18%;
         }
         &.player5 {
           left: 50%;
@@ -331,7 +333,12 @@
       // display: flex;
       padding: 5px 5px 3px 10px; // margin: 1%;
       width: 100%;
-      flex: 0.65;
+      // flex: 0.65;
+      //testS
+      flex: 0.6;
+      width: 65%;
+      margin-left: auto;
+      //testE
       // text-align: right;
       display: flex;
       background: rgba(0, 0, 0, 0.5); // border: 1px solid #7851a2;
@@ -352,13 +359,21 @@
       }
       .name-amount {
         p {
-          font-size: 15px;
+          font-size: 13px;
           margin: 0 0 3px;
           font-weight: 600;
+          //testS
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          //testE
         }
       }
       button {
-        min-width: 23%; // background: rgba(127, 127, 127, 0.471);
+        //testS
+        min-width: 20%;
+        //testE
+        // min-width: 23%; // background: rgba(127, 127, 127, 0.471);
         // margin-left: 8px;
         margin: auto;
         border-radius: 5px;
@@ -1805,13 +1820,27 @@ community {
     z-index: 0 !important;
   }
   .posPlay5 {
-    left: 44.5%;
+    left: 45.5%;
     bottom: 8%;
     .you-after-sit {
       width: 20vh !important;
       .player_pic {
-        width: 22vh;
-        height: 22vh;
+        width: 26vh;
+        height: 26vh;
+
+        .pie_loader {
+          position: absolute;
+          top: 2%;
+          left: 2%;
+          width: 26vh;
+          height: 26vh;
+          z-index: -1;
+
+          .wrapper {
+            width: 25vh;
+            height: 25vh;
+          }
+        }
       }
       .details {
         background: none;
@@ -1822,19 +1851,23 @@ community {
         }
         .turn_status {
           font-size: 1.2em;
-          top: -85px;
-          left: 25px;
+          // top: -85px;
+          // left: 25px;
+          //testS
+          top: -72px;
+          left: 19px;
+          //testE
         }
       }
       .tcard5 {
-        top: 30%;
+        top: 28%;
         left: 100%;
         .card-two {
           transform: translate(-6%, -4%) rotate(10deg);
         }
       }
       .none {
-        width: 15vh;
+        width: 23vh;
       }
       .you {
         top: 6%;
@@ -1848,6 +1881,13 @@ community {
         div {
           padding-top: 3%;
         }
+      }
+    }
+
+    .winner-pot-name {
+      top: -10%;
+      .raised-amount {
+        top: -11%;
       }
     }
   }

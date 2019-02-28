@@ -13,10 +13,19 @@ myApp.factory("Service", function(
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
+  var disconnectedValue = false;
   io.socket.on("connect", function(socket) {
-    socketId = io.socket._raw.id;
-    $.jStorage.set("socketId", io.socket._raw.id);
-    obj.connectSocket(function() {});
+    if (disconnectedValue) {
+      disconnectedValue = false;
+      $state.reload();
+    } else {
+      socketId = io.socket._raw.id;
+      $.jStorage.set("socketId", io.socket._raw.id);
+      obj.connectSocket(function() {});
+    }
+  });
+  io.socket.on("disconnect", function(socket) {
+    disconnectedValue = true;
   });
 
   var obj = {

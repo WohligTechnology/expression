@@ -34,6 +34,8 @@ $button-bg: #1f4749 !default;
 $profile-label: #5bfdff !default;
 $profile-bg: #0e6a6b !default;
 $purple-bg: #642aa2 !default;
+$yellow-border-shadow: #d38a31 !default;
+$chat-message-bg: #113e4f !default;
 $border-image: linear-gradient(
   to right,
   rgba(254, 255, 255, 0) 5%,
@@ -706,6 +708,18 @@ body {
   }
 }
 
+//iphone6/7/8 plus
+@media only screen and (device-width: 736px) and (device-height: 414px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+  .table .table_field {
+    bottom: calc(0px + 1.4em);
+    width: 100%;
+
+    .video_frame {
+      top: -5%;
+    }
+  }
+}
+
 //poco
 @media only screen and (device-width: 784px) and (device-height: 393px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   .table .table_field {
@@ -715,6 +729,11 @@ body {
 
   .table .table_field .video_frame {
     top: 1%;
+  }
+
+  .posPlay5 {
+    left: 45.5%;
+    bottom: 8% !important;
   }
 }
 
@@ -729,5 +748,10 @@ body {
         top: 0% !important;
       }
     }
+  }
+
+  .posPlay5 {
+    left: 45.5%;
+    bottom: 8% !important;
   }
 }
