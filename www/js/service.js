@@ -481,6 +481,22 @@ myApp.factory("Service", function(
             callback(data);
           });
       }
+    },
+    savePrivateTable: function(data, callback) {
+      return $http
+        .post(url + "Table/createPrivateTable", data)
+        .then(function(data) {
+          data = data.data;
+          callback(data);
+        });
+    },
+    goToPrivateTable: function(data, callback) {
+      return $http
+        .post(url + "Table/joinPrivateTable", data)
+        .then(function(data) {
+          data = data.data;
+          callback(data);
+        });
     }
   };
   return obj;

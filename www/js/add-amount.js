@@ -69,6 +69,6 @@ myApp.controller("AddAmountCtrl", function(
 
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
-    $window.history.back();
+    $state.go("account");
   };
 });

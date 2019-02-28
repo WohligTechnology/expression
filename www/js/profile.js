@@ -21,6 +21,14 @@ myApp.controller("ProfileCtrl", function(
 
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
+    if ($window.history.back() !== "lobby") {
+      $state.go("account");
+    } else {
+      $state.go("lobby");
+    }
+  };
+  $scope.goBackToPageForPassword = function() {
+    console.log("password changed");
     $window.history.back();
   };
   // $scope.profile = function() {
@@ -28,14 +36,14 @@ myApp.controller("ProfileCtrl", function(
   Service.getProfile(function(data) {
     console.log("get Profile", data);
     $scope.playerData = data.data.data;
-    $scope.playerData.dob = moment(data.data.data.dob).format("DD/MM/YYYY");
+    $scope.playerData.dob = moment(data.data.data.dob).format("YYYY/MM/DD");
     $scope.playerDataId = data.data.data._id;
     $scope._id = $.jStorage.set("_id", $scope.playerDataId);
   });
 
-  $scope.cancel = function() {
-    $window.history.back();
-  };
+  // $scope.cancel = function() {
+  //   $window.history.back();
+  // };
 
   $scope.saveProfile = function(playerData) {
     console.log("sdfdfdf", playerData);

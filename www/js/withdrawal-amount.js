@@ -12,7 +12,7 @@ myApp.controller("WithdrawalCtrl", function(
   });
   $scope.goBackToPage = function() {
     console.log("Go Back ", $window.history);
-    $window.history.back();
+    $state.go("account");
   };
   $scope.withdrawDetails = [];
 

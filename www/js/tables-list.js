@@ -294,11 +294,38 @@ myApp.controller("TablesListCtrl", function(
   };
 
   /**Selected Table */
+
   $scope.selectedTable = function(table) {
-    console.log("Table selected", table);
+    $scope.tableName = table.name;
+    $scope.tableId = table._id;
     if (table.type == "Private") {
-      console.log("Private table open modal for password");
-      $scope.openPrivateTableLogin();
+      $scope.user_id = $.jStorage.get("_id");
+      if (table.creator == $scope.user_id) {
+        $state.go("table", {
+          id: table._id
+        });
+      } else {
+        console.log("Private table open modal for password");
+        $scope.openPrivateTableLogin();
+        $scope.invalidCredentials = false;
+        $scope.goToPrivateTable = function(data) {
+          var data1 = {};
+          data1.password = data.password;
+          data1.tableId = $scope.tableId;
+          console.log("join Table", data1);
+          Service.goToPrivateTable(data1, function(data) {
+            if (data.value == true) {
+              $scope.closePrivateTableLogin();
+              $state.go("table", {
+                id: table._id
+              });
+            } else {
+              $scope.invalidCredentials = true;
+              $scope.showError = data.error;
+            }
+          });
+        };
+      }
     } else {
       $state.go("table", {
         id: table._id
@@ -354,21 +381,32 @@ myApp.controller("TablesListCtrl", function(
     });
   $scope.openPrivateTableInfo = function(tableData) {
     $scope.privateTableData = tableData;
-    $scope.privateTableData.code = "1234";
     $scope.privateTableInfo.show();
   };
   $scope.closePrivateTableInfo = function() {
     $scope.privateTableInfo.hide();
   };
-
   $scope.createPrivateTable = function(tableData) {
-    console.log("tableData", tableData);
-    $scope.closePrivateTable();
-    $scope.openPrivateTableInfo(tableData);
+    $scope.privateTableData = tableData;
+    $scope.privateTableData.type = "Private";
+    $scope.privateTableData.accessToken = $.jStorage.get("accessToken");
+    Service.savePrivateTable($scope.privateTableData, function(data) {
+      console.log("create Data", data);
+      if (data.value) {
+        $scope.closePrivateTable();
+        var data1 = {};
+        data1.name = data.data.name;
+        data1.password = data.data.password;
+        $scope.openPrivateTableInfo(data1);
+      } else {
+        //do nothing
+      }
+    });
   };
 
   /**To copy code of private table */
   $scope.copyCode = function(code) {
+    console.log("password", code);
     $ionicPlatform.ready(function() {
       $cordovaClipboard.copy(code).then(
         function() {

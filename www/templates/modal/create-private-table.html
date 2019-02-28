@@ -74,13 +74,13 @@
             class="padd-lr color-white bor-bot"
             type="text"
             placeholder="Table Name"
-            name="tableName"
-            ng-model="createTableData.tableName"
+            name="name"
+            ng-model="createTableData.name"
             required
           />
           <span
             class="valid"
-            ng-show="createTable.tableName.$touched && createTable.tableName.$invalid"
+            ng-show="createTable.name.$touched && createTable.name.$invalid"
           >
             *Table Name is required
           </span>
@@ -169,14 +169,14 @@
                 class="padd-lr color-white bor-bot"
                 type="number"
                 placeholder="Min Buy In"
-                name="minBuyIn"
-                ng-model="createTableData.minBuyIn"
-                ng-change="compareBuyin(createTableData.minBuyIn,createTableData.maxBuyIn)"
+                name="minimumBuyin"
+                ng-model="createTableData.minimumBuyin"
+                ng-change="compareBuyin(createTableData.minimumBuyin,createTableData.maximumBuyIn)"
                 required
               />
               <span
                 class="valid"
-                ng-show="createTable.minBuyIn.$touched && createTable.minBuyIn.$invalid"
+                ng-show="createTable.minimumBuyin.$touched && createTable.minimumBuyin.$invalid"
               >
                 *Min Buy In value is required
               </span>
@@ -191,14 +191,14 @@
                 class="padd-lr color-white bor-bot"
                 type="number"
                 placeholder="Max Buy In"
-                name="maxBuyIn"
-                ng-model="createTableData.maxBuyIn"
-                ng-change="compareBuyin(createTableData.minBuyIn,createTableData.maxBuyIn)"
+                name="maximumBuyin"
+                ng-model="createTableData.maximumBuyin"
+                ng-change="compareBuyin(createTableData.minimumBuyin,createTableData.maximumBuyin)"
                 required
               />
               <span
                 class="valid"
-                ng-show="createTable.maxBuyIn.$touched && createTable.maxBuyIn.$invalid"
+                ng-show="createTable.maximumBuyin.$touched && createTable.maximumBuyin.$invalid"
               >
                 *Max Buy In value is required
               </span>

@@ -1,6 +1,6 @@
 myApp.controller("TransferStatementCtrl", function(
   $scope,
-  $window,
+  $state,
   $ionicPlatform,
   $ionicSideMenuDelegate,
   $window,
@@ -8,8 +8,7 @@ myApp.controller("TransferStatementCtrl", function(
   Service
 ) {
   $scope.goBackToPage = function() {
-    console.log("Go Back ", $window.history);
-    $window.history.back();
+    $state.go("account");
   };
 
   $ionicPlatform.ready(function() {

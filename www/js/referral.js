@@ -17,7 +17,7 @@ myApp.controller("ReferralCtrl", function(
 
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
-    $window.history.back();
+    $state.go("lobby");
   };
   Service.getEarningPoint(function(data) {
     // console.log("fdfdfdg", data);

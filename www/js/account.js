@@ -3,6 +3,7 @@ myApp.controller("AccountCtrl", function(
   $ionicPlatform,
   $ionicHistory,
   $window,
+  $state,
   Service
 ) {
   // $ionicPlatform.ready(function () {
@@ -15,7 +16,7 @@ myApp.controller("AccountCtrl", function(
   });
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
-    $window.history.back();
+    $state.go("lobby");
   };
 
   Service.getProfile(function(data) {

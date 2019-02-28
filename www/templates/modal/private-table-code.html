@@ -13,8 +13,10 @@
     <div class="field ">
       <div class="mar-bot">
         Your Password for Private Table
-        <b> {{ privateTableData.tableName }} </b> is
-        <span class="">{{ privateTableData.code }}</span>
+        <b> {{ privateTableData.name }} </b> is
+        <span class="private-code"
+          ><strong>{{ privateTableData.password }}</strong></span
+        >
         Please Share this password to your friends !!
       </div>
       <div class="marbot">
@@ -45,7 +47,9 @@
         </div>
       </div>
       <div class="padding-top right copy-code">
-        <a ng-click="copyCode(privateTableData.code)">Click to copy password</a>
+        <a ng-click="copyCode(privateTableData.password)"
+          >Click to copy password</a
+        >
       </div>
     </div>
   </ion-content>

@@ -22,7 +22,7 @@ myApp.controller("PandLstatementCtrl", function(
 
   $scope.goBackToPage = function() {
     console.log("Go Back Called");
-    $window.history.back();
+    $state.go("account");
   };
   $scope.time = moment().format("HH:mm");
   $scope.tableData = [];

@@ -13,7 +13,7 @@
     <div class="field ">
       <div class="mar-bot">
         Enter Your Password for Private Table
-        <b> {{ privateDataForModal.name }} </b>
+        <b> {{ tableName }} </b>
       </div>
       <form name="createTable">
         <div class="rel mar-bot">
@@ -24,6 +24,8 @@
               name="tablePassword"
               ng-model="data.password"
               placeholder="Table Password*"
+              maxlength="4"
+              minlength="4"
               required
             />
           </div>
@@ -32,17 +34,13 @@
             ng-show="createTable.tablePassword.$touched && createTable.tablePassword.$invalid"
             >* Table Password is required.</span
           >
-          <span
-            class="valid"
-            ng-if="errorInPrivateLogIn && !(createTable.tablePassword.$touched && createTable.tablePassword.$invalid)"
-            >* Incorrect Table Password</span
-          >
+          <span class="valid" ng-if="invalidCredentials"> {{ showError }}</span>
         </div>
 
         <button
           type="submit"
           class="custom_button"
-          ng-click="goToPrivateTable(privateDataForModal._id,data.password)"
+          ng-click="goToPrivateTable(data)"
           promise-btn="createPrivateTablePromise"
           ng-disabled="createTable.$invalid"
         >

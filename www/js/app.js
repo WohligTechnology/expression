@@ -194,6 +194,7 @@ var myApp = angular
         templateUrl: "templates/table.html",
         controller: "TableCtrl"
       });
+
     // if none of the above states are matche d, use this as the fallback
     $urlRouterProvider.otherwise("/login");
   });
