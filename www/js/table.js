@@ -955,12 +955,13 @@ myApp.controller("TableCtrl", function(
   };
   $scope.removePlayersAndStay = function() {
     $scope.ShowLoader = true;
+    console.log("removePlayersAndStay ", $scope.tableId, $scope.activePlayerNo);
     Service.removePlayer($scope.tableId, $scope.activePlayerNo, function(data) {
       if (data) {
         $scope.ShowLoader = false;
         $state.reload();
-        $scope.closeGameModal();
-        $scope.closeRemovePlayerModal();
+        // $scope.closeGameModal();
+        // $scope.closeRemovePlayerModal();
       }
     });
   };

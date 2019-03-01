@@ -99,6 +99,19 @@
         border: 2px solid $white;
         border-radius: 100%;
         background-color: rgba(0, 0, 0, 0.55);
+
+        .sit-here-text {
+          position: absolute;
+          font-size: 16px;
+          font-weight: bolder;
+          text-align: center;
+          font-family: monospace;
+          top: 10%;
+          right: -50%;
+          transform: translate(0%, 10%);
+          text-transform: uppercase;
+          opacity: 0.8;
+        }
       }
       .sitHereText {
         display: block;
@@ -1489,6 +1502,10 @@
   position: absolute;
   left: 2%;
   top: 1%;
+
+  .row.pt0 {
+    padding-top: 0px !important;
+  }
 }
 
 .tip-dealer {
@@ -1601,6 +1618,9 @@
       left: -10px;
       padding: 7px;
       font-size: 13px;
+    }
+    .stand-up {
+      left: 0px;
     }
   }
 }

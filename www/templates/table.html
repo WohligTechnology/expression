@@ -1,6 +1,6 @@
 <div class="table" ng-click="closeAll()">
   <div class="tip-lobby back-lobby">
-    <div class="tip-dealer_submit row">
+    <div class="tip-dealer_submit row pt0">
       <!--<button class="button mr-5" type='submit' ng-click="newGame()">NewGame</button>-->
 
       <button
@@ -9,6 +9,13 @@
         ng-click="openRemovePlayerModal();"
       >
         Back to lobby
+      </button>
+      <button
+        class="button back-to-lob stand-up"
+        type="submit"
+        ng-click="removePlayersAndStay();"
+      >
+        Stand Up
       </button>
     </div>
   </div>

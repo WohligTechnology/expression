@@ -6,7 +6,8 @@
     <!-- before Player Sitting -->
     <div class="rel width-6vw" ng-if="sitHere && !player">
       <div class="player_pic sitHereBorder">
-        <img src="img/sithere.png" class="pic" />
+        <!-- <img src="img/sithere.png" class="pic" /> -->
+        <span class="sit-here-text">Sit Here</span>
       </div>
       <!-- <div class="sitHereText">
         <span>Sit Here</span>
@@ -82,10 +83,9 @@
       >
         <div>{{ winnerDetail.potMainName }} : {{ winnerDetail.potName }}</div>
       </div>
-      <!-- ng-if="player.winnerDetails.length>0" -->
-      <div class="winner">
-        <!-- <img src="img/table/winner_crown.png " class="crown "> -->
-        <img src="img/table/winner_belt.png " class="belt " />
+      <div class="winner" ng-if="player.winnerDetails.length>0">
+        <img src="img/table/winner_crown.png " class="crown " />
+        <!-- <img src="img/table/winner_belt.png " class="belt " /> -->
       </div>
       <div
         class="tcard tcard{{ pos }}"
