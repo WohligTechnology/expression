@@ -118,6 +118,13 @@
             </td>
             <td class="col-25">
               {{ tableData.smallBlind }}/{{ tableData.bigBlind }}
+              <br />
+              <small
+                class="tabletype tableCode"
+                ng-if="tableData.creator == userId && tableData.type == 'Private'"
+              >
+                Code: <span>{{ tableData.password }}</span>
+              </small>
             </td>
             <td class="col-15 text-center">
               {{ tableData.playerCount }}/{{ maxPlayers }}

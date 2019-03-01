@@ -18,7 +18,7 @@ myApp.controller("TablesListCtrl", function(
   $scope.param = {
     pokerType: $stateParams.type
   };
-
+  $scope.userId = $.jStorage.get("_id");
   $ionicPlatform.ready(function() {
     if (ionic.Platform.isAndroid()) {
       screen.orientation.lock("landscape");

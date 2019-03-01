@@ -49,12 +49,16 @@
         allowInlineMediaPlayback="true"
       ></iframe>
     </div>
-    <div class="video_frame" ng-if="!showVideo">
-      <img src="img/table/dealer.png" alt="" class="img-responsive" />
+    <div class=" hide-video-frame" ng-if="!showVideo">
+      <img
+        src="img/table/virtualDealer.png"
+        alt=""
+        class="img-responsive dealer-photo"
+      />
       <!--<iframe id="ytplayer" youtube src="{{tableYoutube | trustUrl}}" frameborder="0" allowfullscreen="true" allownetworking="internal"
         playsinline="1" allowInlineMediaPlayback="true"></iframe>-->
     </div>
-    <img src="img/table/table-blue.png" alt="table" class="bg_table" />
+    <img src="img/table/table-red.png" alt="table" class="bg_table" />
     <pot-amount ng-pots="pots" ng-player="players"> </pot-amount>
     <tip-amount
       ng-amount="tipAmount"

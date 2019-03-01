@@ -24,7 +24,8 @@
     text-align: center;
     .bg_table {
       position: relative;
-      width: 90%; // height: 85%;
+      // width: 90%; // height: 85%;
+      width: 87%;
     }
     .top-frame-border {
       position: absolute;
@@ -53,6 +54,18 @@
       iframe {
         width: 100% !important;
         height: 100% !important;
+      }
+    }
+    .hide-video-frame {
+      position: absolute;
+      top: -4%;
+      width: 23vh;
+      left: 50%;
+      z-index: 9;
+      transform: translate(-50%, -35%);
+
+      .dealer-photo {
+        width: 100%;
       }
     }
     .plyr {
@@ -111,15 +124,18 @@
           position: absolute;
           top: 0;
           left: 50%;
-          transform: translate(-50%, -85%);
+          // transform: translate(-50%, -85%);
+          transform: translate(-50%, -50%);
         }
         .belt {
           position: absolute;
           left: 0;
           width: 100%;
-          bottom: -5%;
+          // bottom: -5%;
+          bottom: 0%;
           z-index: 1;
-          transform: scale(1.5);
+          // transform: scale(1.5);
+          transform: scale(2);
         }
       }
       .player_pic {
@@ -250,7 +266,7 @@
           left: 8%;
         }
         &.player8 {
-          left: 5%;
+          left: 4%;
         }
         &.player3 {
           right: 10%;
@@ -459,7 +475,7 @@
     top: -2%;
   }
   .player2 {
-    right: 6%;
+    right: 7%;
     top: 20%;
   }
   .player3 {
@@ -1880,6 +1896,21 @@ community {
         }
         div {
           padding-top: 3%;
+        }
+      }
+      .winner {
+        .crown {
+          width: 82%;
+          left: 65%;
+          transform: translate(-50%, -40%);
+        }
+        .belt {
+          position: absolute;
+          left: 14%;
+          width: 100%;
+          bottom: 30%;
+          z-index: 1;
+          transform: scale(2.2);
         }
       }
     }

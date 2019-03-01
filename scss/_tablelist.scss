@@ -140,6 +140,13 @@
     font-weight: 600;
   }
 
+  .tableCode {
+    background: $pink-bg;
+    span {
+      font-size: 11px;
+    }
+  }
+
   .type-omaha {
     background: $profile-label;
     color: $profile-bg;

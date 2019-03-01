@@ -1,11 +1,11 @@
 <div class="main-player">
   <div
     class="plyr player{{ pos }}"
-    ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere || player.tableLeft, 'posPlay5': player.user._id == activePlayer.user._id && !sitHere}"
+    ng-class="{'no_player':!player && !sitHere,'sit_here':sitHere || player.tableLeft, 'posPlay5': player.user._id == activePlayer.user._id && !sitHere && player}"
   >
     <!-- before Player Sitting -->
     <div class="rel width-6vw" ng-if="sitHere && !player">
-      <div class="player_pic ">
+      <div class="player_pic sitHereBorder">
         <img src="img/sithere.png" class="pic" />
       </div>
       <!-- <div class="sitHereText">
@@ -82,7 +82,8 @@
       >
         <div>{{ winnerDetail.potMainName }} : {{ winnerDetail.potName }}</div>
       </div>
-      <div class="winner" ng-if="player.winnerDetails.length>0">
+      <!-- ng-if="player.winnerDetails.length>0" -->
+      <div class="winner">
         <!-- <img src="img/table/winner_crown.png " class="crown "> -->
         <img src="img/table/winner_belt.png " class="belt " />
       </div>
