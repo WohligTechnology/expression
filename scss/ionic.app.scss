@@ -730,7 +730,7 @@ body {
 }
 
 //poco
-@media only screen and (device-width: 784px) and (device-height: 393px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+@media only screen and (max-device-width: 786px) and (min-device-width: 393px) and (orientation: landscape) {
   .table {
     .table_field {
       // bottom: calc(0px + 0.3em);

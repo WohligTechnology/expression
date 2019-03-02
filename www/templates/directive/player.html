@@ -10,8 +10,8 @@
         <span class="sit-here-text">Sit Here</span>
       </div>
       <!-- <div class="sitHereText">
-        <span>Sit Here</span>
-      </div> -->
+                <span>Sit Here</span>
+              </div> -->
     </div>
     <div class="rel" ng-if="player.tableLeft && !sitHere">
       <div class="player_pic"><img src="img/sithere.png" class="pic" /></div>
@@ -20,15 +20,15 @@
       </div>
     </div>
     <!--<div class="rel" ng-if="!player && !sitHere">
-      <div class="player_pic"><img src="img/sithere.png" class="pic" /></div>
-    </div>-->
+              <div class="player_pic"><img src="img/sithere.png" class="pic" /></div>
+            </div>-->
     <div class="rel " ng-if="!player && !sitHere">
       <div class="player_pic sitHereBorder">
         <!-- <img src="img/sithere.png" class="pic" /> -->
       </div>
       <!-- <div class="sitHereText">
-        <span>Sit Here</span>
-      </div> -->
+                <span>Sit Here</span>
+              </div> -->
     </div>
     <!-- after Player Sitting -->
     <!-- <div class="rel"> -->
@@ -106,7 +106,7 @@
           ng-style="style"
           class="card-one none card-rotate-right "
           ng-if="(player.cards.length==1 ||
-player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner"
+        player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !player.isWinner"
         >
         </card>
         <card
@@ -141,7 +141,7 @@ player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !p
           class="none card-rotate-right"
           ng-style="style"
           ng-if="(player.cards.length==1 ||
-        player.cards.length==2 || player.cards.length==3|| player.cards.length==4)"
+                player.cards.length==2 || player.cards.length==3|| player.cards.length==4)"
         >
         </card>
         <card
@@ -176,7 +176,7 @@ player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !p
           class="none card-rotate-right"
           ng-style="style"
           ng-if="(player.cards.length==1 ||
-      player.cards.length==2 || player.cards.length==3|| player.cards.length==4)"
+              player.cards.length==2 || player.cards.length==3|| player.cards.length==4)"
         >
         </card>
         <card
@@ -202,8 +202,8 @@ player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !p
         </card>
       </div>
       <!-- <div class="you" ng-if="player.user._id == activePlayer.user._id">
-        You
-      </div> -->
+                You
+              </div> -->
       <div class="player_pic">
         <div
           class="pie_loader"
@@ -243,29 +243,29 @@ player.cards.length==2 || player.cards.length==3|| player.cards.length==4) && !p
           Checked
         </div>
         <!--<div
-          class="turn_status call"
-          ng-if="player.hasCalled && !player.winnerDetails"
-        >
-          Call
-        </div>
-        <div
-          class="turn_status raise"
-          ng-if="player.hasRaised && !player.isAllIn && !player.winnerDetails"
-        >
-          Raised
-        </div>
-        <div
-          class="turn_status raise"
-          ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount > 0)"
-        >
-          Raised
-        </div>
-        <div
-          class="turn_status all_in"
-          ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount == 0)"
-        >
-          All In
-        </div> -->
+                  class="turn_status call"
+                  ng-if="player.hasCalled && !player.winnerDetails"
+                >
+                  Call
+                </div>
+                <div
+                  class="turn_status raise"
+                  ng-if="player.hasRaised && !player.isAllIn && !player.winnerDetails"
+                >
+                  Raised
+                </div>
+                <div
+                  class="turn_status raise"
+                  ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount > 0)"
+                >
+                  Raised
+                </div>
+                <div
+                  class="turn_status all_in"
+                  ng-if="player.isAllIn && !player.winnerDetails && (player.buyInAmt-player.totalAmount == 0)"
+                >
+                  All In
+                </div> -->
         <div
           class="turn_status waiting"
           ng-if="!player.isActive && !player.winnerDetails"
