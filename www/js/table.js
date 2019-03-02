@@ -700,6 +700,14 @@ myApp.controller("TableCtrl", function(
                   error: true
                 };
                 $scope.showMessageModal();
+              } else if (data.data.error == "position filled") {
+                $scope.message = {
+                  heading: "Position Filled",
+                  content:
+                    "Another player is Sitting. Please select another Seat",
+                  error: true
+                };
+                $scope.showMessageModal();
               }
             }
           });

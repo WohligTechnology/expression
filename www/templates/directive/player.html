@@ -83,9 +83,19 @@
       >
         <div>{{ winnerDetail.potMainName }} : {{ winnerDetail.potName }}</div>
       </div>
-      <div class="winner" ng-if="player.winnerDetails.length>0">
+      <div
+        class="winner"
+        ng-if="player.winnerDetails.length>0 && !(player.user._id == activePlayer.user._id)"
+      >
         <img src="img/table/winner_crown.png " class="crown " />
         <!-- <img src="img/table/winner_belt.png " class="belt " /> -->
+      </div>
+      <div
+        class="winner"
+        ng-if="player.winnerDetails.length>0 && (player.user._id == activePlayer.user._id) "
+      >
+        <!-- <img src="img/table/winner_crown.png " class="crown " /> -->
+        <img src="img/table/winner_belt.png " class="belt " />
       </div>
       <div
         class="tcard tcard{{ pos }}"

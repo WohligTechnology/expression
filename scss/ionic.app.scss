@@ -733,7 +733,8 @@ body {
 @media only screen and (device-width: 784px) and (device-height: 393px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
   .table {
     .table_field {
-      bottom: calc(0px + 0.3em);
+      // bottom: calc(0px + 0.3em);
+      bottom: calc(0px - 0.15em);
       width: 100%;
 
       .video_frame {
