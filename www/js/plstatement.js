@@ -32,6 +32,7 @@ myApp.controller("PandLstatementCtrl", function(
   var currentDate = new Date();
   $scope.data.fromDate = moment(currentDate).subtract(1, "day");
   $scope.data.toDate = moment();
+
   $scope.getTableData = function() {
     $scope.transactionsLoaded = false;
     if (!$scope.tableListLoading) {
