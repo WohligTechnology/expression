@@ -1186,21 +1186,34 @@
 }
 
 .none {
-  width: 9vh;
+  width: 12vh;
   position: absolute;
   transition: all ease 800ms;
 }
 
 .winnercard {
   .none {
-    width: 12vh;
+    width: 13vh;
     img {
       width: 60%;
     }
   }
   .card-rotate {
-    transform: translate(-14%, -5%) rotate(1deg);
+    transform: translate(-15%, -9%) rotate(1deg);
   }
+
+  .card-three {
+    transform: translate(9%, -5%) rotate(12deg) !important; //four cards tilted
+  }
+
+  .card-four {
+    transform: translate(30%, 5%) rotate(27deg) !important; //four cards tilted
+  }
+  // &.tcard1 {
+  //   .card-one {
+  //     transform: translate(-16%, -9%) rotate(1deg);
+  //   }
+  // }
 }
 
 .card-rotate {
@@ -1209,14 +1222,14 @@
 }
 
 .card-rotate-right {
-  transform: translate(-25%, -5%) rotate(-15deg);
+  transform: translate(-25%, -5%) rotate(-10deg);
 }
 
 .tcard1 {
   // left: -62%;
   // bottom: 0%;
-  left: 62%;
-  top: 35%;
+  left: 45%;
+  top: 20%;
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg); // transform: translate(0%, 0%) rotate(-12deg); //four cards tilted
@@ -1228,13 +1241,13 @@
   .card-three {
     // transform: translate(12%, 3%) rotate(15deg);
     transform: translate(25%, 0%) rotate(0deg); //four cards straight
-    // transform: translate(11%, 4%) rotate(6deg); //four cards tilted
+    // transform: translate(9%, -5%) rotate(12deg); //four cards tilted
     z-index: 1;
   }
   .card-four {
     // transform: translate(32%, 20%) rotate(40deg);
     transform: translate(50%, 0%) rotate(0deg); //four cards straight
-    // transform: translate(27%, 9%) rotate(12deg); //four cards tilted
+    // transform: translate(30%, 5%) rotate(27deg); //four cards tilted
     z-index: 1;
   }
   .card-one.ng-hide-remove,
@@ -1248,8 +1261,8 @@
 .tcard2 {
   // left: -84%;
   // top: 58%;
-  left: 62%;
-  top: 35%;
+  left: 45%;
+  top: 20%;
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg); // transform: translate(0%, -6%) rotate(-20deg); //four cards tilted
@@ -1260,14 +1273,14 @@
   }
   .card-three {
     // transform: translate(12%, 3%) rotate(15deg);
-    transform: translate(20%, 0%) rotate(0deg); //four cards straight
-    // transform: translate(11%, -2%) rotate(10deg); //four cards tilted
+    transform: translate(25%, 0%) rotate(0deg); //four cards straight
+    // transform: translate(9%, -5%) rotate(12deg); //four cards tilted
     z-index: 1;
   }
   .card-four {
     // transform: translate(32%, 20%) rotate(40deg);
-    transform: translate(40%, 0%) rotate(0deg); //four cards straight
-    // transform: translate(27%, 3%) rotate(20deg); //four cards tilted
+    transform: translate(50%, 0%) rotate(0deg); //four cards straight
+    // transform: translate(30%, 5%) rotate(27deg); //four cards tilted
     z-index: 1;
   }
   .card-one.ng-hide-remove,
@@ -1281,8 +1294,8 @@
 .tcard3 {
   // left: -86%;
   // top: 7%;
-  left: 62%;
-  top: 35%;
+  left: 45%;
+  top: 20%;
   &.Omaha {
     left: -100%;
   }
@@ -1295,11 +1308,15 @@
     transform: translate(0%, 0%) rotate(0deg);
   }
   .card-three {
-    transform: translate(12%, 3%) rotate(15deg);
+    // transform: translate(12%, 3%) rotate(15deg);
+    transform: translate(25%, 0%) rotate(0deg); //four cards straight
+    // transform: translate(9%, -5%) rotate(12deg); //four cards tilted
     z-index: 1;
   }
   .card-four {
-    transform: translate(32%, 20%) rotate(40deg);
+    // transform: translate(32%, 20%) rotate(40deg);
+    transform: translate(50%, 0%) rotate(0deg); //four cards straight
+    // transform: translate(30%, 5%) rotate(27deg); //four cards tilted
     z-index: 1;
   }
   .card-one.ng-hide-remove,
@@ -1313,8 +1330,8 @@
 .tcard4 {
   // left: -85%;
   // top: -20%;
-  left: 62%;
-  top: 35%;
+  left: 45%;
+  top: 20%;
   &.Omaha {
     left: -100%;
   }
@@ -1327,11 +1344,13 @@
     transform: translate(0%, 0%) rotate(0deg);
   }
   .card-three {
-    transform: translate(12%, 3%) rotate(15deg);
+    // transform: translate(12%, 3%) rotate(15deg);
+    transform: translate(25%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-four {
-    transform: translate(32%, 20%) rotate(40deg);
+    // transform: translate(32%, 20%) rotate(40deg);
+    transform: translate(50%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-one.ng-hide-remove,
@@ -1345,8 +1364,8 @@
 .tcard5 {
   // left: -78%;
   // top: -12%;
-  left: 62%;
-  top: 35%;
+  left: 45%;
+  top: 20%;
   &.Omaha {
     left: -100%;
     top: 5%;
@@ -1360,11 +1379,11 @@
     transform: translate(0%, 0%) rotate(0deg);
   }
   .card-three {
-    transform: translate(12%, 3%) rotate(15deg);
+    transform: translate(9%, -5%) rotate(12deg);
     z-index: 1;
   }
   .card-four {
-    transform: translate(32%, 20%) rotate(40deg);
+    transform: translate(28%, 5%) rotate(27deg);
     z-index: 1;
   }
   .card-one.ng-hide-remove,
@@ -1378,8 +1397,8 @@
 .tcard6 {
   // left: -84%;
   // top: -15%;
-  left: 62%;
-  top: 35%;
+  left: 45%;
+  top: 20%;
   &.Omaha {
     left: -100%;
     top: -3%;
@@ -1393,11 +1412,13 @@
     transform: translate(0%, 0%) rotate(0deg);
   }
   .card-three {
-    transform: translate(12%, 3%) rotate(15deg);
+    // transform: translate(12%, 3%) rotate(15deg);
+    transform: translate(25%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-four {
-    transform: translate(32%, 20%) rotate(40deg);
+    // transform: translate(32%, 20%) rotate(40deg);
+    transform: translate(50%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-one.ng-hide-remove,
@@ -1411,8 +1432,8 @@
 .tcard7 {
   // right: 0px;
   // top: 58%;
-  top: 35%;
-  left: 62%;
+  top: 20%;
+  left: 45%;
   &.Omaha {
     top: -35%;
   }
@@ -1425,11 +1446,13 @@
     transform: translate(0%, 0%) rotate(0deg);
   }
   .card-three {
-    transform: translate(12%, 3%) rotate(15deg);
+    // transform: translate(12%, 3%) rotate(15deg);
+    transform: translate(25%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-four {
-    transform: translate(32%, 20%) rotate(40deg);
+    // transform: translate(32%, 20%) rotate(40deg);
+    transform: translate(50%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-one.ng-hide-remove,
@@ -1443,8 +1466,8 @@
 .tcard8 {
   // left: 100%;
   // top: 58%;
-  left: 62%;
-  top: 35%;
+  left: 45%;
+  top: 20%;
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg);
@@ -1454,11 +1477,13 @@
     transform: translate(0%, 0%) rotate(0deg);
   }
   .card-three {
-    transform: translate(12%, 3%) rotate(15deg);
+    // transform: translate(12%, 3%) rotate(15deg);
+    transform: translate(25%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-four {
-    transform: translate(32%, 20%) rotate(40deg);
+    // transform: translate(32%, 20%) rotate(40deg);
+    transform: translate(50%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-one.ng-hide-remove,
@@ -1472,8 +1497,8 @@
 .tcard9 {
   // bottom: -5%;
   // right: 0%;
-  top: 35%;
-  left: 62%;
+  top: 20%;
+  left: 45%;
   .card-one {
     // transform: translate(0%, 0%) rotate(-12deg);
     transform: translate(0%, 0%) rotate(0deg);
@@ -1483,11 +1508,13 @@
     transform: translate(0%, 0%) rotate(0deg);
   }
   .card-three {
-    transform: translate(12%, 3%) rotate(15deg);
+    // transform: translate(12%, 3%) rotate(15deg);
+    transform: translate(25%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-four {
-    transform: translate(32%, 20%) rotate(40deg);
+    // transform: translate(32%, 20%) rotate(40deg);
+    transform: translate(50%, 0%) rotate(0deg); //four cards straight
     z-index: 1;
   }
   .card-one.ng-hide-remove,
@@ -1896,10 +1923,18 @@ community {
         }
       }
       .tcard5 {
-        top: 28%;
-        left: 100%;
+        top: 25%;
+        left: 75%;
         .card-two {
           transform: translate(-6%, -4%) rotate(10deg);
+        }
+        .card-three {
+          transform: translate(9%, -5%) rotate(12deg);
+          z-index: 1;
+        }
+        .card-four {
+          transform: translate(28%, 5%) rotate(27deg);
+          z-index: 1;
         }
       }
       .none {
@@ -1934,7 +1969,9 @@ community {
         }
       }
     }
-
+    .winnercard .card-rotate {
+      transform: translate(-11%, -9%) rotate(1deg);
+    }
     .winner-pot-name {
       top: -10%;
       .raised-amount {
