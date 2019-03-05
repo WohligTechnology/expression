@@ -325,10 +325,16 @@
       <!--For logged In user Player -->
       <div class=" name-amount ">
         <p class="name ">{{ activePlayer[0].user.name }}</p>
-        <p class="amount" ng-if="activePlayer[0].totalAmount <= 0">
-          ₹ {{ activePlayer[0].buyInAmt }}
+        <p
+          class="amount"
+          ng-if="activePlayer[0].buyInAmt - activePlayer[0].totalAmount <= 0"
+        >
+          ₹ 0
         </p>
-        <p class="amount" ng-if="activePlayer[0].totalAmount > 0">
+        <p
+          class="amount"
+          ng-if="activePlayer[0].buyInAmt - activePlayer[0].totalAmount > 0"
+        >
           ₹
           {{ activePlayer[0].buyInAmt - activePlayer[0].totalAmount | number }}
         </p>
