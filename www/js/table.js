@@ -755,13 +755,13 @@ myApp.controller("TableCtrl", function(
   };
   // Turn Actions
   $scope.allIn = function() {
-    $scope.allInPromise = Service.allIn($scope.tableId, function(data) {});
+    $scope.playBtnPromise = Service.allIn($scope.tableId, function(data) {});
   };
   $scope.fold = function() {
-    $scope.foldPromise = Service.fold($scope.tableId, function(data) {});
+    $scope.playBtnPromise = Service.fold($scope.tableId, function(data) {});
   };
   $scope.raise = function(raiseAmount) {
-    $scope.raisePromise = Service.raise($scope.tableId, raiseAmount, function(
+    $scope.playBtnPromise = Service.raise($scope.tableId, raiseAmount, function(
       data
     ) {});
   };
@@ -769,17 +769,19 @@ myApp.controller("TableCtrl", function(
     $scope.movePromise = Service.move($scope.tableId, function(data) {});
   };
   $scope.call = function() {
-    $scope.callPromise = Service.call($scope.tableId, function(data) {});
+    $scope.playBtnPromise = Service.call($scope.tableId, function(data) {});
   };
 
   //check
   $scope.check = function() {
-    $scope.checkPromise = Service.check($scope.tableId, function(data) {});
+    $scope.playBtnPromise = Service.check($scope.tableId, function(data) {});
   };
 
   //random card serve
   $scope.randomCard = function() {
-    $scope.raisePromise = Service.randomCard($scope.tableId, function(data) {});
+    $scope.playBtnPromise = Service.randomCard($scope.tableId, function(
+      data
+    ) {});
   };
 
   //winner
