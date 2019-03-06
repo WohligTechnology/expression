@@ -4,7 +4,7 @@
   "description": "An Ionic project",
   "devDependencies": {
     "@ionic/v1-toolkit": "1.0.7",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^4.0.1"
@@ -29,7 +29,8 @@
     "es6-promise-plugin": "^4.2.2",
     "gradle": "^1.0.9",
     "jstorage": "^0.4.8",
-    "phonegap-plugin-mobile-accessibility": "^1.0.5"
+    "phonegap-plugin-mobile-accessibility": "^1.0.5",
+    "undertaker": "^1.2.0"
   },
   "cordova": {
     "plugins": {
