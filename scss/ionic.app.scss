@@ -709,6 +709,10 @@ body {
       .plyr .sitHereBorder .sit-here-text {
         right: -40%;
       }
+
+      .hide-video-frame {
+        top: -5%;
+      }
     }
   }
 }
@@ -744,6 +748,10 @@ body {
       .plyr .sitHereBorder .sit-here-text {
         right: -35%;
       }
+
+      .hide-video-frame {
+        top: -5%;
+      }
     }
   }
 
@@ -758,7 +766,7 @@ body {
   .table {
     .table_field {
       width: 89% !important;
-      bottom: calc(0px + 0.8em) !important;
+      bottom: calc(0px + 0em) !important;
 
       .video_frame {
         top: 0% !important;
@@ -767,11 +775,48 @@ body {
       .plyr .sitHereBorder .sit-here-text {
         right: -30%;
       }
+
+      .hide-video-frame {
+        top: -6%;
+      }
     }
   }
 
   .posPlay5 {
     left: 45.5%;
     bottom: 8% !important;
+  }
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+  .table .table_field .plyr .sitHereBorder .sit-here-text {
+    font-size: 14px;
+    top: 4%;
+  }
+  .table .bottom .player_turn_button .name-amount p {
+    margin: 0px !important;
+  }
+  .table-info-popover {
+    width: 46vh;
+    font-size: 10px;
+  }
+
+  .add-withdraw .btn-account {
+    width: 96%;
+    font-size: 12px;
+
+    img {
+      margin: 7px 1px 7px -7px;
+    }
+  }
+}
+
+/* ----------- Google Pixel XL, Galaxy S5 ----------- */
+
+/* Portrait and Landscape */
+@media only screen and (device-width: 360px) and (device-height: 640px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .table .table_field {
+    bottom: calc(0px + 1.5em) !important;
   }
 }
