@@ -1030,6 +1030,34 @@ myApp.controller("TableCtrl", function(
     $scope.$apply();
   };
 
+  //Table chat
+  $scope.chat = {};
+  $scope.tableChats = [];
+  $scope.sendmessage = function(message) {
+    var msg = message;
+    $scope.chat.msg = "";
+
+    if (msg) {
+      var singleChat = {
+        message: message,
+        table: $scope.tableId,
+        player: $.jStorage.get("_id"),
+        time: new Date()
+      };
+
+      Service.sendMessage(singleChat, function(data) {
+        // $scope.tableChats.push(singleChat);
+      });
+    }
+  };
+
+  io.socket.on("chat_" + $scope.tableId, function(data) {
+    console.log("chat data", data);
+    data.time = moment(data.time).format("HH:mm");
+    $scope.tableChats.push(data);
+  });
+  //Table chat End
+
   io.socket.on("newGame", newGameSocketFunction);
   // New Game
   $scope.newGame = function() {

@@ -15,16 +15,19 @@
       ng-bind-html="message.content"
     ></div>
     <div class="cont" ng-if="message.error">
+      ng-class="{'message-sent': player.user._id == activePlayer.user._id,'message-received': player.user._id != activePlayer.user._id}"
       <div ng-bind-html="message.content"></div>
     </div> -->
-    <div class="chat-message">
+
+    <div class="chat-message" id="chatbox" ng-repeat="chat in tableChats">
       <div
         class=""
-        ng-class="{'message-sent': chatSender, 'message-received': chatReceiver}"
+        ng-class="{'message-sent':chat.player == activePlayer[0].user._id
+,'message-received':chat.player != activePlayer[0].user._id}"
       >
-        <span class="sender-name">Varun</span>
-        <span class="message-text">Congratulations!</span>
-        <span class="message-time">6 mins before</span>
+        <span class="sender-name">{{ chat.name }}</span>
+        <span class="message-text">{{ chat.message }}</span>
+        <span class="message-time">{{ chat.time }}</span>
       </div>
       <!-- <div class="message-received ">
         <span class="sender-name">Karan</span>
@@ -43,7 +46,10 @@
           ng-model="chat.msg"
         />
       </div>
-      <button class="button button-icon ion-paper-airplane msg-btn"></button>
+      <button
+        ng-click="sendmessage(chat.msg) "
+        class="button button-icon ion-paper-airplane msg-btn"
+      ></button>
     </div>
   </ion-footer-bar>
 </ion-modal-view>

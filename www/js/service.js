@@ -233,6 +233,7 @@ myApp.factory("Service", function(
           callback(data);
         });
     },
+
     savePlayerToTable: function(dataPlayer, callback) {
       console.log("dataPlayer", dataPlayer);
       var accessToken = $.jStorage.get("accessToken");
@@ -506,6 +507,11 @@ myApp.factory("Service", function(
           data = data.data;
           callback(data);
         });
+    },
+    sendMessage: function(data, callback) {
+      return $http.post(url + "table/sendMessage", data).then(function(data) {
+        callback(data);
+      });
     }
   };
   return obj;
