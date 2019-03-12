@@ -325,7 +325,19 @@
       <!--For logged In user Player -->
       <div class=" name-amount ">
         <p class="name ">{{ activePlayer[0].user.name }}</p>
-        <p class="amount ">₹ {{ activePlayer[0].buyInAmt }}</p>
+        <p
+          class="amount"
+          ng-if="activePlayer[0].buyInAmt - activePlayer[0].totalAmount <= 0"
+        >
+          ₹ 0
+        </p>
+        <p
+          class="amount"
+          ng-if="activePlayer[0].buyInAmt - activePlayer[0].totalAmount > 0"
+        >
+          ₹
+          {{ activePlayer[0].buyInAmt - activePlayer[0].totalAmount | number }}
+        </p>
       </div>
       <!-- Player name End -->
       <button
@@ -333,7 +345,7 @@
         ng-click="call();"
         ng-if="!isCalled && !isChecked"
         ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
-        promise-btn="callPromise"
+        promise-btn="playBtnPromise"
       >
         <!--<span class="light"></span>-->
         <span class="btn_name"> Call </span>
@@ -344,7 +356,7 @@
         ng-click="call();"
         ng-if="isCalled"
         ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
-        promise-btn="callPromise"
+        promise-btn="playBtnPromise"
       >
         <!--<span class="light"></span>-->
         <span class="btn_name"> Call </span>
@@ -355,7 +367,7 @@
         ng-click="check();"
         ng-if="isChecked"
         ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised)"
-        promise-btn="checkPromise"
+        promise-btn="playBtnPromise"
       >
         <!--<span class="light"></span> -->
         <span class="btn_name"> Check </span>
@@ -365,6 +377,7 @@
         class="raise"
         ng-click="modalrange();"
         ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft || (activePlayer[0].buyInAmt-activePlayer[0].totalAmount < fromRaised) && !isRaised"
+        promise-btn="playBtnPromise"
       >
         <!--<span class="light"></span> -->
         <span class="btn_name"> Raise </span>
@@ -374,7 +387,7 @@
         class="fold"
         ng-click="fold();"
         ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft"
-        promise-btn="foldPromise"
+        promise-btn="playBtnPromise"
       >
         <!--<span class="light"></span>-->
         <span class="btn_name"> FOLD </span>
@@ -383,7 +396,7 @@
         class="allin"
         ng-click="allIn();"
         ng-disabled="!activePlayer[0].isTurn || activePlayer[0].isFold || activePlayer[0].tableLeft ||(activePlayer[0].buyInAmt-activePlayer[0].totalAmount < 0)"
-        promise-btn="allInPromise"
+        promise-btn="playBtnPromise"
       >
         <!--<span class="light"></span> -->
         <span class="btn_name"> All In </span>
