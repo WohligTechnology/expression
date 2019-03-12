@@ -1055,7 +1055,7 @@ myApp.controller("TableCtrl", function(
 
   io.socket.on("chat_" + $scope.tableId, function(data) {
     console.log("chat data", data);
-    data.time = moment(data.time).format("HH:mm");
+    // $scope.data.time = moment(data.time).format("HH:mm");
     $scope.tableChats.push(data);
   });
   //Table chat End

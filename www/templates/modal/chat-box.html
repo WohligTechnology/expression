@@ -27,7 +27,7 @@
       >
         <span class="sender-name">{{ chat.name }}</span>
         <span class="message-text">{{ chat.message }}</span>
-        <span class="message-time">{{ chat.time }}</span>
+        <span class="message-time">{{ chat.time | date: "h:mm a" }}</span>
       </div>
       <!-- <div class="message-received ">
         <span class="sender-name">Karan</span>
