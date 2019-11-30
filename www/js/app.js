@@ -121,6 +121,12 @@ var myApp = angular
         cache: false,
         controller: "SignUpCtrl"
       })
+      .state("termsandcondition", {
+        url: "/terms-and-condition",
+        templateUrl: "templates/terms-and-condition.html",
+        cache: false,
+        controller: "termsAndConditionCtrl"
+      })
       .state("addamount", {
         url: "/addamount",
         templateUrl: "templates/add-amount.html",
