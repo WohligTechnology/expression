@@ -1347,7 +1347,7 @@
 }
 
 .dealer-history {
-  padding: 2px 9px;
+  padding: 2px 12px;
   border-image: linear-gradient(
     to right,
     #463758 20%,
@@ -1361,7 +1361,7 @@
     line-height: 14px;
     letter-spacing: 0.3px;
     margin-bottom: 0px;
-    padding: 6px 0px;
+    padding: 6px 11px;
   }
   img {
     width: 100%;
@@ -1604,5 +1604,12 @@ community {
   }
   100% {
     opacity: 0;
+  }
+}
+
+@media (width: 1024px) {
+  .table .table_field .plyr .player_pic {
+    width: 6vw;
+    height: 8vh;
   }
 }
